@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100">
+  <title>Blau Batch Wordmark - Navy</title>
+  <defs>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800;900");</style>
+  </defs>
+  <text x="260" y="54" dominant-baseline="middle" text-anchor="middle"
+        font-family="'Inter', 'Arial Black', sans-serif" font-weight="900"
+        font-size="48px" fill="#141B3E" letter-spacing="4">BLAU BATCH</text>
+</svg>
