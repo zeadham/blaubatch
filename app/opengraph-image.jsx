@@ -9,7 +9,7 @@ export const contentType = 'image/png'
 
 export default async function Image() {
   const logoData = await readFile(
-    path.join(process.cwd(), 'public', 'logo-mark.png')
+    path.join(process.cwd(), 'public', 'logo-mark-navy.png')
   )
   const logoSrc = `data:image/png;base64,${logoData.toString('base64')}`
 

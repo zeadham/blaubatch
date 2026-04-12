@@ -42,7 +42,7 @@ function buildArticleJsonLd(article) {
       url: 'https://blaubatch.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://blaubatch.com/logo-mark.png',
+        url: 'https://blaubatch.com/logo-mark-navy.png',
       },
     },
     mainEntityOfPage: {

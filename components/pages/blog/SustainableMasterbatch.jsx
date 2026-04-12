@@ -38,7 +38,7 @@ const STRUCTURED_DATA = {
   publisher: {
     '@type': 'Organization',
     name: 'Blau Batch',
-    logo: { '@type': 'ImageObject', url: 'https://blaubatch.com/logo.jpg' },
+    logo: { '@type': 'ImageObject', url: 'https://blaubatch.com/logo-mark-navy.png' },
   },
   datePublished: '2026-04-01',
   url: 'https://blaubatch.com/blog/sustainable-plastics-masterbatch',

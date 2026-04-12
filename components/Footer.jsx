@@ -82,7 +82,7 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: 16 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 28, objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
+                <img src="/logo-mark-navy.png" alt="Blau Batch" style={{ height: 28, objectFit: 'contain', borderRadius: 4 }} />
                 <span style={{
                   fontFamily: 'Inter, sans-serif', fontWeight: 800,
                   fontSize: 14, color: '#fff', letterSpacing: '0.05em',
