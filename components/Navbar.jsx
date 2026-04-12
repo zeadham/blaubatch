@@ -71,8 +71,12 @@ export default function Navbar() {
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-          <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 34, objectFit: 'contain' }} />
-          <img src="/wordmark-navy.svg" alt="Blau Batch" style={{ height: 22, objectFit: 'contain' }} />
+          <img src="/logo-mark.png" alt="Blau Batch" style={{ height: 32, objectFit: 'contain' }} />
+          <span style={{
+            fontFamily: 'Inter, sans-serif', fontWeight: 800,
+            fontSize: 14, color: '#141B3E',
+            letterSpacing: '0.05em', textTransform: 'uppercase', lineHeight: 1,
+          }}>BLAU BATCH</span>
         </Link>
 
         {/* Desktop Links */}

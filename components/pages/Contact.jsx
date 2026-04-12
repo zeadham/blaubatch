@@ -1,11 +1,17 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { motion, useInView } from 'framer-motion'
 import { Mail, Phone, MapPin, MessageSquare, Clock } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
 
+function ContactForm() {
+  const params = useSearchParams()
+  const defaultProduct = params.get('product') || undefined
+  return <QuoteForm defaultProduct={defaultProduct} />
+}
 
 export default function ContactPage() {
   const sidebarRef = useRef(null)
@@ -103,8 +109,10 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Multi-step Quote Form */}
-          <QuoteForm />
+          {/* Quote Form — reads ?product= from URL */}
+          <Suspense fallback={<div style={{ height: 400 }} />}>
+            <ContactForm />
+          </Suspense>
         </div>
       </section>
 

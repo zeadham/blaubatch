@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FileText, HelpCircle, BookOpen, Download, ArrowRight, ChevronDown, Check } from 'lucide-react'
+import Link from 'next/link'
 import PageHero from '@/components/shared/PageHero'
 
 
@@ -118,15 +119,32 @@ function DocRequestForm({ selected, onDeselect }) {
   const [form, setForm] = useState({ name: '', company: '', email: '' })
   const [errors, setErrors] = useState({})
   const [done, setDone] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
-  const submit = () => {
+  const submit = async () => {
     const errs = {
       docs: selected.length === 0 ? 'Select at least one document above.' : '',
       name: !form.name.trim() ? 'Required.' : '',
       email: !form.email.trim() ? 'Required.' : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? 'Enter a valid email.' : '',
     }
     if (Object.values(errs).some(Boolean)) { setErrors(errs); return }
+    setSubmitError(false)
+    try {
+      const res = await fetch('/api/send-document-request', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ documents: selected, ...form }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setSubmitError(data.error || 'Something went wrong. Please email info@blaubatch.com directly.')
+        return
+      }
+    } catch (e) {
+      setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
+      return
+    }
     setDone(true)
   }
 
@@ -185,6 +203,17 @@ function DocRequestForm({ selected, onDeselect }) {
           onMouseEnter={e => e.currentTarget.style.background = '#2477b3'}
           onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
         ><Download size={14} /> Send Me These Documents</button>
+
+        {submitError && (
+          <div role="alert" style={{
+            marginTop: 12, padding: '12px 16px',
+            background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)',
+            borderRadius: 8, fontSize: 13, color: '#DC2626', lineHeight: 1.5,
+          }}>
+            ⚠️ {submitError}
+          </div>
+        )}
+
         <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', textAlign: 'center', marginTop: 10 }}>
           Sent within 1 business day · Saturday–Thursday 9AM–5PM Cairo
         </div>
@@ -330,24 +359,28 @@ export default function ResourcesPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 48 }}>
             <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Technical Blog</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Coming Soon: Technical Articles</h2>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Technical Articles</h2>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}>In-depth guides on masterbatch selection, processing, and applications — written by our compounding team for plastics engineers and procurement professionals.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
             {[
-              { tag: 'Filler MB', title: 'What is Filler Masterbatch and How Does it Reduce Material Costs?', desc: 'A complete guide to CaCO₃-based filler masterbatch — how it works, how it\'s made, and how to calculate cost savings for your specific application.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
-              { tag: 'Grade Selection', title: 'CaCO₃ Loading: 70% vs 75% vs 80% — Which Grade Is Right for Your Application?', desc: 'A technical comparison of high-loading filler grades — covering mechanical property trade-offs, processing considerations, and application fit.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
-              { tag: 'Processing', title: 'PE vs PP Carrier Systems: Why Matching Carrier to Base Resin Matters', desc: 'Why using the wrong carrier polymer causes processing problems — and how to select the right filler masterbatch carrier for your production line.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
-              { tag: 'White MB', title: 'TiO₂ Masterbatch: Understanding Opacity, Whiteness, and Food-Contact Compliance', desc: 'How TiO₂ loading affects opacity and CIE whiteness index — and what food-contact compliance (EU 10/2011, FDA) means in practice.', color: '#2B8DD0', borderColor: 'rgba(74,170,224,0.25)' },
-              { tag: 'UV Protection', title: 'UV Stabilisation in Agricultural Film: What Makes a Masterbatch Last 10+ Years?', desc: 'How HALS-based UV stabilisers in black and additive masterbatch protect agricultural films from photodegradation in MENA and Mediterranean climates.', color: '#22C55E', borderColor: 'rgba(34,197,94,0.2)' },
-              { tag: 'Quality', title: 'Reading a Masterbatch CoA: The 7 Properties Every Buyer Should Check', desc: 'MFI, ash content, moisture, colour delta-E, and dispersibility — a practical guide to reading a Certificate of Analysis before accepting a shipment.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
+              { tag: 'Filler MB', slug: 'what-is-filler-masterbatch', title: 'What is Filler Masterbatch and How Does it Reduce Material Costs?', desc: 'A complete guide to CaCO₃-based filler masterbatch — how it works, how it\'s made, and how to calculate cost savings for your specific application.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
+              { tag: 'Grade Selection', slug: 'caco3-loading-comparison', title: 'CaCO₃ Loading: 70% vs 75% vs 80% — Which Grade Is Right for Your Application?', desc: 'A technical comparison of high-loading filler grades — covering mechanical property trade-offs, processing considerations, and application fit.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
+              { tag: 'Processing', slug: 'pe-vs-pp-carrier-systems', title: 'PE vs PP Carrier Systems: Why Matching Carrier to Base Resin Matters', desc: 'Why using the wrong carrier polymer causes processing problems — and how to select the right filler masterbatch carrier for your production line.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
+              { tag: 'White MB', slug: 'tio2-masterbatch-opacity', title: 'TiO₂ Masterbatch: Understanding Opacity, Whiteness, and Food-Contact Compliance', desc: 'How TiO₂ loading affects opacity and CIE whiteness index — and what food-contact compliance (EU 10/2011, FDA) means in practice.', color: '#2B8DD0', borderColor: 'rgba(74,170,224,0.25)' },
+              { tag: 'UV Protection', slug: 'uv-stabilisation-agricultural-film', title: 'UV Stabilisation in Agricultural Film: What Makes a Masterbatch Last 10+ Years?', desc: 'How HALS-based UV stabilisers in black and additive masterbatch protect agricultural films from photodegradation in MENA and Mediterranean climates.', color: '#22C55E', borderColor: 'rgba(34,197,94,0.2)' },
+              { tag: 'Quality', slug: 'reading-masterbatch-coa', title: 'Reading a Masterbatch CoA: The 7 Properties Every Buyer Should Check', desc: 'MFI, ash content, moisture, colour delta-E, and dispersibility — a practical guide to reading a Certificate of Analysis before accepting a shipment.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
             ].map((a, i) => (
-              <div key={i} style={{
+              <Link key={i} href={`/blog/${a.slug}`} style={{
                 background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14,
                 padding: '24px', display: 'flex', flexDirection: 'column', gap: 12,
-                borderTop: `3px solid ${a.borderColor}`,
-              }}>
+                borderTop: `3px solid ${a.borderColor}`, textDecoration: 'none',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 24px rgba(20,27,62,0.08)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none' }}
+              >
                 <div style={{
                   display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
                   letterSpacing: '0.1em', textTransform: 'uppercase', color: a.color,
@@ -359,21 +392,13 @@ export default function ResourcesPage() {
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
-                  letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)',
+                  letterSpacing: '0.06em', textTransform: 'uppercase', color: '#2B8DD0',
                   paddingTop: 12, borderTop: '1px solid rgba(20,27,62,0.08)',
                 }}>
-                  <span style={{ width: 20, height: 1, background: 'rgba(20,27,62,0.15)', display: 'inline-block' }} />
-                  Article coming soon
+                  Read article <ArrowRight size={11} />
                 </div>
-              </div>
+              </Link>
             ))}
-          </div>
-
-          <div style={{ marginTop: 32, padding: '20px 24px', background: 'rgba(43,141,208,0.06)', border: '1px solid rgba(46,127,208,0.2)', borderRadius: 10, display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', lineHeight: 1.7 }}>
-              <strong style={{ color: '#141B3E' }}>Want early access to these articles?</strong>{' '}
-              Email <a href="mailto:info@blaubatch.com" style={{ color: '#2B8DD0', fontWeight: 600 }}>info@blaubatch.com</a> and we'll notify you when each guide publishes.
-            </div>
           </div>
         </div>
       </section>

@@ -23,7 +23,7 @@ const SECTIONS = [
   {
     title: 'Data Storage & Security',
     body: [
-      'Form submissions are processed via Netlify Forms and transmitted to our internal team over encrypted connections (TLS). Data is stored within Netlify\'s secure infrastructure and on our internal company systems.',
+      'Form submissions are processed via our website and transmitted to our internal team over encrypted connections (TLS). Our website is hosted on Vercel; data entered through contact forms is routed securely to our team and stored on our internal company systems.',
       'We retain enquiry and order data for up to 7 years for legal and accounting compliance, after which it is securely deleted.',
       'We implement reasonable technical and organisational measures to protect your data from unauthorised access, loss, or disclosure.',
     ],
@@ -45,7 +45,7 @@ const SECTIONS = [
   {
     title: 'Third-Party Services',
     body: [
-      'Our website is hosted on Netlify. Netlify\'s privacy policy governs how they handle infrastructure-level data.',
+      'Our website is hosted on Vercel. Vercel\'s privacy policy governs how they handle infrastructure-level data (vercel.com/legal/privacy-policy).',
       'We use WhatsApp (Meta) as an optional communication channel. If you initiate a WhatsApp conversation, Meta\'s terms and privacy policy apply to that communication.',
       'We do not embed social media trackers, advertising networks, or third-party analytics.',
     ],
@@ -60,7 +60,7 @@ const SECTIONS = [
     title: 'Contact',
     body: [
       'Blau Batch — Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt.',
-      'Email: info@blaubatch.com · Phone: +2 0102 2227723',
+      'Email: info@blaubatch.com · Phone: +2 0102 222 7723',
     ],
   },
 ]

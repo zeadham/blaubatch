@@ -6,7 +6,10 @@ import { motion } from 'framer-motion'
 const DEFAULT_PRODUCTS = [
   { name: 'FMPE Series', sub: 'PE Carrier · 70–80% CaCO₃', value: 'FMPE Series — PE Filler Masterbatch' },
   { name: 'FMPP Series', sub: 'PP Carrier · 70–80% CaCO₃', value: 'FMPP Series — PP Filler Masterbatch' },
-  { name: 'Color Masterbatch', sub: 'Full color range · PE & PP', value: 'Color Masterbatch' },
+  { name: 'White Masterbatch', sub: 'TiO₂-based · PE & PP', value: 'White Masterbatch' },
+  { name: 'Black Masterbatch', sub: 'Carbon black · UV-stable', value: 'Black Masterbatch' },
+  { name: 'Colour Masterbatch', sub: 'Full colour range · PE & PP', value: 'Colour Masterbatch' },
+  { name: 'Additive Masterbatch', sub: 'UV · Slip · Antiblock', value: 'Additive Masterbatch' },
   { name: 'Custom Formulation', sub: 'Tailored to your spec', value: 'Custom Formulation' },
 ]
 
@@ -90,6 +93,7 @@ export default function QuoteForm({
     name: '', company: '', email: '', phone: '', contactMethod: 'Email',
   })
   const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const [errors, setErrors] = useState({})
   const formRef = useRef(null)
 
@@ -121,14 +125,23 @@ export default function QuoteForm({
       return
     }
     setSubmitting(true)
+    setSubmitError(false)
     try {
-      await fetch('/api/send-quote', {
+      const res = await fetch('/api/send-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ product, ...form }),
       })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setSubmitError(data.error || 'Something went wrong. Please try again or email us directly.')
+        setSubmitting(false)
+        return
+      }
     } catch (e) {
-      console.error('Quote submit error:', e)
+      setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
+      setSubmitting(false)
+      return
     }
     setSubmitting(false)
     setDone(true)
@@ -262,6 +275,17 @@ export default function QuoteForm({
           onMouseEnter={e => !submitting && (e.currentTarget.style.background = '#2477b3')}
           onMouseLeave={e => !submitting && (e.currentTarget.style.background = '#2B8DD0')}
           >{submitting ? 'Sending…' : 'Submit Quote Request ↗'}</button>
+
+          {submitError && (
+            <div role="alert" style={{
+              marginTop: 12, padding: '12px 16px',
+              background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)',
+              borderRadius: 8, fontSize: 13, color: '#DC2626', lineHeight: 1.5,
+            }}>
+              ⚠️ {submitError}
+            </div>
+          )}
+
           <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.35)', textAlign: 'center', marginTop: 12 }}>
             We respond within 24 hours · No commitment required
           </p>

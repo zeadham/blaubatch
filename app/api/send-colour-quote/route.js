@@ -35,8 +35,8 @@ function buildHtml(d) {
         <tr>
           <td style="background:#141b3e;padding:28px 32px;border-radius:10px 10px 0 0;">
             <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#4AAAE0;margin-bottom:10px;">BLAU BATCH · WEBSITE FORM</div>
-            <div style="font-size:22px;font-weight:900;color:#fff;margin-bottom:4px;">New Quote Request</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.55);">${d.product || 'Masterbatch'} · ${d.company || d.name || 'New Lead'}</div>
+            <div style="font-size:22px;font-weight:900;color:#fff;margin-bottom:4px;">New Colour Quote Request</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.55);">${d.colorRef || 'Custom Colour'} · ${d.company || d.name || 'New Lead'}</div>
           </td>
         </tr>
 
@@ -45,23 +45,22 @@ function buildHtml(d) {
           <td style="background:#fff;border-radius:0 0 10px 10px;padding:8px 0 24px;">
             <table width="100%" cellpadding="0" cellspacing="0">
 
-              ${sectionHeader('Product Request')}
-              ${row('Product', d.product, true)}
-              ${row('Grade / Spec', d.grade)}
+              ${sectionHeader('Colour Specification')}
+              ${row('Colour Reference', d.colorRef, true)}
+              ${row('Carrier Resin', d.carrier)}
               ${row('Application', d.application)}
 
-              ${sectionHeader('Order Details')}
-              ${row('Quantity', d.qty)}
-              ${row('Frequency', d.frequency)}
-              ${row('Delivery Region', d.region)}
-              ${row('Additional Details', d.details)}
+              ${sectionHeader('Volume & Requirements')}
+              ${row('Monthly Volume', d.volume)}
+              ${row('Country / Region', d.country)}
+              ${row('Sample Required?', d.sample)}
 
               ${sectionHeader('Contact Information')}
               ${row('Name', d.name, true)}
               ${row('Company', d.company)}
               ${row('Email', d.email ? `<a href="mailto:${d.email}" style="color:#2E7FD0;">${d.email}</a>` : '')}
               ${row('Phone / WhatsApp', d.phone ? `<a href="tel:${d.phone}" style="color:#2E7FD0;">${d.phone}</a>` : '')}
-              ${row('Preferred Contact', d.contactMethod)}
+              ${row('Additional Notes', d.notes)}
 
             </table>
 
@@ -98,7 +97,7 @@ function buildHtml(d) {
         <tr>
           <td style="padding:20px 0;text-align:center;">
             <p style="margin:0;font-size:11px;color:#aaa;">
-              Submitted via <a href="https://blaubatch.com" style="color:#aaa;">blaubatch.com</a> quote form
+              Submitted via <a href="https://blaubatch.com" style="color:#aaa;">blaubatch.com</a> colour quote form
             </p>
           </td>
         </tr>
@@ -113,7 +112,7 @@ function buildHtml(d) {
 export async function POST(request) {
   try {
     const ip = headers().get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
-    const { allowed } = rateLimit(`quote:${ip}`, 5, 60_000)
+    const { allowed } = rateLimit(`colour-quote:${ip}`, 5, 60_000)
     if (!allowed) {
       return Response.json({ error: 'Too many requests. Please wait a minute and try again.' }, { status: 429 })
     }
@@ -135,7 +134,7 @@ export async function POST(request) {
       },
     })
 
-    const subject = `Quote Request: ${d.product || 'Masterbatch'} — ${d.company || d.name || 'New Lead'}`
+    const subject = `Colour Quote: ${d.colorRef || 'Custom Colour'} — ${d.company || d.name || 'New Lead'}`
 
     await transporter.sendMail({
       from: `"Blau Batch Website" <${process.env.GMAIL_USER}>`,

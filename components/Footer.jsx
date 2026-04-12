@@ -33,6 +33,7 @@ const NAV_COLS = [
       { label: 'Sustainability', href: '/sustainability' },
       { label: 'Distributors', href: '/distributors' },
       { label: 'Resources', href: '/resources' },
+      { label: 'Technical Blog', href: '/blog' },
       { label: 'Contact Us', href: '/contact' },
     ],
   },
@@ -155,7 +156,7 @@ export default function Footer() {
             { label: 'Office', val: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt' },
             { label: 'Factory', val: '79, 6th Industrial Zone, 6th of October, Egypt' },
             { label: 'Email', val: 'info@blaubatch.com' },
-            { label: 'Phone', val: '+2 0102 2227723' },
+            { label: 'Phone', val: '+2 0102 222 7723' },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{item.label}</div>

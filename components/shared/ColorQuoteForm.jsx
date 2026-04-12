@@ -74,6 +74,7 @@ function FocusInput({ error, onBlur: onBlurProp, ...props }) {
 
 export default function ColorQuoteForm() {
   const [done, setDone] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
   const [form, setForm] = useState({
     carrier: '', colorRef: '', application: '',
     volume: '', country: '', sample: '',
@@ -96,7 +97,7 @@ export default function ColorQuoteForm() {
     setErrors(prev => ({ ...prev, [field]: msg }))
   }
 
-  const submit = () => {
+  const submit = async () => {
     const msgs = {
       name: !form.name.trim() ? 'Full name is required.' : '',
       company: !form.company.trim() ? 'Company name is required.' : '',
@@ -106,6 +107,22 @@ export default function ColorQuoteForm() {
       phone: !form.phone.trim() ? 'Phone number is required.' : '',
     }
     if (Object.values(msgs).some(Boolean)) { setErrors(msgs); return }
+    setSubmitError(false)
+    try {
+      const res = await fetch('/api/send-colour-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        setSubmitError(data.error || 'Something went wrong. Please try again or email us directly.')
+        return
+      }
+    } catch (e) {
+      setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
+      return
+    }
     setDone(true)
   }
 
@@ -219,6 +236,16 @@ export default function ColorQuoteForm() {
         onMouseEnter={e => e.currentTarget.style.background = '#2477b3'}
         onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
         >Submit Quote Request ↗</button>
+
+        {submitError && (
+          <div role="alert" style={{
+            marginTop: 12, padding: '12px 16px',
+            background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)',
+            borderRadius: 8, fontSize: 13, color: '#DC2626', lineHeight: 1.5,
+          }}>
+            ⚠️ {submitError}
+          </div>
+        )}
 
         <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', textAlign: 'center', marginTop: 12 }}>
           We respond within 24 hours · Saturday–Thursday 9AM–5PM Cairo

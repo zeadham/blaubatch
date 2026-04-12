@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
 
 const CYCLE = [
   { name: 'Filler', color: '#D4840A' },
@@ -42,12 +43,15 @@ export default function Hero() {
       display: 'flex', flexDirection: 'column',
       justifyContent: 'flex-end',
     }}>
-      {/* Full-bleed background image */}
-      <div style={{
-        position: 'absolute', inset: 0,
-        backgroundImage: 'url("/images/heroes/home.png")',
-        backgroundSize: 'cover', backgroundPosition: 'center',
-      }} />
+      {/* Full-bleed background image — priority for LCP */}
+      <Image
+        src="/images/heroes/home.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        style={{ objectFit: 'cover', objectPosition: 'center' }}
+      />
 
       {/* White fade — left to transparent right */}
       <div style={{
@@ -61,36 +65,23 @@ export default function Hero() {
         background: 'linear-gradient(to top, rgba(255,255,255,0.30) 0%, transparent 30%)',
       }} />
 
-      {/* Large B mark — right side watermark */}
-      <div style={{
-        position: 'absolute', right: '-4%', top: '50%',
-        transform: 'translateY(-50%)',
-        zIndex: 0, pointerEvents: 'none',
-        opacity: 0.10,
-      }}>
-        <img src="/logo-mark.png" alt="" style={{ height: '85vh', objectFit: 'contain', display: 'block' }} />
-      </div>
-
       {/* Content — bottom-left */}
       <div style={{
         position: 'relative', zIndex: 1,
         padding: '0 96px 72px',
       }}>
 
-        {/* Wordmark + region tag */}
-        <motion.div {...fadeUp(0.05)} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 28, flexWrap: 'wrap' }}>
-          <img src="/wordmark-white-on-navy.svg" alt="Blau Batch" style={{ height: 36, borderRadius: 6 }} />
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: 7,
-            border: '1px solid rgba(43,141,208,0.35)', borderRadius: 20,
-            padding: '5px 14px',
-            fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
-            letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
-            background: 'rgba(43,141,208,0.08)',
-          }}>
-            <span style={{ width: 6, height: 6, background: '#2B8DD0', borderRadius: '50%', display: 'inline-block', animation: 'heroPulse 2s ease-in-out infinite' }} />
-            Egypt · MENA · Europe
-          </div>
+        {/* Tag */}
+        <motion.div {...fadeUp(0.05)} style={{
+          display: 'inline-flex', alignItems: 'center', gap: 7,
+          border: '1px solid rgba(43,141,208,0.35)', borderRadius: 20,
+          padding: '5px 14px', marginBottom: 24,
+          fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
+          letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
+          background: 'rgba(43,141,208,0.08)',
+        }}>
+          <span style={{ width: 6, height: 6, background: '#2B8DD0', borderRadius: '50%', display: 'inline-block', animation: 'heroPulse 2s ease-in-out infinite' }} />
+          Egypt · MENA · Europe
         </motion.div>
 
         {/* H1 */}
@@ -165,31 +156,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats row */}
-        <motion.div {...fadeUp(0.36)} style={{
-          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1px', maxWidth: 520,
-          background: 'rgba(20,27,62,0.08)',
-          borderRadius: 14, overflow: 'hidden',
-          border: '1px solid rgba(20,27,62,0.1)',
-        }}>
-          {STATS.map(s => (
-            <div key={s.label} style={{
-              padding: '18px 10px', textAlign: 'center',
-              background: 'rgba(255,255,255,0.85)',
-            }}>
-              <div style={{
-                fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900,
-                color: '#141B3E', lineHeight: 1, letterSpacing: '-0.02em',
-              }}>{s.n}</div>
-              <div style={{
-                fontSize: 9, color: 'rgba(20,27,62,0.5)',
-                textTransform: 'uppercase', letterSpacing: '0.08em',
-                fontFamily: 'Inter, sans-serif', marginTop: 5, fontWeight: 700,
-              }}>{s.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       <style>{`

@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, FlaskConical } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const PRODUCTS = [
   {
@@ -15,6 +16,7 @@ const PRODUCTS = [
     badge: 'MANUFACTURED',
     image: '/images/heroes/filler.png',
     href: '/fmpe',
+    sampleProduct: 'FMPE Series — PE Filler Masterbatch',
   },
   {
     id: 'fmpp',
@@ -25,6 +27,7 @@ const PRODUCTS = [
     badge: 'MANUFACTURED',
     image: '/images/heroes/filler.png',
     href: '/fmpp',
+    sampleProduct: 'FMPP Series — PP Filler Masterbatch',
   },
   {
     id: 'white',
@@ -35,6 +38,7 @@ const PRODUCTS = [
     badge: 'DISTRIBUTED',
     image: '/images/heroes/white.png',
     href: '/white-masterbatch',
+    sampleProduct: 'White Masterbatch',
   },
   {
     id: 'black',
@@ -45,6 +49,7 @@ const PRODUCTS = [
     badge: 'DISTRIBUTED',
     image: '/images/heroes/black.png',
     href: '/black-masterbatch',
+    sampleProduct: 'Black Masterbatch',
   },
   {
     id: 'colour',
@@ -55,6 +60,7 @@ const PRODUCTS = [
     badge: 'DISTRIBUTED',
     image: '/images/heroes/colour.png',
     href: '/color-masterbatch',
+    sampleProduct: 'Colour Masterbatch',
   },
   {
     id: 'additive',
@@ -65,6 +71,7 @@ const PRODUCTS = [
     badge: 'DISTRIBUTED',
     image: '/images/heroes/additive.png',
     href: '/additive-masterbatch',
+    sampleProduct: 'Additive Masterbatch',
   },
 ]
 
@@ -109,13 +116,12 @@ function ProductCard({ p, i }) {
         overflow: 'hidden',
         flexShrink: 0,
       }}>
-        <img
+        <Image
           src={p.image}
           alt={p.name}
-          style={{
-            width: '100%', height: '100%', objectFit: 'cover',
-            transition: 'transform 0.5s ease',
-          }}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
           onMouseEnter={e => e.target.style.transform = 'scale(1.06)'}
           onMouseLeave={e => e.target.style.transform = 'scale(1)'}
         />
@@ -183,7 +189,7 @@ function ProductCard({ p, i }) {
           >
             Learn More <ArrowRight size={14} />
           </Link>
-          <Link href="/contact" style={{
+          <Link href={`/contact?product=${encodeURIComponent(p.sampleProduct)}`} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
             color: 'rgba(20,27,62,0.45)', transition: 'color 0.2s',

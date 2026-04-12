@@ -95,7 +95,7 @@ export default function CTA() {
         >
           {[
             { icon: Mail, label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
-            { icon: Phone, label: 'Phone', val: '+2 0102 2227723', href: 'tel:+20102222723' },
+            { icon: Phone, label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+201022227723' },
             { icon: MapPin, label: 'Office', val: 'Arkan Plaza, Sheikh Zayed City, Giza', href: '#' },
           ].map(({ icon: Icon, label, val, href }) => (
             <a key={label} href={href} style={{
