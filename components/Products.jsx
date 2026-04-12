@@ -88,6 +88,7 @@ function ProductCard({ p, i }) {
   const isManufactured = p.badge === 'MANUFACTURED'
 
   return (
+    <Link href={p.href} style={{ display: 'block', textDecoration: 'none' }}>
     <motion.div
       variants={cardVariants}
       initial="hidden"
@@ -102,7 +103,9 @@ function ProductCard({ p, i }) {
         boxShadow: '0 2px 12px rgba(20,27,62,0.04)',
         display: 'flex',
         flexDirection: 'column',
+        cursor: 'pointer',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+        height: '100%',
       }}
       whileHover={{
         y: -6,
@@ -179,17 +182,16 @@ function ProductCard({ p, i }) {
           marginTop: 8, paddingTop: 14,
           borderTop: '1px solid rgba(20,27,62,0.07)',
         }}>
-          <Link href={p.href} style={{
+          <span style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
-            color: '#2B8DD0', transition: 'gap 0.2s',
-          }}
-          onMouseEnter={e => e.currentTarget.style.gap = '10px'}
-          onMouseLeave={e => e.currentTarget.style.gap = '6px'}
-          >
+            color: '#2B8DD0',
+          }}>
             Learn More <ArrowRight size={14} />
-          </Link>
-          <Link href={`/contact?product=${encodeURIComponent(p.sampleProduct)}`} style={{
+          </span>
+          <Link href={`/contact?product=${encodeURIComponent(p.sampleProduct)}`}
+          onClick={e => e.stopPropagation()}
+          style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
             color: 'rgba(20,27,62,0.45)', transition: 'color 0.2s',
@@ -203,6 +205,7 @@ function ProductCard({ p, i }) {
         </div>
       </div>
     </motion.div>
+    </Link>
   )
 }
 

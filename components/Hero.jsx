@@ -132,13 +132,14 @@ export default function Hero() {
           </a>
           <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '14px 30px', background: 'rgba(37,211,102,0.1)', color: '#16A34A',
+            padding: '14px 30px', background: '#25D366', color: '#fff',
             borderRadius: 10, fontFamily: 'Inter, sans-serif', fontSize: 13,
             fontWeight: 700, letterSpacing: '0.06em',
-            border: '1px solid rgba(37,211,102,0.35)', transition: 'all 0.2s',
+            border: '1px solid #25D366', transition: 'all 0.2s',
+            boxShadow: '0 4px 14px rgba(37,211,102,0.35)',
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = 'rgba(37,211,102,0.18)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(37,211,102,0.1)'; e.currentTarget.style.transform = 'none' }}
+          onMouseEnter={e => { e.currentTarget.style.background = '#20bb5a'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(37,211,102,0.5)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = '#25D366'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(37,211,102,0.35)' }}
           >
             <MessageCircle size={14} /> WhatsApp Us
           </a>
