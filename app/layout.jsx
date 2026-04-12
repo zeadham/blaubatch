@@ -47,9 +47,12 @@ export const metadata = {
     description: 'Blau Batch manufactures Filler Masterbatch and distributes the complete Coraplast range across MENA and Europe.',
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/logo-mark.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/icon.png',
+    apple: '/apple-icon.png',
   },
 }
 
