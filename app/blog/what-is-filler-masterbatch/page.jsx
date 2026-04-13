@@ -1,4 +1,7 @@
-export const dynamic = 'force-dynamic'
+import { getArticleBySlug } from '@/lib/blog-articles'
+import BlogArticle from '@/components/pages/BlogArticle'
 
-import FillerMasterbatch101 from '@/components/pages/blog/FillerMasterbatch101'
-export default function Page() { return <FillerMasterbatch101 /> }
+export default function Page() {
+  const article = getArticleBySlug('what-is-filler-masterbatch')
+  return <BlogArticle article={article} />
+}

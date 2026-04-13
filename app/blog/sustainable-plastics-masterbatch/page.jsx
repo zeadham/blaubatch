@@ -1,4 +1,7 @@
-export const dynamic = 'force-dynamic'
+import { getArticleBySlug } from '@/lib/blog-articles'
+import BlogArticle from '@/components/pages/BlogArticle'
 
-import SustainableMasterbatch from '@/components/pages/blog/SustainableMasterbatch'
-export default function Page() { return <SustainableMasterbatch /> }
+export default function Page() {
+  const article = getArticleBySlug('uv-stabilisation-agricultural-film')
+  return <BlogArticle article={article} />
+}
