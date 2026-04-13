@@ -95,16 +95,20 @@ export default function ContactPage() {
             <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, padding: '20px' }}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 14 }}>Our Locations</div>
               {[
-                { label: 'Head Office', addr: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt' },
-                { label: 'Factory', addr: '79, 6th Industrial Zone, 6th of October City, Giza, Egypt' },
+                { label: 'Head Office', addr: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
+                { label: 'Factory', addr: '79, 6th Industrial Zone, 6th of October City, Giza, Egypt', href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
               ].map(l => (
-                <div key={l.label} style={{ display: 'flex', gap: 12, marginBottom: 14 }}>
+                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'flex', gap: 12, marginBottom: 14, textDecoration: 'none' }}
+                  onMouseEnter={e => e.currentTarget.querySelector('div:last-child').style.color = '#2B8DD0'}
+                  onMouseLeave={e => e.currentTarget.querySelector('div:last-child').style.color = 'rgba(20,27,62,0.6)'}
+                >
                   <MapPin size={15} color="rgba(20,27,62,0.35)" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
                     <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>{l.label}</div>
-                    <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.6 }}>{l.addr}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.6, transition: 'color 0.15s' }}>{l.addr}</div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </motion.div>

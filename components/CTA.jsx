@@ -96,9 +96,9 @@ export default function CTA() {
           {[
             { icon: Mail, label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
             { icon: Phone, label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+201022227723' },
-            { icon: MapPin, label: 'Office', val: 'Arkan Plaza, Sheikh Zayed City, Giza', href: '#' },
-          ].map(({ icon: Icon, label, val, href }) => (
-            <a key={label} href={href} style={{
+            { icon: MapPin, label: 'Office', val: 'Arkan Plaza, Sheikh Zayed City, Giza', href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt', target: '_blank' },
+          ].map(({ icon: Icon, label, val, href, target }) => (
+            <a key={label} href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} style={{
               display: 'flex', alignItems: 'center', gap: 12,
               background: '#fff', border: '1px solid rgba(20,27,62,0.1)',
               borderRadius: 12, padding: '16px 20px', textAlign: 'left', transition: 'all 0.3s ease',
