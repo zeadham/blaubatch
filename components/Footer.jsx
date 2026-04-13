@@ -153,14 +153,18 @@ export default function Footer() {
           display: 'flex', gap: 32, flexWrap: 'wrap',
         }}>
           {[
-            { label: 'Office', val: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt' },
-            { label: 'Factory', val: '79, 6th Industrial Zone, 6th of October, Egypt' },
-            { label: 'Email', val: 'info@blaubatch.com' },
-            { label: 'Phone', val: '+2 0102 222 7723' },
+            { label: 'Office', val: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
+            { label: 'Factory', val: '79, 6th Industrial Zone, 6th of October, Egypt', href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
+            { label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
+            { label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+20102222723' },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{item.label}</div>
-              <div style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>{item.val}</div>
+              <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s' }}
+                onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
+              >{item.val}</a>
             </div>
           ))}
         </div>
