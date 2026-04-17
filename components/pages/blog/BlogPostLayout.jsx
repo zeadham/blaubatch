@@ -26,8 +26,8 @@ export default function BlogPostLayout({
         title={title}
         titleAccent={titleAccent}
         sub={sub}
+        split
         bgImage={heroImage}
-        bgOverlay={false}
       />
 
       <article style={{ background: 'var(--bg)', padding: '100px 48px' }}>

@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: '& Housewares',
     badge: 'CONSUMER GOODS INDUSTRY',
     accentColor: '#2B8DD0',
-    bgImage: '/images/industries/consumer_goods.png',
+    bgImage: '/images/heroes/consumer_goods.webp',
     sub: 'Food-contact colour, white, and additive masterbatch for injection-moulded housewares, caps and closures, toy components, appliance housings, and personal care packaging — consistent colour lot-to-lot for retail brand standards.',
   },
   applications: {

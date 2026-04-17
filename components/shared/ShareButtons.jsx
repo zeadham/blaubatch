@@ -18,7 +18,7 @@ const WA_ICON = (
   </svg>
 )
 
-export default function ShareButtons({ title }) {
+export default function ShareButtons({ title, dark = false }) {
   const [url, setUrl] = useState('')
   const [copied, setCopied] = useState(false)
 
@@ -37,27 +37,32 @@ export default function ShareButtons({ title }) {
     setTimeout(() => setCopied(false), 2000)
   }
 
+  const idleBg     = dark ? 'rgba(255,255,255,0.12)' : 'rgba(20,27,62,0.05)'
+  const idleColor  = dark ? 'rgba(255,255,255,0.7)'  : 'rgba(20,27,62,0.5)'
+  const idleBorder = dark ? 'rgba(255,255,255,0.2)'  : 'rgba(20,27,62,0.1)'
+  const labelColor = dark ? 'rgba(255,255,255,0.4)'  : 'rgba(20,27,62,0.35)'
+
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-      <span style={{ fontSize: 11, fontWeight: 700, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginRight: 2 }}>Share</span>
+      <span style={{ fontSize: 11, fontWeight: 700, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', color: labelColor, marginRight: 2 }}>Share</span>
       {links.map(({ label, color, href, icon }) => (
         <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={`Share on ${label}`}
           style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: 32, height: 32, borderRadius: 6,
-            background: 'rgba(20,27,62,0.05)', color: 'rgba(20,27,62,0.5)',
-            border: '1px solid rgba(20,27,62,0.1)', transition: 'all 0.2s',
+            background: idleBg, color: idleColor,
+            border: `1px solid ${idleBorder}`, transition: 'all 0.2s',
           }}
           onMouseEnter={e => { e.currentTarget.style.background = color; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = color }}
-          onMouseLeave={e => { e.currentTarget.style.background = 'rgba(20,27,62,0.05)'; e.currentTarget.style.color = 'rgba(20,27,62,0.5)'; e.currentTarget.style.borderColor = 'rgba(20,27,62,0.1)' }}
+          onMouseLeave={e => { e.currentTarget.style.background = idleBg; e.currentTarget.style.color = idleColor; e.currentTarget.style.borderColor = idleBorder }}
         >{icon}</a>
       ))}
       <button onClick={copyLink} title="Copy link"
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 5, padding: '0 12px', height: 32, borderRadius: 6,
-          background: copied ? 'rgba(43,141,208,0.08)' : 'rgba(20,27,62,0.05)',
-          color: copied ? '#2B8DD0' : 'rgba(20,27,62,0.5)',
-          border: `1px solid ${copied ? 'rgba(43,141,208,0.25)' : 'rgba(20,27,62,0.1)'}`,
+          background: copied ? 'rgba(43,141,208,0.2)' : idleBg,
+          color: copied ? (dark ? '#7DBFE8' : '#2B8DD0') : idleColor,
+          border: `1px solid ${copied ? 'rgba(43,141,208,0.4)' : idleBorder}`,
           fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
           cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.04em',
         }}

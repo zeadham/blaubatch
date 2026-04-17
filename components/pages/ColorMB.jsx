@@ -49,14 +49,8 @@ export default function ColorMBPage() {
         title="Colour Masterbatch"
         titleAccent="Full Spectrum Solutions"
         sub="Exact colour matching across RAL and Pantone systems, custom colour development, and food-contact compliant grades — for PE, PP, PS, ABS, PA, PC, and PET."
-        visual={{
-          bg: 'linear-gradient(145deg, #b83232 0%, #d4822a 25%, #c8b420 48%, #35a070 70%, #2860a0 100%)',
-          dots: 'rgba(255,255,255,0.15)',
-          symbol: 'RGB',
-          accent: '#E8A030',
-          chip: 'CMB SERIES',
-          stat: { n: '1000+', label: 'Colours Available' },
-        }}
+        split
+        bgImage="/images/heroes/Color_masterbatch.webp"
         cta={{
           primary: { label: 'Request Colour Sample', href: '#quote-form' },
           secondary: { label: 'View Colour Families', href: '#families' },
@@ -68,7 +62,7 @@ export default function ColorMBPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} id="cmb-intro-grid">
             <div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 16 }}>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 16 }}>
                 What Is Colour Masterbatch?
               </div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20, color: '#141B3E' }}>
@@ -88,14 +82,14 @@ export default function ColorMBPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Colour Development</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Colour Development</div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>RAL, Pantone & Custom Matching</h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
                   Submit a physical sample, RAL code, Pantone reference, or hex value. Matched pellets and a full ΔE measurement report are returned within 5 business days. Batch-to-batch ΔE ≤ 0.5 guaranteed in production.
                 </p>
               </div>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Food-Contact & Regulatory</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Food-Contact & Regulatory</div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>EU 10/2011 & FDA Compliant</h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
                   Food-contact grades available for PE, PP, and PET substrates. Full regulatory documentation supplied — EU Regulation 10/2011 and FDA 21 CFR declarations provided on request.
@@ -117,7 +111,7 @@ export default function ColorMBPage() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Product Range</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Product Range</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Colour Product Families</h2>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620 }}>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us with your colour target and we'll match it.</strong></p>
             </div>
@@ -134,7 +128,7 @@ export default function ColorMBPage() {
                     <f.icon size={20} strokeWidth={1.5} color="#2B8DD0" />
                   </div>
                   <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{f.name}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{f.sub}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{f.sub}</div>
                   <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.7 }}>{f.desc}</p>
                 </motion.div>
               ))}
@@ -166,7 +160,7 @@ export default function ColorMBPage() {
       <section style={{ background: '#F7F8FC', padding: '72px 48px 0', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 40 }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}>Where Colour Masterbatch Is Used</h2>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Colour masterbatch is used wherever colour consistency, brand matching, and substrate compatibility are critical — from consumer packaging to technical automotive parts.</p>
           </div>
@@ -201,16 +195,15 @@ export default function ColorMBPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={formInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55 }}
-            style={{ marginBottom: 36, paddingTop: 72 }}
+            style={{ marginBottom: 36, paddingTop: 72, maxWidth: 900, margin: '0 auto', paddingBottom: 0 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Request a Sample or Quote</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Sample or Quote</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Get a Colour Masterbatch Quote</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Share your colour target, carrier resin, and required volume — we'll respond within 24 hours with pricing and a matched sample.</p>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, marginBottom: 36 }}>Share your colour target, carrier resin, and required volume — we'll respond within 24 hours with pricing and a matched sample.</p>
           </motion.div>
-          <div style={{ maxWidth: 640 }}>
+          <div style={{ maxWidth: 900, margin: '0 auto' }}>
             <ColorQuoteForm />
           </div>
-          <IsoBadges />
         </div>
         <style>{`@media(max-width:900px){ section { padding-left: 20px !important; padding-right: 20px !important; } } .ind-link:hover { border-color: rgba(43,141,208,0.4) !important; } .ind-link:hover img { transform: scale(1.06); }`}</style>
       </section>

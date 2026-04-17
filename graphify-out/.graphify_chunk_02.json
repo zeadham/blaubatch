@@ -1,0 +1,532 @@
+{
+  "nodes": [
+    {
+      "id": "apple_icon_logo_mark",
+      "label": "Apple Touch Icon — B Lettermark on Navy",
+      "file_type": "image",
+      "source_file": "app/apple-icon.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "icon_logo_mark",
+      "label": "Browser / PWA Icon — B Lettermark on Navy",
+      "file_type": "image",
+      "source_file": "app/icon.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "favicon_svg",
+      "label": "Favicon SVG — B Lettermark vector placeholder",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_horizontal_white",
+      "label": "Horizontal Logo — Mark + Wordmark + Tagline on White Background",
+      "file_type": "image",
+      "source_file": "public/logo-horizontal-white.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_mark_navy",
+      "label": "Logo Mark — B Lettermark on Navy Square Background",
+      "file_type": "image",
+      "source_file": "public/logo-mark-navy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_mark_navy_svg",
+      "label": "Logo Mark SVG — B Lettermark vector source (navy background)",
+      "file_type": "image",
+      "source_file": "public/logo-mark-navy.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_mark",
+      "label": "Logo Mark — B Lettermark on Transparent Background",
+      "file_type": "image",
+      "source_file": "public/logo-mark.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_textonly_navy",
+      "label": "Text-Only Logo — BLAU BATCH Navy on White",
+      "file_type": "image",
+      "source_file": "public/logo-textonly-navy.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_textonly_white",
+      "label": "Text-Only Logo — BLAU BATCH White on Navy",
+      "file_type": "image",
+      "source_file": "public/logo-textonly-white.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "logo_jpg",
+      "label": "Logo JPG — B Lettermark on Navy Background (legacy/social)",
+      "file_type": "image",
+      "source_file": "public/logo.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "wordmark_navy_svg",
+      "label": "Wordmark SVG — BLAU BATCH Navy Text Inter 900 transparent bg",
+      "file_type": "image",
+      "source_file": "public/wordmark-navy.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "wordmark_white_on_navy_svg",
+      "label": "Wordmark SVG — BLAU BATCH White Text on Navy Rectangle",
+      "file_type": "image",
+      "source_file": "public/wordmark-white-on-navy.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_black_tonal",
+      "label": "Brand Asset — Black Masterbatch Pellets Floating (Monochrome Dark)",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/black-tonal.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_macro_pour",
+      "label": "Brand Asset — White Spherical Pellets Pouring Macro Shot",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/macro-pour.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_pellet_melting_pail_wide",
+      "label": "Brand Asset — Masterbatch Pellets Exploding from Industrial Pail 3D Render",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_white_3d_backlit",
+      "label": "Brand Asset — White Spherical Pellets Backlit 3D Floating",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/white-3d-backlit.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_white_black_contrast",
+      "label": "Brand Asset — White Pellets on Black Pellet Bed High Contrast",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/white-black-contrast.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_white_flurry",
+      "label": "Brand Asset — White Pellets Burst Flurry on White Background",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/white-flurry.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "brand_white_tonal",
+      "label": "Brand Asset — White Pellets Levitating on White Pellet Field Tonal",
+      "file_type": "image",
+      "source_file": "public/images/brand-assets/white-tonal.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "apple_icon_logo_mark",
+      "target": "icon_logo_mark",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/apple-icon.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "apple_icon_logo_mark",
+      "target": "logo_mark_navy",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/apple-icon.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "icon_logo_mark",
+      "target": "logo_mark_navy",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/icon.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "favicon_svg",
+      "target": "logo_mark_navy_svg",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "logo_mark",
+      "target": "logo_mark_navy",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_mark_navy",
+      "target": "logo_mark_navy_svg",
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "public/logo-mark-navy.png",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "logo_mark",
+      "target": "logo_jpg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_mark_navy",
+      "target": "logo_jpg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "public/logo-mark-navy.png",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "logo_horizontal_white",
+      "target": "logo_mark_navy",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-horizontal-white.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_horizontal_white",
+      "target": "logo_textonly_navy",
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-horizontal-white.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_textonly_navy",
+      "target": "wordmark_navy_svg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-textonly-navy.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_textonly_white",
+      "target": "wordmark_white_on_navy_svg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-textonly-white.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "wordmark_navy_svg",
+      "target": "wordmark_white_on_navy_svg",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/wordmark-navy.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logo_textonly_navy",
+      "target": "logo_textonly_white",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-textonly-navy.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_black_tonal",
+      "target": "brand_white_black_contrast",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/black-tonal.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_macro_pour",
+      "target": "brand_white_3d_backlit",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/macro-pour.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_macro_pour",
+      "target": "brand_white_flurry",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/macro-pour.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_macro_pour",
+      "target": "brand_white_tonal",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/macro-pour.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_white_flurry",
+      "target": "brand_white_tonal",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/white-flurry.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "brand_white_black_contrast",
+      "target": "brand_white_tonal",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/brand-assets/white-black-contrast.png",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "brand_pellet_melting_pail_wide",
+      "target": "brand_black_tonal",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
+      "source_location": null,
+      "weight": 0.8
+    },
+    {
+      "source": "brand_pellet_melting_pail_wide",
+      "target": "brand_white_tonal",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
+      "source_location": null,
+      "weight": 0.75
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "blaubatch_b_lettermark_family",
+      "label": "Blau Batch B Lettermark Icon Family",
+      "nodes": [
+        "apple_icon_logo_mark",
+        "icon_logo_mark",
+        "favicon_svg",
+        "logo_mark_navy",
+        "logo_mark_navy_svg",
+        "logo_mark",
+        "logo_jpg"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/apple-icon.png"
+    },
+    {
+      "id": "blaubatch_wordmark_family",
+      "label": "Blau Batch Wordmark Text-Only Logo Family",
+      "nodes": [
+        "logo_textonly_navy",
+        "logo_textonly_white",
+        "wordmark_navy_svg",
+        "wordmark_white_on_navy_svg"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-textonly-navy.png"
+    },
+    {
+      "id": "blaubatch_full_logo_lockup",
+      "label": "Blau Batch Full Logo Lockup Mark Plus Wordmark Combined",
+      "nodes": [
+        "logo_horizontal_white",
+        "logo_mark_navy",
+        "logo_textonly_navy"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-horizontal-white.png"
+    },
+    {
+      "id": "white_masterbatch_pellet_photography",
+      "label": "White Masterbatch Pellet Photography Suite",
+      "nodes": [
+        "brand_macro_pour",
+        "brand_white_3d_backlit",
+        "brand_white_black_contrast",
+        "brand_white_flurry",
+        "brand_white_tonal"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/macro-pour.png"
+    },
+    {
+      "id": "masterbatch_product_imagery",
+      "label": "All Masterbatch Product Brand Imagery",
+      "nodes": [
+        "brand_black_tonal",
+        "brand_macro_pour",
+        "brand_pellet_melting_pail_wide",
+        "brand_white_3d_backlit",
+        "brand_white_black_contrast",
+        "brand_white_flurry",
+        "brand_white_tonal"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/brand-assets/black-tonal.png"
+    },
+    {
+      "id": "dark_background_logo_variants",
+      "label": "Dark Background Logo Variants",
+      "nodes": [
+        "apple_icon_logo_mark",
+        "icon_logo_mark",
+        "logo_mark_navy",
+        "logo_mark_navy_svg",
+        "logo_jpg",
+        "logo_textonly_white",
+        "wordmark_white_on_navy_svg"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "public/logo-mark-navy.png"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

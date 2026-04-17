@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { ArrowRight, FlaskConical } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -14,7 +15,7 @@ const PRODUCTS = [
     desc: 'CaCO₃-based filler in PE carrier for blown film, extrusion, and injection moulding. Reduces material costs while maintaining mechanical properties.',
     specs: ['70% · 75% · 80% CaCO₃', 'LDPE · LLDPE · HDPE', 'Blown Film · Cast Film'],
     badge: 'MANUFACTURED',
-    image: '/images/heroes/filler.png',
+    image: '/images/product_cards/filler masterbatch PE.png',
     href: '/fmpe',
     sampleProduct: 'FMPE Series — PE Filler Masterbatch',
   },
@@ -25,7 +26,7 @@ const PRODUCTS = [
     desc: 'CaCO₃-based filler in PP carrier for injection moulding, thermoforming, and raffia. Cost-effective with consistent dispersion.',
     specs: ['70% · 75% · 80% CaCO₃', 'Homo PP · Co-PP', 'Injection · Thermoforming'],
     badge: 'MANUFACTURED',
-    image: '/images/heroes/filler.png',
+    image: '/images/product_cards/FMPP.png',
     href: '/fmpp',
     sampleProduct: 'FMPP Series — PP Filler Masterbatch',
   },
@@ -36,7 +37,7 @@ const PRODUCTS = [
     desc: 'TiO₂-based white concentrates. High opacity, multiple grades including food-contact compliant options.',
     specs: ['PE & PP carriers', 'Food-contact grades', 'High-whiteness'],
     badge: 'DISTRIBUTED',
-    image: '/images/heroes/white.png',
+    image: '/images/product_cards/wmb.png',
     href: '/white-masterbatch',
     sampleProduct: 'White Masterbatch',
   },
@@ -47,7 +48,7 @@ const PRODUCTS = [
     desc: 'Carbon black concentrates with UV-stable grades for pipes, agricultural film, and cable jacketing.',
     specs: ['UV-stable grades', 'Pipe · Cable · Film', 'PE & PP carriers'],
     badge: 'DISTRIBUTED',
-    image: '/images/heroes/black.png',
+    image: '/images/product_cards/blackmasterbatch.png',
     href: '/black-masterbatch',
     sampleProduct: 'Black Masterbatch',
   },
@@ -58,7 +59,7 @@ const PRODUCTS = [
     desc: 'Full-spectrum colour matching — RAL, Pantone, and custom development in PE and PP carriers.',
     specs: ['RAL · Pantone matching', 'Custom development', 'Food-contact grades'],
     badge: 'DISTRIBUTED',
-    image: '/images/heroes/colour.png',
+    image: '/images/product_cards/cmb.png',
     href: '/color-masterbatch',
     sampleProduct: 'Colour Masterbatch',
   },
@@ -69,7 +70,7 @@ const PRODUCTS = [
     desc: 'Functional additive concentrates — UV stabilisers, slip agents, antiblock, antistatic, and processing aids.',
     specs: ['UV · Slip · Antiblock', 'Anti-static · Processing aids', 'PE & PP carriers'],
     badge: 'DISTRIBUTED',
-    image: '/images/heroes/additive.png',
+    image: '/images/product_cards/Additives.png',
     href: '/additive-masterbatch',
     sampleProduct: 'Additive Masterbatch',
   },
@@ -86,6 +87,7 @@ const cardVariants = {
 
 function ProductCard({ p, i }) {
   const isManufactured = p.badge === 'MANUFACTURED'
+  const router = useRouter()
 
   return (
     <Link href={p.href} style={{ display: 'block', textDecoration: 'none' }}>
@@ -137,12 +139,12 @@ function ProductCard({ p, i }) {
         {/* Badge */}
         <span style={{
           position: 'absolute', top: 14, right: 14,
-          fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
-          letterSpacing: '0.1em', textTransform: 'uppercase',
-          padding: '4px 10px', borderRadius: 20, lineHeight: 1,
-          color: isManufactured ? '#D4840A' : '#2B8DD0',
+          fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
+          letterSpacing: '0.08em', textTransform: 'uppercase',
+          padding: '6px 12px', borderRadius: 20, lineHeight: 1,
+          color: '#fff',
           border: `1px solid ${isManufactured ? '#D4840A' : '#2B8DD0'}`,
-          background: isManufactured ? 'rgba(212,132,10,0.12)' : 'rgba(43,141,208,0.12)',
+          background: isManufactured ? '#D4840A' : '#2B8DD0',
         }}>{p.badge}</span>
       </div>
 
@@ -152,24 +154,24 @@ function ProductCard({ p, i }) {
         display: 'flex', flexDirection: 'column', gap: 10, flex: 1,
       }}>
         <span style={{
-          fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
+          fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
           letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
         }}>{p.series}</span>
 
         <h3 style={{
-          fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800,
+          fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800,
           color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2,
         }}>{p.name}</h3>
 
         <p style={{
-          fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
+          fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
         }}>{p.desc}</p>
 
         {/* Specs */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
           {p.specs.map(spec => (
             <span key={spec} style={{
-              fontSize: 11, fontWeight: 600, color: 'rgba(20,27,62,0.55)',
+              fontSize: 12, fontWeight: 600, color: 'rgba(20,27,62,0.55)',
               padding: '4px 10px', border: '1px solid rgba(20,27,62,0.1)',
               borderRadius: 20,
             }}>{spec}</span>
@@ -184,24 +186,25 @@ function ProductCard({ p, i }) {
         }}>
           <span style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
+            fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
             color: '#2B8DD0',
           }}>
             Learn More <ArrowRight size={14} />
           </span>
-          <Link href={`/contact?product=${encodeURIComponent(p.sampleProduct)}`}
-          onClick={e => e.stopPropagation()}
+          <button
+          onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(`/contact?product=${encodeURIComponent(p.sampleProduct)}`) }}
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
+            fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
             color: 'rgba(20,27,62,0.45)', transition: 'color 0.2s',
+            background: 'none', border: 'none', cursor: 'pointer', padding: 0,
           }}
           onMouseEnter={e => e.currentTarget.style.color = '#141B3E'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(20,27,62,0.45)'}
           >
             <FlaskConical size={14} />
             Request Sample
-          </Link>
+          </button>
         </div>
       </div>
     </motion.div>
@@ -223,9 +226,9 @@ export default function Products() {
             initial={{ opacity: 0, y: 16 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
-              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
+              display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12,
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
-              border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
+              border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16,
             }}
           >Product Portfolio</motion.div>
 
@@ -233,7 +236,7 @@ export default function Products() {
             initial={{ opacity: 0, y: 20 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
             style={{
-              fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)',
+              fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
               fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 14, lineHeight: 1.1, color: '#141B3E',
             }}
           >Complete Masterbatch Portfolio</motion.h2>
@@ -241,7 +244,7 @@ export default function Products() {
           <motion.p
             initial={{ opacity: 0, y: 20 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
-            style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
+            style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
             One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.
           </motion.p>

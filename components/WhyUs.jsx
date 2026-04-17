@@ -27,7 +27,7 @@ const VALUE_PROPS = [
 ]
 
 const STATS = [
-  { value: '15,000+', label: 'Tonnes Annual Capacity' },
+  { value: '8,000+', label: 'Tonnes Annual Capacity' },
   { value: '6', label: 'Product Lines' },
   { value: '8', label: 'Industries Served' },
   { value: 'MENA + Europe', label: 'Market Coverage' },

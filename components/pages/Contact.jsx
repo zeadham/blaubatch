@@ -10,7 +10,7 @@ import QuoteForm from '@/components/shared/QuoteForm'
 function ContactForm() {
   const params = useSearchParams()
   const defaultProduct = params.get('product') || undefined
-  return <QuoteForm defaultProduct={defaultProduct} />
+  return <QuoteForm defaultProduct={defaultProduct} collapsible={false} />
 }
 
 export default function ContactPage() {
@@ -20,6 +20,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
+        split
+        bgImage="/images/heroes/contact.webp"
         breadcrumb={{ current: 'Contact' }}
         tag="Get in Touch"
         title="Let's talk"
@@ -41,7 +43,7 @@ export default function ContactPage() {
             animate={sidebarInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 20 }}>Direct Channels</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 20 }}>Direct Channels</div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
               {[
@@ -69,7 +71,7 @@ export default function ContactPage() {
                     <c.icon size={17} color={c.green ? '#1a9e4a' : '#2B8DD0'} strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
                     <div style={{ fontSize: 14, fontWeight: 500, color: c.green ? '#1a9e4a' : '#141B3E' }}>{c.val}</div>
                   </div>
                 </motion.a>
@@ -77,7 +79,7 @@ export default function ContactPage() {
             </div>
 
             <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, padding: '20px', marginBottom: 12 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 14 }}>⏱ Working Hours</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 14 }}>⏱ Working Hours</div>
               <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 2, marginBottom: 4 }}>
                 Saturday – Thursday
               </div>
@@ -93,7 +95,7 @@ export default function ContactPage() {
             </div>
 
             <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, padding: '20px' }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 14 }}>Our Locations</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 14 }}>Our Locations</div>
               {[
                 { label: 'Head Office', addr: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
                 { label: 'Factory', addr: '79, 6th Industrial Zone, 6th of October City, Giza, Egypt', href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
@@ -105,7 +107,7 @@ export default function ContactPage() {
                 >
                   <MapPin size={15} color="rgba(20,27,62,0.35)" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>{l.label}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}>{l.label}</div>
                     <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.6, transition: 'color 0.15s' }}>{l.addr}</div>
                   </div>
                 </a>

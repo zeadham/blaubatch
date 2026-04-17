@@ -128,7 +128,7 @@ export default function Footer() {
             <div key={col.title}>
               <div style={{
                 fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
-                letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)',
+                letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)',
                 marginBottom: 20,
               }}>{col.title}</div>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -159,7 +159,7 @@ export default function Footer() {
             { label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+20102222723' },
           ].map(item => (
             <div key={item.label}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: 6 }}>{item.label}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 6 }}>{item.label}</div>
               <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
@@ -183,7 +183,7 @@ export default function Footer() {
               { label: 'Terms & Conditions', href: '/terms' },
               { label: 'Sitemap', href: '/sitemap' },
             ].map(({ label, href }) => (
-              <a key={label} href={href} style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', transition: 'color 0.15s' }}
+              <a key={label} href={href} style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
               >{label}</a>

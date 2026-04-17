@@ -110,7 +110,7 @@ export default function CTA() {
                 <Icon size={16} color="#2B8DD0" />
               </div>
               <div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.60)', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.60)', marginBottom: 3 }}>{label}</div>
                 <div style={{ fontSize: 12, color: '#141B3E', fontWeight: 500 }}>{val}</div>
               </div>
             </a>

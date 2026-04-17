@@ -1,0 +1,448 @@
+{
+  "nodes": [
+    {
+      "id": "home-new_masterbatch_product_collage",
+      "label": "Home Hero — Masterbatch Product Collage (bottles, pipes, containers, pellets)",
+      "file_type": "image",
+      "source_file": "public/images/heroes/home-new.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "home_blue_pellets_flow",
+      "label": "Home Hero — Blue Pellets Transforming into Fluid Wave",
+      "file_type": "image",
+      "source_file": "public/images/heroes/home.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "home1_mixed_pellets_macro",
+      "label": "Home Hero Alt — Mixed Polymer Pellets Macro Close-up (navy, white, amber)",
+      "file_type": "image",
+      "source_file": "public/images/heroes/home1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "packaging_pet_bottle_pellets",
+      "label": "Packaging Hero — PET Bottle Filled with Transparent Polymer Pellets",
+      "file_type": "image",
+      "source_file": "public/images/heroes/packaging.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "packaging_industry_macro_colored_film",
+      "label": "Packaging Industry Hero — Colorful Translucent Plastic Film Sheets Macro",
+      "file_type": "image",
+      "source_file": "public/images/heroes/packaging_industry_macro_1775089574765.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "pellet_melting_concept_01_chair_explode",
+      "label": "Pellet Melting Concept Cinematic — White Pellets Forming Plastic Chair",
+      "file_type": "image",
+      "source_file": "public/images/heroes/pellet_melting_concept_01_cinematic_1775522066419.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "pellet_melting_concept_02_tube_explode",
+      "label": "Pellet Melting Concept Macro Technical — White Pellets Emerging from Tube",
+      "file_type": "image",
+      "source_file": "public/images/heroes/pellet_melting_concept_02_macro_technical_1775522082742.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "pipes_pellets_pipe_explosion",
+      "label": "Pipes Industry Hero — Pellets Bursting from Pipe Cross-section",
+      "file_type": "image",
+      "source_file": "public/images/heroes/pipes.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "resources_lightbulb_pellets",
+      "label": "Resources Hero — Illuminated Lightbulb Rising from Polymer Pellets",
+      "file_type": "image",
+      "source_file": "public/images/heroes/resources.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "sustainability_leaf_pellets_water",
+      "label": "Sustainability Hero — Green Leaf with Polymer Pellets and Water Splash",
+      "file_type": "image",
+      "source_file": "public/images/heroes/sustainability.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "textiles_yarn_spool_pellets",
+      "label": "Textiles Industry Hero — Colorful Yarn Spool on Machine with Scattered Masterbatch Pellets",
+      "file_type": "image",
+      "source_file": "public/images/heroes/textiles.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "white_white_pellets_macro",
+      "label": "White Masterbatch — Macro Close-up of Pure White Spherical Pellets",
+      "file_type": "image",
+      "source_file": "public/images/heroes/white.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "white_masterbatch_pellets_wave",
+      "label": "White Masterbatch Hero — White Cylindrical Pellets Dissolving into Fluid Wave",
+      "file_type": "image",
+      "source_file": "public/images/heroes/white_masterbatch.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "wire_cable_colored_cables_pellets",
+      "label": "Wire and Cable Hero — Colored MV Cables (red, yellow, black) with Exploding Pellets",
+      "file_type": "image",
+      "source_file": "public/images/heroes/wire_cable.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "wire_cable1_hv_cables_product",
+      "label": "Wire and Cable Alt — High-Voltage Black Insulated Cables with Colored Conductor Tips Product Shot",
+      "file_type": "image",
+      "source_file": "public/images/heroes/wire_cable1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agriculture_green_film_roll_pellets",
+      "label": "Agriculture Industry — Green/Black Agricultural Plastic Film Roll with Exploding Pellets",
+      "file_type": "image",
+      "source_file": "public/images/industries/agriculture.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agriculture1_greenhouse_film_rolls",
+      "label": "Agriculture Industry Alt — UV-Stabilized Greenhouse Film Rolls Product Shot (stacked)",
+      "file_type": "image",
+      "source_file": "public/images/industries/agriculture1.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "automotive_industries_panel_pellets",
+      "label": "Automotive Industry — Navy Blue Plastic Interior Panel (gear selector) Exploding from Pellets",
+      "file_type": "image",
+      "source_file": "public/images/industries/automotive.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "home-new_masterbatch_product_collage",
+      "target": "home_blue_pellets_flow",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/heroes/home-new.jpg",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "home-new_masterbatch_product_collage",
+      "target": "home1_mixed_pellets_macro",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/heroes/home-new.jpg",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "home_blue_pellets_flow",
+      "target": "white_masterbatch_pellets_wave",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/heroes/home.png",
+      "source_location": null,
+      "weight": 0.9
+    },
+    {
+      "source": "packaging_pet_bottle_pellets",
+      "target": "packaging_industry_macro_colored_film",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/heroes/packaging.png",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "pellet_melting_concept_01_chair_explode",
+      "target": "pellet_melting_concept_02_tube_explode",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/heroes/pellet_melting_concept_01_cinematic_1775522066419.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "pellet_melting_concept_01_chair_explode",
+      "target": "home_blue_pellets_flow",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/heroes/pellet_melting_concept_01_cinematic_1775522066419.png",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "pipes_pellets_pipe_explosion",
+      "target": "wire_cable_colored_cables_pellets",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/heroes/pipes.png",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "wire_cable_colored_cables_pellets",
+      "target": "wire_cable1_hv_cables_product",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/heroes/wire_cable.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "white_white_pellets_macro",
+      "target": "white_masterbatch_pellets_wave",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "public/images/heroes/white.png",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "agriculture_green_film_roll_pellets",
+      "target": "agriculture1_greenhouse_film_rolls",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/industries/agriculture.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "sustainability_leaf_pellets_water",
+      "target": "agriculture_green_film_roll_pellets",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/images/heroes/sustainability.png",
+      "source_location": null,
+      "weight": 0.75
+    },
+    {
+      "source": "automotive_industries_panel_pellets",
+      "target": "home-new_masterbatch_product_collage",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/industries/automotive.png",
+      "source_location": null,
+      "weight": 0.8
+    },
+    {
+      "source": "textiles_yarn_spool_pellets",
+      "target": "home-new_masterbatch_product_collage",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/heroes/textiles.png",
+      "source_location": null,
+      "weight": 0.8
+    },
+    {
+      "source": "resources_lightbulb_pellets",
+      "target": "home1_mixed_pellets_macro",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "public/images/heroes/resources.png",
+      "source_location": null,
+      "weight": 0.7
+    },
+    {
+      "source": "agriculture_green_film_roll_pellets",
+      "target": "pipes_pellets_pipe_explosion",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/images/industries/agriculture.png",
+      "source_location": null,
+      "weight": 0.7
+    },
+    {
+      "source": "automotive_industries_panel_pellets",
+      "target": "pellet_melting_concept_01_chair_explode",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/industries/automotive.png",
+      "source_location": null,
+      "weight": 0.8
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "hero_pellet_explosion_visual_theme",
+      "label": "Hero Images — Pellets-Exploding-Into-Product Visual Theme",
+      "nodes": [
+        "home-new_masterbatch_product_collage",
+        "home_blue_pellets_flow",
+        "packaging_pet_bottle_pellets",
+        "pellet_melting_concept_01_chair_explode",
+        "pellet_melting_concept_02_tube_explode",
+        "pipes_pellets_pipe_explosion",
+        "wire_cable_colored_cables_pellets",
+        "white_masterbatch_pellets_wave",
+        "textiles_yarn_spool_pellets",
+        "agriculture_green_film_roll_pellets",
+        "automotive_industries_panel_pellets"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "public/images/heroes/"
+    },
+    {
+      "id": "industry_page_hero_set",
+      "label": "Industry-Specific Hero Image Set",
+      "nodes": [
+        "packaging_pet_bottle_pellets",
+        "packaging_industry_macro_colored_film",
+        "pipes_pellets_pipe_explosion",
+        "wire_cable_colored_cables_pellets",
+        "wire_cable1_hv_cables_product",
+        "textiles_yarn_spool_pellets",
+        "agriculture_green_film_roll_pellets",
+        "agriculture1_greenhouse_film_rolls",
+        "automotive_industries_panel_pellets"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/heroes/"
+    },
+    {
+      "id": "white_masterbatch_product_set",
+      "label": "White Masterbatch Product Visual Set",
+      "nodes": [
+        "white_white_pellets_macro",
+        "white_masterbatch_pellets_wave",
+        "pellet_melting_concept_01_chair_explode",
+        "pellet_melting_concept_02_tube_explode"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/heroes/"
+    },
+    {
+      "id": "home_page_hero_candidates",
+      "label": "Homepage Hero Image Candidates",
+      "nodes": [
+        "home-new_masterbatch_product_collage",
+        "home_blue_pellets_flow",
+        "home1_mixed_pellets_macro"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "public/images/heroes/"
+    },
+    {
+      "id": "agriculture_film_masterbatch_context",
+      "label": "Agriculture Plastic Film with UV/Color Masterbatch Context",
+      "nodes": [
+        "agriculture_green_film_roll_pellets",
+        "agriculture1_greenhouse_film_rolls",
+        "sustainability_leaf_pellets_water"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/industries/agriculture.png"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

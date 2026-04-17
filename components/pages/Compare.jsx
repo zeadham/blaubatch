@@ -17,7 +17,7 @@ const PRODUCTS = [
     carrier: 'PE (LDPE / LLDPE / HDPE)',
     caco3: '70% · 75% · 80%',
     color: '#D4840A',
-    image: '/images/heroes/filler.png',
+    image: '/images/heroes/filler.webp',
     processes: ['Blown Film', 'Cast Film', 'Injection Moulding', 'Extrusion'],
     grades: ['FMPE-70', 'FMPE-75', 'FMPE-80'],
     moq: '1 tonne',
@@ -40,7 +40,7 @@ const PRODUCTS = [
     carrier: 'PP (Homo PP / Co-PP)',
     caco3: '70% · 75% · 80%',
     color: '#D4840A',
-    image: '/images/heroes/filler.png',
+    image: '/images/heroes/filler.webp',
     processes: ['Injection Moulding', 'Thermoforming', 'Raffia / BOPP', 'Extrusion'],
     grades: ['FMPP-70', 'FMPP-75', 'FMPP-80'],
     moq: '1 tonne',
@@ -63,7 +63,7 @@ const PRODUCTS = [
     carrier: 'PE / PP',
     caco3: '—',
     color: '#2B8DD0',
-    image: '/images/heroes/white.png',
+    image: '/images/heroes/white.webp',
     processes: ['Blown Film', 'Injection Moulding', 'Pipe Extrusion', 'Fibre Spinning'],
     grades: ['WMB Standard', 'WMB Food', 'WMB High-Opacity'],
     moq: 'On request',
@@ -86,7 +86,7 @@ const PRODUCTS = [
     carrier: 'PE / PP',
     caco3: '—',
     color: '#2B8DD0',
-    image: '/images/heroes/black.png',
+    image: '/images/heroes/black.webp',
     processes: ['Pipe Extrusion', 'Agricultural Film', 'Cable Jacketing', 'Blown Film'],
     grades: ['BMB Standard', 'BMB UV-Pipe', 'BMB Cable'],
     moq: 'On request',
@@ -109,7 +109,7 @@ const PRODUCTS = [
     carrier: 'PE / PP',
     caco3: '—',
     color: '#2B8DD0',
-    image: '/images/heroes/colour.png',
+    image: '/images/heroes/colour.webp',
     processes: ['Injection Moulding', 'Blown Film', 'Pipe Extrusion', 'Fibre Spinning'],
     grades: ['RAL Standard', 'Pantone Match', 'Custom Development'],
     moq: 'On request',
@@ -132,7 +132,7 @@ const PRODUCTS = [
     carrier: 'PE / PP',
     caco3: '—',
     color: '#2B8DD0',
-    image: '/images/heroes/additive.png',
+    image: '/images/heroes/additive_masterbatch.webp',
     processes: ['All Processes', 'Film', 'Injection', 'Fibre'],
     grades: ['UV Stabiliser', 'Slip / Antiblock', 'Anti-static', 'Processing Aid'],
     moq: 'On request',
@@ -203,7 +203,7 @@ export default function ComparePage() {
 
   return (
     <>
-      <div style={{ minHeight: '100vh', background: '#F7F8FC', paddingTop: 68 }}>
+      <div style={{ minHeight: '100vh', background: '#F7F8FC', paddingTop: 88 }}>
 
         {/* Page Header */}
         <div style={{ background: '#fff', borderBottom: '1px solid rgba(20,27,62,0.07)', padding: '52px 48px 44px' }}>
@@ -213,9 +213,9 @@ export default function ComparePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               style={{
-                display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
+                display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12,
                 fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
-                border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
+                border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16,
               }}
             >Product Comparison</motion.div>
 

@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: 'Wire & Cable',
     badge: 'WIRE & CABLE INDUSTRY',
     accentColor: '#F59E0B',
-    bgImage: '/images/industries/wire_cable.png',
+    bgImage: '/images/heroes/wire_cable.webp',
     sub: 'Carbon black, flame retardant, and anti-static masterbatch for cable jacketing, insulation compounds, electrical conduit, and armoured cable sheathing — engineered for IEC and low-halogen compliance.',
   },
   applications: {

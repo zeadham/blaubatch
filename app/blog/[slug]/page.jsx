@@ -7,7 +7,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
-  const article = getArticleBySlug(params.slug)
+  const { slug } = await params
+  const article = getArticleBySlug(slug)
   if (!article) return {}
   return {
     title: article.title,
@@ -52,8 +53,9 @@ function buildArticleJsonLd(article) {
   }
 }
 
-export default function BlogArticlePage({ params }) {
-  const article = getArticleBySlug(params.slug)
+export default async function BlogArticlePage({ params }) {
+  const { slug } = await params
+  const article = getArticleBySlug(slug)
   if (!article) notFound()
   return (
     <>

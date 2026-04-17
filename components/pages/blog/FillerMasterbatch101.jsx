@@ -70,7 +70,7 @@ export default function FillerMasterbatch101() {
               <ArrowLeft size={13} /> Blog
             </Link>
 
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>
               Masterbatch Basics
             </div>
 
@@ -162,7 +162,7 @@ export default function FillerMasterbatch101() {
       {/* Related post */}
       <section style={{ background: '#F7F8FC', padding: '48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
-          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 16 }}>Related Reading</p>
+          <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 16 }}>Related Reading</p>
           <Link href="/blog/sustainable-plastics-masterbatch" style={{
             display: 'block', padding: '24px 28px',
             background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)',

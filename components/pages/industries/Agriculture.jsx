@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: 'Agriculture',
     badge: 'AGRICULTURE INDUSTRY',
     accentColor: '#22C55E',
-    bgImage: '/images/industries/agriculture.png',
+    bgImage: '/images/heroes/agriculture.webp',
     sub: 'UV-stabilised and carbon-black masterbatch for mulch film, greenhouse covering, silage wrap, drip irrigation tubing, and shade netting — formulated for MENA and Mediterranean growing conditions.',
   },
   applications: {

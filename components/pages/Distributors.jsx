@@ -206,6 +206,8 @@ export default function DistributorsPage() {
   return (
     <>
       <PageHero
+        split
+        bgImage="/images/heroes/distributors.webp"
         breadcrumb={{ current: 'Distributors' }}
         tag="Where We Operate"
         title="MENA Distribution"
@@ -222,7 +224,7 @@ export default function DistributorsPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
             >Regional Coverage</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
@@ -270,7 +272,7 @@ export default function DistributorsPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'start' }}>
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
             >Our Supply Partner</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}
@@ -279,7 +281,7 @@ export default function DistributorsPage() {
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8 }}>European customers sourcing Coraplast products can be connected directly. Contact us with your product requirements and region.</p>
           </div>
           <div>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 18 }}>Coraplast European Markets</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 18 }}>Coraplast European Markets</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 8 }}>
               {CORAPLAST_MARKETS.map(m => (
                 <div key={m} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: '#F7F8FC', borderRadius: 8, border: '1px solid rgba(20,27,62,0.07)' }}>
@@ -302,12 +304,12 @@ export default function DistributorsPage() {
 
           {/* Left info */}
           <div>
-            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '4px 10px', marginBottom: 16 }}>Apply Now</div>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Apply Now</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, color: '#141B3E' }}>Tell us about your business.</h2>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75, marginBottom: 24 }}>We review every application personally. You'll hear from us within 48 business hours. No automated rejection emails — if we're not the right fit, we'll tell you why.</p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10, padding: '20px', marginBottom: 16 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Our commitment to you</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Our commitment to you</div>
               {['Response within 48 business hours', 'Honest feedback even if we pass', 'Your information stays confidential', 'No pushy sales follow-up'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 10, fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>
                   <CheckCircle2 size={14} color="#22C55E" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: 2 }} />

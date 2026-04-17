@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const DEFAULT_PRODUCTS = [
   { name: 'FMPE Series', sub: 'PE Carrier · 70–80% CaCO₃', value: 'FMPE Series — PE Filler Masterbatch' },
@@ -84,8 +84,24 @@ export default function QuoteForm({
   applications = DEFAULT_APPLICATIONS,
   step1Title = 'Request a Quote',
   step1Sub = 'Fill in the form below and we\'ll respond within 24 hours.',
+  collapsible = true,
+  defaultOpen = false,
 }) {
+  const [open, setOpen] = useState(defaultOpen)
   const [done, setDone] = useState(false)
+
+  // Auto-open when navigated to via #quote-form hash
+  useEffect(() => {
+    if (!collapsible) return
+    const check = () => {
+      if (window.location.hash === '#quote-form') {
+        setOpen(true)
+      }
+    }
+    check()
+    window.addEventListener('hashchange', check)
+    return () => window.removeEventListener('hashchange', check)
+  }, [collapsible])
   const [product, setProduct] = useState(defaultProduct || products[0]?.value || '')
   const [form, setForm] = useState({
     grade: '', application: '',
@@ -183,17 +199,61 @@ export default function QuoteForm({
   }
 
   return (
-    <div ref={formRef} style={{
+    <div id="quote-form" ref={formRef} style={{
       background: '#fff',
       border: '1px solid rgba(20,27,62,0.1)',
       borderRadius: 16, overflow: 'hidden',
       boxShadow: '0 4px 32px rgba(20,27,62,0.08)',
     }}>
-      <div style={{ padding: '32px 36px 28px', borderBottom: '1px solid rgba(20,27,62,0.07)', background: '#FAFAFC' }}>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{step1Title}</div>
-        <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.5)' }}>{step1Sub}</p>
+      {/* Header — always visible, acts as toggle when collapsible */}
+      <div
+        onClick={() => collapsible && setOpen(o => !o)}
+        style={{
+          padding: '28px 36px',
+          borderBottom: (collapsible && !open) ? 'none' : '1px solid rgba(20,27,62,0.07)',
+          background: '#FAFAFC',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          cursor: collapsible ? 'pointer' : 'default',
+          userSelect: 'none',
+          transition: 'background 0.2s',
+        }}
+        onMouseEnter={e => collapsible && (e.currentTarget.style.background = '#F3F4F8')}
+        onMouseLeave={e => collapsible && (e.currentTarget.style.background = '#FAFAFC')}
+      >
+        <div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{step1Title}</div>
+          <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.5)', margin: 0 }}>
+            {collapsible && !open ? 'Click to open the quote form · 24h response' : step1Sub}
+          </p>
+        </div>
+        {collapsible && (
+          <motion.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            style={{
+              width: 36, height: 36, borderRadius: '50%', flexShrink: 0,
+              background: open ? '#2B8DD0' : 'rgba(43,141,208,0.1)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              marginLeft: 16,
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 5L7 9L11 5" stroke={open ? '#fff' : '#2B8DD0'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </motion.div>
+        )}
       </div>
 
+      <AnimatePresence initial={false}>
+        {(!collapsible || open) && (
+          <motion.div
+            key="form-body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            style={{ overflow: 'hidden' }}
+          >
       <div style={{ padding: '32px 36px', display: 'flex', flexDirection: 'column', gap: 32 }}>
 
         {/* Product selection */}
@@ -291,6 +351,9 @@ export default function QuoteForm({
           </p>
         </div>
       </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style>{`
         input::placeholder, textarea::placeholder { color: rgba(20,27,62,0.3); }

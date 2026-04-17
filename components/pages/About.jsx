@@ -8,10 +8,11 @@ import PageHero from '@/components/shared/PageHero'
 
 
 const STATS = [
-  { val: '85%', label: 'Max CaCO₃ Loading', sub: 'FMPE & FMPP Series' },
-  { val: '24h', label: 'Quote Response Time', sub: 'For qualified enquiries' },
-  { val: '6+', label: 'Product Lines', sub: 'Manufactured & distributed' },
-  { val: 'MENA', label: 'Primary Market', sub: 'Egypt · Gulf · Levant' },
+  { val: '8,000+', label: 'Annual Capacity', sub: 'Tonnes manufactured' },
+  { val: '1', label: 'Supplier', sub: 'Full masterbatch spectrum' },
+  { val: '24h', label: 'Turnaround', sub: 'Quote to confirmation' },
+  { val: 'Custom', label: 'Colour Matching & Formulation', sub: 'RAL · Pantone · Bespoke' },
+  { val: '∞', label: 'Support', sub: 'Pre & post-sales' },
 ]
 
 const PILLARS = [
@@ -22,10 +23,10 @@ const PILLARS = [
 ]
 
 const TIMELINE = [
-  { year: 'Founded', event: 'Blau Batch established in 6th of October City, Egypt — focusing on PE filler masterbatch production for the regional film and packaging sector.' },
-  { year: 'Manufacturing', event: 'In-house compounding line commissioned. FMPE Series (70–80% CaCO₃) introduced — positioned as a domestic alternative to imported filler masterbatch.' },
+  { year: 'Founded · 2023', event: 'Blau Batch established in 6th of October City, Egypt — focusing on PE filler masterbatch production for the regional film and packaging sector.' },
+  { year: 'Manufacturing', event: 'In-house compounding line commissioned. FMPE and FMPP Series (70–80% CaCO₃) both launched from day one — covering PE and PP carrier systems for film, raffia, and injection moulding applications.' },
   { year: 'Distribution', event: 'Partnership established with Coraplast for regional distribution of white, black, colour, and additive masterbatch product lines across MENA.' },
-  { year: 'Expansion', event: 'FMPP Series (PP carrier) launched to serve raffia, non-woven, and BOPP film producers. Product portfolio now covers PE and PP across all major applications.' },
+  { year: 'Expansion', event: 'Customer base extended into Gulf Cooperation Council markets and the Levant. Export logistics established to serve clients across Egypt, Saudi Arabia, UAE, and Jordan.' },
   { year: 'Today', event: 'Serving plastic manufacturers across Egypt, Gulf Cooperation Council markets, and the Levant — with ambitions to expand into European distribution channels.' },
 ]
 
@@ -40,11 +41,14 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
+        split
         breadcrumb={{ current: 'About' }}
         tag="Our Story"
         title="Masterbatch, Made"
         titleAccent="to a Higher Standard"
+        badgeColor="#2B8DD0"
         sub="Egyptian masterbatch manufacturer and regional distributor. We produce filler masterbatch in-house and bring the full Coraplast range to plastics producers across MENA and Europe."
+        bgImage="/images/heroes/about.webp"
         cta={{
           primary: { label: 'View Our Products', href: '/#products' },
           secondary: { label: 'Contact Us', href: '/contact' },
@@ -53,7 +57,7 @@ export default function AboutPage() {
 
       {/* Stats bar */}
       <section style={{ background: '#FFFFFF', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '48px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 0 }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 0 }}>
           {STATS.map((s, i) => (
             <div key={s.label} style={{ textAlign: 'center', padding: '16px 24px', borderRight: i < STATS.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>
@@ -69,7 +73,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
             >How We Operate</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
@@ -100,7 +104,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 72, alignItems: 'start' }}>
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
             >Our Journey</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 18, lineHeight: 1.1, color: '#141B3E' }}
@@ -128,12 +132,64 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Mission & Vision */}
+      <section style={{ background: '#ffffff', padding: '88px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Purpose</div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#141B3E' }}>Mission & Vision</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+
+            {/* Mission */}
+            <div style={{ background: '#F3F8FE', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 20, padding: '40px 36px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: -20, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(43,141,208,0.06)' }} />
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 12, background: '#2B8DD0', marginBottom: 24 }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Our Mission</div>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
+                One Partner for Every Grade Your Production Needs
+              </h3>
+              <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
+                To be the most reliable masterbatch partner for plastics processors across MENA and Europe — delivering consistent quality, technical expertise, and the full product spectrum through a single, accountable relationship.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div style={{ background: '#FEF9F5', border: '1px solid rgba(212,132,10,0.15)', borderRadius: 20, padding: '40px 36px', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: -20, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(212,132,10,0.06)' }} />
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 12, background: '#D4840A', marginBottom: 24 }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Our Vision</div>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
+                The Reference Masterbatch Supplier in the MENA Region
+              </h3>
+              <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
+                To grow into the region's reference manufacturer and distributor — recognised not just for product range, but for technical depth, supply reliability, and the long-term partnerships we build with processors at every scale.
+              </p>
+            </div>
+
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 768px) {
+            #mv-grid { grid-template-columns: 1fr !important; }
+          }
+        `}</style>
+      </section>
+
       {/* Values */}
       <section style={{ background: '#F7F8FC', padding: '88px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div ref={ref3} style={{ textAlign: 'center', marginBottom: 56 }}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
-              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}
+              style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
             >What We Stand For</motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#141B3E' }}
@@ -161,7 +217,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section style={{ background: '#F7F8FC', padding: '80px 48px', borderTop: '1px solid rgba(20,27,62,0.08)', textAlign: 'center' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}>Work With Us</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}>Work With Us</div>
           <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}>Ready to discuss your requirements?</h2>
           <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}>Tell us about your process, your polymer, and your target application. We'll respond within 24 hours.</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>

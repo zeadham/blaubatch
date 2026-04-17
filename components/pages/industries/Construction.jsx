@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: '& Civil Engineering',
     badge: 'CONSTRUCTION INDUSTRY',
     accentColor: '#2B8DD0',
-    bgImage: '/images/industries/construction.png',
+    bgImage: '/images/heroes/construction.webp',
     sub: 'Black, filler, and additive masterbatch for geomembranes, waterproofing sheets, drainage boards, geotextiles, and HDPE civil engineering applications — UV-stable grades for demanding outdoor service environments.',
   },
   applications: {

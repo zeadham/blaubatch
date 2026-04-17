@@ -1,0 +1,111 @@
+AGENTS.md
+CLAUDE.md
+README.md
+docs\PLAN.md
+graphify-out\GRAPH_REPORT.md
+public\robots.txt
+public\downloads\white-tds\WHITE 175 FF - TDS.pdf
+public\downloads\white-tds\WHITE 220 FF - TDS.pdf
+public\downloads\white-tds\WHITE 224 FF - TDS.pdf
+public\downloads\white-tds\WHITE 304 FF - TDS.pdf
+public\downloads\white-tds\WHITE 309 FF - TDS.pdf
+public\downloads\white-tds\WHITE 313 FF - TDS.pdf
+public\downloads\white-tds\WHITE 356 FF - TDS.pdf
+public\downloads\white-tds\WHITE 491 MD - TDS.pdf
+public\downloads\white-tds\WHITE 57 FF - TDS.pdf
+public\downloads\white-tds\WHITE 71 FE - TDS.pdf
+public\downloads\white-tds\WHITE 71 FF - TDS.pdf
+app\apple-icon.png
+app\icon.png
+public\favicon.svg
+public\logo-horizontal-white.png
+public\logo-mark-navy.png
+public\logo-mark-navy.svg
+public\logo-mark.png
+public\logo-textonly-navy.png
+public\logo-textonly-white.png
+public\logo.jpg
+public\wordmark-navy.svg
+public\wordmark-white-on-navy.svg
+public\images\brand-assets\black-tonal.png
+public\images\brand-assets\macro-pour.png
+public\images\brand-assets\pellet_melting_realistic_hero_04_pail_wide_1775522404300.png
+public\images\brand-assets\white-3d-backlit.png
+public\images\brand-assets\white-black-contrast.png
+public\images\brand-assets\white-flurry.png
+public\images\brand-assets\white-tonal.png
+public\images\brand-assets\hero\hero-masterbatch-white.png
+public\images\heroes\about.jpeg
+public\images\heroes\additive.png
+public\images\heroes\additive_masterbatch.png
+public\images\heroes\agriculture.png
+public\images\heroes\automotive.png
+public\images\heroes\black.png
+public\images\heroes\black_masterbatch.png
+public\images\heroes\Color_masterbatch.png
+public\images\heroes\colour.png
+public\images\heroes\construction.png
+public\images\heroes\consumer_goods.png
+public\images\heroes\contact.png
+public\images\heroes\contact1.png
+public\images\heroes\distributors.png
+public\images\heroes\distributors1.jpeg
+public\images\heroes\filler.png
+public\images\heroes\FMPE.png
+public\images\heroes\FMPP.png
+public\images\heroes\home-new.jpg
+public\images\heroes\home.png
+public\images\heroes\home.webp
+public\images\heroes\home1.png
+public\images\heroes\packaging.png
+public\images\heroes\packaging_industry_macro_1775089574765.png
+public\images\heroes\pellet_melting_concept_01_cinematic_1775522066419.png
+public\images\heroes\pellet_melting_concept_02_macro_technical_1775522082742.png
+public\images\heroes\pipes.png
+public\images\heroes\resources.png
+public\images\heroes\sustainability.png
+public\images\heroes\textiles.png
+public\images\heroes\white.png
+public\images\heroes\white_masterbatch.png
+public\images\heroes\wire_cable.png
+public\images\heroes\wire_cable1.png
+public\images\industries\agriculture.png
+public\images\industries\agriculture1.png
+public\images\industries\automotive.png
+public\images\industries\automotive1.png
+public\images\industries\construction.png
+public\images\industries\consumer_goods.png
+public\images\industries\consumer_goods1.png
+public\images\industries\packaging.png
+public\images\industries\packaging1.png
+public\images\industries\packaging_industry_macro_1775089574765.png
+public\images\industries\pipes.png
+public\images\industries\pipes1.png
+public\images\industries\textiles.png
+public\images\industries\textiles1.png
+public\images\industries\wire_cable.png
+public\images\industries cards\agriculture.png
+public\images\industries cards\automotive.png
+public\images\industries cards\construction.png
+public\images\industries cards\consumer_good.png
+public\images\industries cards\consumer_goods1.png
+public\images\industries cards\consumer_goods2.png
+public\images\industries cards\industry_textiles_v2_wide_1776217758652.png
+public\images\industries cards\packaging.png
+public\images\industries cards\packaging1.png
+public\images\industries cards\packaging__.png
+public\images\industries cards\pipes.png
+public\images\industries cards\pipes2.png
+public\images\industries cards\textiles.png
+public\images\industries cards\textiles2.png
+public\images\industries cards\wire_cable.png
+public\images\product_cards\Additives.png
+public\images\product_cards\blackmasterbatch.png
+public\images\product_cards\cmb.png
+public\images\product_cards\colored-masterbatchss.png
+public\images\product_cards\filler masterbatch PE.png
+public\images\product_cards\FMPP.png
+public\images\product_cards\Gemini_Generated_Image_1r40571r40571r40.png
+public\images\product_cards\Gemini_Generated_Image_caa4a8caa4a8caa4.png
+public\images\product_cards\white-masterbatch1.png
+public\images\product_cards\wmb.png

@@ -78,15 +78,15 @@ export default function IsoBadges({ certNumber = '[CERT-TBD]', issuer = 'Corapla
         paddingTop: 16, borderTop: '1px solid rgba(20,27,62,0.07)',
       }}>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Certificate No.</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Certificate No.</div>
           <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{certNumber}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Issuing Body</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Issuing Body</div>
           <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{issuer}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Scope</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Scope</div>
           <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>Manufacture and distribution of masterbatch concentrates</div>
         </div>
       </div>

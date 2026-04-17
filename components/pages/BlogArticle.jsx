@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar, ArrowRight } from 'lucide-react'
 import { ARTICLES } from '@/lib/blog-articles'
+import ShareButtons from '@/components/shared/ShareButtons'
 
 function renderBlock(block, i) {
   switch (block.type) {
@@ -114,15 +115,18 @@ export default function BlogArticle({ article }) {
             marginBottom: 32, maxWidth: 640,
           }}>{article.desc}</p>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
-              <Calendar size={13} />
-              {article.date}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
+                <Calendar size={13} />
+                {article.date}
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
+                <Clock size={13} />
+                {article.readTime}
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
-              <Clock size={13} />
-              {article.readTime}
-            </div>
+            <ShareButtons title={article.title} dark />
           </div>
         </div>
       </section>
@@ -131,6 +135,18 @@ export default function BlogArticle({ article }) {
       <section style={{ background: '#FFFFFF', padding: '64px 48px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           {article.content.map((block, i) => renderBlock(block, i))}
+
+          {/* Share */}
+          <div style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            flexWrap: 'wrap', gap: 12,
+            marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(20,27,62,0.08)',
+          }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600, color: 'rgba(20,27,62,0.5)' }}>
+              Found this useful? Share it with your team.
+            </span>
+            <ShareButtons title={article.title} />
+          </div>
 
           {/* CTA */}
           <div style={{
@@ -177,7 +193,7 @@ export default function BlogArticle({ article }) {
       {otherArticles.length > 0 && (
         <section style={{ background: '#F7F8FC', padding: '64px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 8 }}>More Articles</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 8 }}>More Articles</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 900, color: '#141B3E', marginBottom: 32, letterSpacing: '-0.02em' }}>Continue Reading</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
               {otherArticles.map(a => (

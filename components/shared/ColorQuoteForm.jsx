@@ -145,7 +145,7 @@ export default function ColorQuoteForm() {
 
         {/* Colour needs */}
         <div style={{ marginBottom: 20, paddingBottom: 20, borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Colour Needs</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Colour Needs</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
               <label style={labelStyle}>Carrier Resin</label>
@@ -171,7 +171,7 @@ export default function ColorQuoteForm() {
 
         {/* Volume & requirements */}
         <div style={{ marginBottom: 20, paddingBottom: 20, borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Volume & Requirements</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Volume & Requirements</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
               <label style={labelStyle}>Estimated Monthly Volume</label>
@@ -200,7 +200,7 @@ export default function ColorQuoteForm() {
 
         {/* Contact details */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Contact Details</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Contact Details</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
               <label style={labelStyle}>Full Name <span style={{ color: '#2B8DD0' }}>*</span></label>

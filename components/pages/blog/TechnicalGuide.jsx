@@ -12,7 +12,7 @@ export default function TechnicalGuide() {
       badgeColor="#141B3E"
       date="April 2026"
       readTime="6 min read"
-      heroImage="/images/heroes/technical_morph.png"
+      heroImage="/images/heroes/technical_blog.webp"
       seo={{
         title: 'Filler Masterbatch Technical Guide CaCO3 Egypt | Blau Batch',
         description: 'Understand the technical foundations of filler masterbatch. Mineral loading percentages, carrier resin selection, and dispersion explained by technical experts.',

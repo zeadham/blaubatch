@@ -75,7 +75,8 @@ export default function SustainabilityPage() {
         title="Responsible Masterbatch"
         titleAccent="For a Circular Economy"
         sub="European and global buyers increasingly require verifiable ESG commitments. Blau Batch delivers fully compliant, recyclable masterbatch formulations backed by certified environmental management practices."
-        bgGradient="linear-gradient(135deg, rgba(2,20,8,0.9) 0%, rgba(10,64,32,0.85) 50%, rgba(5,40,16,0.9) 100%)"
+        split
+        bgImage="/images/heroes/sustainability.webp"
         cta={{
           primary: { label: 'Request Compliance Docs', href: '/contact#quote-form' },
           secondary: { label: 'View Certifications', href: '#compliance' },
@@ -116,7 +117,7 @@ export default function SustainabilityPage() {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 52 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Our Approach</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Our Approach</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, color: '#141B3E' }}>Three Pillars of Responsible Production</h2>
               <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}>
                 Our environmental programme covers the full production lifecycle — from raw material selection through manufacturing, packaging, and end-of-life recyclability of the final plastic article.
@@ -169,7 +170,7 @@ export default function SustainabilityPage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6 }}
             >
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>For European Buyers</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>For European Buyers</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.8vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, color: '#141B3E', lineHeight: 1.15 }}>ESG Compliance You Can Document</h2>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 24 }}>
                 European importers face increasing pressure under the CSRD, REACH, and packaging regulations. We supply full compliance documentation with every shipment — CoA, TDS, SVHC declarations, and material safety data — so your procurement and ESG teams can close quickly.
@@ -202,7 +203,7 @@ export default function SustainabilityPage() {
                 borderRadius: 20, padding: '36px 32px',
               }}
             >
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 20 }}>Recyclable Grades at a Glance</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 20 }}>Recyclable Grades at a Glance</div>
               {[
                 { grade: 'FMPE / FMPP Series', note: 'CaCO₃ filler — compatible with PE/PP mechanical recycling streams', tag: 'RECYCLABLE' },
                 { grade: 'WMB-PE / WMB-PP', note: 'TiO₂ white — stays in polymer matrix during recycling; sortation compatible', tag: 'RECYCLABLE' },
@@ -242,7 +243,7 @@ export default function SustainabilityPage() {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Standards & Certifications</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Standards & Certifications</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>What We Can Document</h2>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Full compliance packs are available on request. Contact us with your specific standard or regulatory requirement.</p>
             </div>
@@ -278,7 +279,7 @@ export default function SustainabilityPage() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Get Compliance Documentation</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>Get Compliance Documentation</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.15 }}>Need ESG, REACH, or Food-Contact Docs?</h2>
             <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}>
               Tell us your grade, volume, and compliance requirement — we'll send the full documentation pack within 48 hours.

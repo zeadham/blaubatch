@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: '& Technical Moulding',
     badge: 'AUTOMOTIVE INDUSTRY',
     accentColor: '#EF4444',
-    bgImage: '/images/industries/automotive.png',
+    bgImage: '/images/heroes/automotive.webp',
     sub: 'Colour, additive, and filler masterbatch for automotive interior trim, under-hood technical components, injection-moulded housings, and PP/ABS technical parts — heat-stable formulations for demanding processing conditions.',
   },
   applications: {

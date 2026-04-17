@@ -12,7 +12,7 @@ export default function CoraplastPartnership() {
       badgeColor="#D4840A"
       date="April 2026"
       readTime="3 min read"
-      heroImage="/images/heroes/coraplast_morph.png"
+      heroImage="/images/heroes/coraplast_morph.webp"
       seo={{
         title: 'Coraplast Authorized Distributor MENA & Europe | Blau Batch',
         description: 'Blau Batch is now an authorized distributor for Coraplast Industries, bringing premium Black, White, Color, and Additive masterbatch to our regional customers.',

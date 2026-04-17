@@ -12,7 +12,7 @@ export default function FMPEProductSpotlight() {
       badgeColor="#2B8DD0"
       date="April 2026"
       readTime="4 min read"
-      heroImage="/images/heroes/fmpe_morph.png"
+      heroImage="/images/heroes/fmpe_morph.webp"
       seo={{
         title: 'FMPE Filler Masterbatch PE Egypt | Blau Batch',
         description: 'Explore the FMPE series from Blau Batch. Premium polyethylene filler masterbatch with 70–80% CaCO₃ loading for thin films, bags, and industrial packaging.',

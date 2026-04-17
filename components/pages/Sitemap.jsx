@@ -62,7 +62,7 @@ export default function SitemapPage() {
     <>
       <section style={{ background: '#F7F8FC', padding: '80px 48px 40px', borderBottom: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Navigation</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>Navigation</div>
           <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 12, lineHeight: 1.1 }}>Sitemap</h1>
           <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)', lineHeight: 1.8 }}>A complete index of all pages on blaubatch.com</p>
         </div>

@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: 'Fittings & Profiles',
     badge: 'PIPE INDUSTRY',
     accentColor: '#D4840A',
-    bgImage: '/images/industries/pipes.png',
+    bgImage: '/images/heroes/pipes.webp',
     sub: 'Black, white, and filler masterbatch for HDPE pressure pipe (PE100), PPR hot water systems, PVC drainage, corrugated conduit, and irrigation tubing — with full PE100 compliance documentation.',
   },
   applications: {

@@ -60,27 +60,33 @@ export default function Navbar() {
     <>
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 500,
-        height: 68,
+        height: 88,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 96px',
+        padding: '0 48px',
         background: navBg,
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
         borderBottom: navBorder,
         transition: 'all 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+        overflow: 'visible',
       }}>
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
-          <img src="/logo-mark-navy.svg" alt="Blau Batch" style={{ height: 44, width: 'auto' }} />
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0, overflow: 'visible' }}>
+          <div style={{ width: 52, height: 52, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/logo-mark-navy.svg" alt="Blau Batch" style={{ height: 44, width: 39, display: 'block' }} />
+          </div>
           <span style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 800,
-            fontSize: 14, color: '#141B3E',
+            fontSize: 18, color: '#141B3E',
             letterSpacing: '0.05em', textTransform: 'uppercase', lineHeight: 1,
           }}>BLAU BATCH</span>
         </Link>
 
         {/* Desktop Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 2 }} className="nav-desktop">
+        <div style={{
+          position: 'absolute', left: '50%', transform: 'translateX(-50%)',
+          display: 'flex', alignItems: 'center', gap: 2,
+        }} className="nav-desktop">
 
           {/* Products — Mega Menu */}
           <div
@@ -95,7 +101,7 @@ export default function Navbar() {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 4,
                 padding: '8px 14px', background: 'none', border: 'none', cursor: 'pointer',
-                fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 600,
+                fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
                 letterSpacing: '0.02em', textTransform: 'uppercase',
                 color: linkColor, borderRadius: 6, transition: 'all 0.2s',
               }}
@@ -199,7 +205,7 @@ export default function Navbar() {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 4,
                 padding: '8px 14px', background: 'none', border: 'none', cursor: 'pointer',
-                fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 600,
+                fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
                 letterSpacing: '0.02em', textTransform: 'uppercase',
                 color: linkColor, borderRadius: 6, transition: 'all 0.2s',
               }}
@@ -266,7 +272,7 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <a href="/contact#quote-form" style={{
             padding: '8px 20px', background: '#2B8DD0', color: '#fff',
-            borderRadius: 20, fontFamily: 'Inter, sans-serif', fontSize: 11,
+            borderRadius: 20, fontFamily: 'Inter, sans-serif', fontSize: 12,
             fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
             transition: 'all 0.2s', whiteSpace: 'nowrap',
           }}
@@ -295,7 +301,7 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             style={{
-              position: 'fixed', top: 68, left: 0, right: 0, bottom: 0, zIndex: 499,
+              position: 'fixed', top: 88, left: 0, right: 0, bottom: 0, zIndex: 499,
               background: '#fff', overflowY: 'auto',
             }}
           >

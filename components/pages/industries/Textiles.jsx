@@ -8,7 +8,7 @@ const CONFIG = {
     titleAccent: 'Textiles & Fibre',
     badge: 'TEXTILES INDUSTRY',
     accentColor: '#A855F7',
-    bgImage: '/images/industries/textiles.png',
+    bgImage: '/images/heroes/textiles.webp',
     sub: 'Colour, white, filler, and anti-static masterbatch for PP non-woven, filament yarn, staple fibre, geotextiles, and spunbond fabric — formulated for fibre-spinning and fine-denier applications.',
   },
   applications: {

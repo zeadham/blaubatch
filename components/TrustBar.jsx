@@ -19,7 +19,7 @@ export default function TrustBar() {
       background: '#EEF4FA',
       borderTop: '1px solid rgba(20,27,62,0.1)',
       borderBottom: '1px solid rgba(20,27,62,0.1)',
-      padding: '14px 0',
+      padding: '18px 0',
       overflow: 'hidden',
       position: 'relative',
     }}>
@@ -32,8 +32,8 @@ export default function TrustBar() {
           <span key={i} style={{
             display: 'inline-flex', alignItems: 'center', gap: 6,
             padding: '0 24px',
-            fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
-            letterSpacing: '0.05em', color: 'rgba(20,27,62,0.6)',
+            fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
+            letterSpacing: '0.05em', color: 'rgba(20,27,62,0.65)',
             borderRight: '1px solid rgba(20,27,62,0.08)',
           }}>
             {pill}

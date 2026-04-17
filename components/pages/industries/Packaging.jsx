@@ -8,7 +8,8 @@ const CONFIG = {
     titleAccent: '& Flexible Film',
     badge: 'PACKAGING INDUSTRY',
     accentColor: '#2B8DD0',
-    bgImage: '/images/industries/packaging.png',
+    bgImage: '/images/heroes/packaging.webp',
+    textPercent: 40,
     sub: "Egypt's most demanded flexible film and packaging grades — filler, colour, white, and performance additives engineered for blown film, cast film, BOPP, and multilayer structures.",
   },
   applications: {

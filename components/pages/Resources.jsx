@@ -159,7 +159,7 @@ function DocRequestForm({ selected, onDeselect }) {
   return (
     <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 32px rgba(20,27,62,0.06)' }}>
       <div style={{ padding: '28px 32px', borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 8 }}>Selected Documents</div>
+        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 8 }}>Selected Documents</div>
         {selected.length === 0 ? (
           <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.4)', fontStyle: 'italic' }}>No documents selected — tick the cards above to add them here.</p>
         ) : (
@@ -176,7 +176,7 @@ function DocRequestForm({ selected, onDeselect }) {
       </div>
 
       <div style={{ padding: '28px 32px' }}>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Your Details</div>
+        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Your Details</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
           <div>
             <label style={labelStyle}>Full Name <span style={{ color: '#2B8DD0' }}>*</span></label>
@@ -236,6 +236,8 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
+        split
+        bgImage="/images/heroes/resources.webp"
         breadcrumb={{ current: 'Resources' }}
         tag="Technical Library"
         title="Product Documents,"
@@ -255,7 +257,7 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <FileText size={14} color="#2B8DD0" />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Technical Documents</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Technical Documents</span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, lineHeight: 1.1, color: '#141B3E' }}
@@ -318,7 +320,7 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <HelpCircle size={14} color="#D4840A" />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A' }}>FAQ</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A' }}>FAQ</span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}
@@ -340,7 +342,7 @@ export default function ResourcesPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
             <BookOpen size={14} color="#2B8DD0" />
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Terminology</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Terminology</span>
           </div>
           <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}>Masterbatch Glossary</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 0 }}>
@@ -358,7 +360,7 @@ export default function ResourcesPage() {
       <section style={{ background: '#F7F8FC', padding: '88px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 48 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16 }}>Technical Blog</div>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Technical Blog</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Technical Articles</h2>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}>In-depth guides on masterbatch selection, processing, and applications — written by our compounding team for plastics engineers and procurement professionals.</p>
           </div>

@@ -32,6 +32,8 @@ export default function IndustryPage({ config }) {
         titleAccent={hero.titleAccent}
         sub={hero.sub}
         bgImage={hero.bgImage}
+        split
+        textPercent={hero.textPercent ?? 40}
         cta={{
           primary: { label: 'Request a Quote', href: '#quote-form' },
           secondary: { label: 'View Products', href: '#products' },
@@ -49,7 +51,7 @@ export default function IndustryPage({ config }) {
           >
             {/* Section header */}
             <div style={{ marginBottom: 40 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Applications</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Applications</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>{applications.title}</h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>{applications.sub}</p>
             </div>
@@ -97,7 +99,7 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Recommended Grades</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Recommended Grades</div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Products for {products.industryName}</h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>{products.sub}</p>
             </div>
@@ -151,7 +153,7 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
             <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Get Pricing for {quoteForm.industryLabel}</h2>
             <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your application and volume — we'll respond within 24 hours with grade recommendations and pricing.</p>
           </motion.div>

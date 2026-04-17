@@ -4,7 +4,6 @@ import Products from '@/components/Products'
 import Industries from '@/components/Industries'
 import WhyUs from '@/components/WhyUs'
 import Process from '@/components/Process'
-import LandingCTA from '@/components/LandingCTA'
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Industries />
       <WhyUs />
       <Process />
-      <LandingCTA />
     </>
   )
 }

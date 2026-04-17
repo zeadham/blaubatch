@@ -16,7 +16,8 @@ export default function BlogIndex() {
         title="Masterbatch Insights &"
         titleAccent="Industry Knowledge"
         sub="Technical articles on filler masterbatch, sustainability in plastics, and manufacturing best practices from the Blau Batch team."
-        bgGradient="linear-gradient(135deg, rgba(8,18,40,0.95) 0%, rgba(20,27,62,0.9) 60%, rgba(26,37,80,0.95) 100%)"
+        split
+        bgImage="/images/heroes/technical_blog.webp"
         cta={{
           primary: { label: 'Request a Quote', href: '/contact#quote-form' },
           secondary: { label: 'Technical Resources', href: '/resources' },

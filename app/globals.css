@@ -1,6 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via next/font in layout.jsx — no duplicate @import needed */
+/* Tailwind removed — project uses vanilla CSS custom properties */
 
-@import "tailwindcss";
+/* Skip to content link — visible only on keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  z-index: 9999;
+  background: #2B8DD0;
+  color: #fff;
+  padding: 10px 18px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 0 0 8px 0;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 

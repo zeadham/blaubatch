@@ -22,7 +22,7 @@ export default function NotFound() {
           <motion.div
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 20 }}>Page Not Found</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>Page Not Found</div>
             <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 14, lineHeight: 1.15, color: '#141B3E' }}>This page doesn't exist</h1>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.8, marginBottom: 32 }}>The page you're looking for may have been moved, renamed, or never existed. Try one of the links below.</p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
