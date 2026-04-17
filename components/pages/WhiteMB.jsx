@@ -46,7 +46,7 @@ const WMB_APPLICATIONS = ['Blown Film', 'Cast Film', 'Injection Moulding', 'Raff
 const WMB_INDUSTRIES = [
   { image: '/images/industries cards/packaging.png', name: 'Packaging & Flexible Film', href: '/industries/packaging', desc: 'White food packaging, lamination film, stand-up pouches, and retail bags. White MB delivers the opacity and brightness required for branded packaging.', tags: ['Food Packaging', 'Stand-Up Pouches', 'Lamination'] },
   { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'White mulch film for soil temperature control, tunnel covers, and greenhouse film. Provides reflectivity and UV performance required for agricultural applications.', tags: ['Mulch Film', 'Tunnel Covers', 'Greenhouse'] },
-  { image: '/images/industries cards/consumer_goods.png', name: 'Consumer Goods', desc: 'White containers, caps, closures, and household products in PE and PP. White MB ensures batch-consistent whiteness across injection moulded and blown parts.', tags: ['Containers', 'Caps & Closures', 'Household'] },
+  { image: '/images/industries cards/consumer_good.png', name: 'Consumer Goods', desc: 'White containers, caps, closures, and household products in PE and PP. White MB ensures batch-consistent whiteness across injection moulded and blown parts.', tags: ['Containers', 'Caps & Closures', 'Household'] },
   { image: '/images/industries cards/textiles.png', name: 'Non-Woven', href: '/industries/textiles', desc: 'White hygiene nonwovens for diapers, wipes, and medical textiles. Food-contact and medical-grade white MB available on request.', tags: ['Hygiene NW', 'Medical Textile', 'Spunbond'] },
 ]
 
