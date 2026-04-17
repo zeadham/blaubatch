@@ -85,7 +85,8 @@ function buildHtml(d) {
 
 export async function POST(request) {
   try {
-    const ip = headers().get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
+    const headersList = await headers()
+    const ip = headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
     const { allowed } = rateLimit(`doc-request:${ip}`, 5, 60_000)
     if (!allowed) {
       return Response.json({ error: 'Too many requests. Please wait a minute and try again.' }, { status: 429 })
