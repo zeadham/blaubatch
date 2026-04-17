@@ -167,17 +167,6 @@ function ProductCard({ p, i }) {
           fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
         }}>{p.desc}</p>
 
-        {/* Specs */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 4 }}>
-          {p.specs.map(spec => (
-            <span key={spec} style={{
-              fontSize: 12, fontWeight: 600, color: 'rgba(20,27,62,0.55)',
-              padding: '4px 10px', border: '1px solid rgba(20,27,62,0.1)',
-              borderRadius: 20,
-            }}>{spec}</span>
-          ))}
-        </div>
-
         {/* Actions */}
         <div style={{
           display: 'flex', alignItems: 'center', gap: 14,
