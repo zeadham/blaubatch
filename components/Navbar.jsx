@@ -10,8 +10,8 @@ const PRODUCTS = [
   { name: 'Filler Masterbatch (PP)', sub: 'FMPP Series · 70–80% CaCO₃', href: '/fmpp', badge: 'MANUFACTURED' },
   { name: 'White Masterbatch', sub: 'TiO₂-based, food-contact grades', href: '/white-masterbatch' },
   { name: 'Black Masterbatch', sub: 'UV-stable, pipe & cable grades', href: '/black-masterbatch' },
-  { name: 'Additive Masterbatch', sub: 'UV, slip, antiblock, anti-static', href: '/additive-masterbatch' },
   { name: 'Colour Masterbatch', sub: 'RAL/Pantone, custom matching', href: '/color-masterbatch' },
+  { name: 'Additive Masterbatch', sub: 'UV, slip, antiblock, anti-static', href: '/additive-masterbatch' },
 ]
 
 const INDUSTRIES = [

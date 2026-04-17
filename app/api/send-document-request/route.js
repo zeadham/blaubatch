@@ -49,6 +49,10 @@ function buildHtml(d) {
                 <td style="padding:8px 0;color:#666;font-size:13px;">Email</td>
                 <td style="padding:8px 0;color:#111;font-size:13px;"><a href="mailto:${d.email}" style="color:#2E7FD0;">${d.email || '—'}</a></td>
               </tr>
+              <tr>
+                <td style="padding:8px 0;color:#666;font-size:13px;">Phone</td>
+                <td style="padding:8px 0;color:#111;font-size:13px;">${d.phone || '—'}</td>
+              </tr>
             </table>
 
             <!-- Reply CTA -->

@@ -8,6 +8,7 @@ import PageHero from '@/components/shared/PageHero'
 
 
 const STATS = [
+  { val: '2023', label: 'Founded', sub: '6th of October City, Egypt' },
   { val: '8,000+', label: 'Annual Capacity', sub: 'Tonnes manufactured' },
   { val: '1', label: 'Supplier', sub: 'Full masterbatch spectrum' },
   { val: '24h', label: 'Turnaround', sub: 'Quote to confirmation' },
@@ -57,7 +58,7 @@ export default function AboutPage() {
 
       {/* Stats bar */}
       <section style={{ background: '#FFFFFF', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '48px' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 0 }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: 0 }}>
           {STATS.map((s, i) => (
             <div key={s.label} style={{ textAlign: 'center', padding: '16px 24px', borderRight: i < STATS.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>

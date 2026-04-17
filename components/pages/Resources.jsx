@@ -116,7 +116,7 @@ const labelStyle = {
 }
 
 function DocRequestForm({ selected, onDeselect }) {
-  const [form, setForm] = useState({ name: '', company: '', email: '' })
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '' })
   const [errors, setErrors] = useState({})
   const [done, setDone] = useState(false)
   const [submitError, setSubmitError] = useState(false)
@@ -188,10 +188,16 @@ function DocRequestForm({ selected, onDeselect }) {
             <input style={inputStyle} placeholder="Company name" value={form.company} onChange={e => set('company', e.target.value)} />
           </div>
         </div>
-        <div style={{ marginBottom: 20 }}>
-          <label style={labelStyle}>Email <span style={{ color: '#2B8DD0' }}>*</span></label>
-          <input type="email" style={{ ...inputStyle, borderColor: errors.email ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder="you@company.com" value={form.email} onChange={e => set('email', e.target.value)} />
-          {errors.email && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}>{errors.email}</div>}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 20 }}>
+          <div>
+            <label style={labelStyle}>Email <span style={{ color: '#2B8DD0' }}>*</span></label>
+            <input type="email" style={{ ...inputStyle, borderColor: errors.email ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder="you@company.com" value={form.email} onChange={e => set('email', e.target.value)} />
+            {errors.email && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}>{errors.email}</div>}
+          </div>
+          <div>
+            <label style={labelStyle}>Phone / WhatsApp</label>
+            <input type="tel" style={inputStyle} placeholder="+20 xxx xxx xxxx" value={form.phone} onChange={e => set('phone', e.target.value)} />
+          </div>
         </div>
 
         <button onClick={submit} style={{
