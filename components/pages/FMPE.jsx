@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, ChevronDown } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
 
@@ -57,6 +57,7 @@ export default function FMPEPage() {
   const introInView = useInView(introRef, { once: true, margin: '-60px' })
   const specsRef = useRef(null)
   const specsInView = useInView(specsRef, { once: true, margin: '-60px' })
+  const [gradesOpen, setGradesOpen] = useState(false)
   const indRef = useRef(null)
   const indInView = useInView(indRef, { once: true, margin: '-60px' })
   const formRef = useRef(null)
@@ -146,11 +147,33 @@ export default function FMPEPage() {
             animate={specsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Grade Reference</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>A Selection of Available Grades</h2>
-              <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620 }}>The grades below represent our standard PE filler masterbatch range. Additional CaCO₃ loadings, custom carrier systems, and application-specific formulations are available on request. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us to discuss your specific requirement.</strong></p>
+            <div
+              onClick={() => setGradesOpen(o => !o)}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', padding: '18px 24px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, marginBottom: 4, transition: 'background 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.02)'}
+              onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
+            >
+              <div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}>A Selection of Available Grades</h2>
+              </div>
+              <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                <ChevronDown size={22} color="#141B3E" />
+              </motion.div>
             </div>
+
+            <AnimatePresence initial={false}>
+              {gradesOpen && (
+                <motion.div
+                  key="grades-body"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div style={{ paddingTop: 24 }}>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The grades below represent our standard PE filler masterbatch range. Additional CaCO₃ loadings, custom carrier systems, and application-specific formulations are available on request. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us to discuss your specific requirement.</strong></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, overflow: 'hidden', marginBottom: 40 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '130px 110px 120px 150px 1fr', background: 'rgba(20,27,62,0.03)', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '12px 20px' }}>
@@ -188,7 +211,10 @@ export default function FMPEPage() {
                 Custom CaCO₃ loadings, particle sizes, and carrier blends are available for specific processing requirements. <strong style={{ color: '#D4840A' }}>Contact us to discuss your application.</strong>
               </p>
             </div>
-
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>

@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
+import { CheckCircle2, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
@@ -53,6 +53,7 @@ const WMB_INDUSTRIES = [
 export default function WhiteMBPage() {
   const specsRef = useRef(null)
   const specsInView = useInView(specsRef, { once: true, margin: '-60px' })
+  const [gradesOpen, setGradesOpen] = useState(false)
   const formRef = useRef(null)
   const formInView = useInView(formRef, { once: true, margin: '-60px' })
 
@@ -158,11 +159,33 @@ export default function WhiteMBPage() {
             animate={specsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Grade Reference</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8 }}>A Selection of Available Grades</h2>
-              <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620 }}>The grades below represent a sample of our white masterbatch portfolio — we carry a broader range across TiO₂ loadings, carrier resins, and regulatory standards. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us for the full product list or to discuss a specific requirement.</strong></p>
+            <div
+              onClick={() => setGradesOpen(o => !o)}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', padding: '18px 24px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, marginBottom: 4, transition: 'background 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.02)'}
+              onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
+            >
+              <div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}>A Selection of Available Grades</h2>
+              </div>
+              <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                <ChevronDown size={22} color="#141B3E" />
+              </motion.div>
             </div>
+
+            <AnimatePresence initial={false}>
+              {gradesOpen && (
+                <motion.div
+                  key="grades-body"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div style={{ paddingTop: 24 }}>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The grades below represent a sample of our white masterbatch portfolio — we carry a broader range across TiO₂ loadings, carrier resins, and regulatory standards. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us for the full product list or to discuss a specific requirement.</strong></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, overflow: 'hidden', marginBottom: 40 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '150px 60px 1fr 1fr 110px', background: 'rgba(20,27,62,0.04)', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '12px 20px' }}>
@@ -203,6 +226,10 @@ export default function WhiteMBPage() {
             </div>
 
             <IsoBadges />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>
