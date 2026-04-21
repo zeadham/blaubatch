@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
@@ -58,6 +58,12 @@ export default function FMPPPage() {
   const specsRef = useRef(null)
   const specsInView = useInView(specsRef, { once: true, margin: '-60px' })
   const [gradesOpen, setGradesOpen] = useState(false)
+  useEffect(() => {
+    const check = () => { if (window.location.hash === '#grades') setGradesOpen(true) }
+    check()
+    window.addEventListener('hashchange', check)
+    return () => window.removeEventListener('hashchange', check)
+  }, [])
   const indRef = useRef(null)
   const indInView = useInView(indRef, { once: true, margin: '-60px' })
   const formRef = useRef(null)

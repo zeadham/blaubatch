@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
@@ -54,6 +54,12 @@ export default function WhiteMBPage() {
   const specsRef = useRef(null)
   const specsInView = useInView(specsRef, { once: true, margin: '-60px' })
   const [gradesOpen, setGradesOpen] = useState(false)
+  useEffect(() => {
+    const check = () => { if (window.location.hash === '#grades') setGradesOpen(true) }
+    check()
+    window.addEventListener('hashchange', check)
+    return () => window.removeEventListener('hashchange', check)
+  }, [])
   const formRef = useRef(null)
   const formInView = useInView(formRef, { once: true, margin: '-60px' })
 
@@ -151,7 +157,7 @@ export default function WhiteMBPage() {
       </section>
 
       {/* Grades table */}
-      <section style={{ background: '#F7F8FC', padding: '80px 48px' }}>
+      <section id="grades" style={{ background: '#F7F8FC', padding: '80px 48px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <motion.div
             ref={specsRef}

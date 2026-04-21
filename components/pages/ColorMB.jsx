@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import { motion, useInView, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
-import { CheckCircle2, Palette, FlaskConical, Leaf, Sun, Film, Settings } from 'lucide-react'
+import { CheckCircle2, ChevronDown, Palette, FlaskConical, Leaf, Sun, Film, Settings } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import ColorQuoteForm from '@/components/shared/ColorQuoteForm'
 import IsoBadges from '@/components/shared/IsoBadges'
@@ -39,6 +39,13 @@ export default function ColorMBPage() {
   const familiesInView = useInView(familiesRef, { once: true, margin: '-60px' })
   const formRef = useRef(null)
   const formInView = useInView(formRef, { once: true, margin: '-60px' })
+  const [familiesOpen, setFamiliesOpen] = useState(false)
+  useEffect(() => {
+    const check = () => { if (window.location.hash === '#families') setFamiliesOpen(true) }
+    check()
+    window.addEventListener('hashchange', check)
+    return () => window.removeEventListener('hashchange', check)
+  }, [])
 
   return (
     <>
@@ -110,11 +117,33 @@ export default function ColorMBPage() {
             animate={familiesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Product Range</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Colour Product Families</h2>
-              <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620 }}>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us with your colour target and we'll match it.</strong></p>
+            <div
+              onClick={() => setFamiliesOpen(o => !o)}
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', padding: '18px 24px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 12, marginBottom: 4, transition: 'background 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.02)'}
+              onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
+            >
+              <div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Product Range</div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}>Colour Product Families</h2>
+              </div>
+              <motion.div animate={{ rotate: familiesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+                <ChevronDown size={22} color="#141B3E" />
+              </motion.div>
             </div>
+
+            <AnimatePresence initial={false}>
+              {familiesOpen && (
+                <motion.div
+                  key="families-body"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ overflow: 'hidden' }}
+                >
+                  <div style={{ paddingTop: 24 }}>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us with your colour target and we'll match it.</strong></p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 40 }}>
               {FAMILIES.map((f, i) => (
@@ -152,6 +181,10 @@ export default function ColorMBPage() {
             </div>
 
             <IsoBadges />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>
