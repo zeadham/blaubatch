@@ -8,13 +8,18 @@ export async function POST(request) {
     return Response.json({ error: { message: 'Unauthorized' } }, { status: 401 })
   }
 
+  const apiKey = (process.env.ANTHROPIC_API_KEY || '').trim()
+  if (!apiKey) {
+    return Response.json({ error: { message: 'Server misconfiguration: ANTHROPIC_API_KEY is not set. Add it in Vercel → Settings → Environment Variables.' } }, { status: 500 })
+  }
+
   try {
     const body = await request.text()
     const upstream = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
+        'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
       },
       body,
