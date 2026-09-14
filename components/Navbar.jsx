@@ -270,7 +270,7 @@ export default function Navbar() {
 
         {/* Right: CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <a href="/contact#quote-form" style={{
+          <a href="/contact#quote-form" className="nav-cta" style={{
             padding: '8px 20px', background: '#2B8DD0', color: '#fff',
             borderRadius: 20, fontFamily: 'Inter, sans-serif', fontSize: 12,
             fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
@@ -429,6 +429,7 @@ export default function Navbar() {
         @media (max-width: 1024px) {
           .nav-desktop { display: none !important; }
           .nav-hamburger { display: flex !important; }
+          .nav-cta { display: none !important; }
           nav { padding: 0 20px !important; }
         }
       `}</style>

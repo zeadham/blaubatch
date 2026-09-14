@@ -1,7 +1,7 @@
 'use client'
 
 // ISO Certification badges
-// Update certNumber and issuer when you have the real certificate details
+// Update certNumber when the certificate number is available
 
 const BADGES = [
   {
@@ -22,7 +22,7 @@ const BADGES = [
   },
 ]
 
-export default function IsoBadges({ certNumber = '[CERT-TBD]', issuer = 'Coraplast / TÜV' }) {
+export default function IsoBadges({ certNumber = 'Available on request', issuer = 'Coraplast / TÜV' }) {
   return (
     <div style={{
       background: '#FFFFFF',

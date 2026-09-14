@@ -84,7 +84,7 @@ export default function ContactPage() {
                 Saturday – Thursday
               </div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 14, color: '#141B3E' }}>9:00 AM – 5:00 PM</div>
-              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', marginTop: 2 }}>Cairo EET / UTC+2</div>
+              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', marginTop: 2 }}>Cairo local time (UTC+2/+3, seasonal)</div>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '14px 16px', background: 'rgba(43,141,208,0.06)', border: '1px solid rgba(43,141,208,0.18)', borderRadius: 10, marginBottom: 12 }}>
