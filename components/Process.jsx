@@ -23,9 +23,9 @@ export default function Process() {
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
-        <div ref={headRef} style={{ marginBottom: 56, textAlign: 'center' }}>
+        <div ref={headRef} style={{ marginBottom: 56, textAlign: 'center', perspective: '1000px' }}>
           <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 16, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
               display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
@@ -35,13 +35,13 @@ export default function Process() {
           >How We Work</motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
             style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
           >From Enquiry to Delivery</motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
             style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto' }}
           >
@@ -49,7 +49,7 @@ export default function Process() {
           </motion.p>
         </div>
 
-        <div style={{ display: 'flex', gap: 0, position: 'relative' }}>
+        <div style={{ display: 'flex', gap: 0, position: 'relative', perspective: '1200px' }}>
           <div style={{
             position: 'absolute', top: 28, left: '10%', right: '10%', height: 1,
             background: 'linear-gradient(to right, transparent, rgba(46,127,208,0.25) 20%, rgba(46,127,208,0.25) 80%, transparent)',
@@ -61,8 +61,8 @@ export default function Process() {
             return (
               <motion.div
                 key={step.n}
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, y: 28, rotateX: 14 }}
+                animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
                 transition={{ duration: 0.55, delay: 0.15 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                   flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',

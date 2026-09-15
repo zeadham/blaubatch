@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react' // static hero
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
@@ -21,7 +21,6 @@ const fadeUp = (delay = 0) => ({
 
 export default function Hero() {
   const [active, setActive] = useState(0)
-
   useEffect(() => {
     const t = setInterval(() => setActive(p => (p + 1) % CYCLE.length), 3200)
     return () => clearInterval(t)
@@ -150,7 +149,7 @@ export default function Hero() {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.5; transform: scale(0.85); }
         }
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
           section[data-hero] { flex-direction: column !important; min-height: auto !important; margin-top: 78px !important; }
           section[data-hero] > div:first-child { flex: none !important; padding: 48px 24px !important; }
           section[data-hero] > div:last-child { flex: none !important; height: 280px !important; }

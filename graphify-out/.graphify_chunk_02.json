@@ -1,240 +1,222 @@
 {
   "nodes": [
     {
-      "id": "apple_icon_logo_mark",
-      "label": "Apple Touch Icon — B Lettermark on Navy",
+      "id": "appleicon_blaubatch_logomark_squarebg",
+      "label": "Blau Batch Apple Icon (B Mark on Navy Square)",
       "file_type": "image",
       "source_file": "app/apple-icon.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Square 1024x1024 iOS app icon. Stylized 'B' lettermark composed of layered blue segments (dark navy #1B2A4A, mid-blue #2D5FA6, sky blue #3E9BD4) forming a geometric B shape with a white negative-space left stem, set on a solid dark navy (#1B2A4A) background. Used as the Apple Touch / iOS home screen icon for the Blau Batch web app.",
+      "design_notes": "Multi-tone blue segmentation on the B mark conveys layering/spectrum — reinforcing the 'Full-Spectrum Masterbatch Solutions' tagline. Square crop with no padding, optimized for iOS rounded-rect masking.",
+      "color_palette": ["#1B2A4A (deep navy bg)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF (negative space)"],
+      "purpose": "iOS/Safari browser icon — favicon tier for Apple devices"
     },
     {
-      "id": "icon_logo_mark",
-      "label": "Browser / PWA Icon — B Lettermark on Navy",
+      "id": "icon_blaubatch_logomark_pwa",
+      "label": "Blau Batch PWA / Browser Icon (B Mark on Navy Square)",
       "file_type": "image",
       "source_file": "app/icon.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Visually identical to apple-icon.png: square 1024x1024 icon featuring the multi-segment geometric B lettermark in blue tones on a navy background. Used as the Next.js app/ directory icon (PWA manifest / browser tab icon fallback).",
+      "design_notes": "Same artwork as apple-icon; served as the generic web app icon for non-Apple contexts.",
+      "color_palette": ["#1B2A4A (deep navy bg)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF (negative space)"],
+      "purpose": "General web/PWA app icon"
     },
     {
-      "id": "favicon_svg",
-      "label": "Favicon SVG — B Lettermark vector placeholder",
+      "id": "faviconsvg_blaubatch_logomark_vector",
+      "label": "Blau Batch Favicon (SVG Vector B Mark)",
       "file_type": "image",
       "source_file": "public/favicon.svg",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "SVG version of the Blau Batch B lettermark favicon. Vector-based, scalable to any size. Same visual design as the PNG icons — geometric multi-layer B in blue segments on navy background. Being SVG it retains crispness at all resolutions and supports theming via CSS.",
+      "design_notes": "SVG favicon preferred in modern browsers for sharp rendering on HiDPI/Retina displays. File was too large to read directly (~207k tokens), indicating a complex path/shape SVG rather than a simplified icon.",
+      "color_palette": ["#1B2A4A (deep navy)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF"],
+      "purpose": "Browser tab favicon — vector format for all modern browsers"
     },
     {
-      "id": "logo_horizontal_white",
-      "label": "Horizontal Logo — Mark + Wordmark + Tagline on White Background",
+      "id": "logohorizontalwhite_blaubatch_fulllogo_light",
+      "label": "Blau Batch Horizontal Logo — Light/White Variant",
       "file_type": "image",
       "source_file": "public/logo-horizontal-white.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Full horizontal lockup of the Blau Batch brand. Left side: the B lettermark inside a dark navy square container, rendered in multi-tone blue segments with white negative space. Right side: wordmark 'BLAU BATCH' in bold extra-heavy sans-serif type (navy #1B2A4A), with tagline 'Full-Spectrum Masterbatch Solutions' in a lighter medium-weight blue below. White/transparent background — suitable for use on light surfaces.",
+      "design_notes": "Horizontal layout optimized for header/navbar placement. Tagline establishes the brand's value proposition directly. The navy square around the mark acts as a consistent container across contexts.",
+      "color_palette": ["#1B2A4A (navy wordmark + mark bg)", "#2D5FA6 (tagline blue)", "#3E9BD4 (sky blue accent on mark)", "#FFFFFF (background)"],
+      "typography": "Extra-bold/Black weight sans-serif for wordmark; medium-weight sans-serif for tagline",
+      "purpose": "Primary horizontal logo lockup for light backgrounds — headers, email, documents"
     },
     {
-      "id": "logo_mark_navy",
-      "label": "Logo Mark — B Lettermark on Navy Square Background",
+      "id": "logomarknavy_blaubatch_mark_darkbg",
+      "label": "Blau Batch Logo Mark — Navy Background Variant (PNG)",
       "file_type": "image",
       "source_file": "public/logo-mark-navy.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Standalone B lettermark on a solid dark navy (#1B2A4A) square background. The mark uses layered segments of navy, mid-blue, and sky blue with a white negative-space vertical stem forming the letter B. Identical visual to the app icons but used as a standalone public asset (not the app/ directory icon).",
+      "design_notes": "Navy background variant intended for use on dark surfaces, reversed layouts, or as a standalone avatar/profile mark.",
+      "color_palette": ["#1B2A4A (bg + dark segments)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF (negative space)"],
+      "purpose": "Standalone logomark for dark backgrounds — social avatars, dark headers, watermarks"
     },
     {
-      "id": "logo_mark_navy_svg",
-      "label": "Logo Mark SVG — B Lettermark vector source (navy background)",
+      "id": "logomarknavysvg_blaubatch_mark_vector",
+      "label": "Blau Batch Logo Mark — Navy Variant (SVG Vector)",
       "file_type": "image",
       "source_file": "public/logo-mark-navy.svg",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "SVG vector version of the navy-background B lettermark. Same design as logo-mark-navy.png but in scalable vector format. The very large file size (~207k tokens) indicates a highly detailed path-based SVG preserving all segment geometry and color precision.",
+      "design_notes": "SVG preferred for print, high-resolution digital, and any context requiring infinite scalability without rasterization artifacts.",
+      "color_palette": ["#1B2A4A (bg + dark segments)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF (negative space)"],
+      "purpose": "Scalable vector logomark — print, high-res digital, CSS/SVG embedding"
     },
     {
-      "id": "logo_mark",
-      "label": "Logo Mark — B Lettermark on Transparent Background",
+      "id": "logomark_blaubatch_mark_transparent",
+      "label": "Blau Batch Logo Mark — Transparent Background (PNG)",
       "file_type": "image",
       "source_file": "public/logo-mark.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "The Blau Batch B lettermark on a transparent/white background (no navy container square). The B shape is rendered in medium and sky blues (#3E9BD4 dominant, #2D5FA6 secondary) with white negative-space cutouts defining the letter form. Without the navy background the mark feels lighter and more open — the vertical left stem of the B is defined purely by white space against the blue forms.",
+      "design_notes": "Transparent-background variant maximizes flexibility — can be composited onto any colored surface. The blue-only mark (no dark bg) reads differently: more airy, suitable for light or photographic backgrounds.",
+      "color_palette": ["#3E9BD4 (sky/accent blue dominant)", "#2D5FA6 (mid blue secondary)", "#FFFFFF (negative space / transparent bg)"],
+      "purpose": "Flexible logomark for compositing on any background color or image"
     },
     {
-      "id": "logo_textonly_navy",
-      "label": "Text-Only Logo — BLAU BATCH Navy on White",
+      "id": "logotextonlynavy_blaubatch_wordmark_dark",
+      "label": "Blau Batch Wordmark Only — Navy Text on White",
       "file_type": "image",
       "source_file": "public/logo-textonly-navy.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Text-only wordmark: 'BLAU BATCH' in extra-bold/black weight sans-serif typography, rendered in deep navy (#1B2A4A) on a white background. No mark/symbol present. The letterforms are wide, rounded at terminals, and very heavy — consistent with a geometric sans-serif typeface (likely a custom or premium display font).",
+      "design_notes": "Text-only variant used when the mark is already present in context (e.g., a page where the icon appears separately) or when minimal/clean branding is needed. All-caps treatment conveys authority and industrial precision.",
+      "color_palette": ["#1B2A4A (navy text)", "#FFFFFF (background)"],
+      "typography": "Extra-bold/Black geometric sans-serif, all-caps, wide tracking",
+      "purpose": "Text-only wordmark for contexts where the symbol is redundant or space is limited"
     },
     {
-      "id": "logo_textonly_white",
-      "label": "Text-Only Logo — BLAU BATCH White on Navy",
+      "id": "logotextonlywhite_blaubatch_wordmark_reversed",
+      "label": "Blau Batch Wordmark Only — White Text on Navy (Reversed)",
       "file_type": "image",
       "source_file": "public/logo-textonly-white.png",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Reversed/inverted wordmark: 'BLAU BATCH' in white extra-bold sans-serif on a solid dark navy (#1B2A4A) background. Same typeface and layout as logo-textonly-navy.png but color-inverted for use on dark surfaces.",
+      "design_notes": "Reversed variant for dark headers, footers, dark-mode UI, or any navy/dark background context. Maintains legibility and brand consistency across both light and dark applications.",
+      "color_palette": ["#FFFFFF (white text)", "#1B2A4A (navy background)"],
+      "typography": "Extra-bold/Black geometric sans-serif, all-caps",
+      "purpose": "Reversed wordmark for dark backgrounds — footers, dark headers, print on dark stock"
     },
     {
-      "id": "logo_jpg",
-      "label": "Logo JPG — B Lettermark on Navy Background (legacy/social)",
+      "id": "logojpg_blaubatch_mark_socialmedia",
+      "label": "Blau Batch Logo Mark — JPEG Social/Profile Variant",
       "file_type": "image",
       "source_file": "public/logo.jpg",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "The Blau Batch B lettermark on a dark navy background, saved as JPEG (lossy). The mark uses the same multi-layer blue segment design but appears slightly softer/larger crop with more visible navy padding around the B. The B itself shows the same color layers: navy dark, mid-blue, sky blue, white negative space. Slight JPEG compression artifacts visible at segment edges.",
+      "design_notes": "JPEG format suggests this is intended for social media profiles, OG images, or platforms that don't support transparency. Lossy compression trades file size for compatibility. The slightly different crop/padding ratio compared to the PNG icons may be intentional for social platform square-crop requirements.",
+      "color_palette": ["#1B2A4A (navy bg)", "#2D5FA6 (mid blue)", "#3E9BD4 (sky blue)", "#FFFFFF (negative space)"],
+      "purpose": "Social media profile image / Open Graph image / JPEG-required platform icon"
     },
     {
-      "id": "wordmark_navy_svg",
-      "label": "Wordmark SVG — BLAU BATCH Navy Text Inter 900 transparent bg",
-      "file_type": "image",
-      "source_file": "public/wordmark-navy.svg",
+      "id": "brand_blaubatch_identity_system",
+      "label": "Blau Batch Brand Identity System",
+      "file_type": "concept",
+      "source_file": null,
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "The collective brand identity of Blau Batch — a masterbatch solutions company. Brand uses a geometric B lettermark with multi-tone blue layering (dark navy, mid blue, sky blue) and white negative space. Wordmark is 'BLAU BATCH' in black-weight sans-serif. Tagline: 'Full-Spectrum Masterbatch Solutions'. Primary palette: deep navy (#1B2A4A), mid blue (#2D5FA6), sky blue (#3E9BD4), white."
     },
     {
-      "id": "wordmark_white_on_navy_svg",
-      "label": "Wordmark SVG — BLAU BATCH White Text on Navy Rectangle",
-      "file_type": "image",
-      "source_file": "public/wordmark-white-on-navy.svg",
+      "id": "brand_colorpalette_blau_blues",
+      "label": "Blau Batch Brand Color Palette — Blue Spectrum",
+      "file_type": "concept",
+      "source_file": null,
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "Three-tier blue color system extracted from all brand assets: (1) Deep Navy #1B2A4A — primary brand dark, used for backgrounds, wordmark, and dark UI surfaces. (2) Mid Blue #2D5FA6 — secondary brand color, used in mark segments and tagline. (3) Sky Blue #3E9BD4 — accent/highlight, the brightest blue in the mark. White (#FFFFFF) as the fourth utility color for negative space and light surfaces."
     },
     {
-      "id": "brand_black_tonal",
-      "label": "Brand Asset — Black Masterbatch Pellets Floating (Monochrome Dark)",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/black-tonal.png",
+      "id": "brand_logomark_b_symbol",
+      "label": "Blau Batch B Lettermark Symbol",
+      "file_type": "concept",
+      "source_file": null,
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_macro_pour",
-      "label": "Brand Asset — White Spherical Pellets Pouring Macro Shot",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/macro-pour.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_pellet_melting_pail_wide",
-      "label": "Brand Asset — Masterbatch Pellets Exploding from Industrial Pail 3D Render",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_white_3d_backlit",
-      "label": "Brand Asset — White Spherical Pellets Backlit 3D Floating",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/white-3d-backlit.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_white_black_contrast",
-      "label": "Brand Asset — White Pellets on Black Pellet Bed High Contrast",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/white-black-contrast.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_white_flurry",
-      "label": "Brand Asset — White Pellets Burst Flurry on White Background",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/white-flurry.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
-    },
-    {
-      "id": "brand_white_tonal",
-      "label": "Brand Asset — White Pellets Levitating on White Pellet Field Tonal",
-      "file_type": "image",
-      "source_file": "public/images/brand-assets/white-tonal.png",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null
+      "contributor": null,
+      "description": "The core brand symbol: a stylized capital B built from geometric segments in three blue tones. The left vertical stem of the B is formed by white/transparent negative space rather than a filled stroke — the blue segments create the bumps of the B while the stem is implied. This design choice creates a layered, dimensional feel representing the 'full-spectrum' nature of masterbatch color solutions."
     }
   ],
   "edges": [
     {
-      "source": "apple_icon_logo_mark",
-      "target": "icon_logo_mark",
+      "source": "appleicon_blaubatch_logomark_squarebg",
+      "target": "icon_blaubatch_logomark_pwa",
       "relation": "semantically_similar_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/apple-icon.png",
       "source_location": null,
-      "weight": 1.0
+      "weight": 1.0,
+      "note": "Visually identical artwork, different deployment target (Apple vs generic PWA)"
     },
     {
-      "source": "apple_icon_logo_mark",
-      "target": "logo_mark_navy",
-      "relation": "semantically_similar_to",
+      "source": "appleicon_blaubatch_logomark_squarebg",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/apple-icon.png",
       "source_location": null,
-      "weight": 1.0
+      "weight": 1.0,
+      "note": "Is an instance/rendering of the B lettermark symbol"
     },
     {
-      "source": "icon_logo_mark",
-      "target": "logo_mark_navy",
-      "relation": "semantically_similar_to",
+      "source": "icon_blaubatch_logomark_pwa",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/icon.png",
@@ -242,39 +224,62 @@
       "weight": 1.0
     },
     {
-      "source": "favicon_svg",
-      "target": "logo_mark_navy_svg",
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
+      "source": "faviconsvg_blaubatch_logomark_vector",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "public/favicon.svg",
       "source_location": null,
-      "weight": 0.75
+      "weight": 1.0,
+      "note": "SVG vector form of the same B mark"
     },
     {
-      "source": "logo_mark",
-      "target": "logo_mark_navy",
+      "source": "faviconsvg_blaubatch_logomark_vector",
+      "target": "logomarknavysvg_blaubatch_mark_vector",
       "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/logo-mark.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "logo_mark_navy",
-      "target": "logo_mark_navy_svg",
-      "relation": "shares_data_with",
       "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "public/logo-mark-navy.png",
+      "confidence_score": 0.8,
+      "source_file": "public/favicon.svg",
       "source_location": null,
-      "weight": 0.9
+      "weight": 0.8,
+      "note": "Both are SVG vector forms of the B mark; favicon may be a simplified/smaller version"
     },
     {
-      "source": "logo_mark",
-      "target": "logo_jpg",
+      "source": "logomarknavy_blaubatch_mark_darkbg",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark-navy.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logomarknavy_blaubatch_mark_darkbg",
+      "target": "logomarknavysvg_blaubatch_mark_vector",
       "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark-navy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "PNG raster and SVG vector of the same navy-bg mark — paired format assets"
+    },
+    {
+      "source": "logomarknavysvg_blaubatch_mark_vector",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark-navy.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "logomark_blaubatch_mark_transparent",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "public/logo-mark.png",
@@ -282,39 +287,64 @@
       "weight": 1.0
     },
     {
-      "source": "logo_mark_navy",
-      "target": "logo_jpg",
+      "source": "logomark_blaubatch_mark_transparent",
+      "target": "logomarknavy_blaubatch_mark_darkbg",
       "relation": "semantically_similar_to",
       "confidence": "EXTRACTED",
       "confidence_score": 0.9,
-      "source_file": "public/logo-mark-navy.png",
+      "source_file": "public/logo-mark.png",
       "source_location": null,
-      "weight": 0.9
+      "weight": 0.9,
+      "note": "Same mark, different background treatment — transparent vs navy"
     },
     {
-      "source": "logo_horizontal_white",
-      "target": "logo_mark_navy",
-      "relation": "shares_data_with",
+      "source": "logohorizontalwhite_blaubatch_fulllogo_light",
+      "target": "brand_blaubatch_identity_system",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "public/logo-horizontal-white.png",
       "source_location": null,
-      "weight": 1.0
+      "weight": 1.0,
+      "note": "Full lockup is the primary expression of the complete brand identity"
     },
     {
-      "source": "logo_horizontal_white",
-      "target": "logo_textonly_navy",
-      "relation": "shares_data_with",
+      "source": "logohorizontalwhite_blaubatch_fulllogo_light",
+      "target": "brand_logomark_b_symbol",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "public/logo-horizontal-white.png",
       "source_location": null,
-      "weight": 1.0
+      "weight": 1.0,
+      "note": "Contains the B mark as the left component of the horizontal lockup"
     },
     {
-      "source": "logo_textonly_navy",
-      "target": "wordmark_navy_svg",
+      "source": "logohorizontalwhite_blaubatch_fulllogo_light",
+      "target": "logotextonlynavy_blaubatch_wordmark_dark",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.9,
+      "source_file": "public/logo-horizontal-white.png",
+      "source_location": null,
+      "weight": 0.9,
+      "note": "The horizontal logo contains the navy wordmark as its text component"
+    },
+    {
+      "source": "logotextonlynavy_blaubatch_wordmark_dark",
+      "target": "logotextonlywhite_blaubatch_wordmark_reversed",
       "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-textonly-navy.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Light and dark/reversed variants of the same wordmark — standard brand duet"
+    },
+    {
+      "source": "logotextonlynavy_blaubatch_wordmark_dark",
+      "target": "brand_blaubatch_identity_system",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "public/logo-textonly-navy.png",
@@ -322,9 +352,9 @@
       "weight": 1.0
     },
     {
-      "source": "logo_textonly_white",
-      "target": "wordmark_white_on_navy_svg",
-      "relation": "semantically_similar_to",
+      "source": "logotextonlywhite_blaubatch_wordmark_reversed",
+      "target": "brand_blaubatch_identity_system",
+      "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "public/logo-textonly-white.png",
@@ -332,201 +362,71 @@
       "weight": 1.0
     },
     {
-      "source": "wordmark_navy_svg",
-      "target": "wordmark_white_on_navy_svg",
+      "source": "logojpg_blaubatch_mark_socialmedia",
+      "target": "brand_logomark_b_symbol",
       "relation": "conceptually_related_to",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "public/wordmark-navy.svg",
+      "source_file": "public/logo.jpg",
       "source_location": null,
       "weight": 1.0
     },
     {
-      "source": "logo_textonly_navy",
-      "target": "logo_textonly_white",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/logo-textonly-navy.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_black_tonal",
-      "target": "brand_white_black_contrast",
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/black-tonal.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_macro_pour",
-      "target": "brand_white_3d_backlit",
-      "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/macro-pour.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_macro_pour",
-      "target": "brand_white_flurry",
-      "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/macro-pour.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_macro_pour",
-      "target": "brand_white_tonal",
-      "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/macro-pour.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_white_flurry",
-      "target": "brand_white_tonal",
-      "relation": "semantically_similar_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/white-flurry.png",
-      "source_location": null,
-      "weight": 1.0
-    },
-    {
-      "source": "brand_white_black_contrast",
-      "target": "brand_white_tonal",
+      "source": "logojpg_blaubatch_mark_socialmedia",
+      "target": "logomarknavy_blaubatch_mark_darkbg",
       "relation": "semantically_similar_to",
       "confidence": "EXTRACTED",
       "confidence_score": 0.85,
-      "source_file": "public/images/brand-assets/white-black-contrast.png",
+      "source_file": "public/logo.jpg",
       "source_location": null,
-      "weight": 0.85
+      "weight": 0.85,
+      "note": "Same mark on navy bg, but JPEG format with slightly different crop — social/OG use case"
     },
     {
-      "source": "brand_pellet_melting_pail_wide",
-      "target": "brand_black_tonal",
+      "source": "brand_logomark_b_symbol",
+      "target": "brand_colorpalette_blau_blues",
       "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/logo-mark-navy.png",
       "source_location": null,
-      "weight": 0.8
+      "weight": 1.0,
+      "note": "The B mark is the primary visual carrier of the three-tier blue palette"
     },
     {
-      "source": "brand_pellet_melting_pail_wide",
-      "target": "brand_white_tonal",
+      "source": "brand_colorpalette_blau_blues",
+      "target": "brand_blaubatch_identity_system",
       "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "public/images/brand-assets/pellet_melting_realistic_hero_04_pail_wide_1775522404300.png",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": null,
       "source_location": null,
-      "weight": 0.75
+      "weight": 1.0
+    },
+    {
+      "source": "appleicon_blaubatch_logomark_squarebg",
+      "target": "logomarknavy_blaubatch_mark_darkbg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/apple-icon.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Identical artwork — app/apple-icon.png is the app-directory copy of public/logo-mark-navy.png"
+    },
+    {
+      "source": "icon_blaubatch_logomark_pwa",
+      "target": "logomarknavy_blaubatch_mark_darkbg",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/icon.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Identical artwork — app/icon.png is the app-directory copy of public/logo-mark-navy.png"
     }
   ],
-  "hyperedges": [
-    {
-      "id": "blaubatch_b_lettermark_family",
-      "label": "Blau Batch B Lettermark Icon Family",
-      "nodes": [
-        "apple_icon_logo_mark",
-        "icon_logo_mark",
-        "favicon_svg",
-        "logo_mark_navy",
-        "logo_mark_navy_svg",
-        "logo_mark",
-        "logo_jpg"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/apple-icon.png"
-    },
-    {
-      "id": "blaubatch_wordmark_family",
-      "label": "Blau Batch Wordmark Text-Only Logo Family",
-      "nodes": [
-        "logo_textonly_navy",
-        "logo_textonly_white",
-        "wordmark_navy_svg",
-        "wordmark_white_on_navy_svg"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/logo-textonly-navy.png"
-    },
-    {
-      "id": "blaubatch_full_logo_lockup",
-      "label": "Blau Batch Full Logo Lockup Mark Plus Wordmark Combined",
-      "nodes": [
-        "logo_horizontal_white",
-        "logo_mark_navy",
-        "logo_textonly_navy"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/logo-horizontal-white.png"
-    },
-    {
-      "id": "white_masterbatch_pellet_photography",
-      "label": "White Masterbatch Pellet Photography Suite",
-      "nodes": [
-        "brand_macro_pour",
-        "brand_white_3d_backlit",
-        "brand_white_black_contrast",
-        "brand_white_flurry",
-        "brand_white_tonal"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/macro-pour.png"
-    },
-    {
-      "id": "masterbatch_product_imagery",
-      "label": "All Masterbatch Product Brand Imagery",
-      "nodes": [
-        "brand_black_tonal",
-        "brand_macro_pour",
-        "brand_pellet_melting_pail_wide",
-        "brand_white_3d_backlit",
-        "brand_white_black_contrast",
-        "brand_white_flurry",
-        "brand_white_tonal"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "public/images/brand-assets/black-tonal.png"
-    },
-    {
-      "id": "dark_background_logo_variants",
-      "label": "Dark Background Logo Variants",
-      "nodes": [
-        "apple_icon_logo_mark",
-        "icon_logo_mark",
-        "logo_mark_navy",
-        "logo_mark_navy_svg",
-        "logo_jpg",
-        "logo_textonly_white",
-        "wordmark_white_on_navy_svg"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.95,
-      "source_file": "public/logo-mark-navy.png"
-    }
-  ],
-  "input_tokens": 0,
-  "output_tokens": 0
+  "hyperedges": [],
+  "input_tokens": 2100,
+  "output_tokens": 980
 }

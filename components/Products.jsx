@@ -77,126 +77,151 @@ const PRODUCTS = [
 ]
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30, rotateX: 14 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    rotateX: 0,
+    transition: { duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 }
 
 function ProductCard({ p, i }) {
   const isManufactured = p.badge === 'MANUFACTURED'
   const router = useRouter()
+  const cardRef = useRef(null)
+
+  function handleMouseMove(e) {
+    const el = cardRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const rx = -((e.clientY - rect.top - rect.height / 2) / (rect.height / 2)) * 6
+    const ry = ((e.clientX - rect.left - rect.width / 2) / (rect.width / 2)) * 8
+    el.style.transition = 'box-shadow 0.3s ease'
+    el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`
+    el.style.boxShadow = '0 20px 60px rgba(20,27,62,0.14)'
+  }
+
+  function handleMouseLeave() {
+    const el = cardRef.current
+    if (!el) return
+    el.style.transition = 'transform 0.45s ease, box-shadow 0.3s ease'
+    el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)'
+    el.style.boxShadow = '0 2px 12px rgba(20,27,62,0.04)'
+  }
 
   return (
-    <Link href={p.href} style={{ display: 'block', textDecoration: 'none' }}>
-    <motion.div
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-      custom={i}
-      style={{
-        background: '#fff',
-        border: '1px solid rgba(20,27,62,0.08)',
-        borderRadius: 16,
-        overflow: 'hidden',
-        boxShadow: '0 2px 12px rgba(20,27,62,0.04)',
-        display: 'flex',
-        flexDirection: 'column',
-        cursor: 'pointer',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        height: '100%',
-      }}
-      whileHover={{
-        y: -6,
-        boxShadow: '0 16px 48px rgba(20,27,62,0.1)',
-      }}
-    >
-      {/* Card Image */}
-      <div style={{
-        position: 'relative',
-        height: 200,
-        overflow: 'hidden',
-        flexShrink: 0,
-      }}>
-        <Image
-          src={p.image}
-          alt={p.name}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
-          onMouseEnter={e => e.target.style.transform = 'scale(1.06)'}
-          onMouseLeave={e => e.target.style.transform = 'scale(1)'}
-        />
-        {/* Overlay gradient */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 40%, rgba(20,27,62,0.5))',
-          pointerEvents: 'none',
-        }} />
-        {/* Badge */}
-        <span style={{
-          position: 'absolute', top: 14, right: 14,
-          fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
-          letterSpacing: '0.08em', textTransform: 'uppercase',
-          padding: '6px 12px', borderRadius: 20, lineHeight: 1,
-          color: '#fff',
-          border: `1px solid ${isManufactured ? '#D4840A' : '#2B8DD0'}`,
-          background: isManufactured ? '#D4840A' : '#2B8DD0',
-        }}>{p.badge}</span>
-      </div>
-
-      {/* Card Body */}
-      <div style={{
-        padding: '22px 22px 24px',
-        display: 'flex', flexDirection: 'column', gap: 10, flex: 1,
-      }}>
-        <span style={{
-          fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
-          letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
-        }}>{p.series}</span>
-
-        <h3 style={{
-          fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800,
-          color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2,
-        }}>{p.name}</h3>
-
-        <p style={{
-          fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
-        }}>{p.desc}</p>
-
-        {/* Actions */}
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: 14,
-          marginTop: 8, paddingTop: 14,
-          borderTop: '1px solid rgba(20,27,62,0.07)',
-        }}>
-          <span style={{
-            display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
-            color: '#2B8DD0',
-          }}>
-            Learn More <ArrowRight size={14} />
-          </span>
-          <button
-          onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(`/contact?product=${encodeURIComponent(p.sampleProduct)}`) }}
-          style={{
-            display: 'inline-flex', alignItems: 'center', gap: 6,
-            fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
-            color: 'rgba(20,27,62,0.45)', transition: 'color 0.2s',
-            background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#141B3E'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(20,27,62,0.45)'}
+    <Link href={p.href} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+      <div style={{ perspective: '900px', height: '100%' }}>
+        <motion.div
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          custom={i}
+          style={{ height: '100%' }}
+        >
+          <div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              background: '#fff',
+              border: '1px solid rgba(20,27,62,0.08)',
+              borderRadius: 16,
+              overflow: 'hidden',
+              boxShadow: '0 2px 12px rgba(20,27,62,0.04)',
+              display: 'flex',
+              flexDirection: 'column',
+              cursor: 'pointer',
+              transform: 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)',
+              transition: 'transform 0.45s ease, box-shadow 0.3s ease',
+              willChange: 'transform',
+              height: '100%',
+            }}
           >
-            <FlaskConical size={14} />
-            Request Sample
-          </button>
-        </div>
+            {/* Card Image */}
+            <div style={{
+              position: 'relative',
+              height: 200,
+              overflow: 'hidden',
+              flexShrink: 0,
+            }}>
+              <Image
+                src={p.image}
+                alt={p.name}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                onMouseEnter={e => e.target.style.transform = 'scale(1.06)'}
+                onMouseLeave={e => e.target.style.transform = 'scale(1)'}
+              />
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(to bottom, transparent 40%, rgba(20,27,62,0.5))',
+                pointerEvents: 'none',
+              }} />
+              <span style={{
+                position: 'absolute', top: 14, right: 14,
+                fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
+                letterSpacing: '0.08em', textTransform: 'uppercase',
+                padding: '6px 12px', borderRadius: 20, lineHeight: 1,
+                color: '#fff',
+                border: `1px solid ${isManufactured ? '#D4840A' : '#2B8DD0'}`,
+                background: isManufactured ? '#D4840A' : '#2B8DD0',
+              }}>{p.badge}</span>
+            </div>
+
+            {/* Card Body */}
+            <div style={{
+              padding: '22px 22px 24px',
+              display: 'flex', flexDirection: 'column', gap: 10, flex: 1,
+            }}>
+              <span style={{
+                fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
+                letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
+              }}>{p.series}</span>
+
+              <h3 style={{
+                fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800,
+                color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2,
+              }}>{p.name}</h3>
+
+              <p style={{
+                fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
+              }}>{p.desc}</p>
+
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 14,
+                marginTop: 8, paddingTop: 14,
+                borderTop: '1px solid rgba(20,27,62,0.07)',
+              }}>
+                <span style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 6,
+                  fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
+                  color: '#2B8DD0',
+                }}>
+                  Learn More <ArrowRight size={14} />
+                </span>
+                <button
+                  onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(`/contact?product=${encodeURIComponent(p.sampleProduct)}`) }}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
+                    color: 'rgba(20,27,62,0.45)', transition: 'color 0.2s',
+                    background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#141B3E'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(20,27,62,0.45)'}
+                >
+                  <FlaskConical size={14} />
+                  Request Sample
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </motion.div>
     </Link>
   )
 }
@@ -210,10 +235,10 @@ export default function Products() {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
-        <div ref={headRef} style={{ marginBottom: 56 }}>
+        <div ref={headRef} style={{ marginBottom: 56, perspective: '1000px' }}>
           <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: 16, rotateX: 10 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.55 }}
             style={{
               display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12,
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
@@ -222,8 +247,8 @@ export default function Products() {
           >Product Portfolio</motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.07 }}
+            initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.07 }}
             style={{
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
               fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 14, lineHeight: 1.1, color: '#141B3E',
@@ -231,8 +256,8 @@ export default function Products() {
           >Complete Masterbatch Portfolio</motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={headInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.14 }}
+            initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
             One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.

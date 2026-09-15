@@ -32,22 +32,22 @@ export default function CookieConsent() {
     <div role="dialog" aria-label="Cookie consent" style={{
       position: 'fixed', bottom: 24, left: 24, right: 24,
       zIndex: 9999, maxWidth: 520, margin: '0 auto',
-      background: '#141B3E',
-      border: '1px solid rgba(255,255,255,0.1)',
+      background: '#FFFFFF',
+      border: '1px solid #DCDCDC',
       borderRadius: 14,
       padding: '20px 24px',
-      boxShadow: '0 8px 48px rgba(0,0,0,0.35)',
+      boxShadow: '0 4px 32px rgba(20,27,62,0.12)',
       display: 'flex', flexDirection: 'column', gap: 16,
     }}>
       <div>
         <div style={{
           fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
-          color: '#FFFFFF', marginBottom: 6,
+          color: '#141B3E', marginBottom: 6,
         }}>
           🍪 We use cookies
         </div>
         <p style={{
-          fontSize: 12, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7, margin: 0,
+          fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, margin: 0,
         }}>
           We use essential cookies to keep the site working. We do not use advertising or tracking cookies.
           See our{' '}
@@ -73,13 +73,13 @@ export default function CookieConsent() {
         <button
           onClick={decline}
           style={{
-            padding: '10px 16px', background: 'transparent', color: 'rgba(255,255,255,0.5)',
-            border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8,
+            padding: '10px 16px', background: 'transparent', color: 'rgba(20,27,62,0.5)',
+            border: '1px solid #DCDCDC', borderRadius: 8,
             fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
             cursor: 'pointer', transition: 'all 0.2s',
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)' }}
-          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)' }}
+          onMouseEnter={e => { e.currentTarget.style.color = '#141B3E'; e.currentTarget.style.borderColor = '#141B3E' }}
+          onMouseLeave={e => { e.currentTarget.style.color = 'rgba(20,27,62,0.5)'; e.currentTarget.style.borderColor = '#DCDCDC' }}
         >
           Decline
         </button>

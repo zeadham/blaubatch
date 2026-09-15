@@ -1,0 +1,427 @@
+{
+  "nodes": [
+    {
+      "id": "packaging_industry_packaging",
+      "label": "Packaging Industry",
+      "file_type": "image",
+      "source_file": "public/images/industries cards/packaging.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "sector": "packaging",
+        "visual_cues": "premium consumer packaging — shampoo bottle, water bottle, cosmetic jar, serum bottle, dropper — white/black/gold colorways",
+        "card_ui_context": "industry card representing the packaging sector served by Blau Batch masterbatches",
+        "sub_applications": ["personal care packaging", "beverage packaging", "cosmetics packaging", "household product packaging"]
+      }
+    },
+    {
+      "id": "pipes_industry_pipes",
+      "label": "Pipes & Fittings Industry",
+      "file_type": "image",
+      "source_file": "public/images/industries cards/pipes.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "sector": "pipes and fittings",
+        "visual_cues": "cross-sectioned black HDPE PE100 pipe (PN16 63mm SDR11) and blue PPR pipe (PN25 50mm S2.5) on industrial workbench",
+        "card_ui_context": "industry card representing the pipes and fittings sector",
+        "materials_shown": ["HDPE PE100", "PPR"],
+        "pipe_grades": ["PN16", "PN25"]
+      }
+    },
+    {
+      "id": "textiles_industry_textiles",
+      "label": "Textiles & Fibers Industry",
+      "file_type": "image",
+      "source_file": "public/images/industries cards/textiles.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "sector": "textiles and fibers",
+        "visual_cues": "macro close-up of blue and white synthetic polymer filaments/fibers bundled together",
+        "card_ui_context": "industry card representing the textiles and synthetic fiber sector",
+        "fiber_color": "blue and white",
+        "material_type": "synthetic polymer fiber"
+      }
+    },
+    {
+      "id": "wire_cable_industry_wire_cable",
+      "label": "Wire & Cable Industry",
+      "file_type": "image",
+      "source_file": "public/images/industries cards/wire_cable.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "sector": "wire and cable",
+        "visual_cues": "cut cross-sections of blue (Cabletech Industry-Grade H07RN-F) and black multi-core copper cables on metal surface, 450/750V rated, 6mm²",
+        "card_ui_context": "industry card representing the wire and cable insulation/jacketing sector",
+        "cable_types": ["H07RN-F", "industrial grade multi-core"],
+        "sheath_colors": ["blue", "black"]
+      }
+    },
+    {
+      "id": "Additives_product_additives_masterbatch",
+      "label": "Additives Masterbatch",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/Additives.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "additives masterbatch",
+        "visual_presentation": "clear/translucent white polymer pellets and granules in a bowl — glassy, semi-transparent appearance",
+        "color": "clear to translucent white",
+        "form": "pellets / granules",
+        "visual_property_cues": ["UV stabilizers", "antioxidants", "processing aids", "slip agents", "anti-block"],
+        "carrier_appearance": "transparent/neutral"
+      }
+    },
+    {
+      "id": "blackmasterbatch_product_black_masterbatch",
+      "label": "Black Masterbatch",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/blackmasterbatch.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "black masterbatch",
+        "visual_presentation": "dense mass of jet-black cylindrical pellets, uniform size, matte finish",
+        "color": "jet black",
+        "form": "cylindrical pellets",
+        "colorant": "carbon black",
+        "visual_property_cues": ["UV protection", "high carbon black loading", "pipe grade", "film grade", "injection molding grade"]
+      }
+    },
+    {
+      "id": "cmb_product_colour_masterbatch",
+      "label": "Colour Masterbatch (CMB)",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/cmb.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "colour masterbatch",
+        "visual_presentation": "vibrant rainbow-spectrum pellets — purple, blue, green, red, orange, yellow — mixed together in a dense pile",
+        "color": "multicolour / full spectrum",
+        "form": "cylindrical pellets",
+        "visual_property_cues": ["custom colour matching", "pigment dispersion", "PP and PE compatible", "food contact grades", "packaging applications"],
+        "color_variety": "full spectrum (purple, blue, green, red, orange, yellow)"
+      }
+    },
+    {
+      "id": "filler_masterbatch_PE_product_filler_pe",
+      "label": "Filler Masterbatch PE",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/filler masterbatch PE.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "filler masterbatch (PE carrier)",
+        "visual_presentation": "bright white small rounded pellets, soft and uniform, dense pile — clean white appearance",
+        "color": "bright white",
+        "form": "rounded pellets",
+        "filler": "calcium carbonate (CaCO3)",
+        "carrier": "polyethylene (PE)",
+        "visual_property_cues": ["cost reduction", "stiffness improvement", "PE film", "PE bags", "injection molding"]
+      }
+    },
+    {
+      "id": "FMPP_product_filler_pp",
+      "label": "Filler Masterbatch PP",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/FMPP.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "filler masterbatch (PP carrier)",
+        "visual_presentation": "off-white/white slightly larger and chunkier cylindrical pellets, matte surface, dense pile on dark grey background",
+        "color": "off-white / white",
+        "form": "cylindrical pellets (larger than PE filler variant)",
+        "filler": "calcium carbonate (CaCO3)",
+        "carrier": "polypropylene (PP)",
+        "visual_property_cues": ["cost reduction", "rigidity", "PP woven bags", "PP raffia", "injection molding", "caps and closures"]
+      }
+    },
+    {
+      "id": "wmb_product_white_masterbatch",
+      "label": "White Masterbatch (WMB)",
+      "file_type": "image",
+      "source_file": "public/images/product_cards/wmb.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "meta": {
+        "product_type": "white masterbatch",
+        "visual_presentation": "pure bright white cylindrical pellets, uniform size, highly opaque appearance, dense pile on neutral background",
+        "color": "pure white / high opacity white",
+        "form": "cylindrical pellets",
+        "colorant": "titanium dioxide (TiO2)",
+        "visual_property_cues": ["high whiteness index", "opacity/hiding power", "UV resistance", "packaging films", "injection molding", "PE and PP compatible"]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "cmb_product_colour_masterbatch",
+      "target": "packaging_industry_packaging",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/cmb.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Colour masterbatch is a primary product for packaging applications — colouring bottles, caps, containers"
+    },
+    {
+      "source": "wmb_product_white_masterbatch",
+      "target": "packaging_industry_packaging",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/wmb.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "White masterbatch (TiO2) is widely used in packaging for opacity and whiteness in films and containers"
+    },
+    {
+      "source": "blackmasterbatch_product_black_masterbatch",
+      "target": "pipes_industry_pipes",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/blackmasterbatch.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Black masterbatch with high carbon black is the standard colorant/UV-protector for HDPE PE100 pipes (shown as black pipe in image)"
+    },
+    {
+      "source": "blackmasterbatch_product_black_masterbatch",
+      "target": "wire_cable_industry_wire_cable",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/blackmasterbatch.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Black masterbatch is used for cable sheathing and insulation — the black cable jacket shown requires carbon black for UV stability"
+    },
+    {
+      "source": "cmb_product_colour_masterbatch",
+      "target": "wire_cable_industry_wire_cable",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/cmb.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Colour masterbatch colours cable sheaths (blue cable visible in wire_cable image) for identification and standards compliance"
+    },
+    {
+      "source": "cmb_product_colour_masterbatch",
+      "target": "pipes_industry_pipes",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/cmb.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Colour masterbatch colours pipes (blue PPR pipe visible in pipes image) for system identification"
+    },
+    {
+      "source": "cmb_product_colour_masterbatch",
+      "target": "textiles_industry_textiles",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "public/images/product_cards/cmb.png",
+      "source_location": null,
+      "weight": 1.0,
+      "note": "Colour masterbatch is used to spin-dye synthetic fibers — the blue fibers in textiles image are coloured via masterbatch in melt"
+    },
+    {
+      "source": "filler_masterbatch_PE_product_filler_pe",
+      "target": "packaging_industry_packaging",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/product_cards/filler masterbatch PE.png",
+      "source_location": null,
+      "weight": 0.85,
+      "note": "Filler MB PE is used in PE film and flexible packaging as a cost-reduction additive"
+    },
+    {
+      "source": "FMPP_product_filler_pp",
+      "target": "packaging_industry_packaging",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/images/product_cards/FMPP.png",
+      "source_location": null,
+      "weight": 0.85,
+      "note": "Filler MB PP is used in PP packaging (caps, woven bags) for cost reduction and stiffness"
+    },
+    {
+      "source": "Additives_product_additives_masterbatch",
+      "target": "packaging_industry_packaging",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/product_cards/Additives.png",
+      "source_location": null,
+      "weight": 0.8,
+      "note": "Additive masterbatches (UV, slip, anti-block, antioxidant) are key processing and performance additives in packaging"
+    },
+    {
+      "source": "Additives_product_additives_masterbatch",
+      "target": "pipes_industry_pipes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/product_cards/Additives.png",
+      "source_location": null,
+      "weight": 0.75,
+      "note": "Antioxidant and UV-stabilizer additives are critical for pipe longevity and thermal stability"
+    },
+    {
+      "source": "Additives_product_additives_masterbatch",
+      "target": "wire_cable_industry_wire_cable",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/product_cards/Additives.png",
+      "source_location": null,
+      "weight": 0.75,
+      "note": "Flame retardant and antioxidant additives are used in wire and cable jacketing compounds"
+    },
+    {
+      "source": "Additives_product_additives_masterbatch",
+      "target": "textiles_industry_textiles",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/images/product_cards/Additives.png",
+      "source_location": null,
+      "weight": 0.7,
+      "note": "UV and antioxidant additives are used in synthetic fiber production to protect fibers from degradation"
+    },
+    {
+      "source": "filler_masterbatch_PE_product_filler_pe",
+      "target": "FMPP_product_filler_pp",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "public/images/product_cards/filler masterbatch PE.png",
+      "source_location": null,
+      "weight": 0.95,
+      "note": "Both are CaCO3 filler masterbatches differing only in polymer carrier (PE vs PP); visually very similar white pellets"
+    },
+    {
+      "source": "wmb_product_white_masterbatch",
+      "target": "filler_masterbatch_PE_product_filler_pe",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/product_cards/wmb.png",
+      "source_location": null,
+      "weight": 0.8,
+      "note": "Both appear as white pellets but serve different functions: WMB provides opacity/whiteness via TiO2, Filler MB reduces cost via CaCO3"
+    },
+    {
+      "source": "wmb_product_white_masterbatch",
+      "target": "FMPP_product_filler_pp",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.8,
+      "source_file": "public/images/product_cards/wmb.png",
+      "source_location": null,
+      "weight": 0.8,
+      "note": "Both appear as white/off-white pellets but WMB is TiO2-based for colour/opacity while FMPP is CaCO3-based for cost reduction"
+    },
+    {
+      "source": "blackmasterbatch_product_black_masterbatch",
+      "target": "cmb_product_colour_masterbatch",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/product_cards/blackmasterbatch.png",
+      "source_location": null,
+      "weight": 0.75,
+      "note": "Both are pigment-based masterbatches for colouring polymers; black MB is a specialised high-loading variant of colour MB"
+    },
+    {
+      "source": "wmb_product_white_masterbatch",
+      "target": "cmb_product_colour_masterbatch",
+      "relation": "semantically_similar_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.75,
+      "source_file": "public/images/product_cards/wmb.png",
+      "source_location": null,
+      "weight": 0.75,
+      "note": "Both are colour/pigment masterbatches; white MB is a dedicated TiO2-loaded variant of the colour masterbatch family"
+    },
+    {
+      "source": "pipes_industry_pipes",
+      "target": "wire_cable_industry_wire_cable",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/images/industries cards/pipes.png",
+      "source_location": null,
+      "weight": 0.7,
+      "note": "Both are infrastructure/utilities industries using polymer extrusion with overlapping masterbatch requirements (black MB, colour MB, additives)"
+    },
+    {
+      "source": "filler_masterbatch_PE_product_filler_pe",
+      "target": "pipes_industry_pipes",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "public/images/product_cards/filler masterbatch PE.png",
+      "source_location": null,
+      "weight": 0.65,
+      "note": "Filler MB PE can be used in lower-grade PE pipe formulations for cost reduction, though not typical for pressure-rated pipes"
+    },
+    {
+      "source": "FMPP_product_filler_pp",
+      "target": "textiles_industry_textiles",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7,
+      "source_file": "public/images/product_cards/FMPP.png",
+      "source_location": null,
+      "weight": 0.7,
+      "note": "Filler MB PP is used in PP woven fabric and raffia tape production — a sub-sector of the textiles industry"
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

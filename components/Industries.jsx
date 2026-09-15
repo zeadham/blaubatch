@@ -68,11 +68,12 @@ const INDUSTRIES = [
 ]
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 24, rotateX: 12 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] },
+    rotateX: 0,
+    transition: { duration: 0.5, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] },
   }),
 }
 
@@ -85,9 +86,9 @@ export default function Industries() {
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
-        <div ref={headRef} style={{ marginBottom: 52 }}>
+        <div ref={headRef} style={{ marginBottom: 52, perspective: '1000px' }}>
           <motion.div
-            initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 16, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.5 }}
             style={{
               display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12,
@@ -97,7 +98,7 @@ export default function Industries() {
           >Industries Served</motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
             style={{
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
@@ -106,7 +107,7 @@ export default function Industries() {
           >Built for Plastics Processing</motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
@@ -115,7 +116,7 @@ export default function Industries() {
         </div>
 
         {/* 4-col card grid */}
-        <div id="industries-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+        <div id="industries-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18, perspective: '1200px' }}>
           {INDUSTRIES.map((ind, i) => (
             <MotionLink
               key={ind.id}

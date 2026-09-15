@@ -126,18 +126,6 @@ export default function FMPEPage() {
                   Each batch is tested for MFI, ash content, colour, and CaCO₃ dispersion before dispatch. Full traceability from raw mineral intake to finished goods — CoA and TDS provided on every shipment.
                 </p>
               </div>
-              <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Dosage Guidance</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>Let-Down Ratios by Application</h3>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                  {DOSAGE_GUIDE.map((d, i) => (
-                    <div key={d.app} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 0', borderBottom: i < DOSAGE_GUIDE.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
-                      <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>{d.app}</span>
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}>{d.range}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -161,7 +149,8 @@ export default function FMPEPage() {
             >
               <div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}>A Selection of Available Grades</h2>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}>A Selection of Available Grades</h2>
+                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}>Standard range shown — custom CaCO₃ loadings, carrier systems, and application-specific formulations available on request.</p>
               </div>
               <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />

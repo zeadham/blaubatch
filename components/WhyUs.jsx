@@ -34,10 +34,11 @@ const STATS = [
 ]
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 24, rotateX: 14 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
+    rotateX: 0,
     transition: { duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
   }),
 }
@@ -54,9 +55,10 @@ export default function WhyUs() {
           marginBottom: 80,
         }}>
           {/* Left — Story */}
+          <div style={{ perspective: '900px' }}>
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -30, rotateY: -8 }}
+            whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -117,9 +119,10 @@ export default function WhyUs() {
               </div>
             </div>
           </motion.div>
+          </div>
 
           {/* Right — Value Props 2×2 */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 18, perspective: '800px' }}>
             {VALUE_PROPS.map((prop, i) => {
               const Icon = prop.icon
               return (
