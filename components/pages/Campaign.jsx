@@ -67,9 +67,9 @@ const PRODUCTS = [
 
 const INDUSTRIES = [
   { icon: Package,     label: 'Packaging & Film',  image: '/images/industries cards/packaging.png',      href: '/industries/packaging',      desc: 'Filler, colour, white & slip for blown film, bags, closures' },
-  { icon: Wrench,      label: 'Pipes & Fittings',  image: '/images/industries cards/pipes2.png',          href: '/industries/pipes',          desc: 'Carbon black & CaCO₃ for HDPE, PPR, and PVC extrusion' },
+  { icon: Wrench,      label: 'Pipes & Fittings',  image: '/images/industries cards/pipes.png',          href: '/industries/pipes',          desc: 'Carbon black & CaCO₃ for HDPE, PPR, and PVC extrusion' },
   { icon: Leaf,        label: 'Agriculture',        image: '/images/industries cards/agriculture.png',     href: '/industries/agriculture',    desc: 'UV-stabilised grades for mulch, greenhouse & irrigation film' },
-  { icon: Factory,     label: 'Textiles & Fibre',   image: '/images/industries cards/textiles2.png',       href: '/industries/textiles',       desc: 'Colour & filler for PP non-woven and filament spinning' },
+  { icon: Factory,     label: 'Textiles & Fibre',   image: '/images/industries cards/textiles.png',       href: '/industries/textiles',       desc: 'Colour & filler for PP non-woven and filament spinning' },
   { icon: Building2,   label: 'Construction',       image: '/images/industries cards/construction.png',    href: '/industries/construction',   desc: 'Geomembrane and waterproofing sheet compounds' },
   { icon: Cable,       label: 'Wire & Cable',       image: '/images/industries cards/wire_cable.png',      href: '/industries/wire-cable',     desc: 'Carbon black & flame retardant for cable jacketing' },
   { icon: Car,         label: 'Automotive',         image: '/images/industries cards/automotive.png',      href: '/industries/automotive',     desc: 'Engineered concentrates for interior & exterior parts' },

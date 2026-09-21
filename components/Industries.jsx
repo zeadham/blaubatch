@@ -20,7 +20,7 @@ const INDUSTRIES = [
     id: 'pipes',
     name: 'Pipes, Fittings & Profiles',
     desc: 'Carbon black and CaCO₃ concentrates for HDPE, PPR, and PVC extrusion.',
-    image: '/images/industries cards/pipes2.png',
+    image: '/images/industries cards/pipes.png',
     href: '/industries/pipes',
   },
   {
@@ -34,7 +34,7 @@ const INDUSTRIES = [
     id: 'textiles',
     name: 'Textiles & Fibre',
     desc: 'Color and filler grades optimized for PP non-woven and filament spinning.',
-    image: '/images/industries cards/textiles2.png',
+    image: '/images/industries cards/textiles.png',
     href: '/industries/textiles',
   },
   {
