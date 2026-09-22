@@ -13,7 +13,7 @@ export default function CompanyStory() {
       badgeColor="#2B8DD0"
       date="April 2026"
       readTime="4 min read"
-      heroImage="/images/heroes/factory_morph.webp"
+      heroImage="/images/heroes/about.webp"
       seo={{
         title: 'The Blau Batch Story | Masterbatch Manufacturer Egypt',
         description: 'Founded in 2022, Blau Batch was built to fill a reliability gap in the MENA filler masterbatch market. Learn about our journey to becoming a regional leader.',

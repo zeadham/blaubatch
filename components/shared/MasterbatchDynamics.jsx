@@ -10,9 +10,6 @@ const ASSETS = {
   black: '/images/brand-assets/black-tonal.png',
   pour: '/images/brand-assets/macro-pour.png',
   white3d: '/images/brand-assets/white-3d-backlit.png',
-  sustainability: '/images/brand-assets/sustainability-leaf.png',
-  resources: '/images/brand-assets/resources-insights.png',
-  contact: '/images/brand-assets/contact-partnership.png',
 }
 
 export default function MasterbatchDynamics({ 

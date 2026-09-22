@@ -13,7 +13,7 @@ export default function MasterbatchRange() {
       badgeColor="#2B8DD0"
       date="April 2026"
       readTime="5 min read"
-      heroImage="/images/heroes/home_morph.webp"
+      heroImage="/images/heroes/campaign_hero.webp"
       seo={{
         title: 'Complete Masterbatch Range MENA & Europe | Blau Batch',
         description: 'Explore the full spectrum of masterbatch solutions from Blau Batch. Black, White, Color, and Additives for all plastic manufacturing applications.',

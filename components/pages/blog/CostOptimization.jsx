@@ -13,7 +13,7 @@ export default function CostOptimization() {
       badgeColor="#22C55E"
       date="April 2026"
       readTime="5 min read"
-      heroImage="/images/heroes/cost_morph.webp"
+      heroImage="/images/heroes/filler.webp"
       seo={{
         title: 'Masterbatch Cost Optimization Egypt | Blau Batch',
         description: 'Learn how to optimize your production costs using filler masterbatch. Calculate your savings and improve your margins with CaCO₃ mineral loading.',

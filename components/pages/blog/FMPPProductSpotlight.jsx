@@ -13,7 +13,7 @@ export default function FMPPProductSpotlight() {
       badgeColor="#2B8DD0"
       date="April 2026"
       readTime="4 min read"
-      heroImage="/images/heroes/fmpp_morph.webp"
+      heroImage="/images/heroes/FMPP.webp"
       seo={{
         title: 'FMPP Filler Masterbatch Polypropylene Egypt | Blau Batch',
         description: 'Explore the FMPP series from Blau Batch. Premium polypropylene filler masterbatch with 70–80% CaCO₃ loading for woven sacks, rafia, and injection molding.',
