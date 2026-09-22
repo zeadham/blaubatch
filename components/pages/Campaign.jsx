@@ -3,7 +3,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
+import { T, useLocale } from '@/components/LocaleProvider'
 import {
   ArrowRight, CheckCircle2, Mail, Phone, MessageCircle,
   Factory, Package, Leaf, Wrench, Cable, Car, Building2,
@@ -120,6 +121,7 @@ function HeroSection() {
 }
 
 function HeroCycler({ active, setActive }) {
+  const { isAr } = useLocale()
   useEffect(() => {
     const t = setInterval(() => setActive(p => (p + 1) % CYCLE.length), 3200)
     return () => clearInterval(t)
@@ -154,7 +156,7 @@ function HeroCycler({ active, setActive }) {
           background: 'rgba(43,141,208,0.07)',
         }}>
           <span style={{ width: 6, height: 6, background: '#2B8DD0', borderRadius: '50%', animation: 'heroPulse 2s ease-in-out infinite' }} />
-          One Source · Full Spectrum
+          <T>One Source · Full Spectrum</T>
         </motion.div>
 
         {/* H1 */}
@@ -163,7 +165,7 @@ function HeroCycler({ active, setActive }) {
           fontSize: 'clamp(34px, 3.8vw, 58px)', lineHeight: 1.04,
           letterSpacing: '-0.03em', marginBottom: 22, color: '#141B3E',
         }}>
-          Every{' '}
+          {isAr ? 'كل درجات' : 'Every'}{' '}
           <AnimatePresence mode="wait">
             <motion.span
               key={word}
@@ -172,9 +174,9 @@ function HeroCycler({ active, setActive }) {
               exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               style={{ color: CYCLE_COLORS[word], display: 'inline-block' }}
-            >{word}</motion.span>
+            ><T>{word}</T></motion.span>
           </AnimatePresence>
-          {' '}Grade.<br />One Trusted<br />Supplier.
+          {isAr ? '.' : ' Grade.'}<br /><T>One Trusted</T><br /><T>Supplier.</T>
         </motion.h1>
 
         {/* Sub */}
@@ -183,7 +185,7 @@ function HeroCycler({ active, setActive }) {
           color: 'rgba(20,27,62,0.6)', lineHeight: 1.8,
           marginBottom: 36, maxWidth: 440,
         }}>
-          Blau Batch manufactures Filler Masterbatch in-house and distributes the complete Coraplast range — colour, white, black, and additive — across MENA and Europe. One supplier for every grade your production needs.
+          <T>Blau Batch manufactures Filler Masterbatch in-house and distributes the complete Coraplast range — colour, white, black, and additive — across MENA and Europe. One supplier for every grade your production needs.</T>
         </motion.p>
 
         {/* CTAs */}
@@ -198,7 +200,7 @@ function HeroCycler({ active, setActive }) {
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(43,141,208,0.4)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
           >
-            Get a Free Quote <ArrowRight size={14} />
+            <T>Get a Free Quote </T><ArrowRight size={14} className="flip-rtl" />
           </a>
           <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -211,7 +213,7 @@ function HeroCycler({ active, setActive }) {
           onMouseEnter={e => { e.currentTarget.style.background = '#20bb5a'; e.currentTarget.style.transform = 'translateY(-2px)' }}
           onMouseLeave={e => { e.currentTarget.style.background = '#25D366'; e.currentTarget.style.transform = 'none' }}
           >
-            <MessageCircle size={14} /> WhatsApp Us
+            <MessageCircle size={14} /><T> WhatsApp Us</T>
           </a>
         </motion.div>
 
@@ -228,12 +230,12 @@ function HeroCycler({ active, setActive }) {
           ].map((s, i) => (
             <div key={s.label} style={{
               flex: 1,
-              paddingRight: i < 3 ? 20 : 0,
-              borderRight: i < 3 ? '1px solid rgba(20,27,62,0.08)' : 'none',
-              marginRight: i < 3 ? 20 : 0,
+              paddingInlineEnd: i < 3 ? 20 : 0,
+              borderInlineEnd: i < 3 ? '1px solid rgba(20,27,62,0.08)' : 'none',
+              marginInlineEnd: i < 3 ? 20 : 0,
             }}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 900, color: '#2B8DD0', letterSpacing: '-0.03em', lineHeight: 1 }}>{s.n}</div>
-              <div style={{ fontSize: 10, color: 'rgba(20,27,62,0.45)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 5 }}>{s.label}</div>
+              <div style={{ fontSize: 10, color: 'rgba(20,27,62,0.45)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 5 }}><T>{s.label}</T></div>
             </div>
           ))}
         </motion.div>
@@ -255,14 +257,14 @@ function HeroCycler({ active, setActive }) {
         }} />
         {/* Floating badge */}
         <div style={{
-          position: 'absolute', top: 28, right: 28,
+          position: 'absolute', top: 28, insetInlineEnd: 28,
           background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(16px)',
           border: '1px solid rgba(20,27,62,0.1)', borderRadius: 10,
           padding: '10px 18px', fontFamily: 'Inter, sans-serif',
           fontSize: 10, fontWeight: 800, letterSpacing: '0.1em',
           textTransform: 'uppercase', color: '#141B3E',
           boxShadow: '0 4px 20px rgba(20,27,62,0.08)',
-        }}>Full-Spectrum Supplier</div>
+        }}><T>Full-Spectrum Supplier</T></div>
       </div>
 
       <style>{`
@@ -309,7 +311,7 @@ function TrustStrip() {
             color: 'rgba(20,27,62,0.55)',
           }}>
             <CheckCircle2 size={13} color="#2B8DD0" strokeWidth={2.5} />
-            {item}
+            <T>{item}</T>
           </div>
         ))}
       </div>
@@ -334,17 +336,17 @@ function PainSection() {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)',
             borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-          }}>The Problem</motion.div>
+          }}><T>The Problem</T></motion.div>
           <motion.h2 {...inFade(inView, 0.08)} style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(28px, 3.5vw, 44px)', lineHeight: 1.08,
             letterSpacing: '-0.03em', color: '#141B3E', marginBottom: 16,
-          }}>Still Juggling Multiple<br />Masterbatch Suppliers?</motion.h2>
+          }}><T>Still Juggling Multiple</T><br /><T>Masterbatch Suppliers?</T></motion.h2>
           <motion.p {...inFade(inView, 0.14)} style={{
             fontSize: 16, color: 'rgba(20,27,62,0.55)', lineHeight: 1.8,
             maxWidth: 580, margin: '0 auto',
           }}>
-            Every additional vendor adds complexity, inconsistency, and hidden cost to your production line. There's a better way.
+            <T>Every additional vendor adds complexity, inconsistency, and hidden cost to your production line. There's a better way.</T>
           </motion.p>
         </div>
 
@@ -361,7 +363,7 @@ function PainSection() {
               fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
               letterSpacing: '0.12em', textTransform: 'uppercase',
               color: '#D4840A', marginBottom: 24,
-            }}>Before — Multiple Suppliers</div>
+            }}><T>Before — Multiple Suppliers</T></div>
             {[
               'Multiple accounts, invoices, and contacts to manage',
               'Inconsistent quality standards between vendors',
@@ -372,7 +374,7 @@ function PainSection() {
             ].map(item => (
               <div key={item} style={{ display: 'flex', gap: 10, marginBottom: 13, alignItems: 'flex-start' }}>
                 <span style={{ color: '#D4840A', fontSize: 15, flexShrink: 0, marginTop: 1, fontWeight: 700 }}>—</span>
-                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.65 }}>{item}</span>
+                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.65 }}><T>{item}</T></span>
               </div>
             ))}
           </div>
@@ -387,7 +389,7 @@ function PainSection() {
               background: '#141B3E', display: 'flex', alignItems: 'center', justifyContent: 'center',
               boxShadow: '0 4px 14px rgba(20,27,62,0.18)',
             }}>
-              <ArrowRight size={15} color="#fff" />
+              <ArrowRight size={15} color="#fff" className="flip-rtl" />
             </div>
           </div>
 
@@ -400,7 +402,7 @@ function PainSection() {
               fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
               letterSpacing: '0.12em', textTransform: 'uppercase',
               color: '#2B8DD0', marginBottom: 24,
-            }}>With Blau Batch — One Supplier</div>
+            }}><T>With Blau Batch — One Supplier</T></div>
             {[
               'One account, one invoice, one relationship',
               'Consistent quality standards across all grades',
@@ -411,7 +413,7 @@ function PainSection() {
             ].map(item => (
               <div key={item} style={{ display: 'flex', gap: 10, marginBottom: 13, alignItems: 'flex-start' }}>
                 <CheckCircle2 size={15} color="#2B8DD0" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: 2 }} />
-                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.65 }}>{item}</span>
+                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.65 }}><T>{item}</T></span>
               </div>
             ))}
           </div>
@@ -448,16 +450,16 @@ function ProductsSection() {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)',
             borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-          }}>Full Product Range</motion.div>
+          }}><T>Full Product Range</T></motion.div>
           <motion.h2 {...inFade(inView, 0.07)} style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.03em',
             lineHeight: 1.08, color: '#141B3E', marginBottom: 14, maxWidth: 680,
-          }}>Six Product Lines. Every Grade<br />Your Production Needs.</motion.h2>
+          }}><T>Six Product Lines. Every Grade</T><br /><T>Your Production Needs.</T></motion.h2>
           <motion.p {...inFade(inView, 0.13)} style={{
             fontSize: 16, color: 'rgba(20,27,62,0.55)', lineHeight: 1.8, maxWidth: 560,
           }}>
-            Two in-house manufactured filler grades plus four internationally sourced Coraplast lines — all from one supplier, one contact, one invoice.
+            <T>Two in-house manufactured filler grades plus four internationally sourced Coraplast lines — all from one supplier, one contact, one invoice.</T>
           </motion.p>
         </div>
 
@@ -479,33 +481,33 @@ function ProductsSection() {
                     style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
                   />
                   <div style={{
-                    position: 'absolute', top: 12, left: 12,
+                    position: 'absolute', top: 12, insetInlineStart: 12,
                     background: p.badgeColor === '#D4840A' ? '#D4840A' : '#2B8DD0',
                     borderRadius: 5, padding: '4px 10px',
                     fontFamily: 'Inter, sans-serif', fontSize: 8, fontWeight: 800,
                     letterSpacing: '0.1em', textTransform: 'uppercase', color: '#fff',
-                  }}>{p.badge}</div>
+                  }}><T>{p.badge}</T></div>
                 </div>
 
                 {/* Body */}
                 <div style={{ padding: '20px 22px 22px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: p.badgeColor, marginBottom: 6, textTransform: 'uppercase' }}>{p.code}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#141B3E', letterSpacing: '-0.01em', marginBottom: 9, lineHeight: 1.3 }}>{p.name}</div>
-                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.65, marginBottom: 14, flex: 1 }}>{p.desc}</p>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: p.badgeColor, marginBottom: 6, textTransform: 'uppercase' }}><T>{p.code}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#141B3E', letterSpacing: '-0.01em', marginBottom: 9, lineHeight: 1.3 }}><T>{p.name}</T></div>
+                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.65, marginBottom: 14, flex: 1 }}><T>{p.desc}</T></p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginBottom: 16 }}>
                     {p.specs.map(s => (
                       <span key={s} style={{
                         fontSize: 10, fontFamily: 'Inter, sans-serif', fontWeight: 700,
                         padding: '3px 8px', borderRadius: 4,
                         background: 'rgba(20,27,62,0.05)', color: 'rgba(20,27,62,0.5)',
-                      }}>{s}</span>
+                      }}><T>{s}</T></span>
                     ))}
                   </div>
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', gap: 5,
                     fontSize: 11, fontFamily: 'Inter, sans-serif', fontWeight: 800,
                     color: '#2B8DD0', letterSpacing: '0.05em', textTransform: 'uppercase',
-                  }}>View Product <ChevronRight size={13} /></div>
+                  }}><T>View Product </T><ChevronRight size={13} className="flip-rtl" /></div>
                 </div>
               </Link>
             </motion.div>
@@ -523,7 +525,7 @@ function ProductsSection() {
           onMouseEnter={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(43,141,208,0.35)' }}
           onMouseLeave={e => { e.currentTarget.style.background = '#141B3E'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
           >
-            Request Pricing for Any Grade <ArrowRight size={14} />
+            <T>Request Pricing for Any Grade </T><ArrowRight size={14} className="flip-rtl" />
           </a>
         </motion.div>
       </div>
@@ -554,16 +556,16 @@ function IndustriesSection() {
               fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
               color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)',
               borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-            }}>Industries Served</motion.div>
+            }}><T>Industries Served</T></motion.div>
             <motion.h2 {...inFade(inView, 0.07)} style={{
               fontFamily: 'Inter, sans-serif', fontWeight: 900,
               fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.03em',
               lineHeight: 1.08, color: '#141B3E', marginBottom: 12,
-            }}>Built for Plastics<br />Processors Everywhere.</motion.h2>
+            }}><T>Built for Plastics</T><br /><T>Processors Everywhere.</T></motion.h2>
             <motion.p {...inFade(inView, 0.13)} style={{
               fontSize: 16, color: 'rgba(20,27,62,0.55)', lineHeight: 1.8, maxWidth: 480,
             }}>
-              From blown film to pipe extrusion — we supply the right grades across 8 major industries.
+              <T>From blown film to pipe extrusion — we supply the right grades across 8 major industries.</T>
             </motion.p>
           </div>
           <motion.a {...inFade(inView, 0.18)} href="#get-quote" style={{
@@ -576,7 +578,7 @@ function IndustriesSection() {
           onMouseEnter={e => { e.currentTarget.style.borderColor = '#2B8DD0'; e.currentTarget.style.color = '#2B8DD0' }}
           onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.15)'; e.currentTarget.style.color = 'rgba(20,27,62,0.6)' }}
           >
-            Request a Quote <ArrowRight size={13} />
+            <T>Request a Quote </T><ArrowRight size={13} className="flip-rtl" />
           </motion.a>
         </div>
 
@@ -599,8 +601,8 @@ function IndustriesSection() {
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(20,27,62,0.55) 0%, transparent 55%)' }} />
                 </div>
                 <div style={{ padding: '14px 16px 16px' }}>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 5 }}>{ind.label}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.55 }}>{ind.desc}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 5 }}><T>{ind.label}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.55 }}><T>{ind.desc}</T></div>
                 </div>
               </Link>
             </motion.div>
@@ -633,12 +635,12 @@ function AdvantagesSection() {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)',
             borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-          }}>Why Blau Batch</motion.div>
+          }}><T>Why Blau Batch</T></motion.div>
           <motion.h2 {...inFade(inView, 0.07)} style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.03em',
             lineHeight: 1.08, color: '#141B3E',
-          }}>The Single-Source Advantage</motion.h2>
+          }}><T>The Single-Source Advantage</T></motion.h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
@@ -657,8 +659,8 @@ function AdvantagesSection() {
               }}>
                 <a.icon size={21} color={a.color} strokeWidth={1.5} />
               </div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', marginBottom: 9, lineHeight: 1.3 }}>{a.title}</div>
-              <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}>{a.desc}</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', marginBottom: 9, lineHeight: 1.3 }}><T>{a.title}</T></div>
+              <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}><T>{a.desc}</T></div>
             </motion.div>
           ))}
         </div>
@@ -695,18 +697,18 @@ function HowItWorksSection() {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)',
             borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-          }}>How It Works</motion.div>
+          }}><T>How It Works</T></motion.div>
           <motion.h2 {...inFade(inView, 0.07)} style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.03em',
             lineHeight: 1.08, color: '#141B3E',
-          }}>From Enquiry to Delivery<br />in 3 Simple Steps</motion.h2>
+          }}><T>From Enquiry to Delivery</T><br /><T>in 3 Simple Steps</T></motion.h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0, position: 'relative' }}>
           {/* Connector */}
           <div style={{
-            position: 'absolute', top: 34, left: '17%', right: '17%', height: 2,
+            position: 'absolute', top: 34, insetInlineStart: '17%', insetInlineEnd: '17%', height: 2,
             background: 'linear-gradient(to right, rgba(43,141,208,0.25), rgba(43,141,208,0.5), rgba(43,141,208,0.25))',
           }} />
           {STEPS.map((s, i) => (
@@ -717,9 +719,9 @@ function HowItWorksSection() {
                 boxShadow: '0 0 0 6px rgba(43,141,208,0.1), 0 8px 24px rgba(43,141,208,0.2)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#2B8DD0',
-              }}>{s.num}</div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, color: '#141B3E', marginBottom: 10, letterSpacing: '-0.01em' }}>{s.title}</div>
-              <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}>{s.desc}</div>
+              }}><T>{s.num}</T></div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, color: '#141B3E', marginBottom: 10, letterSpacing: '-0.01em' }}><T>{s.title}</T></div>
+              <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}><T>{s.desc}</T></div>
             </motion.div>
           ))}
         </div>
@@ -735,7 +737,7 @@ function HowItWorksSection() {
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(43,141,208,0.45)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(43,141,208,0.3)' }}
           >
-            Start Your Enquiry Now <ArrowRight size={15} />
+            <T>Start Your Enquiry Now </T><ArrowRight size={15} className="flip-rtl" />
           </a>
         </motion.div>
       </div>
@@ -755,6 +757,7 @@ function HowItWorksSection() {
    8. LEAD FORM
 ═══════════════════════════════════════════ */
 function LeadFormSection() {
+  const { tr } = useLocale()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   const [form, setForm] = useState({ product: '', name: '', company: '', email: '', phone: '', country: '', message: '' })
@@ -805,21 +808,21 @@ function LeadFormSection() {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)',
             borderRadius: 4, padding: '5px 14px', marginBottom: 18,
-          }}>Request a Free Quote</motion.div>
+          }}><T>Request a Free Quote</T></motion.div>
 
           <motion.h2 {...inFade(inView, 0.07)} style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(28px, 3vw, 44px)', letterSpacing: '-0.03em',
             lineHeight: 1.08, color: '#141B3E', marginBottom: 18,
           }}>
-            Let&apos;s Talk<br />
-            <span style={{ color: '#2B8DD0' }}>Production.</span>
+            <T>Let&apos;s Talk</T><br />
+            <span style={{ color: '#2B8DD0' }}><T>Production.</T></span>
           </motion.h2>
 
           <motion.p {...inFade(inView, 0.13)} style={{
             fontSize: 15, color: 'rgba(20,27,62,0.55)', lineHeight: 1.85, marginBottom: 36, maxWidth: 400,
           }}>
-            Tell us your polymer, application, and volume. Our team responds within 24 hours with a grade recommendation and competitive pricing.
+            <T>Tell us your polymer, application, and volume. Our team responds within 24 hours with a grade recommendation and competitive pricing.</T>
           </motion.p>
 
           <motion.div {...inFade(inView, 0.18)} style={{ marginBottom: 36 }}>
@@ -832,7 +835,7 @@ function LeadFormSection() {
             ].map(item => (
               <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 0', borderBottom: '1px solid rgba(20,27,62,0.05)' }}>
                 <CheckCircle2 size={14} color="#2B8DD0" strokeWidth={2.5} style={{ flexShrink: 0 }} />
-                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)' }}>{item}</span>
+                <span style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)' }}><T>{item}</T></span>
               </div>
             ))}
           </motion.div>
@@ -861,8 +864,8 @@ function LeadFormSection() {
                   <c.icon size={16} color={c.color} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}>{c.label}</div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: c.color === '#25D366' ? '#25D366' : '#141B3E' }}>{c.val}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 2 }}><T>{c.label}</T></div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: c.color === '#25D366' ? '#25D366' : '#141B3E' }}><T>{c.val}</T></div>
                 </div>
               </a>
             ))}
@@ -883,9 +886,9 @@ function LeadFormSection() {
               }}>
                 <CheckCircle2 size={30} color="#2B8DD0" />
               </div>
-              <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 22, color: '#141B3E', marginBottom: 12, letterSpacing: '-0.02em' }}>Quote Request Sent</h3>
+              <h3 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 22, color: '#141B3E', marginBottom: 12, letterSpacing: '-0.02em' }}><T>Quote Request Sent</T></h3>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75, maxWidth: 320, margin: '0 auto 28px' }}>
-                Our technical team will respond within 24 hours with grade recommendations and competitive pricing.
+                <T>Our technical team will respond within 24 hours with grade recommendations and competitive pricing.</T>
               </p>
               <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px',
@@ -893,7 +896,7 @@ function LeadFormSection() {
                 fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800,
                 letterSpacing: '0.07em', textTransform: 'uppercase', textDecoration: 'none',
               }}>
-                <MessageCircle size={14} /> Also WhatsApp Us
+                <MessageCircle size={14} /><T> Also WhatsApp Us</T>
               </a>
             </div>
           ) : (
@@ -902,24 +905,24 @@ function LeadFormSection() {
               <h3 style={{
                 fontFamily: 'Inter, sans-serif', fontWeight: 900, fontSize: 18,
                 color: '#141B3E', letterSpacing: '-0.02em', marginBottom: 6,
-              }}>Get Your Quote</h3>
+              }}><T>Get Your Quote</T></h3>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.45)', marginBottom: 24, lineHeight: 1.6 }}>
-                Fill in your details and we&apos;ll respond within 24 hours.
+                <T>Fill in your details and we&apos;ll respond within 24 hours.</T>
               </p>
 
               {/* Product selection */}
               <div style={{ marginBottom: 18 }}>
-                <label style={{ ...lbl, marginBottom: 10 }}>What are you looking for?</label>
+                <label style={{ ...lbl, marginBottom: 10 }}><T>What are you looking for?</T></label>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7 }}>
                   {PRODUCT_OPTIONS.map(p => (
                     <button key={p} onClick={() => update('product', p)} style={{
-                      padding: '11px 10px', borderRadius: 8, textAlign: 'left', cursor: 'pointer',
+                      padding: '11px 10px', borderRadius: 8, textAlign: 'start', cursor: 'pointer',
                       border: form.product === p ? '2px solid #2B8DD0' : '1px solid rgba(20,27,62,0.1)',
                       background: form.product === p ? 'rgba(43,141,208,0.06)' : '#F7F8FC',
                       fontFamily: 'Open Sans, sans-serif', fontSize: 12,
                       color: form.product === p ? '#2B8DD0' : 'rgba(20,27,62,0.65)',
                       fontWeight: form.product === p ? 700 : 400, transition: 'all 0.15s',
-                    }}>{p}</button>
+                    }}><T>{p}</T></button>
                   ))}
                 </div>
               </div>
@@ -927,17 +930,17 @@ function LeadFormSection() {
               {/* Contact fields */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
                 <div>
-                  <label style={lbl}>Full Name *</label>
+                  <label style={lbl}><T>Full Name *</T></label>
                   <input type="text" value={form.name} onChange={e => update('name', e.target.value)}
-                    placeholder="Your name" style={inp}
+                    placeholder={tr("Your name")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
                 </div>
                 <div>
-                  <label style={lbl}>Company *</label>
+                  <label style={lbl}><T>Company *</T></label>
                   <input type="text" value={form.company} onChange={e => update('company', e.target.value)}
-                    placeholder="Company name" style={inp}
+                    placeholder={tr("Company name")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
@@ -945,17 +948,17 @@ function LeadFormSection() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
                 <div>
-                  <label style={lbl}>Email *</label>
+                  <label style={lbl}><T>Email *</T></label>
                   <input type="email" value={form.email} onChange={e => update('email', e.target.value)}
-                    placeholder="you@company.com" style={inp}
+                    placeholder={tr("you@company.com")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
                 </div>
                 <div>
-                  <label style={lbl}>Phone / WhatsApp *</label>
+                  <label style={lbl}><T>Phone / WhatsApp *</T></label>
                   <input type="tel" value={form.phone} onChange={e => update('phone', e.target.value)}
-                    placeholder="+20 xxx xxx xxxx" style={inp}
+                    placeholder={tr("+20 xxx xxx xxxx")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
@@ -963,17 +966,17 @@ function LeadFormSection() {
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }}>
                 <div>
-                  <label style={lbl}>Country</label>
+                  <label style={lbl}><T>Country</T></label>
                   <input type="text" value={form.country} onChange={e => update('country', e.target.value)}
-                    placeholder="Egypt, UAE, KSA..." style={inp}
+                    placeholder={tr("Egypt, UAE, KSA...")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
                 </div>
                 <div>
-                  <label style={lbl}>Application note</label>
+                  <label style={lbl}><T>Application note</T></label>
                   <input type="text" value={form.message} onChange={e => update('message', e.target.value)}
-                    placeholder="E.g. blown film, 30% filler..." style={inp}
+                    placeholder={tr("E.g. blown film, 30% filler...")} style={inp}
                     onFocus={e => e.target.style.borderColor = '#2B8DD0'}
                     onBlur={e => e.target.style.borderColor = 'rgba(20,27,62,0.12)'}
                   />
@@ -995,7 +998,7 @@ function LeadFormSection() {
               onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
               >
                 <Mail size={14} />
-                {loading ? 'Sending…' : 'Submit Quote Request'}
+                {tr(loading ? 'Sending…' : 'Submit Quote Request')}
               </button>
             </div>
           )}

@@ -3,13 +3,15 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
+import { useLocale } from '@/components/LocaleProvider'
 
 export default function WhatsApp() {
   const [open, setOpen] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
+  const { isAr, t } = useLocale()
 
   return (
-    <div className="wa-fab-container" style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 600, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12 }}>
+    <div className="wa-fab-container" style={{ position: 'fixed', bottom: 24, insetInlineEnd: 24, zIndex: 600, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 12 }}>
 
       {/* Chat popup */}
       <AnimatePresence>
@@ -33,7 +35,7 @@ export default function WhatsApp() {
                   <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff' }}>Blau Batch</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', display: 'inline-block' }} />
-                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.85)' }}>Technical Sales Team</span>
+                    <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.85)' }}>{t('Technical Sales Team', 'فريق المبيعات الفنية')}</span>
                   </div>
                 </div>
               </div>
@@ -44,15 +46,15 @@ export default function WhatsApp() {
 
             {/* Message bubble */}
             <div style={{ padding: '18px 16px' }}>
-              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '4px 12px 12px 12px', padding: '12px 14px', marginBottom: 16 }}>
+              <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: isAr ? '12px 4px 12px 12px' : '4px 12px 12px 12px', padding: '12px 14px', marginBottom: 16 }}>
                 <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.85)', lineHeight: 1.65, marginBottom: 6 }}>
-                  Hello! Send us your masterbatch requirement — polymer type, application, and target volume — and we'll respond with a recommendation and quote.
+                  {t("Hello! Send us your masterbatch requirement — polymer type, application, and target volume — and we'll respond with a recommendation and quote.", 'مرحباً! أرسل لنا احتياجك من الماستر باتش — نوع البوليمر والتطبيق والكمية المستهدفة — وسنرد عليك بتوصية وعرض سعر.')}
                 </p>
-                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', textAlign: 'right' }}>Blau Batch</p>
+                <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', textAlign: 'end' }}>{t('Blau Batch', 'بلاو باتش')}</p>
               </div>
 
               <a
-                href="https://wa.me/201022227723?text=Hello%20Blau%20Batch%2C%20I%20would%20like%20to%20enquire%20about%20your%20masterbatch%20products."
+                href={isAr ? `https://wa.me/201022227723?text=${encodeURIComponent('مرحباً بلاو باتش، أرغب في الاستفسار عن منتجات الماستر باتش لديكم.')}` : 'https://wa.me/201022227723?text=Hello%20Blau%20Batch%2C%20I%20would%20like%20to%20enquire%20about%20your%20masterbatch%20products.'}
                 target="_blank" rel="noopener noreferrer"
                 style={{
                   display: 'block', textAlign: 'center',
@@ -64,7 +66,7 @@ export default function WhatsApp() {
                 onMouseEnter={e => e.currentTarget.style.background = '#20bb5a'}
                 onMouseLeave={e => e.currentTarget.style.background = '#25D366'}
               >
-                Start Chat on WhatsApp
+                {t('Start Chat on WhatsApp', 'ابدأ محادثة على واتساب')}
               </a>
             </div>
           </motion.div>
@@ -82,7 +84,7 @@ export default function WhatsApp() {
               fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
               color: '#fff', whiteSpace: 'nowrap', boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
             }}
-          >Chat with us</motion.div>
+          >{t('Chat with us', 'تحدث معنا')}</motion.div>
         )}
       </AnimatePresence>
 
@@ -99,7 +101,7 @@ export default function WhatsApp() {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           boxShadow: '0 8px 28px rgba(37,211,102,0.4)',
         }}
-        aria-label="Chat on WhatsApp"
+        aria-label={t('Chat on WhatsApp', 'تحدث معنا عبر واتساب')}
       >
         {open ? (
           <X size={22} color="#fff" />
@@ -112,7 +114,7 @@ export default function WhatsApp() {
 
       <style>{`
         @media (max-width: 768px) {
-          .wa-fab-container { bottom: 80px !important; right: 16px !important; }
+          .wa-fab-container { bottom: 80px !important; inset-inline-end: 16px !important; }
         }
       `}</style>
     </div>

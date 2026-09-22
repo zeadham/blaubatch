@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { MapPin, Globe, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 
 const REGIONS = [
@@ -69,6 +70,7 @@ const labelStyle = {
 
 function FocusInput(props) {
   const [focused, setFocused] = useState(false)
+  const { isAr, tr } = useLocale()
   const style = { ...inputStyle, borderColor: focused ? 'rgba(46,127,208,0.55)' : 'rgba(20,27,62,0.14)' }
   const isTextarea = props.as === 'textarea'
   const isSelect = props.as === 'select'
@@ -76,12 +78,13 @@ function FocusInput(props) {
     style: isTextarea ? { ...style, resize: 'vertical', minHeight: 90, lineHeight: 1.6 }
            : isSelect ? { ...style, appearance: 'none', cursor: 'pointer',
                backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='rgba(20%2C27%2C62%2C0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")`,
-               backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center',
+               backgroundRepeat: 'no-repeat', backgroundPosition: isAr ? 'left 14px center' : 'right 14px center',
              }
            : style,
     onFocus: () => setFocused(true),
     onBlur: () => setFocused(false),
     ...props,
+    placeholder: props.placeholder ? tr(props.placeholder) : undefined,
     as: undefined,
   }
   if (isTextarea) return <textarea {...commonProps} />
@@ -90,6 +93,7 @@ function FocusInput(props) {
 }
 
 function DistributorForm() {
+  const { tr } = useLocale()
   const [done, setDone] = useState(false)
   const [form, setForm] = useState({
     company: '', name: '', email: '', phone: '',
@@ -99,7 +103,7 @@ function DistributorForm() {
 
   const submit = () => {
     if (!form.company || !form.name || !form.email || !form.phone || !form.territory) {
-      alert('Please fill in all required fields.')
+      alert(tr('Please fill in all required fields.'))
       return
     }
     setDone(true)
@@ -108,79 +112,79 @@ function DistributorForm() {
   if (done) return (
     <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '48px 36px', textAlign: 'center' }}>
       <div style={{ width: 60, height: 60, borderRadius: '50%', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px', fontSize: 26 }}>✅</div>
-      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800, marginBottom: 8 }}>Application received.</div>
+      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800, marginBottom: 8 }}><T>Application received.</T></div>
       <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, maxWidth: 360, margin: '0 auto 24px' }}>
-        Thank you for applying. We'll review your application and reach out within 48 business hours.
+        <T>Thank you for applying. We'll review your application and reach out within 48 business hours.</T>
       </p>
       <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
         display: 'inline-flex', alignItems: 'center', gap: 8,
         background: 'rgba(37,211,102,0.12)', border: '1px solid rgba(37,211,102,0.25)',
         color: '#25D366', padding: '12px 20px', borderRadius: 8,
         fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
-      }}>💬 Follow up on WhatsApp</a>
+      }}><T>💬 Follow up on WhatsApp</T></a>
     </div>
   )
 
   return (
     <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '36px' }}>
-      <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800, marginBottom: 6 }}>Distributor Application</h3>
-      <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', marginBottom: 28 }}>Takes about 3 minutes to complete.</p>
+      <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800, marginBottom: 6 }}><T>Distributor Application</T></h3>
+      <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', marginBottom: 28 }}><T>Takes about 3 minutes to complete.</T></p>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <div>
-          <label style={labelStyle}>Company Name <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Company Name </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput placeholder="Your company name" value={form.company} onChange={e => set('company', e.target.value)} />
         </div>
         <div>
-          <label style={labelStyle}>Your Name <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Your Name </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput placeholder="Full name" value={form.name} onChange={e => set('name', e.target.value)} />
         </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <div>
-          <label style={labelStyle}>Email <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Email </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput type="email" placeholder="your@company.com" value={form.email} onChange={e => set('email', e.target.value)} />
         </div>
         <div>
-          <label style={labelStyle}>Phone / WhatsApp <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Phone / WhatsApp </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput type="tel" placeholder="+20 / +966 / ..." value={form.phone} onChange={e => set('phone', e.target.value)} />
         </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
         <div>
-          <label style={labelStyle}>Country / Territory <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Country / Territory </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput as="select" value={form.territory} onChange={e => set('territory', e.target.value)}>
-            <option value="">Select your market</option>
+            <option value=""><T>Select your market</T></option>
             {['Jordan','Kuwait','Morocco','Algeria','Libya','Iraq','Romania','Bulgaria','Saudi Arabia','UAE','Turkey','Poland',"Other — I'll specify below"].map(t => (
-              <option key={t} value={t} style={{ background: '#FFFFFF' }}>{t}</option>
+              <option key={t} value={t} style={{ background: '#FFFFFF' }}><T>{t}</T></option>
             ))}
           </FocusInput>
         </div>
         <div>
-          <label style={labelStyle}>Plastics Sector Focus <span style={{ color: '#2B8DD0' }}>*</span></label>
+          <label style={labelStyle}><T>Plastics Sector Focus </T><span style={{ color: '#2B8DD0' }}>*</span></label>
           <FocusInput as="select" value={form.sector} onChange={e => set('sector', e.target.value)}>
-            <option value="">Primary industry served</option>
+            <option value=""><T>Primary industry served</T></option>
             {['Film & Flexible Packaging','Pipe & Profile Extrusion','Injection Molding','Woven Bags / Raffia','Blow Molding','Non-woven','Mixed / General Plastics'].map(s => (
-              <option key={s} value={s} style={{ background: '#FFFFFF' }}>{s}</option>
+              <option key={s} value={s} style={{ background: '#FFFFFF' }}><T>{s}</T></option>
             ))}
           </FocusInput>
         </div>
       </div>
 
       <div style={{ marginBottom: 16 }}>
-        <label style={labelStyle}>Estimated Annual Masterbatch Volume <span style={{ color: '#2B8DD0' }}>*</span></label>
+        <label style={labelStyle}><T>Estimated Annual Masterbatch Volume </T><span style={{ color: '#2B8DD0' }}>*</span></label>
         <FocusInput as="select" value={form.volume} onChange={e => set('volume', e.target.value)}>
-          <option value="">How much do you expect to sell annually?</option>
+          <option value=""><T>How much do you expect to sell annually?</T></option>
           {['Under 10 MT (exploring)','10 – 30 MT','30 – 100 MT','100 – 500 MT','500 MT+ (high volume)'].map(v => (
-            <option key={v} value={v} style={{ background: '#FFFFFF' }}>{v}</option>
+            <option key={v} value={v} style={{ background: '#FFFFFF' }}><T>{v}</T></option>
           ))}
         </FocusInput>
       </div>
 
       <div style={{ marginBottom: 24 }}>
-        <label style={labelStyle}>Tell us about your business</label>
+        <label style={labelStyle}><T>Tell us about your business</T></label>
         <FocusInput as="textarea" placeholder="Brief description of your company, current supplier relationships, and why you're interested in partnering with Blau Batch..." value={form.about} onChange={e => set('about', e.target.value)} />
       </div>
 
@@ -192,7 +196,7 @@ function DistributorForm() {
       }}
       onMouseEnter={e => e.currentTarget.style.background = '#2B8DD0'}
       onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
-      >Submit Application ↗</button>
+      ><T>Submit Application ↗</T></button>
     </div>
   )
 }
@@ -225,10 +229,10 @@ export default function DistributorsPage() {
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
               style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
-            >Regional Coverage</motion.div>
+            ><T>Regional Coverage</T></motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
-            >Markets We Serve</motion.h2>
+            ><T>Markets We Serve</T></motion.h2>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16 }}>
@@ -239,24 +243,24 @@ export default function DistributorsPage() {
                 style={{ background: '#FFFFFF', border: `1px solid ${r.type === 'direct' ? 'rgba(212,132,10,0.25)' : 'rgba(20,27,62,0.08)'}`, borderRadius: 14, padding: '28px', position: 'relative', overflow: 'hidden' }}
               >
                 {r.type === 'direct' && (
-                  <div style={{ position: 'absolute', top: 18, right: 18, fontFamily: 'Inter, sans-serif', fontSize: 8, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(212,132,10,0.2)', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)' }}>Direct Sales</div>
+                  <div style={{ position: 'absolute', top: 18, insetInlineEnd: 18, fontFamily: 'Inter, sans-serif', fontSize: 8, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3, background: 'rgba(212,132,10,0.2)', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)' }}><T>Direct Sales</T></div>
                 )}
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                  <span style={{ fontSize: 24 }}>{r.flag}</span>
+                  <span style={{ fontSize: 24 }}><T>{r.flag}</T></span>
                   <div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 900, color: '#141B3E' }}>{r.region}</div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, color: 'rgba(20,27,62,0.4)', fontWeight: 600, marginTop: 2 }}>{r.coverage}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 900, color: '#141B3E' }}><T>{r.region}</T></div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, color: 'rgba(20,27,62,0.4)', fontWeight: 600, marginTop: 2 }}><T>{r.coverage}</T></div>
                   </div>
                 </div>
-                <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75, marginBottom: 18 }}>{r.desc}</p>
+                <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75, marginBottom: 18 }}><T>{r.desc}</T></p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   {r.contacts.map(c => (
                     <div key={c.label} style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', minWidth: 90 }}>{c.label}</span>
+                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 700, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', minWidth: 90 }}><T>{c.label}</T></span>
                       {c.href ? (
-                        <a href={c.href} style={{ fontSize: 12, color: '#2B8DD0', fontWeight: 600 }}>{c.val}</a>
+                        <a href={c.href} style={{ fontSize: 12, color: '#2B8DD0', fontWeight: 600 }}><T>{c.val}</T></a>
                       ) : (
-                        <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)' }}>{c.val}</span>
+                        <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)' }}><T>{c.val}</T></span>
                       )}
                     </div>
                   ))}
@@ -273,26 +277,26 @@ export default function DistributorsPage() {
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
               style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
-            >Our Supply Partner</motion.div>
+            ><T>Our Supply Partner</T></motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}
-            >Coraplast — Global Reach</motion.h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8, marginBottom: 24 }}>For white, black, colour, and additive masterbatch lines, Blau Batch is the regional distributor for Coraplast — an internationally certified manufacturer with a global distribution footprint and an ISO 9001 / ISO 14001 quality system.</p>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8 }}>European customers sourcing Coraplast products can be connected directly. Contact us with your product requirements and region.</p>
+            ><T>Coraplast — Global Reach</T></motion.h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8, marginBottom: 24 }}><T>For white, black, colour, and additive masterbatch lines, Blau Batch is the regional distributor for Coraplast — an internationally certified manufacturer with a global distribution footprint and an ISO 9001 / ISO 14001 quality system.</T></p>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8 }}><T>European customers sourcing Coraplast products can be connected directly. Contact us with your product requirements and region.</T></p>
           </div>
           <div>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 18 }}>Coraplast European Markets</div>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.4)', marginBottom: 18 }}><T>Coraplast European Markets</T></div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 8 }}>
               {CORAPLAST_MARKETS.map(m => (
                 <div key={m} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: '#F7F8FC', borderRadius: 8, border: '1px solid rgba(20,27,62,0.07)' }}>
                   <Globe size={12} color="rgba(46,127,208,0.6)" />
-                  <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}>{m}</span>
+                  <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}><T>{m}</T></span>
                 </div>
               ))}
             </div>
             <div style={{ marginTop: 20, padding: '16px 20px', background: 'rgba(46,127,208,0.1)', border: '1px solid rgba(46,127,208,0.2)', borderRadius: 10 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', marginBottom: 4 }}>Coraplast Certifications</div>
-              <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}>ISO 9001 · ISO 14001 · REACH compliant · EU 10/2011 food-contact grades available</p>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', marginBottom: 4 }}><T>Coraplast Certifications</T></div>
+              <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}><T>ISO 9001 · ISO 14001 · REACH compliant · EU 10/2011 food-contact grades available</T></p>
             </div>
           </div>
         </div>
@@ -304,24 +308,24 @@ export default function DistributorsPage() {
 
           {/* Left info */}
           <div>
-            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Apply Now</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, color: '#141B3E' }}>Tell us about your business.</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75, marginBottom: 24 }}>We review every application personally. You'll hear from us within 48 business hours. No automated rejection emails — if we're not the right fit, we'll tell you why.</p>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(74,170,224,0.25)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}><T>Apply Now</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 12, color: '#141B3E' }}><T>Tell us about your business.</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75, marginBottom: 24 }}><T>We review every application personally. You'll hear from us within 48 business hours. No automated rejection emails — if we're not the right fit, we'll tell you why.</T></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10, padding: '20px', marginBottom: 16 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}>Our commitment to you</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 12 }}><T>Our commitment to you</T></div>
               {['Response within 48 business hours', 'Honest feedback even if we pass', 'Your information stays confidential', 'No pushy sales follow-up'].map(item => (
                 <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 10, fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>
                   <CheckCircle2 size={14} color="#22C55E" strokeWidth={2.5} style={{ flexShrink: 0, marginTop: 2 }} />
-                  <span>{item}</span>
+                  <span><T>{item}</T></span>
                 </div>
               ))}
             </div>
 
             <div style={{ padding: '20px', background: 'rgba(46,127,208,0.06)', border: '1px solid rgba(46,127,208,0.15)', borderRadius: 10 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', marginBottom: 8 }}>Prefer to talk first?</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', marginBottom: 8 }}><T>Prefer to talk first?</T></div>
               <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, color: '#25D366', fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700 }}>
-                💬 WhatsApp us before applying
+                <T>💬 WhatsApp us before applying</T>
               </a>
             </div>
           </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import BlogPostLayout from '@/components/pages/blog/BlogPostLayout'
+import { T } from '@/components/LocaleProvider'
 
 export default function FMPPProductSpotlight() {
   return (
@@ -20,41 +21,41 @@ export default function FMPPProductSpotlight() {
       }}
     >
       <p>
-        Polypropylene (PP) applications present unique processing challenges compared to polyethylene. High melting points, crystallinity, and the need for high stiffness require a different engineering approach. Enter the <strong>FMPP series</strong> from Blau Batch.
+        <T>Polypropylene (PP) applications present unique processing challenges compared to polyethylene. High melting points, crystallinity, and the need for high stiffness require a different engineering approach. Enter the </T><strong><T>FMPP series</T></strong><T> from Blau Batch.</T>
       </p>
 
-      <h2>The Engineering Behind FMPP</h2>
+      <h2><T>The Engineering Behind FMPP</T></h2>
       <p>
-        Our FMPP series is built on a high-melt-flow PP carrier, ensuring perfect dispersion even at the higher processing temperatures required by PP. We use premium, high-purity CaCO₃ to maximize whiteness and minimize wear on your extrusion dies.
+        <T>Our FMPP series is built on a high-melt-flow PP carrier, ensuring perfect dispersion even at the higher processing temperatures required by PP. We use premium, high-purity CaCO₃ to maximize whiteness and minimize wear on your extrusion dies.</T>
       </p>
 
-      <h2>Key Grades in the FMPP Series</h2>
+      <h2><T>Key Grades in the FMPP Series</T></h2>
       <ul>
-        <li><strong>FMPP-70</strong> — 70% CaCO₃ loading on a PP carrier. Designed for raffia and woven sack applications where tape strength is critical.</li>
-        <li><strong>FMPP-75</strong> — 75% loading. The workhorse of our PP range. Balancing stiffness with high dispersion.</li>
-        <li><strong>FMPP-80</strong> — 80% loading. Maximum cost efficiency for injection-molded parts and heavy-duty industrial items.</li>
+        <li><strong><T>FMPP-70</T></strong><T> — 70% CaCO₃ loading on a PP carrier. Designed for raffia and woven sack applications where tape strength is critical.</T></li>
+        <li><strong><T>FMPP-75</T></strong><T> — 75% loading. The workhorse of our PP range. Balancing stiffness with high dispersion.</T></li>
+        <li><strong><T>FMPP-80</T></strong><T> — 80% loading. Maximum cost efficiency for injection-molded parts and heavy-duty industrial items.</T></li>
       </ul>
 
-      <h2>Beyond Woven Sacks</h2>
+      <h2><T>Beyond Woven Sacks</T></h2>
       <p>
-        While woven sacks are a major application, the FMPP series is proving its worth in other areas of the industrial world:
+        <T>While woven sacks are a major application, the FMPP series is proving its worth in other areas of the industrial world:</T>
       </p>
       <ol>
-        <li><strong>Injection Molding</strong> — Reducing shrinkage and cycle times by increasing thermal conductivity.</li>
-        <li><strong>Thermoforming</strong> — Faster cooling cycles and better dimensional stability in trays and containers.</li>
-        <li><strong>Pipe Extrusion</strong> — Improving impact strength and rigidity in PP piping systems.</li>
+        <li><strong><T>Injection Molding</T></strong><T> — Reducing shrinkage and cycle times by increasing thermal conductivity.</T></li>
+        <li><strong><T>Thermoforming</T></strong><T> — Faster cooling cycles and better dimensional stability in trays and containers.</T></li>
+        <li><strong><T>Pipe Extrusion</T></strong><T> — Improving impact strength and rigidity in PP piping systems.</T></li>
       </ol>
 
-      <h2>The Benefits for Your Production Line</h2>
+      <h2><T>The Benefits for Your Production Line</T></h2>
       <ol>
-        <li><strong>High Thermal Conductivity</strong> — CaCO₃ conducts heat faster than virgin polymer, allowing for faster cooling and shorter cycle times.</li>
-        <li><strong>Reduced Warpage</strong> — Improved dimensional stability, especially in large injection-molded parts.</li>
-        <li><strong>Cost Efficiency</strong> — Significant reduction in the cost-per-kilogram of the final product.</li>
+        <li><strong><T>High Thermal Conductivity</T></strong><T> — CaCO₃ conducts heat faster than virgin polymer, allowing for faster cooling and shorter cycle times.</T></li>
+        <li><strong><T>Reduced Warpage</T></strong><T> — Improved dimensional stability, especially in large injection-molded parts.</T></li>
+        <li><strong><T>Cost Efficiency</T></strong><T> — Significant reduction in the cost-per-kilogram of the final product.</T></li>
       </ol>
 
-      <h2>Why It Matters</h2>
+      <h2><T>Why It Matters</T></h2>
       <p>
-        Using the right filler means less downtime and fewer quality issues. The FMPP series isn't just about reducing costs; it's about making your PP production lines more efficient and your final products more reliable.
+        <T>Using the right filler means less downtime and fewer quality issues. The FMPP series isn't just about reducing costs; it's about making your PP production lines more efficient and your final products more reliable.</T>
       </p>
     </BlogPostLayout>
   )

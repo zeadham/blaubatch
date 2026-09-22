@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import PageHero from '@/components/shared/PageHero'
 import ShareButtons from '@/components/shared/ShareButtons'
 import useSEO from '@/hooks/useSEO'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -15,7 +16,8 @@ export default function BlogPostLayout({
   title, titleAccent, sub, badge, badgeColor, date, readTime,
   heroImage, seo, children
 }) {
-  useSEO(seo)
+  const { tr } = useLocale()
+  useSEO(seo && { ...seo, title: tr(seo.title), description: tr(seo.description) })
 
   return (
     <>
@@ -40,9 +42,9 @@ export default function BlogPostLayout({
             borderBottom: '1px solid var(--line)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ fontSize: 13, color: 'var(--navy)', fontWeight: 700, fontFamily: 'Inter, sans-serif' }}>{date}</span>
+              <span style={{ fontSize: 13, color: 'var(--navy)', fontWeight: 700, fontFamily: 'Inter, sans-serif' }}><T>{date}</T></span>
               <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--line)' }} />
-              <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.45)', fontWeight: 500, fontFamily: 'Open Sans, sans-serif' }}>{readTime}</span>
+              <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.45)', fontWeight: 500, fontFamily: 'Open Sans, sans-serif' }}><T>{readTime}</T></span>
             </div>
             <ShareButtons title={title} />
           </motion.div>
@@ -58,8 +60,8 @@ export default function BlogPostLayout({
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
           }}>
             <div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#141B3E', marginBottom: 4 }}>Found this useful?</div>
-              <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)' }}>Share it with your team or network.</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 800, color: '#141B3E', marginBottom: 4 }}><T>Found this useful?</T></div>
+              <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)' }}><T>Share it with your team or network.</T></div>
             </div>
             <ShareButtons title={title} />
           </div>

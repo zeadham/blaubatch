@@ -6,10 +6,14 @@ import { useRouter } from 'next/navigation'
 import { ArrowRight, FlaskConical } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useLocale } from '@/components/LocaleProvider'
 
 const PRODUCTS = [
   {
     id: 'fmpe',
+    seriesAr: 'سلسلة FMPE',
+    nameAr: 'ماستر باتش الحشو (PE)',
+    descAr: 'ماستر باتش حشو أساسه كربونات الكالسيوم (CaCO₃) على حامل PE لأفلام النفخ والبثق والحقن. يخفّض تكلفة المواد مع الحفاظ على الخواص الميكانيكية.',
     series: 'FMPE Series',
     name: 'Filler Masterbatch (PE)',
     desc: 'CaCO₃-based filler in PE carrier for blown film, extrusion, and injection moulding. Reduces material costs while maintaining mechanical properties.',
@@ -21,6 +25,9 @@ const PRODUCTS = [
   },
   {
     id: 'fmpp',
+    seriesAr: 'سلسلة FMPP',
+    nameAr: 'ماستر باتش الحشو (PP)',
+    descAr: 'ماستر باتش حشو أساسه CaCO₃ على حامل PP للحقن والتشكيل الحراري والرافيا. اقتصادي مع تشتّت متجانس.',
     series: 'FMPP Series',
     name: 'Filler Masterbatch (PP)',
     desc: 'CaCO₃-based filler in PP carrier for injection moulding, thermoforming, and raffia. Cost-effective with consistent dispersion.',
@@ -32,6 +39,9 @@ const PRODUCTS = [
   },
   {
     id: 'white',
+    seriesAr: 'سلسلة WMB',
+    nameAr: 'ماستر باتش أبيض',
+    descAr: 'مركّزات بيضاء أساسها TiO₂. عتامة عالية ودرجات متعددة تشمل خيارات مطابقة لملامسة الأغذية.',
     series: 'WMB Series',
     name: 'White Masterbatch',
     desc: 'TiO₂-based white concentrates. High opacity, multiple grades including food-contact compliant options.',
@@ -43,6 +53,9 @@ const PRODUCTS = [
   },
   {
     id: 'black',
+    seriesAr: 'سلسلة BMB',
+    nameAr: 'ماستر باتش أسود',
+    descAr: 'مركّزات أسود الكربون مع درجات مقاومة للأشعة فوق البنفسجية للمواسير والأفلام الزراعية وعزل الكابلات.',
     series: 'BMB Series',
     name: 'Black Masterbatch',
     desc: 'Carbon black concentrates with UV-stable grades for pipes, agricultural film, and cable jacketing.',
@@ -54,6 +67,9 @@ const PRODUCTS = [
   },
   {
     id: 'colour',
+    seriesAr: 'سلسلة CMB',
+    nameAr: 'ماستر باتش ملوّن',
+    descAr: 'مطابقة لونية شاملة — RAL وPantone وتطوير ألوان مخصصة على حوامل PE وPP.',
     series: 'CMB Series',
     name: 'Colour Masterbatch',
     desc: 'Full-spectrum colour matching — RAL, Pantone, and custom development in PE and PP carriers.',
@@ -65,6 +81,9 @@ const PRODUCTS = [
   },
   {
     id: 'additive',
+    seriesAr: 'سلسلة AMB',
+    nameAr: 'ماستر باتش الإضافات',
+    descAr: 'مركّزات إضافات وظيفية — مثبّتات UV، ومواد منزلقة، ومانعة للالتصاق، ومضادة للكهرباء الساكنة، ومساعدات معالجة.',
     series: 'AMB Series',
     name: 'Additive Masterbatch',
     desc: 'Functional additive concentrates — UV stabilisers, slip agents, antiblock, antistatic, and processing aids.',
@@ -89,6 +108,7 @@ const cardVariants = {
 function ProductCard({ p, i }) {
   const isManufactured = p.badge === 'MANUFACTURED'
   const router = useRouter()
+  const { t, l } = useLocale()
   const cardRef = useRef(null)
 
   function handleMouseMove(e) {
@@ -111,7 +131,7 @@ function ProductCard({ p, i }) {
   }
 
   return (
-    <Link href={p.href} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
+    <Link href={l(p.href)} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
       <div style={{ perspective: '900px', height: '100%' }}>
         <motion.div
           variants={cardVariants}
@@ -149,7 +169,7 @@ function ProductCard({ p, i }) {
             }}>
               <Image
                 src={p.image}
-                alt={p.name}
+                alt={t(p.name, p.nameAr)}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
@@ -162,14 +182,14 @@ function ProductCard({ p, i }) {
                 pointerEvents: 'none',
               }} />
               <span style={{
-                position: 'absolute', top: 14, right: 14,
+                position: 'absolute', top: 14, insetInlineEnd: 14,
                 fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
                 letterSpacing: '0.08em', textTransform: 'uppercase',
                 padding: '6px 12px', borderRadius: 20, lineHeight: 1,
                 color: '#fff',
                 border: `1px solid ${isManufactured ? '#D4840A' : '#2B8DD0'}`,
                 background: isManufactured ? '#D4840A' : '#2B8DD0',
-              }}>{p.badge}</span>
+              }}>{p.badge === 'MANUFACTURED' ? t('MANUFACTURED', 'تصنيع محلي') : t('DISTRIBUTED', 'موزّع')}</span>
             </div>
 
             {/* Card Body */}
@@ -180,16 +200,16 @@ function ProductCard({ p, i }) {
               <span style={{
                 fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
                 letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
-              }}>{p.series}</span>
+              }}>{t(p.series, p.seriesAr)}</span>
 
               <h3 style={{
                 fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800,
                 color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2,
-              }}>{p.name}</h3>
+              }}>{t(p.name, p.nameAr)}</h3>
 
               <p style={{
                 fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.65, flex: 1,
-              }}>{p.desc}</p>
+              }}>{t(p.desc, p.descAr)}</p>
 
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 14,
@@ -201,10 +221,10 @@ function ProductCard({ p, i }) {
                   fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
                   color: '#2B8DD0',
                 }}>
-                  Learn More <ArrowRight size={14} />
+                  {t('Learn More', 'اعرف المزيد')} <ArrowRight size={14} className="flip-rtl" />
                 </span>
                 <button
-                  onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(`/contact?product=${encodeURIComponent(p.sampleProduct)}`) }}
+                  onClick={e => { e.preventDefault(); e.stopPropagation(); router.push(`${l('/contact')}?product=${encodeURIComponent(p.sampleProduct)}`) }}
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 6,
                     fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 600,
@@ -215,7 +235,7 @@ function ProductCard({ p, i }) {
                   onMouseLeave={e => e.currentTarget.style.color = 'rgba(20,27,62,0.45)'}
                 >
                   <FlaskConical size={14} />
-                  Request Sample
+                  {t('Request Sample', 'اطلب عيّنة')}
                 </button>
               </div>
             </div>
@@ -227,6 +247,7 @@ function ProductCard({ p, i }) {
 }
 
 export default function Products() {
+  const { t } = useLocale()
   const headRef = useRef(null)
   const headInView = useInView(headRef, { once: true, margin: '-80px' })
 
@@ -244,7 +265,7 @@ export default function Products() {
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16,
             }}
-          >Product Portfolio</motion.div>
+          >{t('Product Portfolio', 'محفظة المنتجات')}</motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
@@ -253,14 +274,14 @@ export default function Products() {
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
               fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 14, lineHeight: 1.1, color: '#141B3E',
             }}
-          >Complete Masterbatch Portfolio</motion.h2>
+          >{t('Complete Masterbatch Portfolio', 'مجموعة الماستر باتش الكاملة')}</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
-            One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.
+            {t('One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.', 'علاقة توريد واحدة تغطي كل احتياجاتك من الماستر باتش — من ماستر باتش الحشو المصنَّع محلياً إلى مجموعة Coraplast الكاملة.')}
           </motion.p>
         </div>
 

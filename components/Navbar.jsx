@@ -4,25 +4,30 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useLocale } from '@/components/LocaleProvider'
+import { alternatePath, isTranslatedRoute } from '@/lib/i18n'
 
 const PRODUCTS = [
-  { name: 'Filler Masterbatch (PE)', sub: 'FMPE Series · 70–80% CaCO₃', href: '/fmpe', badge: 'MANUFACTURED' },
-  { name: 'Filler Masterbatch (PP)', sub: 'FMPP Series · 70–80% CaCO₃', href: '/fmpp', badge: 'MANUFACTURED' },
-  { name: 'White Masterbatch', sub: 'TiO₂-based, food-contact grades', href: '/white-masterbatch' },
-  { name: 'Black Masterbatch', sub: 'UV-stable, pipe & cable grades', href: '/black-masterbatch' },
-  { name: 'Colour Masterbatch', sub: 'RAL/Pantone, custom matching', href: '/color-masterbatch' },
-  { name: 'Additive Masterbatch', sub: 'UV, slip, antiblock, anti-static', href: '/additive-masterbatch' },
+  { name: 'Filler Masterbatch (PE)', ar: 'ماستر باتش الحشو (PE)', sub: 'FMPE Series · 70–80% CaCO₃', subAr: 'سلسلة FMPE · 70–80% كربونات الكالسيوم', href: '/fmpe', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
+  { name: 'Filler Masterbatch (PP)', ar: 'ماستر باتش الحشو (PP)', sub: 'FMPP Series · 70–80% CaCO₃', subAr: 'سلسلة FMPP · 70–80% كربونات الكالسيوم', href: '/fmpp', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
+  { name: 'White Masterbatch', ar: 'ماستر باتش أبيض', sub: 'TiO₂-based, food-contact grades', subAr: 'أساسه TiO₂، درجات ملامسة الأغذية', href: '/white-masterbatch' },
+  { name: 'Black Masterbatch', ar: 'ماستر باتش أسود', sub: 'UV-stable, pipe & cable grades', subAr: 'مقاوم للأشعة فوق البنفسجية، درجات للمواسير والكابلات', href: '/black-masterbatch' },
+  { name: 'Colour Masterbatch', ar: 'ماستر باتش ملوّن', sub: 'RAL/Pantone, custom matching', subAr: 'مطابقة RAL/Pantone وألوان مخصصة', href: '/color-masterbatch' },
+  { name: 'Additive Masterbatch', ar: 'ماستر باتش الإضافات', sub: 'UV, slip, antiblock, anti-static', subAr: 'مثبّت UV، منزلق، مانع التصاق، مضاد للكهرباء الساكنة', href: '/additive-masterbatch' },
 ]
 
+const NAV_LINKS = [['About', '/about', 'من نحن'], ['Sustainability', '/sustainability', 'الاستدامة'], ['Distributors', '/distributors', 'الموزعون'], ['Resources', '/resources', 'المصادر'], ['Contact', '/contact', 'اتصل بنا']]
+
 const INDUSTRIES = [
-  { name: 'Packaging & Flexible Film', href: '/industries/packaging' },
-  { name: 'Pipes, Fittings & Profiles', href: '/industries/pipes' },
-  { name: 'Agriculture', href: '/industries/agriculture' },
-  { name: 'Textiles & Fibre', href: '/industries/textiles' },
-  { name: 'Wire & Cable', href: '/industries/wire-cable' },
-  { name: 'Automotive & Technical', href: '/industries/automotive' },
-  { name: 'Construction', href: '/industries/construction' },
-  { name: 'Consumer Goods', href: '/industries/consumer-goods' },
+  { name: 'Packaging & Flexible Film', ar: 'التغليف والأفلام المرنة', href: '/industries/packaging' },
+  { name: 'Pipes, Fittings & Profiles', ar: 'المواسير والوصلات والبروفايلات', href: '/industries/pipes' },
+  { name: 'Agriculture', ar: 'الزراعة', href: '/industries/agriculture' },
+  { name: 'Textiles & Fibre', ar: 'المنسوجات والألياف', href: '/industries/textiles' },
+  { name: 'Wire & Cable', ar: 'الأسلاك والكابلات', href: '/industries/wire-cable' },
+  { name: 'Automotive & Technical', ar: 'السيارات والاستخدامات الفنية', href: '/industries/automotive' },
+  { name: 'Construction', ar: 'الإنشاءات', href: '/industries/construction' },
+  { name: 'Consumer Goods', ar: 'السلع الاستهلاكية', href: '/industries/consumer-goods' },
 ]
 
 export default function Navbar() {
@@ -31,6 +36,10 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [mobileExpanded, setMobileExpanded] = useState(null)
   const dropdownTimeout = useRef(null)
+  const { lang, isAr, t, l } = useLocale()
+  const pathname = usePathname()
+  const switchHref = alternatePath(lang, pathname || '/')
+  const canSwitch = isAr || isTranslatedRoute(pathname || '/')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -71,15 +80,15 @@ export default function Navbar() {
         overflow: 'visible',
       }}>
         {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0, overflow: 'visible' }}>
+        <Link href={l('/')} style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0, overflow: 'visible' }}>
           <div style={{ width: 52, height: 52, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <img src="/logo-mark-navy.svg" alt="Blau Batch" style={{ height: 44, width: 39, display: 'block' }} />
+            <img src="/logo-mark-navy.svg" alt={isAr ? 'بلاو باتش' : 'Blau Batch'} style={{ height: 46, width: 46, display: 'block' }} />
           </div>
           <span style={{
-            fontFamily: 'Inter, sans-serif', fontWeight: 800,
-            fontSize: 18, color: '#141B3E',
-            letterSpacing: '0.05em', textTransform: 'uppercase', lineHeight: 1,
-          }}>BLAU BATCH</span>
+            fontFamily: 'Inter, sans-serif', fontWeight: 900,
+            fontSize: isAr ? 24 : 18, color: '#141B3E',
+            letterSpacing: '0.05em', textTransform: 'uppercase', lineHeight: isAr ? 1.3 : 1,
+          }}>{isAr ? 'بلاو باتش' : 'BLAU BATCH'}</span>
         </Link>
 
         {/* Desktop Links */}
@@ -106,7 +115,7 @@ export default function Navbar() {
                 color: linkColor, borderRadius: 6, transition: 'all 0.2s',
               }}
             >
-              Products
+              {t('Products', 'المنتجات')}
               <ChevronDown size={12} style={{
                 opacity: 0.6,
                 transform: activeDropdown === 'products' ? 'rotate(180deg)' : 'none',
@@ -141,7 +150,7 @@ export default function Navbar() {
                     {PRODUCTS.map(p => (
                       <Link
                         key={p.name}
-                        href={p.href}
+                        href={l(p.href)}
                         onClick={() => setActiveDropdown(null)}
                         style={{
                           display: 'flex', flexDirection: 'column', gap: 3,
@@ -155,17 +164,17 @@ export default function Navbar() {
                           <span style={{
                             fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700,
                             color: '#141B3E',
-                          }}>{p.name}</span>
+                          }}>{t(p.name, p.ar)}</span>
                           {p.badge && (
                             <span style={{
                               fontSize: 9, fontWeight: 800, letterSpacing: '0.08em',
                               textTransform: 'uppercase', color: '#D4840A',
                               border: '1px solid rgba(212,132,10,0.4)',
                               borderRadius: 4, padding: '2px 7px', lineHeight: 1,
-                            }}>{p.badge}</span>
+                            }}>{t(p.badge, p.badgeAr)}</span>
                           )}
                         </div>
-                        <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.4 }}>{p.sub}</span>
+                        <span style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.4 }}>{t(p.sub, p.subAr)}</span>
                       </Link>
                     ))}
                   </div>
@@ -174,7 +183,7 @@ export default function Navbar() {
                     paddingTop: 14, borderTop: '1px solid rgba(20,27,62,0.08)',
                   }}>
                     <Link
-                      href="/compare"
+                      href={l('/compare')}
                       onClick={() => setActiveDropdown(null)}
                       style={{
                         display: 'inline-flex', alignItems: 'center', gap: 6,
@@ -184,7 +193,7 @@ export default function Navbar() {
                       onMouseEnter={e => e.currentTarget.style.gap = '10px'}
                       onMouseLeave={e => e.currentTarget.style.gap = '6px'}
                     >
-                      Compare All Products <ArrowRight size={14} />
+                      {t('Compare All Products', 'قارن جميع المنتجات')} <ArrowRight size={14} className="flip-rtl" />
                     </Link>
                   </div>
                 </motion.div>
@@ -210,7 +219,7 @@ export default function Navbar() {
                 color: linkColor, borderRadius: 6, transition: 'all 0.2s',
               }}
             >
-              Industries
+              {t('Industries', 'الصناعات')}
               <ChevronDown size={12} style={{
                 opacity: 0.6,
                 transform: activeDropdown === 'industries' ? 'rotate(180deg)' : 'none',
@@ -228,7 +237,7 @@ export default function Navbar() {
                   onMouseEnter={() => openDropdown('industries')}
                   onMouseLeave={closeDropdown}
                   style={{
-                    position: 'absolute', top: 'calc(100% + 8px)', left: 0,
+                    position: 'absolute', top: 'calc(100% + 8px)', insetInlineStart: 0,
                     minWidth: 270,
                     background: '#fff',
                     border: '1px solid rgba(20,27,62,0.1)',
@@ -239,7 +248,7 @@ export default function Navbar() {
                   {INDUSTRIES.map(ind => (
                     <Link
                       key={ind.name}
-                      href={ind.href}
+                      href={l(ind.href)}
                       onClick={() => setActiveDropdown(null)}
                       style={{
                         display: 'block', padding: '10px 14px', borderRadius: 8,
@@ -248,7 +257,7 @@ export default function Navbar() {
                       }}
                       onMouseEnter={e => { e.currentTarget.style.background = 'rgba(20,27,62,0.04)'; e.currentTarget.style.color = '#2B8DD0' }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(20,27,62,0.8)' }}
-                    >{ind.name}</Link>
+                    >{t(ind.name, ind.ar)}</Link>
                   ))}
                 </motion.div>
               )}
@@ -256,21 +265,22 @@ export default function Navbar() {
           </div>
 
           {/* Plain links */}
-          {[['About', '/about'], ['Sustainability', '/sustainability'], ['Distributors', '/distributors'], ['Resources', '/resources'], ['Contact', '/contact']].map(([label, href]) => (
-            <Link key={label} href={href} style={{
+          {NAV_LINKS.map(([label, href, ar]) => (
+            <Link key={label} href={l(href)} style={{
               padding: '8px 14px', fontFamily: 'Inter, sans-serif', fontSize: 12,
               fontWeight: 600, letterSpacing: '0.02em', textTransform: 'uppercase',
+              whiteSpace: 'nowrap',
               color: linkColor, borderRadius: 6, transition: 'all 0.2s',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = '#141B3E'; e.currentTarget.style.background = 'rgba(20,27,62,0.05)' }}
             onMouseLeave={e => { e.currentTarget.style.color = linkColor; e.currentTarget.style.background = 'transparent' }}
-            >{label}</Link>
+            >{t(label, ar)}</Link>
           ))}
         </div>
 
         {/* Right: CTA + hamburger */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <a href="/contact#quote-form" className="nav-cta" style={{
+          <a href={l('/contact#quote-form')} className="nav-cta" style={{
             padding: '8px 20px', background: '#2B8DD0', color: '#fff',
             borderRadius: 20, fontFamily: 'Inter, sans-serif', fontSize: 12,
             fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase',
@@ -278,13 +288,19 @@ export default function Navbar() {
           }}
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(43,141,208,0.35)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
-          >Request Quote</a>
+          >{t('Request Quote', 'اطلب عرض سعر')}</a>
+
+          {canSwitch && <Link href={switchHref} hrefLang={isAr ? 'en' : 'ar'} className="nav-lang" aria-label={isAr ? 'Switch to English' : 'التبديل إلى العربية'} style={{
+            padding: '7px 14px', border: '1px solid rgba(20,27,62,0.18)', borderRadius: 20,
+            fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: linkColor,
+            whiteSpace: 'nowrap', transition: 'all 0.2s',
+          }}>{isAr ? 'English' : 'العربية'}</Link>}
 
           <button
             onClick={() => setMobileOpen(o => !o)}
             style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#141B3E', padding: 4, display: 'none' }}
             className="nav-hamburger"
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-label={mobileOpen ? t('Close navigation menu', 'إغلاق القائمة') : t('Open navigation menu', 'فتح القائمة')}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -317,7 +333,7 @@ export default function Navbar() {
                     color: '#141B3E', background: 'none', border: 'none', cursor: 'pointer',
                   }}
                 >
-                  Products
+                  {t('Products', 'المنتجات')}
                   <ChevronDown size={16} style={{
                     transform: mobileExpanded === 'products' ? 'rotate(180deg)' : 'none',
                     transition: 'transform 0.2s', opacity: 0.5,
@@ -333,7 +349,7 @@ export default function Navbar() {
                       style={{ overflow: 'hidden', paddingBottom: 12 }}
                     >
                       {PRODUCTS.map(p => (
-                        <Link key={p.name} href={p.href} onClick={() => setMobileOpen(false)}
+                        <Link key={p.name} href={l(p.href)} onClick={() => setMobileOpen(false)}
                           style={{
                             display: 'flex', alignItems: 'center', gap: 8,
                             padding: '10px 16px', borderRadius: 8,
@@ -343,12 +359,12 @@ export default function Navbar() {
                           onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.04)'}
                           onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                         >
-                          {p.name}
+                          {t(p.name, p.ar)}
                           {p.badge && (
                             <span style={{
                               fontSize: 8, fontWeight: 800, padding: '2px 6px', borderRadius: 3,
                               background: '#D4840A', color: '#fff', letterSpacing: '0.06em',
-                            }}>{p.badge}</span>
+                            }}>{t(p.badge, p.badgeAr)}</span>
                           )}
                         </Link>
                       ))}
@@ -368,7 +384,7 @@ export default function Navbar() {
                     color: '#141B3E', background: 'none', border: 'none', cursor: 'pointer',
                   }}
                 >
-                  Industries
+                  {t('Industries', 'الصناعات')}
                   <ChevronDown size={16} style={{
                     transform: mobileExpanded === 'industries' ? 'rotate(180deg)' : 'none',
                     transition: 'transform 0.2s', opacity: 0.5,
@@ -384,7 +400,7 @@ export default function Navbar() {
                       style={{ overflow: 'hidden', paddingBottom: 12 }}
                     >
                       {INDUSTRIES.map(ind => (
-                        <Link key={ind.name} href={ind.href} onClick={() => setMobileOpen(false)}
+                        <Link key={ind.name} href={l(ind.href)} onClick={() => setMobileOpen(false)}
                           style={{
                             display: 'block', padding: '10px 16px', borderRadius: 8,
                             fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 600,
@@ -392,7 +408,7 @@ export default function Navbar() {
                           }}
                           onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.04)'}
                           onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
-                        >{ind.name}</Link>
+                        >{t(ind.name, ind.ar)}</Link>
                       ))}
                     </motion.div>
                   )}
@@ -400,25 +416,30 @@ export default function Navbar() {
               </div>
 
               {/* Plain links */}
-              {[['About', '/about'], ['Sustainability', '/sustainability'], ['Distributors', '/distributors'], ['Resources', '/resources'], ['Contact', '/contact']].map(([label, href]) => (
+              {NAV_LINKS.map(([label, href, ar]) => (
                 <div key={label} style={{ borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-                  <Link href={href} onClick={() => setMobileOpen(false)}
+                  <Link href={l(href)} onClick={() => setMobileOpen(false)}
                     style={{
                       display: 'block', padding: '16px 0',
                       fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 700,
                       color: '#141B3E', transition: 'color 0.15s',
                     }}
-                  >{label}</Link>
+                  >{t(label, ar)}</Link>
                 </div>
               ))}
 
               <div style={{ marginTop: 24 }}>
-                <a href="/contact#quote-form" onClick={() => setMobileOpen(false)} style={{
+                <a href={l('/contact#quote-form')} onClick={() => setMobileOpen(false)} style={{
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   padding: '14px', background: '#2B8DD0', color: '#fff',
                   borderRadius: 12, fontFamily: 'Inter, sans-serif', fontSize: 15,
                   fontWeight: 800, letterSpacing: '0.05em', textTransform: 'uppercase',
-                }}>Request Quote</a>
+                }}>{t('Request Quote', 'اطلب عرض سعر')}</a>
+                {canSwitch && <Link href={switchHref} onClick={() => setMobileOpen(false)} style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 12,
+                  padding: '12px', border: '1px solid rgba(20,27,62,0.15)', borderRadius: 12,
+                  fontSize: 15, fontWeight: 700, color: '#141B3E',
+                }}>{isAr ? 'English' : 'العربية'}</Link>}
               </div>
             </div>
           </motion.div>
@@ -426,10 +447,11 @@ export default function Navbar() {
       </AnimatePresence>
 
       <style>{`
-        @media (max-width: 1024px) {
+        @media (max-width: 1280px) {
           .nav-desktop { display: none !important; }
           .nav-hamburger { display: flex !important; }
           .nav-cta { display: none !important; }
+          .nav-lang { display: none !important; }
           nav { padding: 0 20px !important; }
         }
       `}</style>

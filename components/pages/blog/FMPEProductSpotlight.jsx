@@ -1,6 +1,7 @@
 'use client'
 
 import BlogPostLayout from '@/components/pages/blog/BlogPostLayout'
+import { T } from '@/components/LocaleProvider'
 
 export default function FMPEProductSpotlight() {
   return (
@@ -20,36 +21,36 @@ export default function FMPEProductSpotlight() {
       }}
     >
       <p>
-        The <strong>FMPE series</strong> is the flagship filler of Blau Batch. It is purpose-built for polyethylene applications, providing a perfect balance of calcium carbonate (CaCO₃) loading and processing efficiency.
+        <T>The </T><strong><T>FMPE series</T></strong><T> is the flagship filler of Blau Batch. It is purpose-built for polyethylene applications, providing a perfect balance of calcium carbonate (CaCO₃) loading and processing efficiency.</T>
       </p>
 
-      <h2>The Engineering Behind FMPE</h2>
+      <h2><T>The Engineering Behind FMPE</T></h2>
       <p>
-        Filler masterbatch isn't just "white pellets." It's a complex system of mineral loading, carrier resin, and surface chemistry. Our FMPE series uses calcium carbonate sourced from high-purity Egyptian deposits, known for their extreme whiteness and low abrasive properties.
+        <T>Filler masterbatch isn't just "white pellets." It's a complex system of mineral loading, carrier resin, and surface chemistry. Our FMPE series uses calcium carbonate sourced from high-purity Egyptian deposits, known for their extreme whiteness and low abrasive properties.</T>
       </p>
 
-      <h2>Key Grades in the FMPE Series</h2>
+      <h2><T>Key Grades in the FMPE Series</T></h2>
       <ul>
-        <li><strong>FMPE-70</strong> — 70% CaCO₃ loading on an LLDPE carrier. Ideal for thin-film applications where high dispersion is critical.</li>
-        <li><strong>FMPE-75</strong> — 75% loading. Our most versatile grade, balancing cost-reduction with excellent mechanical retention.</li>
-        <li><strong>FMPE-80</strong> — 80% loading. Maximum cost efficiency for heavy-duty sacks, tarpaulins, and thicker film applications.</li>
+        <li><strong><T>FMPE-70</T></strong><T> — 70% CaCO₃ loading on an LLDPE carrier. Ideal for thin-film applications where high dispersion is critical.</T></li>
+        <li><strong><T>FMPE-75</T></strong><T> — 75% loading. Our most versatile grade, balancing cost-reduction with excellent mechanical retention.</T></li>
+        <li><strong><T>FMPE-80</T></strong><T> — 80% loading. Maximum cost efficiency for heavy-duty sacks, tarpaulins, and thicker film applications.</T></li>
       </ul>
 
-      <h2>Carrier Resin Matters</h2>
+      <h2><T>Carrier Resin Matters</T></h2>
       <p>
-        A common industry mistake is ignoring the carrier resin. Many "budget" fillers use low-quality recycled carriers. Our standard FMPE series is built on **virgin LLDPE** (Linear Low-Density Polyethylene) to ensure high compatibility and flow during your production process.
+        <T>A common industry mistake is ignoring the carrier resin. Many "budget" fillers use low-quality recycled carriers. Our standard FMPE series is built on **virgin LLDPE** (Linear Low-Density Polyethylene) to ensure high compatibility and flow during your production process.</T>
       </p>
 
-      <h2>Optimal Applications</h2>
+      <h2><T>Optimal Applications</T></h2>
       <ol>
-        <li><strong>Shopping Bags & Thin Films</strong> — Improved stiffness and anti-blocking properties at lower costs.</li>
-        <li><strong>Industrial Liners & Heavy-Duty Sacks</strong> — Superior impact strength even at high loading percentages.</li>
-        <li><strong>Agricultural Films</strong> — Enhanced opacity and cost reduction in mulch and silage films.</li>
+        <li><strong><T>Shopping Bags & Thin Films</T></strong><T> — Improved stiffness and anti-blocking properties at lower costs.</T></li>
+        <li><strong><T>Industrial Liners & Heavy-Duty Sacks</T></strong><T> — Superior impact strength even at high loading percentages.</T></li>
+        <li><strong><T>Agricultural Films</T></strong><T> — Enhanced opacity and cost reduction in mulch and silage films.</T></li>
       </ol>
 
-      <h2>Why It Matters</h2>
+      <h2><T>Why It Matters</T></h2>
       <p>
-        Filler masterbatch isn't just a cost-saver. Done right, it improves your thermal stability, reduces shrinkage, and increases the stiffness of your final product. The FMPE series is designed to do all of that, reliably, batch after batch.
+        <T>Filler masterbatch isn't just a cost-saver. Done right, it improves your thermal stability, reduces shrinkage, and increases the stiffness of your final product. The FMPE series is designed to do all of that, reliably, batch after batch.</T>
       </p>
     </BlogPostLayout>
   )

@@ -89,3 +89,13 @@ a { text-decoration: none; color: inherit; }
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Arabic / RTL ── */
+html[lang="ar"] body,
+html[lang="ar"] body *:not(svg):not(svg *):not(code):not(pre) {
+  font-family: 'Cairo', 'Inter', 'Open Sans', sans-serif !important;
+  letter-spacing: 0 !important;
+}
+html[lang="ar"] body { line-height: 1.85; }
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3 { line-height: 1.35 !important; }
+html[dir="rtl"] .flip-rtl { transform: scaleX(-1); }

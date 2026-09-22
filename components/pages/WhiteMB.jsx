@@ -3,10 +3,11 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
 import IsoBadges from '@/components/shared/IsoBadges'
+import { T } from '@/components/LocaleProvider'
 
 
 const POLYMERS = ['PE', 'PP', 'PET / PBT', 'ABS', 'EVA', 'PA (Nylon)', 'PS', 'SAN', 'PC']
@@ -88,16 +89,16 @@ export default function WhiteMBPage() {
             {/* Left col */}
             <div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 16 }}>
-                What Is White Masterbatch?
+                <T>What Is White Masterbatch?</T>
               </div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20, color: '#141B3E' }}>
-                TiO₂ Concentrates Across Every Major Polymer
+                <T>TiO₂ Concentrates Across Every Major Polymer</T>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85, marginBottom: 18 }}>
-                White masterbatch is a concentrated dispersion of titanium dioxide (TiO₂) in a polymer carrier resin. TiO₂ is the primary pigment responsible for whiteness and opacity in plastics — it scatters visible light with exceptional efficiency, hiding the natural colour of the base polymer and any underlying substrate. It is added at the processing stage at typical let-down ratios of 2–5%, replacing the need to handle raw TiO₂ powder directly.
+                <T>White masterbatch is a concentrated dispersion of titanium dioxide (TiO₂) in a polymer carrier resin. TiO₂ is the primary pigment responsible for whiteness and opacity in plastics — it scatters visible light with exceptional efficiency, hiding the natural colour of the base polymer and any underlying substrate. It is added at the processing stage at typical let-down ratios of 2–5%, replacing the need to handle raw TiO₂ powder directly.</T>
               </p>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85, marginBottom: 18 }}>
-                Our white masterbatch range covers every major polymer matrix — giving converters a single source for consistent opacity and whiteness regardless of their base resin or processing technology.
+                <T>Our white masterbatch range covers every major polymer matrix — giving converters a single source for consistent opacity and whiteness regardless of their base resin or processing technology.</T>
               </p>
 
               {/* Polymer grid */}
@@ -108,12 +109,12 @@ export default function WhiteMBPage() {
                     padding: '5px 12px', borderRadius: 5,
                     background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)',
                     color: '#23447A',
-                  }}>{p}</span>
+                  }}><T>{p}</T></span>
                 ))}
               </div>
 
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                Rutile-grade TiO₂ delivers superior hiding power and a clean blue-white tone with excellent UV stability. TDS and CoA are supplied with every shipment.
+                <T>Rutile-grade TiO₂ delivers superior hiding power and a clean blue-white tone with excellent UV stability. TDS and CoA are supplied with every shipment.</T>
               </p>
             </div>
 
@@ -121,23 +122,23 @@ export default function WhiteMBPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               {/* Application Simulation */}
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Application Simulation</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Application Simulation</T></div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>
-                  Near-Plant Pilot Trials
+                  <T>Near-Plant Pilot Trials</T>
                 </h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  Our Application Simulation Centre uses production-representative equipment to run reproducible trials — enabling new product development and current-product optimisation under real processing conditions before full-scale commitment.
+                  <T>Our Application Simulation Centre uses production-representative equipment to run reproducible trials — enabling new product development and current-product optimisation under real processing conditions before full-scale commitment.</T>
                 </p>
               </div>
 
               {/* Custom Formulation */}
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Custom Formulation</div>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Custom Formulation</T></div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>
-                  Built to Your Specification
+                  <T>Built to Your Specification</T>
                 </h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 14 }}>
-                  Fast development cycles for application-specific requirements. White masterbatch can be enhanced with functional additives including:
+                  <T>Fast development cycles for application-specific requirements. White masterbatch can be enhanced with functional additives including:</T>
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {['Anti-block', 'Anti-static', 'Anti-fog', 'UV Stabiliser', 'Mould Release', 'Anti-bacterial'].map(a => (
@@ -146,7 +147,7 @@ export default function WhiteMBPage() {
                       padding: '4px 10px', borderRadius: 4,
                       background: 'rgba(212,132,10,0.08)', border: '1px solid rgba(212,132,10,0.2)',
                       color: '#A86508',
-                    }}>{a}</span>
+                    }}><T>{a}</T></span>
                   ))}
                 </div>
               </div>
@@ -172,9 +173,9 @@ export default function WhiteMBPage() {
               onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
             >
               <div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}>A Selection of Available Grades</h2>
-                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}>Standard range shown — custom TiO₂ loadings, optical properties, carrier systems, and application-specific formulations available on request.</p>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}><T>Grade Reference</T></div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}><T>A Selection of Available Grades</T></h2>
+                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}><T>Standard range shown — custom TiO₂ loadings, optical properties, carrier systems, and application-specific formulations available on request.</T></p>
               </div>
               <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />
@@ -192,12 +193,12 @@ export default function WhiteMBPage() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{ paddingTop: 24 }}>
-                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The grades below represent a sample of our white masterbatch portfolio — we carry a broader range across TiO₂ loadings, carrier resins, and regulatory standards. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us for the full product list or to discuss a specific requirement.</strong></p>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The grades below represent a sample of our white masterbatch portfolio — we carry a broader range across TiO₂ loadings, carrier resins, and regulatory standards. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us for the full product list or to discuss a specific requirement.</T></strong></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, overflow: 'hidden', marginBottom: 40 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '150px 60px 1fr 1fr 110px', background: 'rgba(20,27,62,0.04)', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '12px 20px' }}>
                 {['Grade Code', 'Carrier', 'TiO₂ / Content', 'Application', 'Type'].map(h => (
-                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}>{h}</div>
+                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}><T>{h}</T></div>
                 ))}
               </div>
               {GRADES.map((g, i) => (
@@ -205,11 +206,11 @@ export default function WhiteMBPage() {
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.03)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : '#2B8DD0' }}>{g.carrier}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}>{g.content}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)' }}>{g.app}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : '#2B8DD0' }}>{g.note}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}><T>{g.code}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : '#2B8DD0' }}><T>{g.carrier}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}><T>{g.content}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)' }}><T>{g.app}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : '#2B8DD0' }}><T>{g.note}</T></div>
                 </div>
               ))}
             </div>
@@ -218,7 +219,7 @@ export default function WhiteMBPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', background: 'rgba(43,141,208,0.05)', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 10, marginBottom: 32 }}>
               <span style={{ fontSize: 18 }}>ℹ️</span>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)', lineHeight: 1.6 }}>
-                This is a selection from our full white masterbatch range. Additional grades — including specialty carriers, higher TiO₂ loadings, and custom formulations — are available on request. <strong style={{ color: '#2B8DD0' }}>Contact us to discuss your specific requirement.</strong>
+                <T>This is a selection from our full white masterbatch range. Additional grades — including specialty carriers, higher TiO₂ loadings, and custom formulations — are available on request. </T><strong style={{ color: '#2B8DD0' }}><T>Contact us to discuss your specific requirement.</T></strong>
               </p>
             </div>
 
@@ -227,7 +228,7 @@ export default function WhiteMBPage() {
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10 }}>
                   <CheckCircle2 size={15} color="#2B8DD0" style={{ flexShrink: 0, marginTop: 1 }} />
-                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}>{f}</span>
+                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}><T>{f}</T></span>
                 </div>
               ))}
             </div>
@@ -245,9 +246,9 @@ export default function WhiteMBPage() {
       <section style={{ background: '#F7F8FC', padding: '72px 48px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 40 }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}>Where White Masterbatch Is Used</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>White masterbatch is a core component across packaging, agriculture, and consumer goods — anywhere high opacity, whiteness, and TiO₂ performance are required.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Industries</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}><T>Where White Masterbatch Is Used</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>White masterbatch is a core component across packaging, agriculture, and consumer goods — anywhere high opacity, whiteness, and TiO₂ performance are required.</T></p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
             {WMB_INDUSTRIES.map(ind => {
@@ -260,10 +261,10 @@ export default function WhiteMBPage() {
                     <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}>{ind.name}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}>{ind.desc}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>
+                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}><T>{ind.desc}</T></div>
                     <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t}</span>)}
+                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}><T>{t}</T></span>)}
                     </div>
                   </div>
                 </Tag>
@@ -282,9 +283,9 @@ export default function WhiteMBPage() {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8 }}>Get White Masterbatch Pricing</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Request a Quote</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8 }}><T>Get White Masterbatch Pricing</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</T></p>
           </motion.div>
           <QuoteForm
             products={WMB_PRODUCTS}

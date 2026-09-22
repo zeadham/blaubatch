@@ -1,5 +1,7 @@
 'use client'
 
+import { useLocale } from '@/components/LocaleProvider'
+
 // ISO Certification badges
 // Update certNumber when the certificate number is available
 
@@ -8,6 +10,7 @@ const BADGES = [
     code: 'ISO 9001',
     year: '2015',
     label: 'Quality Management',
+    labelAr: 'إدارة الجودة',
     color: '#2B8DD0',
     bg: 'rgba(46,127,208,0.08)',
     border: 'rgba(46,127,208,0.2)',
@@ -16,13 +19,16 @@ const BADGES = [
     code: 'ISO 14001',
     year: '2015',
     label: 'Environmental Management',
+    labelAr: 'الإدارة البيئية',
     color: '#22C55E',
     bg: 'rgba(34,197,94,0.08)',
     border: 'rgba(34,197,94,0.2)',
   },
 ]
 
-export default function IsoBadges({ certNumber = 'Available on request', issuer = 'Coraplast / TÜV' }) {
+export default function IsoBadges({ certNumber, issuer = 'Coraplast / TÜV' }) {
+  const { t } = useLocale()
+  const cert = certNumber ?? t('Available on request', 'متاح عند الطلب')
   return (
     <div style={{
       background: '#FFFFFF',
@@ -36,7 +42,7 @@ export default function IsoBadges({ certNumber = 'Available on request', issuer 
         letterSpacing: '0.08em', textTransform: 'uppercase',
         color: 'rgba(20,27,62,0.4)', marginBottom: 20,
       }}>
-        Certifications &amp; Quality Standards
+        {t('Certifications & Quality Standards', 'الشهادات ومعايير الجودة')}
       </div>
 
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 20 }}>
@@ -67,7 +73,7 @@ export default function IsoBadges({ certNumber = 'Available on request', issuer 
                 fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 900,
                 color: b.color, lineHeight: 1,
               }}>{b.code}:{b.year}</div>
-              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.5)', marginTop: 3 }}>{b.label}</div>
+              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.5)', marginTop: 3 }}>{t(b.label, b.labelAr)}</div>
             </div>
           </div>
         ))}
@@ -78,21 +84,21 @@ export default function IsoBadges({ certNumber = 'Available on request', issuer 
         paddingTop: 16, borderTop: '1px solid rgba(20,27,62,0.07)',
       }}>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Certificate No.</div>
-          <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{certNumber}</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>{t('Certificate No.', 'رقم الشهادة')}</div>
+          <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{cert}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Issuing Body</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>{t('Issuing Body', 'الجهة المانحة')}</div>
           <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{issuer}</div>
         </div>
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>Scope</div>
-          <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>Manufacture and distribution of masterbatch concentrates</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)', marginBottom: 4 }}>{t('Scope', 'النطاق')}</div>
+          <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)' }}>{t('Manufacture and distribution of masterbatch concentrates', 'تصنيع وتوزيع مركّزات الماستر باتش')}</div>
         </div>
       </div>
 
       <div style={{ marginTop: 16, fontSize: 11, color: 'rgba(20,27,62,0.3)', fontStyle: 'italic' }}>
-        Certificate details available on request — contact info@blaubatch.com
+        {t('Certificate details available on request — contact info@blaubatch.com', 'تفاصيل الشهادات متاحة عند الطلب — تواصل مع info@blaubatch.com')}
       </div>
     </div>
   )

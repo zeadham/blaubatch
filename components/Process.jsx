@@ -3,16 +3,18 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { MessageSquare, FlaskConical, Package, Truck, HeadphonesIcon } from 'lucide-react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const STEPS = [
-  { icon: MessageSquare, n: '01', title: 'Enquiry & Specification', body: 'Send your polymer type, application, and volume. Quote within 24 hours.', color: '#2B8DD0' },
-  { icon: FlaskConical, n: '02', title: 'Formulation & Sample', body: 'Standard grades from stock, or custom formulation developed to your spec.', color: '#2B8DD0' },
-  { icon: Package, n: '03', title: 'Production & QC', body: 'In-house lab testing on every batch. TDS and CoA issued before dispatch.', color: '#D4840A' },
-  { icon: Truck, n: '04', title: 'Packaging & Dispatch', body: '25 kg bags or FIBC. Full export documentation for international orders.', color: '#2B8DD0' },
-  { icon: HeadphonesIcon, n: '05', title: 'Ongoing Technical Support', body: 'Process troubleshooting and grade optimisation after delivery.', color: '#2B8DD0' },
+  { icon: MessageSquare, n: '01', title: 'Enquiry & Specification', body: 'Send your polymer type, application, and volume. Quote within 24 hours.', titleAr: 'الاستفسار والمواصفات', bodyAr: 'أرسل نوع البوليمر والتطبيق والكمية. نوافيك بعرض السعر خلال 24 ساعة.', color: '#2B8DD0' },
+  { icon: FlaskConical, n: '02', title: 'Formulation & Sample', body: 'Standard grades from stock, or custom formulation developed to your spec.', titleAr: 'التركيب والعيّنة', bodyAr: 'درجات قياسية من المخزون، أو تركيبة مخصصة تُطوَّر وفق مواصفاتك.', color: '#2B8DD0' },
+  { icon: Package, n: '03', title: 'Production & QC', body: 'In-house lab testing on every batch. TDS and CoA issued before dispatch.', titleAr: 'الإنتاج ومراقبة الجودة', bodyAr: 'اختبارات معملية داخلية لكل دفعة. تُصدر TDS وCoA قبل الشحن.', color: '#D4840A' },
+  { icon: Truck, n: '04', title: 'Packaging & Dispatch', body: '25 kg bags or FIBC. Full export documentation for international orders.', titleAr: 'التغليف والشحن', bodyAr: 'أكياس 25 كجم أو FIBC. مستندات تصدير كاملة للطلبات الدولية.', color: '#2B8DD0' },
+  { icon: HeadphonesIcon, n: '05', title: 'Ongoing Technical Support', body: 'Process troubleshooting and grade optimisation after delivery.', titleAr: 'الدعم الفني المستمر', bodyAr: 'معالجة مشكلات التشغيل وتحسين الدرجات بعد التسليم.', color: '#2B8DD0' },
 ]
 
 export default function Process() {
+  const { t } = useLocale()
   const headRef = useRef(null)
   const inView = useInView(headRef, { once: true, margin: '-80px' })
 
@@ -32,20 +34,20 @@ export default function Process() {
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(74,170,224,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
             }}
-          >How We Work</motion.div>
+          >{t('How We Work', 'كيف نعمل')}</motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.07 }}
             style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}
-          >From Enquiry to Delivery</motion.h2>
+          >{t('From Enquiry to Delivery', 'من الاستفسار إلى التسليم')}</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
             style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, margin: '0 auto' }}
           >
-            From first contact to ongoing technical partnership — structured and transparent.
+            {t('From first contact to ongoing technical partnership — structured and transparent.', 'من أول تواصل إلى شراكة فنية مستمرة — بوضوح وتنظيم.')}
           </motion.p>
         </div>
 
@@ -81,14 +83,14 @@ export default function Process() {
                 <div style={{
                   fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 900,
                   letterSpacing: '0.12em', color: step.color, marginBottom: 8,
-                }}>STEP {step.n}</div>
+                }}>{t('STEP', 'الخطوة')} {step.n}</div>
 
                 <h3 style={{
                   fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
                   marginBottom: 10, lineHeight: 1.35, letterSpacing: '-0.01em', color: '#141B3E',
-                }}>{step.title}</h3>
+                }}>{t(step.title, step.titleAr)}</h3>
 
-                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.70)', lineHeight: 1.7 }}>{step.body}</p>
+                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.70)', lineHeight: 1.7 }}>{t(step.body, step.bodyAr)}</p>
               </motion.div>
             )
           })}
@@ -101,7 +103,7 @@ export default function Process() {
           style={{ textAlign: 'center', marginTop: 56 }}
         >
           <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.70)', marginBottom: 16 }}>
-            Not sure which grade fits your process? Our technical team will review your specification.
+            {t('Not sure which grade fits your process? Our technical team will review your specification.', 'لست متأكداً أي درجة تناسب عمليتك؟ سيراجع فريقنا الفني مواصفاتك.')}
           </p>
           <a href="mailto:info@blaubatch.com" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -114,7 +116,7 @@ export default function Process() {
           onMouseEnter={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'translateY(-1px)' }}
           onMouseLeave={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'none' }}
           >
-            Contact Technical Team
+            {t('Contact Technical Team', 'تواصل مع الفريق الفني')}
           </a>
         </motion.div>
       </div>
@@ -122,8 +124,8 @@ export default function Process() {
       <style>{`
         @media (max-width: 768px) {
           #process { padding: 64px 20px !important; }
-          #process > div > div:last-child { flex-direction: column !important; gap: 32px !important; }
-          #process > div > div:last-child > div[style*="absolute"] { display: none !important; }
+          #process > div > div:nth-child(2) { flex-direction: column !important; gap: 32px !important; }
+          #process > div > div:nth-child(2) > div[style*="absolute"] { display: none !important; }
         }
       `}</style>
     </section>

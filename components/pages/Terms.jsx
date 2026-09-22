@@ -1,4 +1,5 @@
 'use client'
+import { T } from '@/components/LocaleProvider'
 
 
 
@@ -79,25 +80,25 @@ export default function TermsPage() {
     <>
       <section style={{ background: '#F7F8FC', padding: '80px 48px 40px', borderBottom: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>Legal</div>
-          <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.1 }}>Terms &amp; Conditions</h1>
-          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)', lineHeight: 1.8 }}>Last updated: March 2026 · Blau Batch Trading &amp; Distribution Co.</p>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}><T>Legal</T></div>
+          <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.1 }}><T>Terms &amp; Conditions</T></h1>
+          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)', lineHeight: 1.8 }}><T>Last updated: March 2026 · Blau Batch Trading &amp; Distribution Co.</T></p>
         </div>
       </section>
 
       <section style={{ background: '#FFFFFF', padding: '40px 48px 96px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.9, marginBottom: 48, borderLeft: '3px solid #D4840A', paddingLeft: 20 }}>
-            These Terms &amp; Conditions govern the supply of products and services by Blau Batch Trading &amp; Distribution Co. ("Blau Batch") to its customers. By placing an order, you agree to these terms.
+          <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.9, marginBottom: 48, borderInlineStart: '3px solid #D4840A', paddingInlineStart: 20 }}>
+            <T>These Terms &amp; Conditions govern the supply of products and services by Blau Batch Trading &amp; Distribution Co. ("Blau Batch") to its customers. By placing an order, you agree to these terms.</T>
           </p>
 
           {SECTIONS.map((s, i) => (
             <div key={s.title} style={{ marginBottom: 44, paddingBottom: 44, borderBottom: i < SECTIONS.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 18, fontWeight: 800, color: '#141B3E', marginBottom: 16, letterSpacing: '-0.01em' }}>
-                <span style={{ color: '#D4840A', marginRight: 10, fontWeight: 900 }}>{String(i + 1).padStart(2, '0')}</span>{s.title}
+                <span style={{ color: '#D4840A', marginInlineEnd: 10, fontWeight: 900 }}>{String(i + 1).padStart(2, '0')}</span><T>{s.title}</T>
               </h2>
               {s.body.map((para, j) => (
-                <p key={j} style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.85, marginBottom: j < s.body.length - 1 ? 14 : 0 }}>{para}</p>
+                <p key={j} style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.85, marginBottom: j < s.body.length - 1 ? 14 : 0 }}><T>{para}</T></p>
               ))}
             </div>
           ))}

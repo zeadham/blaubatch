@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const STORAGE_KEY = 'bb_cookie_consent'
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false)
+  const { t, l } = useLocale()
 
   useEffect(() => {
     try {
@@ -44,15 +46,15 @@ export default function CookieConsent() {
           fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
           color: '#141B3E', marginBottom: 6,
         }}>
-          🍪 We use cookies
+          {t('🍪 We use cookies', '🍪 نستخدم ملفات تعريف الارتباط')}
         </div>
         <p style={{
           fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, margin: 0,
         }}>
-          We use essential cookies to keep the site working. We do not use advertising or tracking cookies.
-          See our{' '}
-          <a href="/privacy" style={{ color: '#2B8DD0', fontWeight: 600 }}>Privacy Policy</a>
-          {' '}for details.
+          {t('We use essential cookies to keep the site working. We do not use advertising or tracking cookies.', 'نستخدم ملفات تعريف الارتباط الضرورية لضمان عمل الموقع. لا نستخدم ملفات إعلانية أو تتبّعية.')}
+          {' '}{t('See our', 'اطّلع على')}{' '}
+          <a href={l('/privacy')} style={{ color: '#2B8DD0', fontWeight: 600 }}>{t('Privacy Policy', 'سياسة الخصوصية')}</a>
+          {' '}{t('for details.', 'لمزيد من التفاصيل.')}
         </p>
       </div>
 
@@ -68,7 +70,7 @@ export default function CookieConsent() {
           onMouseEnter={e => e.currentTarget.style.background = '#2477b3'}
           onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
         >
-          Accept
+          {t('Accept', 'موافق')}
         </button>
         <button
           onClick={decline}
@@ -81,7 +83,7 @@ export default function CookieConsent() {
           onMouseEnter={e => { e.currentTarget.style.color = '#141B3E'; e.currentTarget.style.borderColor = '#141B3E' }}
           onMouseLeave={e => { e.currentTarget.style.color = 'rgba(20,27,62,0.5)'; e.currentTarget.style.borderColor = '#DCDCDC' }}
         >
-          Decline
+          {t('Decline', 'رفض')}
         </button>
       </div>
     </div>

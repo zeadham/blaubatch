@@ -62,6 +62,7 @@ function buildHtml(d) {
               ${row('Email', d.email ? `<a href="mailto:${d.email}" style="color:#2E7FD0;">${d.email}</a>` : '')}
               ${row('Phone / WhatsApp', d.phone ? `<a href="tel:${d.phone}" style="color:#2E7FD0;">${d.phone}</a>` : '')}
               ${row('Preferred Contact', d.contactMethod)}
+              ${row('Site Language', d.lang === 'ar' ? 'Arabic (submitted from /ar)' : '')}
 
             </table>
 

@@ -1,9 +1,12 @@
+import { isTranslatedRoute } from '@/lib/i18n'
+
 export default function sitemap() {
   const base = 'https://blaubatch.com'
   const now = new Date().toISOString()
 
   const routes = [
     { url: base, priority: 1.0, changeFrequency: 'weekly' },
+    { url: `${base}/about`, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${base}/contact`, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${base}/fmpe`, priority: 0.9, changeFrequency: 'monthly' },
     { url: `${base}/fmpp`, priority: 0.9, changeFrequency: 'monthly' },
@@ -30,10 +33,12 @@ export default function sitemap() {
     { url: `${base}/terms`, priority: 0.3, changeFrequency: 'yearly' },
   ]
 
-  return routes.map(r => ({
-    url: r.url,
-    lastModified: now,
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
-  }))
+  return routes.flatMap(r => {
+    const path = r.url.slice(base.length) || '/'
+    const entry = { url: r.url, lastModified: now, changeFrequency: r.changeFrequency, priority: r.priority }
+    if (!isTranslatedRoute(path)) return [entry]
+    const arUrl = base + '/ar' + (path === '/' ? '' : path)
+    const alternates = { languages: { en: r.url, ar: arUrl } }
+    return [{ ...entry, alternates }, { ...entry, url: arUrl, alternates }]
+  })
 }

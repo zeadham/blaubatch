@@ -5,12 +5,14 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const MotionLink = motion.create(Link)
 
 const INDUSTRIES = [
   {
     id: 'packaging',
+    nameAr: 'التغليف والأفلام المرنة',
     name: 'Packaging & Flexible Film',
     desc: 'High-clarity filler and additive solutions for blown and cast film applications.',
     image: '/images/industries cards/packaging.png',
@@ -18,6 +20,7 @@ const INDUSTRIES = [
   },
   {
     id: 'pipes',
+    nameAr: 'المواسير والوصلات والبروفايلات',
     name: 'Pipes, Fittings & Profiles',
     desc: 'Carbon black and CaCO₃ concentrates for HDPE, PPR, and PVC extrusion.',
     image: '/images/industries cards/pipes.png',
@@ -25,6 +28,7 @@ const INDUSTRIES = [
   },
   {
     id: 'agriculture',
+    nameAr: 'الزراعة',
     name: 'Agriculture',
     desc: 'UV-stabilized masterbatch for greenhouse film, mulch, and irrigation tubing.',
     image: '/images/industries cards/agriculture.png',
@@ -32,6 +36,7 @@ const INDUSTRIES = [
   },
   {
     id: 'textiles',
+    nameAr: 'المنسوجات والألياف',
     name: 'Textiles & Fibre',
     desc: 'Color and filler grades optimized for PP non-woven and filament spinning.',
     image: '/images/industries cards/textiles.png',
@@ -39,6 +44,7 @@ const INDUSTRIES = [
   },
   {
     id: 'construction',
+    nameAr: 'الإنشاءات',
     name: 'Construction',
     desc: 'Functional compounds for geomembranes and waterproofing sheet systems.',
     image: '/images/industries cards/construction.png',
@@ -46,6 +52,7 @@ const INDUSTRIES = [
   },
   {
     id: 'wire-cable',
+    nameAr: 'الأسلاك والكابلات',
     name: 'Wire & Cable',
     desc: 'Technical carbon black and flame retardant masterbatch for cable jacketing.',
     image: '/images/industries cards/wire_cable.png',
@@ -53,6 +60,7 @@ const INDUSTRIES = [
   },
   {
     id: 'automotive',
+    nameAr: 'السيارات والاستخدامات الفنية',
     name: 'Automotive & Technical',
     desc: 'Engineered concentrates for interior/exterior components and under-hood parts.',
     image: '/images/industries cards/automotive.png',
@@ -60,6 +68,7 @@ const INDUSTRIES = [
   },
   {
     id: 'consumer-goods',
+    nameAr: 'السلع الاستهلاكية',
     name: 'Consumer Goods',
     desc: 'Food-contact compliant color masterbatch for caps, closures, and housewares.',
     image: '/images/industries cards/consumer_good.png',
@@ -78,6 +87,7 @@ const cardVariants = {
 }
 
 export default function Industries() {
+  const { t, l } = useLocale()
   const headRef = useRef(null)
   const inView = useInView(headRef, { once: true, margin: '-80px' })
 
@@ -95,7 +105,7 @@ export default function Industries() {
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16,
             }}
-          >Industries Served</motion.div>
+          >{t('Industries Served', 'الصناعات التي نخدمها')}</motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20, rotateX: 10 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
@@ -104,14 +114,14 @@ export default function Industries() {
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
               fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 14, lineHeight: 1.1, color: '#141B3E',
             }}
-          >Built for Plastics Processing</motion.h2>
+          >{t('Built for Plastics Processing', 'مصمَّم لصناعة تحويل البلاستيك')}</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={inView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
-            Grades formulated for PE, PP, PVC, PET, and ABS across film, injection, pipe extrusion, and fibre spinning.
+            {t('Grades formulated for PE, PP, PVC, PET, and ABS across film, injection, pipe extrusion, and fibre spinning.', 'درجات مُصاغة لـ PE وPP وPVC وPET وABS في مجالات الأفلام والحقن وبثق المواسير وغزل الألياف.')}
           </motion.p>
         </div>
 
@@ -120,7 +130,7 @@ export default function Industries() {
           {INDUSTRIES.map((ind, i) => (
             <MotionLink
               key={ind.id}
-              href={ind.href}
+              href={l(ind.href)}
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
@@ -143,7 +153,7 @@ export default function Industries() {
               <div style={{ position: 'relative', height: 200, overflow: 'hidden', flexShrink: 0 }}>
                 <Image
                   src={ind.image}
-                  alt={ind.name}
+                  alt={t(ind.name, ind.nameAr)}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   style={{ objectFit: 'cover', transition: 'transform 0.5s ease' }}
@@ -158,8 +168,8 @@ export default function Industries() {
                 <h3 style={{
                   fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800,
                   color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, margin: 0,
-                }}>{ind.name}</h3>
-                <ArrowRight size={14} color="#2B8DD0" style={{ flexShrink: 0 }} />
+                }}>{t(ind.name, ind.nameAr)}</h3>
+                <ArrowRight size={14} color="#2B8DD0" className="flip-rtl" style={{ flexShrink: 0 }} />
               </div>
             </MotionLink>
           ))}

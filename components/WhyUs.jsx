@@ -2,35 +2,44 @@
 
 import { motion } from 'framer-motion'
 import { Factory, Truck, ShieldCheck, Zap, Lightbulb, Timer } from 'lucide-react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const VALUE_PROPS = [
   {
     icon: ShieldCheck,
     title: 'Quality',
+    titleAr: 'الجودة',
+    descriptionAr: 'إنتاج متوافق مع ISO 9001 مع اختبارات معملية داخلية وتتبّع كامل لكل دفعة، وTDS وCoA مع كل شحنة.',
     description: 'ISO 9001-aligned production with in-house lab testing, full batch traceability, and TDS & CoA per shipment.',
   },
   {
     icon: Zap,
     title: 'Efficiency',
+    titleAr: 'الكفاءة',
+    descriptionAr: 'نسبة تحميل 70–80% من CaCO₃ مع تشتّت متجانس. خفّض تكلفة المواد دون المساس بجودة الإنتاج.',
     description: '70–80% CaCO₃ loading with consistent dispersion. Reduce material costs without compromising output.',
   },
   {
     icon: Timer,
     title: 'Reliability',
+    titleAr: 'الموثوقية',
+    descriptionAr: 'شحن العيّنات خلال 48 ساعة ومواعيد توريد يُعتمد عليها وسلسلة إمداد مصمَّمة للوجستيات الشرق الأوسط وشمال أفريقيا وأوروبا.',
     description: '48-hour sample dispatch, dependable lead times, and a supply chain built for MENA and European logistics.',
   },
   {
     icon: Lightbulb,
     title: 'Innovation',
+    titleAr: 'الابتكار',
+    descriptionAr: 'تركيبات مخصصة ومطابقة RAL/Pantone ومركّزات إضافات وظيفية لكل تطبيق.',
     description: 'Custom formulations, RAL/Pantone matching, and functional additive concentrates for every application.',
   },
 ]
 
 const STATS = [
-  { value: '8,000+ MT', label: 'Annual Manufacturing Capacity' },
-  { value: '90,000 MT', label: 'White/Black/Color/Additives' },
-  { value: '8', label: 'Industries Served' },
-  { value: 'MENA + Europe', label: 'Market Coverage' },
+  { value: '8,000+ MT', valueAr: '+8,000 طن', label: 'Annual Manufacturing Capacity', labelAr: 'الطاقة الإنتاجية السنوية' },
+  { value: '90,000 MT', valueAr: '90,000 طن', label: 'White/Black/Color/Additives', labelAr: 'أبيض/أسود/ملوّن/إضافات' },
+  { value: '8', valueAr: '8', label: 'Industries Served', labelAr: 'قطاعات نخدمها' },
+  { value: 'MENA + Europe', valueAr: 'الشرق الأوسط وشمال أفريقيا + أوروبا', label: 'Market Coverage', labelAr: 'التغطية السوقية' },
 ]
 
 const fadeUp = {
@@ -44,6 +53,7 @@ const fadeUp = {
 }
 
 export default function WhyUs() {
+  const { isAr, t } = useLocale()
   return (
     <section id="why" style={{ background: '#fff', paddingTop: 96, paddingBottom: 0 }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px' }}>
@@ -57,7 +67,7 @@ export default function WhyUs() {
           {/* Left — Story */}
           <div style={{ perspective: '900px' }}>
           <motion.div
-            initial={{ opacity: 0, x: -30, rotateY: -8 }}
+            initial={{ opacity: 0, x: isAr ? 30 : -30, rotateY: isAr ? 8 : -8 }}
             whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -66,14 +76,14 @@ export default function WhyUs() {
               display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 10,
               fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
               border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '4px 12px', marginBottom: 16,
-            }}>Why Blau Batch</div>
+            }}>{t('Why Blau Batch', 'لماذا بلاو باتش')}</div>
 
             <h2 style={{
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(26px, 3.5vw, 42px)',
               fontWeight: 900, color: '#141B3E', lineHeight: 1.1,
               letterSpacing: '-0.025em', marginBottom: 40,
             }}>
-              One Supplier.<br />Complete Coverage.
+              {isAr ? <>مورّد واحد.<br />تغطية شاملة.</> : <>One Supplier.<br />Complete Coverage.</>}
             </h2>
 
             {/* Pillars */}
@@ -91,9 +101,9 @@ export default function WhyUs() {
                   <h3 style={{
                     fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 800,
                     color: '#141B3E', marginBottom: 6,
-                  }}>We Manufacture</h3>
+                  }}>{t('We Manufacture', 'نحن نصنّع')}</h3>
                   <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.7 }}>
-                    In-house production of Filler Masterbatch (PE &amp; PP) at our 6th of October facility — full control over quality, formulation, and lead times.
+                    {t('In-house production of Filler Masterbatch (PE & PP) at our 6th of October facility — full control over quality, formulation, and lead times.', 'إنتاج داخلي لماستر باتش الحشو (PE وPP) في مصنعنا بمدينة السادس من أكتوبر — سيطرة كاملة على الجودة والتركيبة ومواعيد التسليم.')}
                   </p>
                 </div>
               </div>
@@ -111,9 +121,9 @@ export default function WhyUs() {
                   <h3 style={{
                     fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 800,
                     color: '#141B3E', marginBottom: 6,
-                  }}>We Distribute</h3>
+                  }}>{t('We Distribute', 'نحن نوزّع')}</h3>
                   <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.7 }}>
-                    Authorised Coraplast distributor for White, Black, Colour, and Additive masterbatch — European engineering, local availability.
+                    {t('Authorised Coraplast distributor for White, Black, Colour, and Additive masterbatch — European engineering, local availability.', 'موزّع معتمد لشركة Coraplast لماستر باتش الأبيض والأسود والملوّن والإضافات — هندسة أوروبية وتوافر محلي.')}
                   </p>
                 </div>
               </div>
@@ -157,8 +167,8 @@ export default function WhyUs() {
                   <h4 style={{
                     fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800,
                     color: '#141B3E',
-                  }}>{prop.title}</h4>
-                  <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7 }}>{prop.description}</p>
+                  }}>{t(prop.title, prop.titleAr)}</h4>
+                  <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7 }}>{t(prop.description, prop.descriptionAr)}</p>
                 </motion.div>
               )
             })}
@@ -190,11 +200,11 @@ export default function WhyUs() {
                 fontFamily: 'Inter, sans-serif',
                 fontSize: 'clamp(24px, 3vw, 36px)',
                 fontWeight: 900, color: '#fff', letterSpacing: '-0.02em',
-              }}>{stat.value}</span>
+              }}>{t(stat.value, stat.valueAr)}</span>
               <span style={{
                 fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.75)',
                 textTransform: 'uppercase', letterSpacing: '0.06em',
-              }}>{stat.label}</span>
+              }}>{t(stat.label, stat.labelAr)}</span>
             </div>
           ))}
         </div>
