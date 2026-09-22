@@ -3,8 +3,9 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FileText, HelpCircle, BookOpen, Download, ArrowRight, ChevronDown, Check } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 
 const DOCS = [
@@ -75,9 +76,9 @@ function FAQItem({ q, a }) {
     <div style={{ borderBottom: '1px solid rgba(20,27,62,0.08)' }}>
       <button
         onClick={() => setOpen(o => !o)}
-        style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer', gap: 16, textAlign: 'left' }}
+        style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer', gap: 16, textAlign: 'start' }}
       >
-        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, color: '#141B3E', lineHeight: 1.5 }}>{q}</span>
+        <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, color: '#141B3E', lineHeight: 1.5 }}><T>{q}</T></span>
         <ChevronDown size={16} color="rgba(20,27,62,0.4)" style={{ flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s' }} />
       </button>
       <motion.div
@@ -86,7 +87,7 @@ function FAQItem({ q, a }) {
         transition={{ duration: 0.25 }}
         style={{ overflow: 'hidden' }}
       >
-        <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, paddingBottom: 18 }}>{a}</p>
+        <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, paddingBottom: 18 }}><T>{a}</T></p>
       </motion.div>
     </div>
   )
@@ -116,6 +117,7 @@ const labelStyle = {
 }
 
 function DocRequestForm({ selected, onDeselect }) {
+  const { tr } = useLocale()
   const [form, setForm] = useState({ name: '', company: '', email: '', phone: '' })
   const [errors, setErrors] = useState({})
   const [done, setDone] = useState(false)
@@ -151,52 +153,52 @@ function DocRequestForm({ selected, onDeselect }) {
   if (done) return (
     <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 16, padding: '48px 36px', textAlign: 'center', boxShadow: '0 4px 32px rgba(20,27,62,0.06)' }}>
       <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'rgba(43,141,208,0.1)', border: '1px solid rgba(43,141,208,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 18px', fontSize: 24 }}>✅</div>
-      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, marginBottom: 10, color: '#141B3E' }}>Request received.</div>
-      <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75, maxWidth: 360, margin: '0 auto' }}>We'll send your requested documents to <strong>{form.email}</strong> within 1 business day.</p>
+      <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, marginBottom: 10, color: '#141B3E' }}><T>Request received.</T></div>
+      <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75, maxWidth: 360, margin: '0 auto' }}><T>We'll send your requested documents to </T><strong><T>{form.email}</T></strong><T> within 1 business day.</T></p>
     </div>
   )
 
   return (
     <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 16, overflow: 'hidden', boxShadow: '0 4px 32px rgba(20,27,62,0.06)' }}>
       <div style={{ padding: '28px 32px', borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 8 }}>Selected Documents</div>
+        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 8 }}><T>Selected Documents</T></div>
         {selected.length === 0 ? (
-          <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.4)', fontStyle: 'italic' }}>No documents selected — tick the cards above to add them here.</p>
+          <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.4)', fontStyle: 'italic' }}><T>No documents selected — tick the cards above to add them here.</T></p>
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
             {selected.map(title => (
               <div key={title} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '5px 10px', background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.2)', borderRadius: 6 }}>
-                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: '#141B3E' }}>{title}</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: '#141B3E' }}><T>{title}</T></span>
                 <button onClick={() => onDeselect(title)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 1, color: 'rgba(20,27,62,0.4)', fontSize: 14, fontWeight: 700 }}>×</button>
               </div>
             ))}
           </div>
         )}
-        {errors.docs && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 8 }}>{errors.docs}</div>}
+        {errors.docs && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 8 }}><T>{errors.docs}</T></div>}
       </div>
 
       <div style={{ padding: '28px 32px' }}>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Your Details</div>
+        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}><T>Your Details</T></div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
           <div>
-            <label style={labelStyle}>Full Name <span style={{ color: '#2B8DD0' }}>*</span></label>
-            <input style={{ ...inputStyle, borderColor: errors.name ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder="Your name" value={form.name} onChange={e => set('name', e.target.value)} />
-            {errors.name && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}>{errors.name}</div>}
+            <label style={labelStyle}><T>Full Name </T><span style={{ color: '#2B8DD0' }}>*</span></label>
+            <input style={{ ...inputStyle, borderColor: errors.name ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder={tr("Your name")} value={form.name} onChange={e => set('name', e.target.value)} />
+            {errors.name && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}><T>{errors.name}</T></div>}
           </div>
           <div>
-            <label style={labelStyle}>Company</label>
-            <input style={inputStyle} placeholder="Company name" value={form.company} onChange={e => set('company', e.target.value)} />
+            <label style={labelStyle}><T>Company</T></label>
+            <input style={inputStyle} placeholder={tr("Company name")} value={form.company} onChange={e => set('company', e.target.value)} />
           </div>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 20 }}>
           <div>
-            <label style={labelStyle}>Email <span style={{ color: '#2B8DD0' }}>*</span></label>
-            <input type="email" style={{ ...inputStyle, borderColor: errors.email ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder="you@company.com" value={form.email} onChange={e => set('email', e.target.value)} />
-            {errors.email && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}>{errors.email}</div>}
+            <label style={labelStyle}><T>Email </T><span style={{ color: '#2B8DD0' }}>*</span></label>
+            <input type="email" style={{ ...inputStyle, borderColor: errors.email ? '#EF4444' : 'rgba(20,27,62,0.14)' }} placeholder={tr("you@company.com")} value={form.email} onChange={e => set('email', e.target.value)} />
+            {errors.email && <div style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}><T>{errors.email}</T></div>}
           </div>
           <div>
-            <label style={labelStyle}>Phone / WhatsApp</label>
-            <input type="tel" style={inputStyle} placeholder="+20 xxx xxx xxxx" value={form.phone} onChange={e => set('phone', e.target.value)} />
+            <label style={labelStyle}><T>Phone / WhatsApp</T></label>
+            <input type="tel" style={inputStyle} placeholder={tr("+20 xxx xxx xxxx")} value={form.phone} onChange={e => set('phone', e.target.value)} />
           </div>
         </div>
 
@@ -208,7 +210,7 @@ function DocRequestForm({ selected, onDeselect }) {
         }}
           onMouseEnter={e => e.currentTarget.style.background = '#2477b3'}
           onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
-        ><Download size={14} /> Send Me These Documents</button>
+        ><Download size={14} /><T> Send Me These Documents</T></button>
 
         {submitError && (
           <div role="alert" style={{
@@ -221,7 +223,7 @@ function DocRequestForm({ selected, onDeselect }) {
         )}
 
         <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', textAlign: 'center', marginTop: 10 }}>
-          Sent within 1 business day · Saturday–Thursday 9AM–5PM Cairo
+          <T>Sent within 1 business day · Saturday–Thursday 9AM–5PM Cairo</T>
         </div>
       </div>
     </div>
@@ -263,14 +265,14 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <FileText size={14} color="#2B8DD0" />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Technical Documents</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}><T>Technical Documents</T></span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, lineHeight: 1.1, color: '#141B3E' }}
-            >Download Library</motion.h2>
+            ><T>Download Library</T></motion.h2>
             <motion.p initial={{ opacity: 0 }} animate={inView1 ? { opacity: 1 } : {}} transition={{ duration: 0.5, delay: 0.15 }}
               style={{ fontSize: 13, color: 'rgba(20,27,62,0.5)', marginBottom: 40 }}
-            >Select the documents you need, then fill in your details below — we'll email everything within 1 business day.</motion.p>
+            ><T>Select the documents you need, then fill in your details below — we'll email everything within 1 business day.</T></motion.p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16, marginBottom: 40 }}>
@@ -295,7 +297,7 @@ export default function ResourcesPage() {
                       textTransform: 'uppercase', padding: '3px 8px', borderRadius: 3,
                       background: TYPE_BG[d.type] || 'rgba(20,27,62,0.08)',
                       color: TYPE_COLOR[d.type] || 'rgba(20,27,62,0.5)',
-                    }}>{d.type}</span>
+                    }}><T>{d.type}</T></span>
                     <div style={{
                       width: 22, height: 22, borderRadius: 6, flexShrink: 0,
                       border: selected ? '2px solid #2B8DD0' : '1.5px solid rgba(20,27,62,0.18)',
@@ -306,8 +308,8 @@ export default function ResourcesPage() {
                       {selected && <Check size={13} color="#fff" strokeWidth={3} />}
                     </div>
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8, lineHeight: 1.4 }}>{d.title}</div>
-                  <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.65, flex: 1 }}>{d.desc}</p>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8, lineHeight: 1.4 }}><T>{d.title}</T></div>
+                  <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.65, flex: 1 }}><T>{d.desc}</T></p>
                 </motion.div>
               )
             })}
@@ -326,16 +328,16 @@ export default function ResourcesPage() {
               style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}
             >
               <HelpCircle size={14} color="#D4840A" />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A' }}>FAQ</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A' }}><T>FAQ</T></span>
             </motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}
-            >Frequently Asked Questions</motion.h2>
-            <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.5)', lineHeight: 1.75, marginBottom: 24 }}>Can't find your answer? Contact us directly.</p>
+            ><T>Frequently Asked Questions</T></motion.h2>
+            <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.5)', lineHeight: 1.75, marginBottom: 24 }}><T>Can't find your answer? Contact us directly.</T></p>
             <a href="mailto:info@blaubatch.com?subject=Technical Question" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '10px 18px', background: '#2B8DD0', color: '#fff', borderRadius: 7, fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', textTransform: 'uppercase', transition: 'background 0.3s ease' }}
               onMouseEnter={e => e.currentTarget.style.background = '#2B8DD0'}
               onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
-            >Ask a Question <ArrowRight size={12} /></a>
+            ><T>Ask a Question </T><ArrowRight size={12} className="flip-rtl" /></a>
           </div>
           <div>
             {FAQS.map(f => <FAQItem key={f.q} q={f.q} a={f.a} />)}
@@ -348,14 +350,14 @@ export default function ResourcesPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
             <BookOpen size={14} color="#2B8DD0" />
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}>Terminology</span>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0' }}><T>Terminology</T></span>
           </div>
-          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}>Masterbatch Glossary</h2>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}><T>Masterbatch Glossary</T></h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 0 }}>
             {GLOSSARY.map((g, i) => (
-              <div key={g.term} style={{ padding: '20px 0', borderBottom: '1px solid rgba(20,27,62,0.07)', paddingRight: i % 2 === 0 ? 40 : 0, paddingLeft: i % 2 === 1 ? 40 : 0, borderRight: i % 2 === 0 ? '1px solid rgba(20,27,62,0.07)' : 'none' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 900, color: '#2B8DD0', marginBottom: 6 }}>{g.term}</div>
-                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}>{g.def}</p>
+              <div key={g.term} style={{ padding: '20px 0', borderBottom: '1px solid rgba(20,27,62,0.07)', paddingInlineEnd: i % 2 === 0 ? 40 : 0, paddingInlineStart: i % 2 === 1 ? 40 : 0, borderInlineEnd: i % 2 === 0 ? '1px solid rgba(20,27,62,0.07)' : 'none' }}>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 900, color: '#2B8DD0', marginBottom: 6 }}><T>{g.term}</T></div>
+                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75 }}><T>{g.def}</T></p>
               </div>
             ))}
           </div>
@@ -366,9 +368,9 @@ export default function ResourcesPage() {
       <section style={{ background: '#F7F8FC', padding: '88px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 48 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Technical Blog</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}>Technical Articles</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}>In-depth guides on masterbatch selection, processing, and applications — written by our compounding team for plastics engineers and procurement professionals.</p>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}><T>Technical Blog</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, lineHeight: 1.1, color: '#141B3E' }}><T>Technical Articles</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}><T>In-depth guides on masterbatch selection, processing, and applications — written by our compounding team for plastics engineers and procurement professionals.</T></p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
@@ -394,16 +396,16 @@ export default function ResourcesPage() {
                   letterSpacing: '0.1em', textTransform: 'uppercase', color: a.color,
                   border: `1px solid ${a.borderColor}`, borderRadius: 4, padding: '3px 8px',
                   alignSelf: 'flex-start',
-                }}>{a.tag}</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', lineHeight: 1.4, flex: 1 }}>{a.title}</h3>
-                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}>{a.desc}</p>
+                }}><T>{a.tag}</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', lineHeight: 1.4, flex: 1 }}><T>{a.title}</T></h3>
+                <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}><T>{a.desc}</T></p>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: 6,
                   fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800,
                   letterSpacing: '0.06em', textTransform: 'uppercase', color: '#2B8DD0',
                   paddingTop: 12, borderTop: '1px solid rgba(20,27,62,0.08)',
                 }}>
-                  Read article <ArrowRight size={11} />
+                  <T>Read article </T><ArrowRight size={11} className="flip-rtl" />
                 </div>
               </Link>
             ))}

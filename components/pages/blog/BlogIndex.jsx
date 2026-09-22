@@ -1,10 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { ArrowRight } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import { ARTICLES } from '@/lib/blog-articles'
+import { T } from '@/components/LocaleProvider'
 
 export default function BlogIndex() {
   return (
@@ -52,20 +53,20 @@ export default function BlogIndex() {
                         letterSpacing: '0.12em', textTransform: 'uppercase',
                         color: post.tagColor, border: `1px solid ${post.tagColor}33`,
                         borderRadius: 4, padding: '3px 10px', background: `${post.tagColor}08`,
-                      }}>{post.tag}</span>
+                      }}><T>{post.tag}</T></span>
                       <span style={{ fontSize: 12, color: 'rgba(20, 27, 62, 0.4)', fontFamily: 'Inter, sans-serif' }}>{post.date} · {post.readTime}</span>
                     </div>
 
                     <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 'clamp(18px, 2.5vw, 24px)', color: 'var(--navy)', letterSpacing: '-0.025em', lineHeight: 1.25, marginBottom: 12 }}>
-                      {post.title}
+                      <T>{post.title}</T>
                     </h2>
 
                     <p style={{ fontSize: 14, color: 'rgba(20, 27, 62, 0.6)', lineHeight: 1.7, marginBottom: 20 }}>
-                      {post.desc}
+                      <T>{post.desc}</T>
                     </p>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: post.tagColor, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800 }}>
-                      Read article <ArrowRight size={13} />
+                      <T>Read article </T><ArrowRight size={13} className="flip-rtl" />
                     </div>
                   </div>
                 </Link>

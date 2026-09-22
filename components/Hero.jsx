@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react' // static hero
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
+import { useLocale } from '@/components/LocaleProvider'
 
 const CYCLE = [
-  { name: 'Filler', color: '#D4840A' },
-  { name: 'White', color: '#23447A' },
-  { name: 'Black', color: '#141B3E' },
-  { name: 'Colour', color: '#2B8DD0' },
-  { name: 'Additive', color: '#2B8DD0' },
+  { name: 'Filler', ar: 'الحشو', color: '#D4840A' },
+  { name: 'White', ar: 'الأبيض', color: '#23447A' },
+  { name: 'Black', ar: 'الأسود', color: '#141B3E' },
+  { name: 'Colour', ar: 'الملوّن', color: '#2B8DD0' },
+  { name: 'Additive', ar: 'الإضافات', color: '#2B8DD0' },
 ]
 
 const fadeUp = (delay = 0) => ({
@@ -21,9 +22,10 @@ const fadeUp = (delay = 0) => ({
 
 export default function Hero() {
   const [active, setActive] = useState(0)
+  const { isAr, t, l } = useLocale()
   useEffect(() => {
-    const t = setInterval(() => setActive(p => (p + 1) % CYCLE.length), 3200)
-    return () => clearInterval(t)
+    const timer = setInterval(() => setActive(p => (p + 1) % CYCLE.length), 3200)
+    return () => clearInterval(timer)
   }, [])
 
   const p = CYCLE[active]
@@ -36,13 +38,13 @@ export default function Hero() {
       flexDirection: 'row',
     }}>
 
-      {/* LEFT — text panel */}
+      {/* Text panel (start side) */}
       <div style={{
         flex: '0 0 40%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: '80px 64px 80px 96px',
+        paddingBlock: 80, paddingInlineStart: 96, paddingInlineEnd: 64,
         background: '#ffffff',
         zIndex: 1,
       }}>
@@ -57,7 +59,7 @@ export default function Hero() {
           background: 'rgba(43,141,208,0.08)', alignSelf: 'flex-start',
         }}>
           <span style={{ width: 6, height: 6, background: '#2B8DD0', borderRadius: '50%', display: 'inline-block', animation: 'heroPulse 2s ease-in-out infinite' }} />
-          Egypt · MENA · Europe
+          {t('Egypt · MENA · Europe', 'مصر · الشرق الأوسط وشمال أفريقيا · أوروبا')}
         </motion.div>
 
         {/* H1 */}
@@ -67,7 +69,9 @@ export default function Hero() {
           letterSpacing: '-0.03em', margin: '0 0 22px',
           color: '#141B3E',
         }}>
-          Full-Range{' '}
+          {t('Full-Range', 'شريكك الشامل في')}{' '}
+          {isAr && <br />}
+          {isAr && 'ماستر باتش '}
           <AnimatePresence mode="wait">
             <motion.span
               key={active}
@@ -77,10 +81,10 @@ export default function Hero() {
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               style={{ color: p.color, display: 'inline-block' }}
             >
-              {p.name}
+              {t(p.name, p.ar)}
             </motion.span>
           </AnimatePresence>
-          <br />Masterbatch Partner
+          {!isAr && <><br />Masterbatch Partner</>}
         </motion.h1>
 
         {/* Sub */}
@@ -89,12 +93,12 @@ export default function Hero() {
           fontSize: 18, color: 'rgba(20,27,62,0.65)', lineHeight: 1.75,
           marginBottom: 40, fontWeight: 400, maxWidth: 480,
         }}>
-          One supplier. Full spectrum. Blau Batch manufactures Filler Masterbatch and distributes the complete Coraplast range across MENA and Europe.
+          {t('One supplier. Full spectrum. Blau Batch manufactures Filler Masterbatch and distributes the complete Coraplast range across MENA and Europe.', 'مورّد واحد. حلول شاملة. تصنّع بلاو باتش ماستر باتش الحشو وتوزّع مجموعة Coraplast الكاملة في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.')}
         </motion.p>
 
         {/* CTAs */}
         <motion.div {...fadeUp(0.28)} style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          <a href="/contact#quote-form" style={{
+          <a href={l('/contact#quote-form')} style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '14px 30px', background: '#2B8DD0', color: '#fff',
             borderRadius: 10, fontFamily: 'Inter, sans-serif', fontSize: 14,
@@ -104,7 +108,7 @@ export default function Hero() {
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(43,141,208,0.4)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
           >
-            Request a Quote <ArrowRight size={14} />
+            {t('Request a Quote', 'اطلب عرض سعر')} <ArrowRight size={14} className="flip-rtl" />
           </a>
           <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -117,12 +121,12 @@ export default function Hero() {
           onMouseEnter={e => { e.currentTarget.style.background = '#20bb5a'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 24px rgba(37,211,102,0.5)' }}
           onMouseLeave={e => { e.currentTarget.style.background = '#25D366'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 14px rgba(37,211,102,0.35)' }}
           >
-            <MessageCircle size={14} /> WhatsApp Us
+            <MessageCircle size={14} /> {t('WhatsApp Us', 'تواصل عبر واتساب')}
           </a>
         </motion.div>
       </div>
 
-      {/* RIGHT — image panel */}
+      {/* Image panel (end side) */}
       <div style={{
         flex: '0 0 60%',
         position: 'relative',
@@ -130,16 +134,16 @@ export default function Hero() {
       }}>
         <Image
           src="/images/heroes/home.webp"
-          alt="Masterbatch pellets"
+          alt={t('Masterbatch pellets', 'حبيبات الماستر باتش')}
           fill
           priority
           sizes="60vw"
-          style={{ objectFit: 'cover', objectPosition: '15% center' }}
+          style={{ objectFit: 'cover', objectPosition: '15% center', transform: isAr ? 'scaleX(-1)' : undefined }}
         />
         {/* Fade to white on the left edge — blends into the text panel */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.4) 20%, transparent 45%)',
+          background: `linear-gradient(to ${isAr ? 'left' : 'right'}, #ffffff 0%, rgba(255,255,255,0.4) 20%, transparent 45%)`,
           pointerEvents: 'none',
         }} />
       </div>
@@ -150,7 +154,7 @@ export default function Hero() {
           50% { opacity: 0.5; transform: scale(0.85); }
         }
 @media (max-width: 768px) {
-          section[data-hero] { flex-direction: column !important; min-height: auto !important; margin-top: 78px !important; }
+          section[data-hero] { flex-direction: column !important; height: auto !important; min-height: auto !important; margin-top: 78px !important; }
           section[data-hero] > div:first-child { flex: none !important; padding: 48px 24px !important; }
           section[data-hero] > div:last-child { flex: none !important; height: 280px !important; }
         }

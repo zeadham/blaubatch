@@ -3,9 +3,10 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 
 /**
@@ -13,6 +14,7 @@ import QuoteForm from '@/components/shared/QuoteForm'
  * Pass `config` prop with all content data.
  */
 export default function IndustryPage({ config }) {
+  const { isAr } = useLocale()
   const appsRef = useRef(null)
   const appsInView = useInView(appsRef, { once: true, margin: '-60px' })
   const productsRef = useRef(null)
@@ -51,9 +53,9 @@ export default function IndustryPage({ config }) {
           >
             {/* Section header */}
             <div style={{ marginBottom: 40 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Applications</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>{applications.title}</h2>
-              <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>{applications.sub}</p>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Applications</T></div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}><T>{applications.title}</T></h2>
+              <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>{applications.sub}</T></p>
             </div>
 
             {/* Application cards */}
@@ -70,8 +72,8 @@ export default function IndustryPage({ config }) {
                     boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
                   }}
                 >
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}>{app.name}</div>
-                  <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.6 }}>{app.desc}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}><T>{app.name}</T></div>
+                  <div style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.6 }}><T>{app.desc}</T></div>
                 </motion.div>
               ))}
             </div>
@@ -81,7 +83,7 @@ export default function IndustryPage({ config }) {
               {keyPoints.map(pt => (
                 <div key={pt} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#fff', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10 }}>
                   <CheckCircle2 size={15} color={hero.accentColor} style={{ flexShrink: 0, marginTop: 1 }} />
-                  <span style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.5 }}>{pt}</span>
+                  <span style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.5 }}><T>{pt}</T></span>
                 </div>
               ))}
             </div>
@@ -99,9 +101,9 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Recommended Grades</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Products for {products.industryName}</h2>
-              <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>{products.sub}</p>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: hero.accentColor, border: `1px solid ${hero.accentColor}45`, borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Recommended Grades</T></div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>{isAr ? 'منتجات قطاع ' : 'Products for '}<T>{products.industryName}</T></h2>
+              <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>{products.sub}</T></p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
@@ -118,13 +120,13 @@ export default function IndustryPage({ config }) {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10, flexWrap: 'wrap' }}>
-                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: hero.accentColor, letterSpacing: '0.06em' }}>{prod.series}</span>
+                    <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: hero.accentColor, letterSpacing: '0.06em' }}><T>{prod.series}</T></span>
                     {prod.tag && (
-                      <span style={{ fontSize: 8, fontWeight: 800, padding: '2px 6px', borderRadius: 3, background: `${hero.accentColor}20`, color: hero.accentColor, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', border: `1px solid ${hero.accentColor}35` }}>{prod.tag}</span>
+                      <span style={{ fontSize: 8, fontWeight: 800, padding: '2px 6px', borderRadius: 3, background: `${hero.accentColor}20`, color: hero.accentColor, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', border: `1px solid ${hero.accentColor}35` }}><T>{prod.tag}</T></span>
                     )}
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}>{prod.name}</div>
-                  <div style={{ fontSize: 15, color: 'rgba(20,27,62,0.55)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}>{prod.desc}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}><T>{prod.name}</T></div>
+                  <div style={{ fontSize: 15, color: 'rgba(20,27,62,0.55)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}><T>{prod.desc}</T></div>
                   <Link
                     href={prod.href}
                     style={{
@@ -135,7 +137,7 @@ export default function IndustryPage({ config }) {
                     onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
                   >
-                    View product <ArrowRight size={12} />
+                    <T>View product </T><ArrowRight size={12} className="flip-rtl" />
                   </Link>
                 </motion.div>
               ))}
@@ -153,9 +155,9 @@ export default function IndustryPage({ config }) {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Get Pricing for {quoteForm.industryLabel}</h2>
-            <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your application and volume — we'll respond within 24 hours with grade recommendations and pricing.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Request a Quote</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>{isAr ? 'احصل على أسعار لقطاع ' : 'Get Pricing for '}<T>{quoteForm.industryLabel}</T></h2>
+            <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Tell us your application and volume — we'll respond within 24 hours with grade recommendations and pricing.</T></p>
           </motion.div>
           <QuoteForm
             products={quoteForm.products}
@@ -171,8 +173,8 @@ export default function IndustryPage({ config }) {
 
       <style>{`@media(max-width:900px){
         section { padding-left: 20px !important; padding-right: 20px !important; }
-        section > div > div[style*="repeat(3"] { grid-template-columns: 1fr !important; }
-        section > div > div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
+        section div[style*="repeat(3"] { grid-template-columns: 1fr !important; }
+        section div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; }
       }`}</style>
     </>
   )

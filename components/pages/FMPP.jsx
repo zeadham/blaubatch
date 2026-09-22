@@ -2,10 +2,11 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
+import { T } from '@/components/LocaleProvider'
 
 
 const FMPP_PRODUCTS = [
@@ -96,21 +97,21 @@ export default function FMPPPage() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 16 }}>
-                What Is PP Filler Masterbatch?
+                <T>What Is PP Filler Masterbatch?</T>
               </div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20, color: '#141B3E' }}>
-                CaCO₃ Concentrate on PP Carrier
+                <T>CaCO₃ Concentrate on PP Carrier</T>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85, marginBottom: 18 }}>
-                PP filler masterbatch is a high-loading calcium carbonate concentrate produced on a polypropylene carrier resin. It is used in raffia extrusion, non-woven production, BOPP film, and injection moulding to replace a portion of virgin PP and reduce raw material expenditure.
+                <T>PP filler masterbatch is a high-loading calcium carbonate concentrate produced on a polypropylene carrier resin. It is used in raffia extrusion, non-woven production, BOPP film, and injection moulding to replace a portion of virgin PP and reduce raw material expenditure.</T>
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
                 {KEY_SPECS.map(s => (
-                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(212,132,10,0.07)', border: '1px solid rgba(212,132,10,0.2)', color: '#A86508' }}>{s}</span>
+                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(212,132,10,0.07)', border: '1px solid rgba(212,132,10,0.2)', color: '#A86508' }}><T>{s}</T></span>
                 ))}
               </div>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                With CaCO₃ loadings of 70–80%, FMPP grades improve surface finish and dimensional stability while maintaining the processability required for high-speed PP lines. All grades are manufactured at our in-house facility in Egypt.
+                <T>With CaCO₃ loadings of 70–80%, FMPP grades improve surface finish and dimensional stability while maintaining the processability required for high-speed PP lines. All grades are manufactured at our in-house facility in Egypt.</T>
               </p>
             </motion.div>
             <motion.div
@@ -120,10 +121,10 @@ export default function FMPPPage() {
               style={{ display: 'flex', flexDirection: 'column', gap: 24 }}
             >
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>In-House Production</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>Optimised for PP Processing</h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>In-House Production</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>Optimised for PP Processing</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  PP homopolymer carrier ensures full compatibility with PP raffia, non-woven, and film lines — no cross-contamination with PE streams. Each batch tested for MFI, ash content, and dispersion before dispatch.
+                  <T>PP homopolymer carrier ensures full compatibility with PP raffia, non-woven, and film lines — no cross-contamination with PE streams. Each batch tested for MFI, ash content, and dispersion before dispatch.</T>
                 </p>
               </div>
             </motion.div>
@@ -148,9 +149,9 @@ export default function FMPPPage() {
               onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
             >
               <div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}>A Selection of Available Grades</h2>
-                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}>Standard range shown — custom CaCO₃ loadings, carrier systems, and application-specific formulations available on request.</p>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}><T>Grade Reference</T></div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}><T>A Selection of Available Grades</T></h2>
+                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}><T>Standard range shown — custom CaCO₃ loadings, carrier systems, and application-specific formulations available on request.</T></p>
               </div>
               <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />
@@ -168,12 +169,12 @@ export default function FMPPPage() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{ paddingTop: 24 }}>
-                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The grades below represent our standard PP filler masterbatch range. Additional CaCO₃ loadings, custom carrier systems, and application-specific formulations are available on request. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us to discuss your specific requirement.</strong></p>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The grades below represent our standard PP filler masterbatch range. Additional CaCO₃ loadings, custom carrier systems, and application-specific formulations are available on request. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us to discuss your specific requirement.</T></strong></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, overflow: 'hidden', marginBottom: 40 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '130px 110px 120px 150px 1fr', background: 'rgba(20,27,62,0.03)', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '12px 20px' }}>
                 {['Grade Code', 'CaCO₃ Loading', 'Dosage Range', 'MFI', 'Applications'].map(h => (
-                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}>{h}</div>
+                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}><T>{h}</T></div>
                 ))}
               </div>
               {GRADES.map((g, i) => (
@@ -181,11 +182,11 @@ export default function FMPPPage() {
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.03)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}>{g.loading}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.dosage}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.mfi}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}>{g.apps}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}><T>{g.code}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#D4840A' }}><T>{g.loading}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}><T>{g.dosage}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}><T>{g.mfi}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)' }}><T>{g.apps}</T></div>
                 </div>
               ))}
             </div>
@@ -194,7 +195,7 @@ export default function FMPPPage() {
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10 }}>
                   <CheckCircle2 size={15} color="#D4840A" style={{ flexShrink: 0, marginTop: 1 }} />
-                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}>{f}</span>
+                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}><T>{f}</T></span>
                 </div>
               ))}
             </div>
@@ -203,7 +204,7 @@ export default function FMPPPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', background: 'rgba(212,132,10,0.05)', border: '1px solid rgba(212,132,10,0.2)', borderRadius: 10, marginBottom: 32 }}>
               <span style={{ fontSize: 18 }}>ℹ️</span>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)', lineHeight: 1.6 }}>
-                Custom CaCO₃ loadings, MFI profiles, and carrier blends are available for specific PP processing lines. <strong style={{ color: '#D4840A' }}>Contact us to discuss your application.</strong>
+                <T>Custom CaCO₃ loadings, MFI profiles, and carrier blends are available for specific PP processing lines. </T><strong style={{ color: '#D4840A' }}><T>Contact us to discuss your application.</T></strong>
               </p>
             </div>
                   </div>
@@ -223,9 +224,9 @@ export default function FMPPPage() {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 40 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}>Where FMPP Filler Masterbatch Is Used</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>FMPP grades suit the full spectrum of PP processing — from high-speed raffia lines to cast film, injection moulding, and non-woven production.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Industries</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}><T>Where FMPP Filler Masterbatch Is Used</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>FMPP grades suit the full spectrum of PP processing — from high-speed raffia lines to cast film, injection moulding, and non-woven production.</T></p>
           </motion.div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
             {FMPP_INDUSTRIES.map((ind, i) => {
@@ -244,10 +245,10 @@ export default function FMPPPage() {
                     <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}>{ind.name}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}>{ind.desc}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>
+                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}><T>{ind.desc}</T></div>
                     <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t}</span>)}
+                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}><T>{t}</T></span>)}
                     </div>
                   </div>
                 </Tag>
@@ -267,9 +268,9 @@ export default function FMPPPage() {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36, paddingTop: 72 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Get FMPP Series Pricing</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Request a Quote</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}><T>Get FMPP Series Pricing</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</T></p>
           </motion.div>
           <QuoteForm
             products={FMPP_PRODUCTS}

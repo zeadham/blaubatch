@@ -1,6 +1,7 @@
 'use client'
 
 import BlogPostLayout from '@/components/pages/blog/BlogPostLayout'
+import { T } from '@/components/LocaleProvider'
 
 export default function TechnicalGuide() {
   return (
@@ -20,54 +21,54 @@ export default function TechnicalGuide() {
       }}
     >
       <p>
-        In the masterbatch world, numbers like 70, 75, and 80 are thrown around frequently. But what do they actually mean for your process? Understanding the "why" behind the loading and the carrier system is the difference between a high-performing product and a failed production run.
+        <T>In the masterbatch world, numbers like 70, 75, and 80 are thrown around frequently. But what do they actually mean for your process? Understanding the "why" behind the loading and the carrier system is the difference between a high-performing product and a failed production run.</T>
       </p>
 
-      <h2>The Anatomy of Filler Masterbatch</h2>
+      <h2><T>The Anatomy of Filler Masterbatch</T></h2>
       <p>
-        Filler masterbatch consists of three key components:
+        <T>Filler masterbatch consists of three key components:</T>
       </p>
       <ul>
-        <li><strong>Mineral Loading (CaCO₃)</strong> — The inorganic core that provides cost-reduction and enhanced mechanical properties.</li>
-        <li><strong>Carrier Resin</strong> — The organic base that encapsulates the mineral and ensures compatibility with the final polymer.</li>
-        <li><strong>Processing Additives</strong> — The "secret sauce" that ensures smooth flow and high dispersion.</li>
+        <li><strong><T>Mineral Loading (CaCO₃)</T></strong><T> — The inorganic core that provides cost-reduction and enhanced mechanical properties.</T></li>
+        <li><strong><T>Carrier Resin</T></strong><T> — The organic base that encapsulates the mineral and ensures compatibility with the final polymer.</T></li>
+        <li><strong><T>Processing Additives</T></strong><T> — The "secret sauce" that ensures smooth flow and high dispersion.</T></li>
       </ul>
 
-      <h2>Loading Percentages Explained</h2>
+      <h2><T>Loading Percentages Explained</T></h2>
       <p>
-        The percentage (e.g., 80%) refers to the weight-by-weight concentration of CaCO₃ in the masterbatch. But higher loading is not always better.
+        <T>The percentage (e.g., 80%) refers to the weight-by-weight concentration of CaCO₃ in the masterbatch. But higher loading is not always better.</T>
       </p>
       <ol>
-        <li><strong>70% Loading</strong> — High concentration of carrier resin. Ideal for very thin films where high dispersion is critical.</li>
-        <li><strong>75% Loading</strong> — The industry sweet spot. Balancing high cost-reduction with excellent mechanical retention.</li>
-        <li><strong>80% Loading</strong> — Maximum cost efficiency. Best for thicker materials like woven sacks and injection molding.</li>
+        <li><strong><T>70% Loading</T></strong><T> — High concentration of carrier resin. Ideal for very thin films where high dispersion is critical.</T></li>
+        <li><strong><T>75% Loading</T></strong><T> — The industry sweet spot. Balancing high cost-reduction with excellent mechanical retention.</T></li>
+        <li><strong><T>80% Loading</T></strong><T> — Maximum cost efficiency. Best for thicker materials like woven sacks and injection molding.</T></li>
       </ol>
 
-      <h2>Carrier Resin: The Invisible Strength</h2>
+      <h2><T>Carrier Resin: The Invisible Strength</T></h2>
       <p>
-        Using the wrong carrier resin can lead to "specking," poor surface finish, or catastrophic product failure. 
+        <T>Using the wrong carrier resin can lead to "specking," poor surface finish, or catastrophic product failure.</T> 
       </p>
       <ul>
-        <li><strong>LLDPE Careers</strong> — Excellent for strength and high-speed film extrusion.</li>
-        <li><strong>LDPE Careers</strong> — Best for flow and surface gloss.</li>
-        <li><strong>PP Careers</strong> — Necessary for woven sacks and high-temperature polypropylene applications.</li>
+        <li><strong><T>LLDPE Careers</T></strong><T> — Excellent for strength and high-speed film extrusion.</T></li>
+        <li><strong><T>LDPE Careers</T></strong><T> — Best for flow and surface gloss.</T></li>
+        <li><strong><T>PP Careers</T></strong><T> — Necessary for woven sacks and high-temperature polypropylene applications.</T></li>
       </ul>
 
-      <h2>Surface Treatment & Dispersion</h2>
+      <h2><T>Surface Treatment & Dispersion</T></h2>
       <p>
-        The CaCO₃ particles themselves aren't raw minerals. They are surface-treated with specialty fatty acids (like stearic acid) to reduce their surface tension and ensure they "wet" and disperse properly into the polymer matrix.
+        <T>The CaCO₃ particles themselves aren't raw minerals. They are surface-treated with specialty fatty acids (like stearic acid) to reduce their surface tension and ensure they "wet" and disperse properly into the polymer matrix.</T>
       </p>
 
-      <h2>Impact on Your Production</h2>
+      <h2><T>Impact on Your Production</T></h2>
       <ul>
-        <li><strong>Increased Output</strong> — CaCO₃ conducts heat faster than polymer, allowing for faster cooling and higher line speeds.</li>
-        <li><strong>Reduced Energy</strong> — Higher thermal conductivity often leads to lower energy consumption per kilogram processed.</li>
-        <li><strong>Improved Stiffness</strong> — The mineral acts as a reinforcement, increasing the rigidity of the final part.</li>
+        <li><strong><T>Increased Output</T></strong><T> — CaCO₃ conducts heat faster than polymer, allowing for faster cooling and higher line speeds.</T></li>
+        <li><strong><T>Reduced Energy</T></strong><T> — Higher thermal conductivity often leads to lower energy consumption per kilogram processed.</T></li>
+        <li><strong><T>Improved Stiffness</T></strong><T> — The mineral acts as a reinforcement, increasing the rigidity of the final part.</T></li>
       </ul>
 
-      <h2>The Recommendation</h2>
+      <h2><T>The Recommendation</T></h2>
       <p>
-        At Blau Batch, we don't just sell you a grade. We look at your machinery, your final application, and your material goals to recommend the exact loading and carrier blend for your specific process. 
+        <T>At Blau Batch, we don't just sell you a grade. We look at your machinery, your final application, and your material goals to recommend the exact loading and carrier blend for your specific process.</T> 
       </p>
     </BlogPostLayout>
   )

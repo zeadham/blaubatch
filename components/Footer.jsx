@@ -2,39 +2,43 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLocale } from '@/components/LocaleProvider'
 
 const NAV_COLS = [
   {
     title: 'Products',
+    titleAr: 'المنتجات',
     links: [
-      { label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
-      { label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
-      { label: 'White Masterbatch', href: '/white-masterbatch' },
-      { label: 'Black Masterbatch', href: '/black-masterbatch' },
-      { label: 'Additive Masterbatch', href: '/additive-masterbatch' },
-      { label: 'Colour Masterbatch', href: '/color-masterbatch' },
+      { labelAr: 'ماستر باتش الحشو (FMPE)', label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
+      { labelAr: 'ماستر باتش الحشو (FMPP)', label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
+      { labelAr: 'ماستر باتش أبيض', label: 'White Masterbatch', href: '/white-masterbatch' },
+      { labelAr: 'ماستر باتش أسود', label: 'Black Masterbatch', href: '/black-masterbatch' },
+      { labelAr: 'ماستر باتش الإضافات', label: 'Additive Masterbatch', href: '/additive-masterbatch' },
+      { labelAr: 'ماستر باتش ملوّن', label: 'Colour Masterbatch', href: '/color-masterbatch' },
     ],
   },
   {
     title: 'Industries',
+    titleAr: 'الصناعات',
     links: [
-      { label: 'Packaging & Flexible Film', href: '/industries/packaging' },
-      { label: 'Pipes, Fittings & Profiles', href: '/industries/pipes' },
-      { label: 'Agriculture', href: '/industries/agriculture' },
-      { label: 'Textiles & Fibre', href: '/industries/textiles' },
-      { label: 'Wire & Cable', href: '/industries/wire-cable' },
-      { label: 'Automotive & Technical', href: '/industries/automotive' },
+      { labelAr: 'التغليف والأفلام المرنة', label: 'Packaging & Flexible Film', href: '/industries/packaging' },
+      { labelAr: 'المواسير والوصلات والبروفايلات', label: 'Pipes, Fittings & Profiles', href: '/industries/pipes' },
+      { labelAr: 'الزراعة', label: 'Agriculture', href: '/industries/agriculture' },
+      { labelAr: 'المنسوجات والألياف', label: 'Textiles & Fibre', href: '/industries/textiles' },
+      { labelAr: 'الأسلاك والكابلات', label: 'Wire & Cable', href: '/industries/wire-cable' },
+      { labelAr: 'السيارات والاستخدامات الفنية', label: 'Automotive & Technical', href: '/industries/automotive' },
     ],
   },
   {
     title: 'Company',
+    titleAr: 'الشركة',
     links: [
-      { label: 'Why Blau Batch', href: '/#why' },
-      { label: 'Sustainability', href: '/sustainability' },
-      { label: 'Distributors', href: '/distributors' },
-      { label: 'Resources', href: '/resources' },
-      { label: 'Technical Blog', href: '/blog' },
-      { label: 'Contact Us', href: '/contact' },
+      { labelAr: 'لماذا بلاو باتش', label: 'Why Blau Batch', href: '/#why' },
+      { labelAr: 'الاستدامة', label: 'Sustainability', href: '/sustainability' },
+      { labelAr: 'الموزعون', label: 'Distributors', href: '/distributors' },
+      { labelAr: 'المصادر', label: 'Resources', href: '/resources' },
+      { labelAr: 'المدونة الفنية', label: 'Technical Blog', href: '/blog' },
+      { labelAr: 'اتصل بنا', label: 'Contact Us', href: '/contact' },
     ],
   },
 ]
@@ -58,6 +62,7 @@ const SOCIAL = [
 ]
 
 export default function Footer() {
+  const { isAr, t, l } = useLocale()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
 
@@ -82,17 +87,17 @@ export default function Footer() {
           <div>
             <div style={{ marginBottom: 16 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <img src="/logo-mark-navy.png" alt="Blau Batch" style={{ height: 28, objectFit: 'contain', borderRadius: 4 }} />
+                <img src="/logo-mark-navy.png" alt={isAr ? 'بلاو باتش' : 'Blau Batch'} style={{ height: 28, objectFit: 'contain' }} />
                 <span style={{
-                  fontFamily: 'Inter, sans-serif', fontWeight: 800,
-                  fontSize: 14, color: '#fff', letterSpacing: '0.05em',
-                  textTransform: 'uppercase', lineHeight: 1,
-                }}>BLAU BATCH</span>
+                  fontFamily: 'Inter, sans-serif', fontWeight: 900,
+                  fontSize: isAr ? 19 : 14, color: '#fff', letterSpacing: '0.05em',
+                  textTransform: 'uppercase', lineHeight: isAr ? 1.3 : 1,
+                }}>{isAr ? 'بلاو باتش' : 'BLAU BATCH'}</span>
               </div>
             </div>
 
             <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 24 }}>
-              Full-Spectrum Masterbatch Solutions — manufacturer and distributor serving MENA, Europe, and global markets.
+              {t('Full-Spectrum Masterbatch Solutions — manufacturer and distributor serving MENA, Europe, and global markets.', 'حلول ماستر باتش شاملة — مصنّع وموزّع يخدم منطقة الشرق الأوسط وشمال أفريقيا وأوروبا والأسواق العالمية.')}
             </p>
 
             {/* Coraplast partner note */}
@@ -102,7 +107,7 @@ export default function Footer() {
               padding: '6px 12px', marginBottom: 24,
             }}>
               <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--amber)' }} />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>Authorised Coraplast Distributor</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{t('Authorised Coraplast Distributor', 'موزّع معتمد لشركة Coraplast')}</span>
             </div>
 
             {/* Social */}
@@ -130,16 +135,16 @@ export default function Footer() {
                 fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800,
                 letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)',
                 marginBottom: 20,
-              }}>{col.title}</div>
+              }}>{t(col.title, col.titleAr)}</div>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {col.links.map(link => (
                   <li key={link.label}>
-                    <a href={link.href} style={{
+                    <a href={l(link.href)} style={{
                       fontSize: 13, color: 'rgba(255,255,255,0.58)', transition: 'color 0.15s', fontWeight: 400,
                     }}
                     onMouseEnter={e => e.currentTarget.style.color = '#fffffe'}
                     onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.58)'}
-                    >{link.label}</a>
+                    >{t(link.label, link.labelAr)}</a>
                   </li>
                 ))}
               </ul>
@@ -153,15 +158,15 @@ export default function Footer() {
           display: 'flex', gap: 32, flexWrap: 'wrap',
         }}>
           {[
-            { label: 'Office', val: 'Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
-            { label: 'Factory', val: '79, 6th Industrial Zone, 6th of October, Egypt', href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
-            { label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
-            { label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+20102222723' },
+            { label: t('Office', 'المكتب'), val: t('Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', 'مبنى أركان بلازا 4، الطابق الرابع، مدينة الشيخ زايد، الجيزة، مصر'), href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
+            { label: t('Factory', 'المصنع'), val: t('79, 6th Industrial Zone, 6th of October, Egypt', '79، المنطقة الصناعية السادسة، السادس من أكتوبر، مصر'), href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
+            { label: t('Email', 'البريد الإلكتروني'), val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com', ltr: true },
+            { label: t('Phone', 'الهاتف'), val: '+2 0102 222 7723', href: 'tel:+20102222723', ltr: true },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 6 }}>{item.label}</div>
-              <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s' }}
+              <a href={item.href} dir={item.ltr ? 'ltr' : undefined} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s', display: item.ltr ? 'inline-block' : undefined }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
               >{item.val}</a>
@@ -175,15 +180,15 @@ export default function Footer() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12,
         }}>
           <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>
-            © {new Date().getFullYear()} Blau Batch. All rights reserved.
+            © {new Date().getFullYear()} {t('Blau Batch. All rights reserved.', 'بلاو باتش. جميع الحقوق محفوظة.')}
           </div>
           <div style={{ display: 'flex', gap: 20 }}>
             {[
-              { label: 'Privacy Policy', href: '/privacy' },
-              { label: 'Terms & Conditions', href: '/terms' },
-              { label: 'Sitemap', href: '/sitemap' },
+              { label: t('Privacy Policy', 'سياسة الخصوصية'), href: '/privacy' },
+              { label: t('Terms & Conditions', 'الشروط والأحكام'), href: '/terms' },
+              { label: t('Sitemap', 'خريطة الموقع'), href: '/sitemap' },
             ].map(({ label, href }) => (
-              <a key={label} href={href} style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s' }}
+              <a key={label} href={l(href)} style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
               >{label}</a>

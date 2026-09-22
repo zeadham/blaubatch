@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { Check, Minus, ArrowRight, FlaskConical } from 'lucide-react'
+import { T } from '@/components/LocaleProvider'
 
 
 const PRODUCTS = [
@@ -188,12 +189,12 @@ function Cell({ value }) {
           padding: '3px 8px', background: 'rgba(20,27,62,0.05)',
           border: '1px solid rgba(20,27,62,0.07)', borderRadius: 20,
           whiteSpace: 'nowrap', display: 'inline-block',
-        }}>{v}</span>
+        }}><T>{v}</T></span>
       ))}
     </div>
   )
   if (value === '—') return <span style={{ color: 'rgba(20,27,62,0.25)', fontSize: 14 }}>—</span>
-  return <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.75)', fontWeight: 500, lineHeight: 1.5 }}>{value}</span>
+  return <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.75)', fontWeight: 500, lineHeight: 1.5 }}><T>{value}</T></span>
 }
 
 export default function ComparePage() {
@@ -217,7 +218,7 @@ export default function ComparePage() {
                 fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
                 border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16,
               }}
-            >Product Comparison</motion.div>
+            ><T>Product Comparison</T></motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
@@ -228,7 +229,7 @@ export default function ComparePage() {
                 fontWeight: 900, color: '#141B3E', letterSpacing: '-0.025em',
                 lineHeight: 1.1, marginBottom: 14,
               }}
-            >Compare All Products</motion.h1>
+            ><T>Compare All Products</T></motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -236,7 +237,7 @@ export default function ComparePage() {
               transition={{ duration: 0.45, delay: 0.12 }}
               style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
             >
-              Side-by-side spec comparison across the full Blau Batch portfolio — manufactured Filler grades and the complete Coraplast distributed range.
+              <T>Side-by-side spec comparison across the full Blau Batch portfolio — manufactured Filler grades and the complete Coraplast distributed range.</T>
             </motion.p>
           </div>
         </div>
@@ -251,15 +252,15 @@ export default function ComparePage() {
                   <th style={{
                     width: 180, minWidth: 180,
                     padding: '0 0 0 24px',
-                    textAlign: 'left', verticalAlign: 'bottom',
+                    textAlign: 'start', verticalAlign: 'bottom',
                     borderBottom: '1px solid rgba(20,27,62,0.08)',
-                    position: 'sticky', left: 0, background: '#fff', zIndex: 2,
+                    position: 'sticky', insetInlineStart: 0, background: '#fff', zIndex: 2,
                   }}>
                     <div style={{ padding: '20px 0 16px' }}>
                       <span style={{
                         fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
                         color: 'rgba(20,27,62,0.35)', textTransform: 'uppercase', letterSpacing: '0.06em',
-                      }}>Specification</span>
+                      }}><T>Specification</T></span>
                     </div>
                   </th>
 
@@ -272,7 +273,7 @@ export default function ComparePage() {
                         padding: '16px 12px',
                         textAlign: 'center', verticalAlign: 'top',
                         borderBottom: '1px solid rgba(20,27,62,0.08)',
-                        borderLeft: '1px solid rgba(20,27,62,0.05)',
+                        borderInlineStart: '1px solid rgba(20,27,62,0.05)',
                         background: highlighted === p.id ? 'rgba(43,141,208,0.03)' : '#fff',
                         transition: 'background 0.2s',
                         cursor: 'default',
@@ -296,13 +297,13 @@ export default function ComparePage() {
                           border: `1px solid ${p.color}`,
                           borderRadius: 20, padding: '2px 8px', lineHeight: 1,
                           background: p.badge === 'MANUFACTURED' ? 'rgba(212,132,10,0.08)' : 'rgba(43,141,208,0.08)',
-                        }}>{p.badge}</span>
+                        }}><T>{p.badge}</T></span>
                       </div>
 
                       <div style={{
                         fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800,
                         color: '#141B3E', lineHeight: 1.3, marginBottom: 10,
-                      }}>{p.name}</div>
+                      }}><T>{p.name}</T></div>
 
                       <Link href={p.href} style={{
                         display: 'inline-flex', alignItems: 'center', gap: 4,
@@ -312,7 +313,7 @@ export default function ComparePage() {
                       onMouseEnter={e => e.currentTarget.style.gap = '8px'}
                       onMouseLeave={e => e.currentTarget.style.gap = '4px'}
                       >
-                        Details <ArrowRight size={12} />
+                        <T>Details </T><ArrowRight size={12} className="flip-rtl" />
                       </Link>
                     </th>
                   ))}
@@ -326,14 +327,14 @@ export default function ComparePage() {
                     <td style={{
                       padding: '14px 16px 14px 24px',
                       borderBottom: '1px solid rgba(20,27,62,0.05)',
-                      position: 'sticky', left: 0,
+                      position: 'sticky', insetInlineStart: 0,
                       background: ri % 2 === 0 ? '#fff' : 'rgba(247,248,252,0.9)',
                       zIndex: 1,
                     }}>
                       <span style={{
                         fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
                         color: '#141B3E',
-                      }}>{row.label}</span>
+                      }}><T>{row.label}</T></span>
                     </td>
 
                     {/* Data cells */}
@@ -342,7 +343,7 @@ export default function ComparePage() {
                         padding: '14px 12px',
                         textAlign: 'center', verticalAlign: 'middle',
                         borderBottom: '1px solid rgba(20,27,62,0.05)',
-                        borderLeft: '1px solid rgba(20,27,62,0.04)',
+                        borderInlineStart: '1px solid rgba(20,27,62,0.04)',
                         background: highlighted === p.id ? 'rgba(43,141,208,0.025)' : 'transparent',
                         transition: 'background 0.2s',
                       }}
@@ -359,18 +360,18 @@ export default function ComparePage() {
                 <tr>
                   <td style={{
                     padding: '20px 16px 20px 24px',
-                    position: 'sticky', left: 0, background: '#fff', zIndex: 1,
+                    position: 'sticky', insetInlineStart: 0, background: '#fff', zIndex: 1,
                   }}>
                     <span style={{
                       fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600,
                       color: '#141B3E',
-                    }}>Request Sample</span>
+                    }}><T>Request Sample</T></span>
                   </td>
                   {PRODUCTS.map(p => (
                     <td key={p.id} style={{
                       padding: '20px 12px',
                       textAlign: 'center',
-                      borderLeft: '1px solid rgba(20,27,62,0.04)',
+                      borderInlineStart: '1px solid rgba(20,27,62,0.04)',
                       borderTop: '1px solid rgba(20,27,62,0.08)',
                       background: highlighted === p.id ? 'rgba(43,141,208,0.025)' : 'transparent',
                       transition: 'background 0.2s',
@@ -387,7 +388,7 @@ export default function ComparePage() {
                       onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 6px 18px rgba(43,141,208,0.3)' }}
                       onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
                       >
-                        <FlaskConical size={12} /> Sample
+                        <FlaskConical size={12} /><T> Sample</T>
                       </Link>
                     </td>
                   ))}
@@ -401,8 +402,8 @@ export default function ComparePage() {
             marginTop: 20, textAlign: 'center',
             fontSize: 13, color: 'rgba(20,27,62,0.4)', lineHeight: 1.6,
           }}>
-            All specs subject to grade. Contact our technical team for detailed TDS or custom formulation enquiries.{' '}
-            <a href="mailto:info@blaubatch.com" style={{ color: '#2B8DD0', fontWeight: 600 }}>info@blaubatch.com</a>
+            <T>All specs subject to grade. Contact our technical team for detailed TDS or custom formulation enquiries.</T>{' '}
+            <a href="mailto:info@blaubatch.com" style={{ color: '#2B8DD0', fontWeight: 600 }}><T>info@blaubatch.com</T></a>
           </p>
         </div>
       </div>

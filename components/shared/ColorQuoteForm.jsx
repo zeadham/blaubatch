@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 const CARRIERS = [
   'CMB-PE (Polyethylene carrier)',
@@ -44,6 +45,7 @@ const labelStyle = {
 
 function FocusInput({ error, onBlur: onBlurProp, ...props }) {
   const [focused, setFocused] = useState(false)
+  const { isAr, tr } = useLocale()
   const borderColor = error ? '#EF4444' : focused ? '#2B8DD0' : 'rgba(20,27,62,0.14)'
   const bgColor = focused ? '#fff' : 'rgba(20,27,62,0.04)'
   const style = { ...inputStyle, borderColor, background: bgColor }
@@ -53,13 +55,14 @@ function FocusInput({ error, onBlur: onBlurProp, ...props }) {
     style: isTextarea ? { ...style, resize: 'vertical', minHeight: 90, lineHeight: 1.6 }
            : isSelect ? { ...style, appearance: 'none', cursor: 'pointer',
                backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='rgba(20,27,62,0.4)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")`,
-               backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center',
+               backgroundRepeat: 'no-repeat', backgroundPosition: isAr ? 'left 14px center' : 'right 14px center',
                background: bgColor,
              }
            : style,
     onFocus: () => setFocused(true),
     onBlur: (e) => { setFocused(false); onBlurProp?.(e) },
     ...props,
+    placeholder: props.placeholder ? tr(props.placeholder) : undefined,
     as: undefined,
   }
   const el = isTextarea ? <textarea {...commonProps} />
@@ -68,7 +71,7 @@ function FocusInput({ error, onBlur: onBlurProp, ...props }) {
   return (
     <>
       {el}
-      {error && <div role="alert" style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}>{error}</div>}
+      {error && <div role="alert" style={{ fontSize: 11, color: '#EF4444', marginTop: 4 }}><T>{error}</T></div>}
     </>
   )
 }
@@ -139,10 +142,10 @@ export default function ColorQuoteForm() {
     return (
       <div style={{ background: '#fff', border: '1px solid rgba(20,27,62,0.1)', borderRadius: 16, padding: '56px 36px', textAlign: 'center', boxShadow: '0 4px 32px rgba(20,27,62,0.08)' }}>
         <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'rgba(43,141,208,0.1)', border: '1px solid rgba(43,141,208,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: 28 }}>✅</div>
-        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, marginBottom: 10, color: '#141B3E' }}>Quote request received.</div>
-        <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75, maxWidth: 360, margin: '0 auto 28px' }}>We'll review your colour requirements and get back to you within 24 hours.</p>
+        <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, marginBottom: 10, color: '#141B3E' }}><T>Quote request received.</T></div>
+        <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.55)', lineHeight: 1.75, maxWidth: 360, margin: '0 auto 28px' }}><T>We'll review your colour requirements and get back to you within 24 hours.</T></p>
         <a href="https://wa.me/201022227723" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(37,211,102,0.08)', border: '1px solid rgba(37,211,102,0.25)', color: '#1a9e4a', padding: '12px 20px', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700 }}>
-          💬 Follow up on WhatsApp
+          <T>💬 Follow up on WhatsApp</T>
         </a>
       </div>
     )
@@ -165,7 +168,7 @@ export default function ColorQuoteForm() {
         onMouseLeave={e => e.currentTarget.style.background = '#FAFAFC'}
       >
         <div>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>Request a Colour Quote</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}><T>Request a Colour Quote</T></div>
           <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.5)', margin: 0 }}>
             {open ? "Fill in the form below and we'll respond within 24 hours." : 'Click to open the quote form · 24h response'}
           </p>
@@ -176,7 +179,7 @@ export default function ColorQuoteForm() {
           style={{
             width: 36, height: 36, borderRadius: '50%', flexShrink: 0,
             background: open ? '#2B8DD0' : 'rgba(43,141,208,0.1)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 16,
+            display: 'flex', alignItems: 'center', justifyContent: 'center', marginInlineStart: 16,
           }}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -199,84 +202,84 @@ export default function ColorQuoteForm() {
 
         {/* Colour needs */}
         <div style={{ marginBottom: 20, paddingBottom: 20, borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Colour Needs</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}><T>Colour Needs</T></div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
-              <label style={labelStyle}>Carrier Resin</label>
+              <label style={labelStyle}><T>Carrier Resin</T></label>
               <FocusInput as="select" value={form.carrier} onChange={e => set('carrier', e.target.value)}>
-                <option value="">Select carrier...</option>
-                {CARRIERS.map(c => <option key={c} value={c}>{c}</option>)}
+                <option value=""><T>Select carrier...</T></option>
+                {CARRIERS.map(c => <option key={c} value={c}><T>{c}</T></option>)}
               </FocusInput>
             </div>
             <div>
-              <label style={labelStyle}>Application</label>
+              <label style={labelStyle}><T>Application</T></label>
               <FocusInput as="select" value={form.application} onChange={e => set('application', e.target.value)}>
-                <option value="">Select application...</option>
-                {APPLICATIONS.map(a => <option key={a} value={a}>{a}</option>)}
+                <option value=""><T>Select application...</T></option>
+                {APPLICATIONS.map(a => <option key={a} value={a}><T>{a}</T></option>)}
               </FocusInput>
             </div>
           </div>
           <div>
-            <label style={labelStyle}>Colour Reference</label>
+            <label style={labelStyle}><T>Colour Reference</T></label>
             <FocusInput placeholder="e.g. RAL 3020, Pantone 186 C, or describe: 'traffic red'" value={form.colorRef} onChange={e => set('colorRef', e.target.value)} />
-            <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', marginTop: 6 }}>You can also send us a physical sample for matching.</div>
+            <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', marginTop: 6 }}><T>You can also send us a physical sample for matching.</T></div>
           </div>
         </div>
 
         {/* Volume & requirements */}
         <div style={{ marginBottom: 20, paddingBottom: 20, borderBottom: '1px solid rgba(20,27,62,0.07)' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Volume & Requirements</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}><T>Volume & Requirements</T></div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
-              <label style={labelStyle}>Estimated Monthly Volume</label>
+              <label style={labelStyle}><T>Estimated Monthly Volume</T></label>
               <FocusInput as="select" value={form.volume} onChange={e => set('volume', e.target.value)}>
-                <option value="">Select quantity...</option>
-                {VOLUMES.map(v => <option key={v} value={v}>{v}</option>)}
+                <option value=""><T>Select quantity...</T></option>
+                {VOLUMES.map(v => <option key={v} value={v}><T>{v}</T></option>)}
               </FocusInput>
             </div>
             <div>
-              <label style={labelStyle}>Country / Region</label>
+              <label style={labelStyle}><T>Country / Region</T></label>
               <FocusInput as="select" value={form.country} onChange={e => set('country', e.target.value)}>
-                <option value="">Select country...</option>
-                {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
+                <option value=""><T>Select country...</T></option>
+                {COUNTRIES.map(c => <option key={c} value={c}><T>{c}</T></option>)}
               </FocusInput>
             </div>
           </div>
           <div>
-            <label style={labelStyle}>Sample Required?</label>
+            <label style={labelStyle}><T>Sample Required?</T></label>
             <FocusInput as="select" value={form.sample} onChange={e => set('sample', e.target.value)}>
-              <option value="">Select...</option>
-              <option>Yes — send a colour sample first</option>
-              <option>No — go directly to commercial quote</option>
+              <option value=""><T>Select...</T></option>
+              <option value="Yes — send a colour sample first"><T>Yes — send a colour sample first</T></option>
+              <option value="No — go directly to commercial quote"><T>No — go directly to commercial quote</T></option>
             </FocusInput>
           </div>
         </div>
 
         {/* Contact details */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}>Contact Details</div>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 16 }}><T>Contact Details</T></div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
-              <label style={labelStyle}>Full Name <span style={{ color: '#2B8DD0' }}>*</span></label>
+              <label style={labelStyle}><T>Full Name </T><span style={{ color: '#2B8DD0' }}>*</span></label>
               <FocusInput placeholder="Your name" value={form.name} onChange={e => set('name', e.target.value)} onBlur={e => validateField('name', e.target.value)} error={errors.name} />
             </div>
             <div>
-              <label style={labelStyle}>Company <span style={{ color: '#2B8DD0' }}>*</span></label>
+              <label style={labelStyle}><T>Company </T><span style={{ color: '#2B8DD0' }}>*</span></label>
               <FocusInput placeholder="Company name" value={form.company} onChange={e => set('company', e.target.value)} onBlur={e => validateField('company', e.target.value)} error={errors.company} />
             </div>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 16 }}>
             <div>
-              <label style={labelStyle}>Email <span style={{ color: '#2B8DD0' }}>*</span></label>
+              <label style={labelStyle}><T>Email </T><span style={{ color: '#2B8DD0' }}>*</span></label>
               <FocusInput type="email" placeholder="you@company.com" value={form.email} onChange={e => set('email', e.target.value)} onBlur={e => validateField('email', e.target.value)} error={errors.email} />
             </div>
             <div>
-              <label style={labelStyle}>WhatsApp / Phone <span style={{ color: '#2B8DD0' }}>*</span></label>
+              <label style={labelStyle}><T>WhatsApp / Phone </T><span style={{ color: '#2B8DD0' }}>*</span></label>
               <FocusInput type="tel" placeholder="+20 ..." value={form.phone} onChange={e => set('phone', e.target.value)} onBlur={e => validateField('phone', e.target.value)} error={errors.phone} />
             </div>
           </div>
           <div>
-            <label style={labelStyle}>Additional Notes</label>
+            <label style={labelStyle}><T>Additional Notes</T></label>
             <FocusInput as="textarea" placeholder="Any additional colour requirements, certifications needed, or processing notes..." value={form.notes} onChange={e => set('notes', e.target.value)} />
           </div>
         </div>
@@ -289,7 +292,7 @@ export default function ColorQuoteForm() {
         }}
         onMouseEnter={e => e.currentTarget.style.background = '#2477b3'}
         onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
-        >Submit Quote Request ↗</button>
+        ><T>Submit Quote Request ↗</T></button>
 
         {submitError && (
           <div role="alert" style={{
@@ -297,12 +300,12 @@ export default function ColorQuoteForm() {
             background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.25)',
             borderRadius: 8, fontSize: 13, color: '#DC2626', lineHeight: 1.5,
           }}>
-            ⚠️ {submitError}
+            ⚠️ <T>{submitError}</T>
           </div>
         )}
 
         <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)', textAlign: 'center', marginTop: 12 }}>
-          We respond within 24 hours · Saturday–Thursday 9AM–5PM Cairo
+          <T>We respond within 24 hours · Saturday–Thursday 9AM–5PM Cairo</T>
         </div>
       </div>
           </motion.div>

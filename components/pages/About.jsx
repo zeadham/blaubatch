@@ -2,9 +2,10 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { ArrowRight, CheckCircle2, Factory, Globe, Award, Users } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
+import { T } from '@/components/LocaleProvider'
 
 
 const STATS = [
@@ -43,6 +44,7 @@ export default function AboutPage() {
     <>
       <PageHero
         split
+        mirrorInRtl={false}
         breadcrumb={{ current: 'About' }}
         tag="Our Story"
         title="Masterbatch, Made"
@@ -60,10 +62,10 @@ export default function AboutPage() {
       <section style={{ background: '#FFFFFF', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '48px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: 0 }}>
           {STATS.map((s, i) => (
-            <div key={s.label} style={{ textAlign: 'center', padding: '16px 24px', borderRight: i < STATS.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}>{s.val}</div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#141B3E', letterSpacing: '0.04em', marginBottom: 3 }}>{s.label}</div>
-              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)' }}>{s.sub}</div>
+            <div key={s.label} style={{ textAlign: 'center', padding: '16px 24px', borderInlineEnd: i < STATS.length - 1 ? '1px solid rgba(20,27,62,0.08)' : 'none' }}>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 900, color: '#2B8DD0', lineHeight: 1, marginBottom: 6 }}><T>{s.val}</T></div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#141B3E', letterSpacing: '0.04em', marginBottom: 3 }}><T>{s.label}</T></div>
+              <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.4)' }}><T>{s.sub}</T></div>
             </div>
           ))}
         </div>
@@ -75,10 +77,10 @@ export default function AboutPage() {
           <div ref={ref1}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
               style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
-            >How We Operate</motion.div>
+            ><T>How We Operate</T></motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView1 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 40, lineHeight: 1.1, color: '#141B3E' }}
-            >Our Four Pillars</motion.h2>
+            ><T>Our Four Pillars</T></motion.h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 16 }}>
             {PILLARS.map((p, i) => (
@@ -91,8 +93,8 @@ export default function AboutPage() {
                   <p.icon size={22} color="#2B8DD0" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 8 }}>{p.title}</div>
-                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75 }}>{p.desc}</p>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 8 }}><T>{p.title}</T></div>
+                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75 }}><T>{p.desc}</T></p>
                 </div>
               </motion.div>
             ))}
@@ -106,11 +108,11 @@ export default function AboutPage() {
           <div ref={ref2}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
               style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
-            >Our Journey</motion.div>
+            ><T>Our Journey</T></motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView2 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 18, lineHeight: 1.1, color: '#141B3E' }}
-            >Built to Last</motion.h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>From a focused PE filler masterbatch producer to a full-spectrum masterbatch partner for the MENA region — our growth has been deliberate and technically grounded.</p>
+            ><T>Built to Last</T></motion.h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}><T>From a focused PE filler masterbatch producer to a full-spectrum masterbatch partner for the MENA region — our growth has been deliberate and technically grounded.</T></p>
           </div>
           <div>
             {TIMELINE.map((t, i) => (
@@ -124,8 +126,8 @@ export default function AboutPage() {
                   {i < TIMELINE.length - 1 && <div style={{ width: 1, flex: 1, background: 'rgba(46,127,208,0.25)', marginTop: 6 }} />}
                 </div>
                 <div style={{ paddingBottom: i < TIMELINE.length - 1 ? 12 : 0 }}>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}>{t.year}</div>
-                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', lineHeight: 1.75 }}>{t.event}</p>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 6 }}><T>{t.year}</T></div>
+                  <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.7)', lineHeight: 1.75 }}><T>{t.event}</T></p>
                 </div>
               </motion.div>
             ))}
@@ -137,42 +139,42 @@ export default function AboutPage() {
       <section style={{ background: '#ffffff', padding: '88px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}>Purpose</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#141B3E' }}>Mission & Vision</h2>
+            <div style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}><T>Purpose</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#141B3E' }}><T>Mission & Vision</T></h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
 
             {/* Mission */}
             <div style={{ background: '#F3F8FE', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 20, padding: '40px 36px', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: -20, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(43,141,208,0.06)' }} />
+              <div style={{ position: 'absolute', top: -20, insetInlineEnd: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(43,141,208,0.06)' }} />
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 12, background: '#2B8DD0', marginBottom: 24 }}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/>
                 </svg>
               </div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Our Mission</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Our Mission</T></div>
               <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-                One Partner for Every Grade Your Production Needs
+                <T>One Partner for Every Grade Your Production Needs</T>
               </h3>
               <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                To be the most reliable masterbatch partner for plastics processors across MENA and Europe — delivering consistent quality, technical expertise, and the full product spectrum through a single, accountable relationship.
+                <T>To be the most reliable masterbatch partner for plastics processors across MENA and Europe — delivering consistent quality, technical expertise, and the full product spectrum through a single, accountable relationship.</T>
               </p>
             </div>
 
             {/* Vision */}
             <div style={{ background: '#FEF9F5', border: '1px solid rgba(212,132,10,0.15)', borderRadius: 20, padding: '40px 36px', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: -20, right: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(212,132,10,0.06)' }} />
+              <div style={{ position: 'absolute', top: -20, insetInlineEnd: -20, width: 120, height: 120, borderRadius: '50%', background: 'rgba(212,132,10,0.06)' }} />
               <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, borderRadius: 12, background: '#D4840A', marginBottom: 24 }}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
                 </svg>
               </div>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Our Vision</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 10, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Our Vision</T></div>
               <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 22, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.02em', lineHeight: 1.2, marginBottom: 16 }}>
-                The Reference Masterbatch Supplier in the MENA Region
+                <T>The Reference Masterbatch Supplier in the MENA Region</T>
               </h3>
               <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                To grow into the region's reference manufacturer and distributor — recognised not just for product range, but for technical depth, supply reliability, and the long-term partnerships we build with processors at every scale.
+                <T>To grow into the region's reference manufacturer and distributor — recognised not just for product range, but for technical depth, supply reliability, and the long-term partnerships we build with processors at every scale.</T>
               </p>
             </div>
 
@@ -191,10 +193,10 @@ export default function AboutPage() {
           <div ref={ref3} style={{ textAlign: 'center', marginBottom: 56 }}>
             <motion.div initial={{ opacity: 0, y: 16 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}
               style={{ display: 'inline-block', fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '5px 14px', marginBottom: 16 }}
-            >What We Stand For</motion.div>
+            ><T>What We Stand For</T></motion.div>
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={inView3 ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.55, delay: 0.07 }}
               style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.1, color: '#141B3E' }}
-            >Our Commitments</motion.h2>
+            ><T>Our Commitments</T></motion.h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 16 }}>
             {[
@@ -207,8 +209,8 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
                 style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px' }}
               >
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 12 }}>{v.title}</div>
-                <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75 }}>{v.desc}</p>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 12 }}><T>{v.title}</T></div>
+                <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.75 }}><T>{v.desc}</T></p>
               </motion.div>
             ))}
           </div>
@@ -218,24 +220,25 @@ export default function AboutPage() {
       {/* CTA */}
       <section style={{ background: '#F7F8FC', padding: '80px 48px', borderTop: '1px solid rgba(20,27,62,0.08)', textAlign: 'center' }}>
         <div style={{ maxWidth: 600, margin: '0 auto' }}>
-          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}>Work With Us</div>
-          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}>Ready to discuss your requirements?</h2>
-          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}>Tell us about your process, your polymer, and your target application. We'll respond within 24 hours.</p>
+          <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 16 }}><T>Work With Us</T></div>
+          <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, lineHeight: 1.1, color: '#141B3E' }}><T>Ready to discuss your requirements?</T></h2>
+          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}><T>Tell us about your process, your polymer, and your target application. We'll respond within 24 hours.</T></p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="mailto:info@blaubatch.com" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.3s ease' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'none' }}
-            >Contact Us <ArrowRight size={14} /></a>
+            ><T>Contact Us </T><ArrowRight size={14} className="flip-rtl" /></a>
             <Link href="/distributors" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 28px', background: 'transparent', color: '#141B3E', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase', transition: 'all 0.3s ease' }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.4)'; e.currentTarget.style.background = 'rgba(0,0,0,0.02)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.08)'; e.currentTarget.style.background = 'transparent' }}
-            >Find a Distributor</Link>
+            ><T>Find a Distributor</T></Link>
           </div>
         </div>
       </section>
 
 
-      <style>{`@media(max-width:900px){ section > div { grid-template-columns: 1fr !important; } section { padding: 56px 20px !important; } }`}</style>
+      <style>{`@media(max-width:900px){ section > div { grid-template-columns: 1fr !important; } section { padding: 56px 20px !important; } }
+@media(max-width:640px){ section div[style*="repeat(2,1fr)"], section div[style*="repeat(3,1fr)"], section div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; } section div[style*="repeat(6,1fr)"] { grid-template-columns: repeat(2,1fr) !important; } }`}</style>
     </>
   )
 }

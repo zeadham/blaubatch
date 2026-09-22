@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const LINKEDIN_ICON = (
   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
@@ -19,6 +20,7 @@ const WA_ICON = (
 )
 
 export default function ShareButtons({ title, dark = false }) {
+  const { tr } = useLocale()
   const [url, setUrl] = useState('')
   const [copied, setCopied] = useState(false)
 
@@ -44,7 +46,7 @@ export default function ShareButtons({ title, dark = false }) {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-      <span style={{ fontSize: 11, fontWeight: 700, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', color: labelColor, marginRight: 2 }}>Share</span>
+      <span style={{ fontSize: 11, fontWeight: 700, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', color: labelColor, marginRight: 2 }}>{tr('Share')}</span>
       {links.map(({ label, color, href, icon }) => (
         <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={`Share on ${label}`}
           style={{
@@ -66,7 +68,7 @@ export default function ShareButtons({ title, dark = false }) {
           fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
           cursor: 'pointer', transition: 'all 0.2s', letterSpacing: '0.04em',
         }}
-      >{copied ? '✓ Copied' : '🔗 Copy link'}</button>
+      >{copied ? `✓ ${tr('Copied')}` : `🔗 ${tr('Copy link')}`}</button>
     </div>
   )
 }

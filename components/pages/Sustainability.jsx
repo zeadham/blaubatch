@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, Leaf, Recycle, BarChart3, Globe, Shield, Zap } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
+import { T } from '@/components/LocaleProvider'
 
 
 const PILLARS = [
@@ -99,8 +100,8 @@ export default function SustainabilityPage() {
                   fontFamily: 'Inter, sans-serif', fontWeight: 900,
                   fontSize: 'clamp(16px, 2vw, 22px)', color: m.color,
                   letterSpacing: '-0.01em', marginBottom: 6, whiteSpace: 'pre-line', lineHeight: 1.2,
-                }}>{m.n}</div>
-                <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.45)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}>{m.label}</div>
+                }}><T>{m.n}</T></div>
+                <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.45)', fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase' }}><T>{m.label}</T></div>
               </motion.div>
             ))}
           </div>
@@ -117,10 +118,10 @@ export default function SustainabilityPage() {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 52 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Our Approach</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, color: '#141B3E' }}>Three Pillars of Responsible Production</h2>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Our Approach</T></div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, color: '#141B3E' }}><T>Three Pillars of Responsible Production</T></h2>
               <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}>
-                Our environmental programme covers the full production lifecycle — from raw material selection through manufacturing, packaging, and end-of-life recyclability of the final plastic article.
+                <T>Our environmental programme covers the full production lifecycle — from raw material selection through manufacturing, packaging, and end-of-life recyclability of the final plastic article.</T>
               </p>
             </div>
 
@@ -143,13 +144,13 @@ export default function SustainabilityPage() {
                     border: `1px solid ${pillar.color}30`,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     marginBottom: 18,
-                  }}>{pillar.icon}</div>
-                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, color: '#141B3E', marginBottom: 16, lineHeight: 1.3 }}>{pillar.title}</h3>
+                  }}><T>{pillar.icon}</T></div>
+                  <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, color: '#141B3E', marginBottom: 16, lineHeight: 1.3 }}><T>{pillar.title}</T></h3>
                   <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12 }}>
                     {pillar.points.map(pt => (
                       <li key={pt} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
                         <CheckCircle2 size={14} color={pillar.color} style={{ flexShrink: 0, marginTop: 2 }} />
-                        <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.55 }}>{pt}</span>
+                        <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.55 }}><T>{pt}</T></span>
                       </li>
                     ))}
                   </ul>
@@ -170,13 +171,13 @@ export default function SustainabilityPage() {
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6 }}
             >
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>For European Buyers</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.8vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, color: '#141B3E', lineHeight: 1.15 }}>ESG Compliance You Can Document</h2>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>For European Buyers</T></div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.8vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 16, color: '#141B3E', lineHeight: 1.15 }}><T>ESG Compliance You Can Document</T></h2>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 24 }}>
-                European importers face increasing pressure under the CSRD, REACH, and packaging regulations. We supply full compliance documentation with every shipment — CoA, TDS, SVHC declarations, and material safety data — so your procurement and ESG teams can close quickly.
+                <T>European importers face increasing pressure under the CSRD, REACH, and packaging regulations. We supply full compliance documentation with every shipment — CoA, TDS, SVHC declarations, and material safety data — so your procurement and ESG teams can close quickly.</T>
               </p>
               <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}>
-                Our food-contact and recyclable grades are engineered to meet EU circular economy targets, with mono-material formulations that support sortation and mechanical recycling.
+                <T>Our food-contact and recyclable grades are engineered to meet EU circular economy targets, with mono-material formulations that support sortation and mechanical recycling.</T>
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {[
@@ -185,8 +186,8 @@ export default function SustainabilityPage() {
                   { icon: <Zap size={15} color="#D4840A" />, text: 'Rapid response — compliance pack within 48 hours' },
                 ].map(item => (
                   <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 14px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 9 }}>
-                    {item.icon}
-                    <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)' }}>{item.text}</span>
+                    <T>{item.icon}</T>
+                    <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)' }}><T>{item.text}</T></span>
                   </div>
                 ))}
               </div>
@@ -203,7 +204,7 @@ export default function SustainabilityPage() {
                 borderRadius: 20, padding: '36px 32px',
               }}
             >
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 20 }}>Recyclable Grades at a Glance</div>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', marginBottom: 20 }}><T>Recyclable Grades at a Glance</T></div>
               {[
                 { grade: 'FMPE / FMPP Series', note: 'CaCO₃ filler — compatible with PE/PP mechanical recycling streams', tag: 'RECYCLABLE' },
                 { grade: 'WMB-PE / WMB-PP', note: 'TiO₂ white — stays in polymer matrix during recycling; sortation compatible', tag: 'RECYCLABLE' },
@@ -216,8 +217,8 @@ export default function SustainabilityPage() {
                   padding: '14px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12,
                 }}>
                   <div>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E', marginBottom: 4 }}>{item.grade}</div>
-                    <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.5)', lineHeight: 1.5 }}>{item.note}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E', marginBottom: 4 }}><T>{item.grade}</T></div>
+                    <div style={{ fontSize: 11, color: 'rgba(20,27,62,0.5)', lineHeight: 1.5 }}><T>{item.note}</T></div>
                   </div>
                   <span style={{
                     flexShrink: 0, fontSize: 8, fontWeight: 800, letterSpacing: '0.07em',
@@ -226,7 +227,7 @@ export default function SustainabilityPage() {
                     color: item.tag === 'FOOD CONTACT' ? '#22C55E' : item.tag === 'HALOGEN-FREE' ? '#D4840A' : '#2B8DD0',
                     border: `1px solid ${item.tag === 'FOOD CONTACT' ? 'rgba(34,197,94,0.25)' : item.tag === 'HALOGEN-FREE' ? 'rgba(212,132,10,0.25)' : 'rgba(74,170,224,0.25)'}`,
                     fontFamily: 'Inter, sans-serif',
-                  }}>{item.tag}</span>
+                  }}><T>{item.tag}</T></span>
                 </div>
               ))}
             </motion.div>
@@ -243,9 +244,9 @@ export default function SustainabilityPage() {
             transition={{ duration: 0.6 }}
           >
             <div style={{ marginBottom: 36 }}>
-              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Standards & Certifications</div>
-              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>What We Can Document</h2>
-              <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Full compliance packs are available on request. Contact us with your specific standard or regulatory requirement.</p>
+              <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Standards & Certifications</T></div>
+              <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}><T>What We Can Document</T></h2>
+              <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Full compliance packs are available on request. Contact us with your specific standard or regulatory requirement.</T></p>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
@@ -258,10 +259,10 @@ export default function SustainabilityPage() {
                   <CheckCircle2 size={16} color="#22C55E" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4, flexWrap: 'wrap' }}>
-                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E' }}>{item.label}</span>
-                      <span style={{ fontSize: 8, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '2px 7px', borderRadius: 3, background: 'rgba(34,197,94,0.12)', color: '#22C55E', fontFamily: 'Inter, sans-serif', border: '1px solid rgba(34,197,94,0.2)' }}>{item.badge}</span>
+                      <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#141B3E' }}><T>{item.label}</T></span>
+                      <span style={{ fontSize: 8, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '2px 7px', borderRadius: 3, background: 'rgba(34,197,94,0.12)', color: '#22C55E', fontFamily: 'Inter, sans-serif', border: '1px solid rgba(34,197,94,0.2)' }}><T>{item.badge}</T></span>
                     </div>
-                    <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.5 }}>{item.desc}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.5 }}><T>{item.desc}</T></div>
                   </div>
                 </div>
               ))}
@@ -279,10 +280,10 @@ export default function SustainabilityPage() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}>Get Compliance Documentation</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.15 }}>Need ESG, REACH, or Food-Contact Docs?</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#22C55E', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}><T>Get Compliance Documentation</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.15 }}><T>Need ESG, REACH, or Food-Contact Docs?</T></h2>
             <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, marginBottom: 32 }}>
-              Tell us your grade, volume, and compliance requirement — we'll send the full documentation pack within 48 hours.
+              <T>Tell us your grade, volume, and compliance requirement — we'll send the full documentation pack within 48 hours.</T>
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <a href="/contact#quote-form" style={{
@@ -293,7 +294,7 @@ export default function SustainabilityPage() {
               }}
               onMouseEnter={e => { e.currentTarget.style.background = '#16a34a'; e.currentTarget.style.transform = 'translateY(-2px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#22C55E'; e.currentTarget.style.transform = 'none' }}
-              >Request Compliance Pack →</a>
+              ><T>Request Compliance Pack →</T></a>
               <a href="/resources" style={{
                 padding: '14px 24px', background: 'rgba(20,27,62,0.05)', color: '#141B3E',
                 borderRadius: 9, fontFamily: 'Inter, sans-serif', fontSize: 12,
@@ -302,7 +303,7 @@ export default function SustainabilityPage() {
               }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.25)'; e.currentTarget.style.background = 'rgba(20,27,62,0.08)' }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(20,27,62,0.1)'; e.currentTarget.style.background = 'rgba(20,27,62,0.05)' }}
-              >Technical Resources</a>
+              ><T>Technical Resources</T></a>
             </div>
           </motion.div>
         </div>

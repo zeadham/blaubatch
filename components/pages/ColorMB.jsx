@@ -2,11 +2,12 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { CheckCircle2, ChevronDown, Palette, FlaskConical, Leaf, Sun, Film, Settings } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import ColorQuoteForm from '@/components/shared/ColorQuoteForm'
 import IsoBadges from '@/components/shared/IsoBadges'
+import { T } from '@/components/LocaleProvider'
 
 
 const FAMILIES = [
@@ -70,36 +71,36 @@ export default function ColorMBPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} id="cmb-intro-grid">
             <div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 16 }}>
-                What Is Colour Masterbatch?
+                <T>What Is Colour Masterbatch?</T>
               </div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20, color: '#141B3E' }}>
-                Pigment Concentrates Across Every Major Polymer
+                <T>Pigment Concentrates Across Every Major Polymer</T>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85, marginBottom: 18 }}>
-                Colour masterbatch is a highly concentrated blend of pigments and dyes dispersed in a compatible carrier resin. It is added to natural polymer at the processing stage to introduce precise, reproducible colour — without the handling hazards or batch inconsistencies of raw pigment powder.
+                <T>Colour masterbatch is a highly concentrated blend of pigments and dyes dispersed in a compatible carrier resin. It is added to natural polymer at the processing stage to introduce precise, reproducible colour — without the handling hazards or batch inconsistencies of raw pigment powder.</T>
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
                 {['LDPE / LLDPE', 'HDPE', 'PP', 'PS / HIPS', 'ABS', 'PA · PC · PET'].map(s => (
-                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}>{s}</span>
+                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}><T>{s}</T></span>
                 ))}
               </div>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                Carrier systems cover PE, PP, PS, ABS, PA, PC, and PET — with typical let-down ratios of 1–3% for standard applications. Over 2,000 stocked colour references, plus full custom matching capability from any reference.
+                <T>Carrier systems cover PE, PP, PS, ABS, PA, PC, and PET — with typical let-down ratios of 1–3% for standard applications. Over 2,000 stocked colour references, plus full custom matching capability from any reference.</T>
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>Colour Development</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>RAL, Pantone & Custom Matching</h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Colour Development</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>RAL, Pantone & Custom Matching</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  Submit a physical sample, RAL code, Pantone reference, or hex value. Matched pellets and a full ΔE measurement report are returned within 5 business days. Batch-to-batch ΔE ≤ 0.5 guaranteed in production.
+                  <T>Submit a physical sample, RAL code, Pantone reference, or hex value. Matched pellets and a full ΔE measurement report are returned within 5 business days. Batch-to-batch ΔE ≤ 0.5 guaranteed in production.</T>
                 </p>
               </div>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}>Food-Contact & Regulatory</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>EU 10/2011 & FDA Compliant</h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Food-Contact & Regulatory</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>EU 10/2011 & FDA Compliant</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  Food-contact grades available for PE, PP, and PET substrates. Full regulatory documentation supplied — EU Regulation 10/2011 and FDA 21 CFR declarations provided on request.
+                  <T>Food-contact grades available for PE, PP, and PET substrates. Full regulatory documentation supplied — EU Regulation 10/2011 and FDA 21 CFR declarations provided on request.</T>
                 </p>
               </div>
             </div>
@@ -124,8 +125,8 @@ export default function ColorMBPage() {
               onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
             >
               <div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Product Range</div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}>Colour Product Families</h2>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}><T>Product Range</T></div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: 0, color: '#141B3E' }}><T>Colour Product Families</T></h2>
               </div>
               <motion.div animate={{ rotate: familiesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />
@@ -143,7 +144,7 @@ export default function ColorMBPage() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{ paddingTop: 24 }}>
-                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us with your colour target and we'll match it.</strong></p>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us with your colour target and we'll match it.</T></strong></p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 40 }}>
               {FAMILIES.map((f, i) => (
@@ -156,9 +157,9 @@ export default function ColorMBPage() {
                   <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(43,141,208,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>
                     <f.icon size={20} strokeWidth={1.5} color="#2B8DD0" />
                   </div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}>{f.name}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}>{f.sub}</div>
-                  <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.7 }}>{f.desc}</p>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, fontWeight: 900, color: '#141B3E', marginBottom: 4 }}><T>{f.name}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, color: '#2B8DD0', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 12 }}><T>{f.sub}</T></div>
+                  <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.7 }}><T>{f.desc}</T></p>
                 </motion.div>
               ))}
             </div>
@@ -167,7 +168,7 @@ export default function ColorMBPage() {
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10 }}>
                   <CheckCircle2 size={15} color="#2B8DD0" style={{ flexShrink: 0, marginTop: 1 }} />
-                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}>{f}</span>
+                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}><T>{f}</T></span>
                 </div>
               ))}
             </div>
@@ -176,7 +177,7 @@ export default function ColorMBPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', background: 'rgba(43,141,208,0.05)', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 10, marginBottom: 32 }}>
               <span style={{ fontSize: 18 }}>ℹ️</span>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)', lineHeight: 1.6 }}>
-                This is a sample of our colour capabilities. We match any RAL, Pantone, or physical reference across all major carrier resins — with ΔE ≤ 0.5 batch consistency. <strong style={{ color: '#2B8DD0' }}>Contact us to request a sample or start a colour development project.</strong>
+                <T>This is a sample of our colour capabilities. We match any RAL, Pantone, or physical reference across all major carrier resins — with ΔE ≤ 0.5 batch consistency. </T><strong style={{ color: '#2B8DD0' }}><T>Contact us to request a sample or start a colour development project.</T></strong>
               </p>
             </div>
 
@@ -193,9 +194,9 @@ export default function ColorMBPage() {
       <section style={{ background: '#F7F8FC', padding: '72px 48px 0', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 40 }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}>Where Colour Masterbatch Is Used</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Colour masterbatch is used wherever colour consistency, brand matching, and substrate compatibility are critical — from consumer packaging to technical automotive parts.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Industries</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}><T>Where Colour Masterbatch Is Used</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Colour masterbatch is used wherever colour consistency, brand matching, and substrate compatibility are critical — from consumer packaging to technical automotive parts.</T></p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
             {CMB_INDUSTRIES.map(ind => {
@@ -208,10 +209,10 @@ export default function ColorMBPage() {
                     <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}>{ind.name}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}>{ind.desc}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>
+                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}><T>{ind.desc}</T></div>
                     <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t}</span>)}
+                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}><T>{t}</T></span>)}
                     </div>
                   </div>
                 </Tag>
@@ -230,9 +231,9 @@ export default function ColorMBPage() {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36, paddingTop: 72, maxWidth: 900, margin: '0 auto', paddingBottom: 0 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Sample or Quote</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}>Get a Colour Masterbatch Quote</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, marginBottom: 36 }}>Share your colour target, carrier resin, and required volume — we'll respond within 24 hours with pricing and a matched sample.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Request a Sample or Quote</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8, color: '#141B3E' }}><T>Get a Colour Masterbatch Quote</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520, marginBottom: 36 }}><T>Share your colour target, carrier resin, and required volume — we'll respond within 24 hours with pricing and a matched sample.</T></p>
           </motion.div>
           <div style={{ maxWidth: 900, margin: '0 auto' }}>
             <ColorQuoteForm />

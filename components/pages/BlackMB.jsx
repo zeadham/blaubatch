@@ -3,10 +3,11 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
 import IsoBadges from '@/components/shared/IsoBadges'
+import { T } from '@/components/LocaleProvider'
 
 
 const GRADES = [
@@ -89,36 +90,36 @@ export default function BlackMBPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }} id="bmb-intro-grid">
             <div>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 16 }}>
-                What Is Black Masterbatch?
+                <T>What Is Black Masterbatch?</T>
               </div>
               <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', lineHeight: 1.15, marginBottom: 20, color: '#141B3E' }}>
-                Carbon Black Concentrates for UV Protection and Depth
+                <T>Carbon Black Concentrates for UV Protection and Depth</T>
               </h2>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85, marginBottom: 18 }}>
-                Black masterbatch is a concentrated dispersion of high-structure carbon black in a polymer carrier resin. Carbon black delivers deep, uniform black colouration and, critically, functions as a UV absorber — protecting the polymer matrix from photodegradation under prolonged outdoor exposure.
+                <T>Black masterbatch is a concentrated dispersion of high-structure carbon black in a polymer carrier resin. Carbon black delivers deep, uniform black colouration and, critically, functions as a UV absorber — protecting the polymer matrix from photodegradation under prolonged outdoor exposure.</T>
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
                 {['Carbon Black', 'LDPE / LLDPE Carrier', 'PP Carrier', 'HDPE Carrier', '25–40% CB Loading'].map(s => (
-                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}>{s}</span>
+                  <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}><T>{s}</T></span>
                 ))}
               </div>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                Black MB is used across PE, PP, and HDPE applications wherever consistent black depth, UV stability, and long service life are required — from agricultural film and pipe systems to cable jacketing.
+                <T>Black MB is used across PE, PP, and HDPE applications wherever consistent black depth, UV stability, and long service life are required — from agricultural film and pipe systems to cable jacketing.</T>
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}>UV Protection</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>10+ Year Outdoor Performance</h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>UV Protection</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>10+ Year Outdoor Performance</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  High-structure carbon black absorbs UV radiation and converts it to heat, preventing chain scission in the polymer matrix. Multiple PE-carrier grades are rated for extended outdoor service life in agricultural, cable, and pipe applications.
+                  <T>High-structure carbon black absorbs UV radiation and converts it to heat, preventing chain scission in the polymer matrix. Multiple PE-carrier grades are rated for extended outdoor service life in agricultural, cable, and pipe applications.</T>
                 </p>
               </div>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748B', marginBottom: 10 }}>Grade Range</div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>PE, PP & PET Systems</h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748B', marginBottom: 10 }}><T>Grade Range</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>PE, PP & PET Systems</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  15 grades across PE, PP, and PET carriers — covering standard film, food-contact, filled, and fibre/filament applications. CB loadings from 30% to 60%. Custom grades available on request.
+                  <T>15 grades across PE, PP, and PET carriers — covering standard film, food-contact, filled, and fibre/filament applications. CB loadings from 30% to 60%. Custom grades available on request.</T>
                 </p>
               </div>
             </div>
@@ -143,9 +144,9 @@ export default function BlackMBPage() {
               onMouseLeave={e => e.currentTarget.style.background = '#FFFFFF'}
             >
               <div>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}>Grade Reference</div>
-                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}>A Selection of Available Grades</h2>
-                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}>Standard range shown — custom carbon black loadings, carrier systems, and application-specific formulations available on request.</p>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(46,127,208,0.3)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}><T>Grade Reference</T></div>
+                <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}><T>A Selection of Available Grades</T></h2>
+                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}><T>Standard range shown — custom carbon black loadings, carrier systems, and application-specific formulations available on request.</T></p>
               </div>
               <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />
@@ -163,12 +164,12 @@ export default function BlackMBPage() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{ paddingTop: 24 }}>
-                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}>The grades below represent a sample of our black masterbatch portfolio — we carry a broader range across CB loadings, carrier resins, and food-contact standards. All grades supplied with TDS and CoA. <strong style={{ color: '#141B3E' }}>Contact us for the full product list or to discuss a specific requirement.</strong></p>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The grades below represent a sample of our black masterbatch portfolio — we carry a broader range across CB loadings, carrier resins, and food-contact standards. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us for the full product list or to discuss a specific requirement.</T></strong></p>
 
             <div style={{ background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, overflow: 'hidden', marginBottom: 40 }}>
               <div style={{ display: 'grid', gridTemplateColumns: '150px 60px 1fr 1fr 120px', background: 'rgba(20,27,62,0.03)', borderBottom: '1px solid rgba(20,27,62,0.08)', padding: '12px 20px' }}>
                 {['Grade Code', 'Carrier', 'CB / Content', 'Application', 'Type'].map(h => (
-                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}>{h}</div>
+                  <div key={h} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(20,27,62,0.35)' }}><T>{h}</T></div>
                 ))}
               </div>
               {GRADES.map((g, i) => (
@@ -176,11 +177,11 @@ export default function BlackMBPage() {
                   onMouseEnter={e => e.currentTarget.style.background = 'rgba(20,27,62,0.03)'}
                   onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
                 >
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}>{g.code}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : g.carrier === 'PP' ? '#2B8DD0' : 'rgba(20,27,62,0.5)' }}>{g.carrier}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}>{g.cb}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)' }}>{g.app}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.note === 'Food Grade' || g.note === 'PP Food Grade' ? '#16A34A' : g.note === 'High Loading' || g.note === 'High CB' ? '#2B8DD0' : g.note === 'Filled' || g.note === 'PP Grade' || g.note === 'PET Fibre' ? '#D4840A' : 'rgba(20,27,62,0.35)' }}>{g.note}</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: '#141B3E' }}><T>{g.code}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.carrier === 'PET' ? '#D4840A' : g.carrier === 'PP' ? '#2B8DD0' : 'rgba(20,27,62,0.5)' }}><T>{g.carrier}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.65)' }}><T>{g.cb}</T></div>
+                  <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.55)' }}><T>{g.app}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700, color: g.note === 'Food Grade' || g.note === 'PP Food Grade' ? '#16A34A' : g.note === 'High Loading' || g.note === 'High CB' ? '#2B8DD0' : g.note === 'Filled' || g.note === 'PP Grade' || g.note === 'PET Fibre' ? '#D4840A' : 'rgba(20,27,62,0.35)' }}><T>{g.note}</T></div>
                 </div>
               ))}
             </div>
@@ -189,7 +190,7 @@ export default function BlackMBPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', background: 'rgba(43,141,208,0.05)', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 10, marginBottom: 32 }}>
               <span style={{ fontSize: 18 }}>ℹ️</span>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)', lineHeight: 1.6 }}>
-                This is a selection from our full black masterbatch range. Additional grades — including speciality CB loadings, UV-stable agricultural grades, and pipe-certified concentrates — are available on request. <strong style={{ color: '#2B8DD0' }}>Contact us to discuss your specific requirement.</strong>
+                <T>This is a selection from our full black masterbatch range. Additional grades — including speciality CB loadings, UV-stable agricultural grades, and pipe-certified concentrates — are available on request. </T><strong style={{ color: '#2B8DD0' }}><T>Contact us to discuss your specific requirement.</T></strong>
               </p>
             </div>
 
@@ -198,7 +199,7 @@ export default function BlackMBPage() {
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, padding: '12px 16px', background: '#FFFFFF', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 10 }}>
                   <CheckCircle2 size={15} color="#2B8DD0" style={{ flexShrink: 0, marginTop: 1 }} />
-                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}>{f}</span>
+                  <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.6)', lineHeight: 1.5 }}><T>{f}</T></span>
                 </div>
               ))}
             </div>
@@ -216,9 +217,9 @@ export default function BlackMBPage() {
       <section style={{ background: '#F7F8FC', padding: '72px 48px 0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ marginBottom: 40 }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Industries</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}>Where Black Masterbatch Is Used</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Black masterbatch serves critical UV protection and aesthetic roles across agriculture, infrastructure, cable, and packaging — wherever deep, consistent black is required.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Industries</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 10, color: '#141B3E' }}><T>Where Black Masterbatch Is Used</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Black masterbatch serves critical UV protection and aesthetic roles across agriculture, infrastructure, cable, and packaging — wherever deep, consistent black is required.</T></p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
             {BMB_INDUSTRIES.map(ind => {
@@ -231,10 +232,10 @@ export default function BlackMBPage() {
                     <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
-                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}>{ind.name}</div>
-                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}>{ind.desc}</div>
+                    <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>
+                    <div style={{ fontSize: 13, color: 'rgba(20,27,62,0.55)', lineHeight: 1.7 }}><T>{ind.desc}</T></div>
                     <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 5 }}>
-                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>{t}</span>)}
+                      {ind.tags.map(t => <span key={t} style={{ fontSize: 10, padding: '2px 8px', background: 'rgba(43,141,208,0.12)', borderRadius: 4, color: '#2B8DD0', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}><T>{t}</T></span>)}
                     </div>
                   </div>
                 </Tag>
@@ -253,9 +254,9 @@ export default function BlackMBPage() {
             transition={{ duration: 0.55 }}
             style={{ marginBottom: 36, paddingTop: 72 }}
           >
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}>Request a Quote</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8 }}>Get Black Masterbatch Pricing</h2>
-            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</p>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 14 }}><T>Request a Quote</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(22px, 2.5vw, 34px)', fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 8 }}><T>Get Black Masterbatch Pricing</T></h2>
+            <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 520 }}><T>Tell us your grade, quantity, and application — we'll respond within 24 hours with pricing and samples if needed.</T></p>
           </motion.div>
           <QuoteForm
             products={BMB_PRODUCTS}

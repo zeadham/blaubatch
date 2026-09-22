@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronRight, ArrowRight } from 'lucide-react'
+import { useLocale } from '@/components/LocaleProvider'
 
 const fade = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -12,6 +13,7 @@ const fade = (delay = 0) => ({
 })
 
 function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, sub, cta, split }) {
+  const { t, l, tr } = useLocale()
   return (
     <>
       {/* Breadcrumb */}
@@ -26,18 +28,18 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
             : { color: 'rgba(255,255,255,0.75)', textShadow: '0 1px 4px rgba(0,0,0,0.4)' }
           ),
         }}>
-          <Link href="/" style={{ color: 'inherit', transition: 'color 0.15s' }}
+          <Link href={l('/')} style={{ color: 'inherit', transition: 'color 0.15s' }}
             onMouseEnter={e => e.currentTarget.style.color = split ? '#141B3E' : '#fff'}
             onMouseLeave={e => e.currentTarget.style.color = 'inherit'}
-          >Home</Link>
-          <ChevronRight size={11} />
+          >{t('Home', 'الرئيسية')}</Link>
+          <ChevronRight size={11} className="flip-rtl" />
           {breadcrumb.parent && (
-            <><Link href={breadcrumb.parentHref || '#'} style={{ color: 'inherit', transition: 'color 0.15s' }}
+            <><Link href={l(breadcrumb.parentHref || '#')} style={{ color: 'inherit', transition: 'color 0.15s' }}
               onMouseEnter={e => e.currentTarget.style.color = split ? '#141B3E' : '#fff'}
               onMouseLeave={e => e.currentTarget.style.color = 'inherit'}
-            >{breadcrumb.parent}</Link><ChevronRight size={11} /></>
+            >{tr(breadcrumb.parent)}</Link><ChevronRight size={11} className="flip-rtl" /></>
           )}
-          <span style={{ color: split ? '#141B3E' : '#fff' }}>{breadcrumb.current}</span>
+          <span style={{ color: split ? '#141B3E' : '#fff' }}>{tr(breadcrumb.current)}</span>
         </motion.div>
       )}
 
@@ -52,7 +54,7 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
           background: `${badgeColor}12`, alignSelf: 'flex-start',
         }}>
           <span style={{ width: 5, height: 5, borderRadius: '50%', background: badgeColor, display: 'inline-block' }} />
-          {badge}
+          {tr(badge)}
         </motion.div>
       )}
 
@@ -64,7 +66,7 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
           color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.4)',
           borderRadius: 6, padding: '4px 14px', marginBottom: 22,
           background: 'rgba(43,141,208,0.12)', alignSelf: 'flex-start',
-        }}>{tag}</motion.div>
+        }}>{tr(tag)}</motion.div>
       )}
 
       {/* Title */}
@@ -74,9 +76,9 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
         letterSpacing: '-0.03em', marginBottom: 18,
         color: '#141B3E',
       }}>
-        {title}
+        {tr(title)}
         {titleAccent && (
-          <><br /><span style={{ color: badgeColor }}>{titleAccent}</span></>
+          <><br /><span style={{ color: badgeColor }}>{tr(titleAccent)}</span></>
         )}
       </motion.h1>
 
@@ -86,13 +88,13 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
           fontFamily: 'Open Sans, sans-serif',
           fontSize: 18, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8,
           maxWidth: 520, fontWeight: 400,
-        }}>{sub}</motion.p>
+        }}>{tr(sub)}</motion.p>
       )}
 
       {/* CTA buttons */}
       {cta && (
         <motion.div {...fade(0.24)} style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 36 }}>
-          <a href={cta.primary.href} style={{
+          <a href={l(cta.primary.href)} style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '13px 28px', background: '#2B8DD0', color: '#fff',
             borderRadius: 10, fontFamily: 'Inter, sans-serif', fontSize: 13,
@@ -102,10 +104,10 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
           onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(43,141,208,0.35)' }}
           onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none' }}
           >
-            {cta.primary.label} <ArrowRight size={14} />
+            {tr(cta.primary.label)} <ArrowRight size={14} className="flip-rtl" />
           </a>
           {cta.secondary && (
-            <a href={cta.secondary.href} style={{
+            <a href={l(cta.secondary.href)} style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '13px 26px', color: '#141B3E',
               borderRadius: 10, fontFamily: 'Inter, sans-serif', fontSize: 13,
@@ -116,7 +118,7 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
             onMouseEnter={e => { e.currentTarget.style.background = split ? 'rgba(20,27,62,0.12)' : 'rgba(255,255,255,0.3)' }}
             onMouseLeave={e => { e.currentTarget.style.background = split ? 'rgba(20,27,62,0.06)' : 'rgba(255,255,255,0.18)' }}
             >
-              {cta.secondary.label}
+              {tr(cta.secondary.label)}
             </a>
           )}
         </motion.div>
@@ -131,8 +133,10 @@ export default function PageHero({
   bgImage = '/images/heroes/home.webp',
   split = false,
   textPercent = 40,
+  mirrorInRtl = true,
 }) {
   const imagePercent = 100 - textPercent
+  const { isAr } = useLocale()
   /* ── SPLIT layout ── */
   if (split) {
     return (
@@ -148,7 +152,7 @@ export default function PageHero({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          padding: '64px 48px 64px 72px',
+          paddingBlock: 64, paddingInlineStart: 72, paddingInlineEnd: 48,
           background: '#ffffff',
           zIndex: 1,
         }}>
@@ -163,12 +167,12 @@ export default function PageHero({
             fill
             priority
             sizes={`${imagePercent}vw`}
-            style={{ objectFit: 'cover', objectPosition: 'center center' }}
+            style={{ objectFit: 'cover', objectPosition: 'center center', transform: isAr && mirrorInRtl ? 'scaleX(-1)' : undefined }}
           />
           {/* Fade to white on left edge */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.4) 20%, transparent 45%)',
+            background: `linear-gradient(to ${isAr ? 'left' : 'right'}, #ffffff 0%, rgba(255,255,255,0.4) 20%, transparent 45%)`,
             pointerEvents: 'none',
           }} />
         </div>
@@ -197,15 +201,16 @@ export default function PageHero({
         position: 'absolute', inset: 0,
         backgroundImage: `url("${bgImage}")`,
         backgroundSize: 'cover', backgroundPosition: 'center',
+        transform: isAr && mirrorInRtl ? 'scaleX(-1)' : undefined,
       }} />
 
       {/* Spacer — pushes content to bottom */}
       <div style={{ flex: 1 }} />
 
-      {/* Content — pinned to bottom-left */}
+      {/* Content — pinned to bottom start */}
       <div style={{
         position: 'relative', zIndex: 1,
-        padding: '0 96px 52px',
+        paddingInline: 96, paddingBottom: 52,
         maxWidth: 760,
       }}>
         <TextContent {...{ breadcrumb, badge, badgeColor, tag, title, titleAccent, sub, cta, split }} />

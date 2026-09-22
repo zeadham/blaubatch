@@ -1,9 +1,10 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/LocalizedLink'
 import { ArrowLeft, Clock, Calendar, ArrowRight } from 'lucide-react'
 import { ARTICLES } from '@/lib/blog-articles'
 import ShareButtons from '@/components/shared/ShareButtons'
+import { T } from '@/components/LocaleProvider'
 
 function renderBlock(block, i) {
   switch (block.type) {
@@ -11,9 +12,9 @@ function renderBlock(block, i) {
       return (
         <p key={i} style={{
           fontSize: 17, color: 'rgba(20,27,62,0.7)', lineHeight: 1.9,
-          marginBottom: 32, borderLeft: '3px solid #2B8DD0', paddingLeft: 20,
+          marginBottom: 32, borderInlineStart: '3px solid #2B8DD0', paddingInlineStart: 20,
           fontStyle: 'italic',
-        }}>{block.text}</p>
+        }}><T>{block.text}</T></p>
       )
     case 'h2':
       return (
@@ -21,14 +22,14 @@ function renderBlock(block, i) {
           fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2.5vw, 24px)',
           fontWeight: 800, color: '#141B3E', letterSpacing: '-0.02em',
           marginTop: 44, marginBottom: 16, lineHeight: 1.2,
-        }}>{block.text}</h2>
+        }}><T>{block.text}</T></h2>
       )
     case 'p':
       return (
         <p key={i} style={{
           fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85,
           marginBottom: 20,
-        }}>{block.text}</p>
+        }}><T>{block.text}</T></p>
       )
     case 'formula':
       return (
@@ -36,7 +37,7 @@ function renderBlock(block, i) {
           background: 'rgba(43,141,208,0.06)', border: '1px solid rgba(43,141,208,0.2)',
           borderRadius: 8, padding: '16px 20px', margin: '20px 0',
           fontFamily: 'monospace', fontSize: 14, color: '#141B3E', fontWeight: 600,
-        }}>{block.text}</div>
+        }}><T>{block.text}</T></div>
       )
     case 'table':
       return (
@@ -47,9 +48,9 @@ function renderBlock(block, i) {
                 {block.headers.map(h => (
                   <th key={h} style={{
                     padding: '10px 14px', background: '#141B3E', color: '#fff',
-                    fontFamily: 'Inter, sans-serif', fontWeight: 700, textAlign: 'left',
+                    fontFamily: 'Inter, sans-serif', fontWeight: 700, textAlign: 'start',
                     fontSize: 11, letterSpacing: '0.06em', textTransform: 'uppercase',
-                  }}>{h}</th>
+                  }}><T>{h}</T></th>
                 ))}
               </tr>
             </thead>
@@ -61,7 +62,7 @@ function renderBlock(block, i) {
                       padding: '10px 14px', color: ci === 0 ? '#141B3E' : 'rgba(20,27,62,0.65)',
                       fontWeight: ci === 0 ? 600 : 400,
                       borderBottom: '1px solid rgba(20,27,62,0.07)',
-                    }}>{cell}</td>
+                    }}><T>{cell}</T></td>
                   ))}
                 </tr>
               ))}
@@ -94,7 +95,7 @@ export default function BlogArticle({ article }) {
           onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.8)'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
           >
-            <ArrowLeft size={14} /> Back to Resources
+            <ArrowLeft size={14} className="flip-rtl" /><T> Back to Resources</T>
           </Link>
 
           <div style={{
@@ -102,28 +103,28 @@ export default function BlogArticle({ article }) {
             fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase',
             color: article.tagColor, border: `1px solid ${article.tagBorder}`,
             borderRadius: 4, padding: '4px 10px', marginBottom: 20,
-          }}>{article.tag}</div>
+          }}><T>{article.tag}</T></div>
 
           <h1 style={{
             fontFamily: 'Inter, sans-serif', fontWeight: 900,
             fontSize: 'clamp(24px, 3.5vw, 44px)', lineHeight: 1.1,
             letterSpacing: '-0.03em', color: '#FFFFFF', marginBottom: 24,
-          }}>{article.title}</h1>
+          }}><T>{article.title}</T></h1>
 
           <p style={{
             fontSize: 16, color: 'rgba(255,255,255,0.55)', lineHeight: 1.7,
             marginBottom: 32, maxWidth: 640,
-          }}>{article.desc}</p>
+          }}><T>{article.desc}</T></p>
 
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
                 <Calendar size={13} />
-                {article.date}
+                <T>{article.date}</T>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'rgba(255,255,255,0.4)' }}>
                 <Clock size={13} />
-                {article.readTime}
+                <T>{article.readTime}</T>
               </div>
             </div>
             <ShareButtons title={article.title} dark />
@@ -143,7 +144,7 @@ export default function BlogArticle({ article }) {
             marginTop: 48, paddingTop: 24, borderTop: '1px solid rgba(20,27,62,0.08)',
           }}>
             <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 600, color: 'rgba(20,27,62,0.5)' }}>
-              Found this useful? Share it with your team.
+              <T>Found this useful? Share it with your team.</T>
             </span>
             <ShareButtons title={article.title} />
           </div>
@@ -154,10 +155,10 @@ export default function BlogArticle({ article }) {
             border: '1px solid rgba(43,141,208,0.2)', borderRadius: 12,
           }}>
             <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 16, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}>
-              Have questions about your application?
+              <T>Have questions about your application?</T>
             </div>
             <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, marginBottom: 20 }}>
-              Our technical team can recommend the right grade and dosage for your specific production requirements — usually within 24 hours.
+              <T>Our technical team can recommend the right grade and dosage for your specific production requirements — usually within 24 hours.</T>
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
               <Link href="/contact#quote-form" style={{
@@ -170,7 +171,7 @@ export default function BlogArticle({ article }) {
               onMouseEnter={e => { e.currentTarget.style.background = '#2477b3'; e.currentTarget.style.transform = 'translateY(-1px)' }}
               onMouseLeave={e => { e.currentTarget.style.background = '#2B8DD0'; e.currentTarget.style.transform = 'none' }}
               >
-                Request a Quote <ArrowRight size={13} />
+                <T>Request a Quote </T><ArrowRight size={13} className="flip-rtl" />
               </Link>
               <a href="mailto:info@blaubatch.com?subject=Technical Enquiry" style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -182,7 +183,7 @@ export default function BlogArticle({ article }) {
               onMouseEnter={e => e.currentTarget.style.background = 'rgba(43,141,208,0.06)'}
               onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
-                Email our Technical Team
+                <T>Email our Technical Team</T>
               </a>
             </div>
           </div>
@@ -193,8 +194,8 @@ export default function BlogArticle({ article }) {
       {otherArticles.length > 0 && (
         <section style={{ background: '#F7F8FC', padding: '64px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
           <div style={{ maxWidth: 860, margin: '0 auto' }}>
-            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 8 }}>More Articles</div>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 900, color: '#141B3E', marginBottom: 32, letterSpacing: '-0.02em' }}>Continue Reading</h2>
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 8 }}><T>More Articles</T></div>
+            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 900, color: '#141B3E', marginBottom: 32, letterSpacing: '-0.02em' }}><T>Continue Reading</T></h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
               {otherArticles.map(a => (
                 <Link key={a.slug} href={`/blog/${a.slug}`} style={{
@@ -210,10 +211,10 @@ export default function BlogArticle({ article }) {
                     fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800,
                     letterSpacing: '0.1em', textTransform: 'uppercase',
                     color: a.tagColor,
-                  }}>{a.tag}</div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, color: '#141B3E', lineHeight: 1.4 }}>{a.title}</div>
+                  }}><T>{a.tag}</T></div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 700, color: '#141B3E', lineHeight: 1.4 }}><T>{a.title}</T></div>
                   <div style={{ fontSize: 11, color: '#2B8DD0', fontWeight: 700, display: 'flex', alignItems: 'center', gap: 4, marginTop: 'auto' }}>
-                    Read article <ArrowRight size={11} />
+                    <T>Read article </T><ArrowRight size={11} className="flip-rtl" />
                   </div>
                 </Link>
               ))}
