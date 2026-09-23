@@ -134,7 +134,9 @@ export default function Navbar() {
                   onMouseLeave={closeDropdown}
                   style={{
                     position: 'absolute', top: 'calc(100% + 8px)',
-                    left: '50%', transform: 'translateX(-50%)',
+                    ...(isAr
+                      ? { right: 0 }
+                      : { left: '50%', transform: 'translateX(-50%)' }),
                     width: 620,
                     background: '#fff',
                     border: '1px solid rgba(20,27,62,0.1)',
