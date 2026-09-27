@@ -6,7 +6,7 @@ const PILLS = [
   ['✓  ISO 9001 Aligned Production', '✓  إنتاج متوافق مع ISO 9001'],
   ['✓  In-House Lab Testing', '✓  اختبارات معملية داخلية'],
   ['✓  TDS & CoA Per Shipment', '✓  TDS وCoA مع كل شحنة'],
-  ['✓  Coraplast Authorised Distributor', '✓  موزّع معتمد لشركة Coraplast'],
+  ['✓  Coraplast Authorised Distributor', '✓  موزّع معتمد لشركة كورابلاست'],
   ['✓  MENA · Europe · Global', '✓  الشرق الأوسط وشمال أفريقيا · أوروبا · عالمياً'],
   ['✓  25 kg Bags & FIBC Big Bags', '✓  أكياس 25 كجم وأكياس FIBC'],
   ['✓  Custom Formulation Service', '✓  خدمة تركيبات مخصصة'],

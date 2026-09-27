@@ -93,7 +93,7 @@ export default function Hero() {
           fontSize: 18, color: 'rgba(20,27,62,0.65)', lineHeight: 1.75,
           marginBottom: 40, fontWeight: 400, maxWidth: 480,
         }}>
-          {t('One supplier. Full spectrum. Blau Batch manufactures Filler Masterbatch and distributes the complete Coraplast range across MENA and Europe.', 'مورّد واحد. حلول شاملة. تصنّع بلاو باتش ماستر باتش الحشو وتوزّع مجموعة Coraplast الكاملة في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.')}
+          {t('One supplier. Full spectrum. Blau Batch manufactures Filler Masterbatch and distributes the complete Coraplast range across MENA and Europe.', 'مورّد واحد. حلول شاملة. تصنّع بلاو باتش ماستر باتش الحشو وتوزّع مجموعة كورابلاست الشاملة في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.')}
         </motion.p>
 
         {/* CTAs */}

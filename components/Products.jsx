@@ -274,14 +274,14 @@ export default function Products() {
               fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 3vw, 44px)',
               fontWeight: 900, letterSpacing: '-0.025em', marginBottom: 14, lineHeight: 1.1, color: '#141B3E',
             }}
-          >{t('Complete Masterbatch Portfolio', 'مجموعة الماستر باتش الكاملة')}</motion.h2>
+          >{t('Complete Masterbatch Portfolio', 'مجموعة الماستر باتش الشاملة')}</motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20, rotateX: 8 }} animate={headInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
-            {t('One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.', 'علاقة توريد واحدة تغطي كل احتياجاتك من الماستر باتش — من ماستر باتش الحشو المصنَّع محلياً إلى مجموعة Coraplast الكاملة.')}
+            {t('One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.', 'علاقة توريد واحدة تغطي كل احتياجاتك من الماستر باتش — من ماستر باتش الحشو المصنَّع محلياً إلى مجموعة كورابلاست الشاملة.')}
           </motion.p>
         </div>
 

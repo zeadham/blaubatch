@@ -123,7 +123,7 @@ export default function WhyUs() {
                     color: '#141B3E', marginBottom: 6,
                   }}>{t('We Distribute', 'نحن نوزّع')}</h3>
                   <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.7 }}>
-                    {t('Authorised Coraplast distributor for White, Black, Colour, and Additive masterbatch — European engineering, local availability.', 'موزّع معتمد لشركة Coraplast لماستر باتش الأبيض والأسود والملوّن والإضافات — هندسة أوروبية وتوافر محلي.')}
+                    {t('Authorised Coraplast distributor for White, Black, Colour, and Additive masterbatch — European engineering, local availability.', 'موزّع معتمد لشركة كورابلاست لماستر باتش الأبيض والأسود والملوّن والإضافات — هندسة أوروبية وتوافر محلي.')}
                   </p>
                 </div>
               </div>

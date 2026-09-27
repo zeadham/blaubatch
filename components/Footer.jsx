@@ -107,7 +107,7 @@ export default function Footer() {
               padding: '6px 12px', marginBottom: 24,
             }}>
               <div style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--amber)' }} />
-              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{t('Authorised Coraplast Distributor', 'موزّع معتمد لشركة Coraplast')}</span>
+              <span style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)' }}>{t('Authorised Coraplast Distributor', 'موزّع معتمد لشركة كورابلاست')}</span>
             </div>
 
             {/* Social */}

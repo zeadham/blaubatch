@@ -123,7 +123,7 @@ export function generateStaticParams() {
 }
 
 const AR_TITLE = 'بلاو باتش | مصنّع وموزّع الماستر باتش — مصر والشرق الأوسط وشمال أفريقيا'
-const AR_DESC = 'تصنّع بلاو باتش ماستر باتش الحشو (FMPE وFMPP) وتوزّع مجموعة Coraplast الكاملة — الأبيض والأسود والملوّن والإضافات — في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.'
+const AR_DESC = 'تصنّع بلاو باتش ماستر باتش الحشو (FMPE وFMPP) وتوزّع مجموعة كورابلاست الشاملة — الأبيض والأسود والملوّن والإضافات — في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.'
 
 export async function generateMetadata({ params }) {
   const { lang } = await params
