@@ -48,7 +48,7 @@ export default function ShareButtons({ title, dark = false }) {
     <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
       <span style={{ fontSize: 11, fontWeight: 700, fontFamily: 'Inter, sans-serif', letterSpacing: '0.06em', textTransform: 'uppercase', color: labelColor, marginRight: 2 }}>{tr('Share')}</span>
       {links.map(({ label, color, href, icon }) => (
-        <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={`Share on ${label}`}
+        <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={`${tr('Share on')} ${label}`}
           style={{
             display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
             width: 32, height: 32, borderRadius: 6,
@@ -59,7 +59,7 @@ export default function ShareButtons({ title, dark = false }) {
           onMouseLeave={e => { e.currentTarget.style.background = idleBg; e.currentTarget.style.color = idleColor; e.currentTarget.style.borderColor = idleBorder }}
         >{icon}</a>
       ))}
-      <button onClick={copyLink} title="Copy link"
+      <button onClick={copyLink} title={tr('Copy link')}
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 5, padding: '0 12px', height: 32, borderRadius: 6,
           background: copied ? 'rgba(43,141,208,0.2)' : idleBg,

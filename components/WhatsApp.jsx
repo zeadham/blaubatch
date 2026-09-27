@@ -30,9 +30,9 @@ export default function WhatsApp() {
             {/* Header */}
             <div style={{ background: '#25D366', padding: '14px 18px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                <img src="/logo-mark-navy.png" alt="Blau Batch" style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
+                <img src="/logo-mark-navy.png" alt={t('Blau Batch', 'بلاو باتش')} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
                 <div>
-                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff' }}>Blau Batch</div>
+                  <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, color: '#fff' }}>{t('Blau Batch', 'بلاو باتش')}</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 2 }}>
                     <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', display: 'inline-block' }} />
                     <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.85)' }}>{t('Technical Sales Team', 'فريق المبيعات الفنية')}</span>

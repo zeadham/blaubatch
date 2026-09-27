@@ -245,7 +245,7 @@ function HeroCycler({ active, setActive }) {
       <div style={{ flex: '0 0 60%', position: 'relative', overflow: 'hidden' }}>
         <Image
           src="/images/heroes/campaign_hero.webp"
-          alt="Blau Batch masterbatch products"
+          alt={isAr ? 'منتجات ماستر باتش من بلاو باتش' : 'Blau Batch masterbatch products'}
           fill priority sizes="60vw"
           style={{ objectFit: 'cover', objectPosition: 'center center' }}
         />

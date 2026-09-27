@@ -31,7 +31,7 @@ export default function CookieConsent() {
   if (!visible) return null
 
   return (
-    <div role="dialog" aria-label="Cookie consent" style={{
+    <div role="dialog" aria-label={t('Cookie consent', 'إشعار ملفات تعريف الارتباط')} style={{
       position: 'fixed', bottom: 24, left: 24, right: 24,
       zIndex: 9999, maxWidth: 520, margin: '0 auto',
       background: '#FFFFFF',
