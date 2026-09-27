@@ -238,7 +238,7 @@ export default function AboutPage() {
 
 
       <style>{`@media(max-width:900px){ section > div { grid-template-columns: 1fr !important; } section { padding: 56px 20px !important; } }
-@media(max-width:640px){ section div[style*="repeat(2,1fr)"], section div[style*="repeat(3,1fr)"], section div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; } section div[style*="repeat(6,1fr)"] { grid-template-columns: repeat(2,1fr) !important; } }`}</style>
+@media(max-width:640px){ section div[style*="repeat(2"], section div[style*="repeat(3"], section div[style*="1fr 1fr"] { grid-template-columns: 1fr !important; } section div[style*="repeat(6"] { grid-template-columns: repeat(2,1fr) !important; } }`}</style>
     </>
   )
 }
