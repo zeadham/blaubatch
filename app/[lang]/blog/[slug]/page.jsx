@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title, description, url, type: 'article', publishedTime: article.date, locale: isAr ? 'ar_EG' : 'en_US',
+      title, description, url, type: 'article', publishedTime: article.dateISO, locale: isAr ? 'ar_EG' : 'en_US',
     },
   }
 }
@@ -40,7 +40,7 @@ function buildArticleJsonLd(article) {
     headline: article.title,
     description: article.desc,
     url: `https://blaubatch.com/blog/${article.slug}`,
-    datePublished: article.date,
+    datePublished: article.dateISO,
     author: {
       '@type': 'Organization',
       name: 'Blau Batch',

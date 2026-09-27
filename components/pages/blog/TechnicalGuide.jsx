@@ -11,7 +11,7 @@ export default function TechnicalGuide() {
       sub="A deep dive into mineral loading, carrier resin selection, and its impact on your production line."
       badge="TECHNICAL GUIDE"
       badgeColor="#141B3E"
-      date="April 2026"
+      date="19 October 2026"
       readTime="6 min read"
       heroImage="/images/heroes/technical_blog.webp"
       seo={{

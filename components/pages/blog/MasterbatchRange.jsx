@@ -11,7 +11,7 @@ export default function MasterbatchRange() {
       sub="Exploring our comprehensive portfolio of 40+ Black, White, and Color masterbatch grades now available through the Coraplast partnership."
       badge="FULL SPECTRUM"
       badgeColor="#2B8DD0"
-      date="April 2026"
+      date="15 October 2026"
       readTime="5 min read"
       heroImage="/images/heroes/campaign_hero.webp"
       seo={{

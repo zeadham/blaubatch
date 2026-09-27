@@ -11,7 +11,7 @@ export default function CoraplastPartnership() {
       sub="Expanding our reach to provide a full-spectrum masterbatch solution including Black, White, Color, and Additives."
       badge="PARTNERSHIP"
       badgeColor="#D4840A"
-      date="April 2026"
+      date="29 September 2026"
       readTime="3 min read"
       heroImage="/images/heroes/colour.webp"
       seo={{

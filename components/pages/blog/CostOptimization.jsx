@@ -11,7 +11,7 @@ export default function CostOptimization() {
       sub="The economics of CaCO₃ masterbatch and how to achieve 10-25% material cost reduction effortlessly."
       badge="COST OPTIMIZATION"
       badgeColor="#22C55E"
-      date="April 2026"
+      date="3 October 2026"
       readTime="5 min read"
       heroImage="/images/heroes/filler.webp"
       seo={{

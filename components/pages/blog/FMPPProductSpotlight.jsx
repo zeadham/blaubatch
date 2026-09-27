@@ -11,7 +11,7 @@ export default function FMPPProductSpotlight() {
       sub="Purpose-built filler for polypropylene applications, focusing on stiffness and high-temperature processing."
       badge="PRODUCT SPOTLIGHT"
       badgeColor="#2B8DD0"
-      date="April 2026"
+      date="11 October 2026"
       readTime="4 min read"
       heroImage="/images/heroes/FMPP.webp"
       seo={{

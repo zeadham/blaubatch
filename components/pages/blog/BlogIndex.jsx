@@ -54,7 +54,7 @@ export default function BlogIndex() {
                         color: post.tagColor, border: `1px solid ${post.tagColor}33`,
                         borderRadius: 4, padding: '3px 10px', background: `${post.tagColor}08`,
                       }}><T>{post.tag}</T></span>
-                      <span style={{ fontSize: 12, color: 'rgba(20, 27, 62, 0.4)', fontFamily: 'Inter, sans-serif' }}>{post.date} · {post.readTime}</span>
+                      <span style={{ fontSize: 12, color: 'rgba(20, 27, 62, 0.4)', fontFamily: 'Inter, sans-serif' }}><T>{post.date}</T> · <T>{post.readTime}</T></span>
                     </div>
 
                     <h2 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 800, fontSize: 'clamp(18px, 2.5vw, 24px)', color: 'var(--navy)', letterSpacing: '-0.025em', lineHeight: 1.25, marginBottom: 12 }}>

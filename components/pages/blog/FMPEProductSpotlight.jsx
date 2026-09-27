@@ -11,7 +11,7 @@ export default function FMPEProductSpotlight() {
       sub="Inside the engineering of our PE-based filler range, from LLDPE to LDPE carrier systems."
       badge="PRODUCT SPOTLIGHT"
       badgeColor="#2B8DD0"
-      date="April 2026"
+      date="7 October 2026"
       readTime="4 min read"
       heroImage="/images/heroes/FMPE.webp"
       seo={{

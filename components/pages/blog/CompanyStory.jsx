@@ -11,7 +11,7 @@ export default function CompanyStory() {
       sub="How a reliability gap in the MENA masterbatch market led to the founding of Egypt’s most consistent filler manufacturer."
       badge="COMPANY STORY"
       badgeColor="#2B8DD0"
-      date="April 2026"
+      date="25 September 2026"
       readTime="4 min read"
       heroImage="/images/heroes/about.webp"
       seo={{
