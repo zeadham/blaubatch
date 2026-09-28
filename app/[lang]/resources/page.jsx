@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/resources', {
-  title: 'Technical Resources — TDS, Guides & FAQ | Blau Batch',
+  title: 'Technical Resources — TDS, Guides & FAQ',
   description: 'Download technical data sheets, product overviews, processing guides, and certificates of analysis for all Blau Batch masterbatch grades. Plus FAQ and technical articles.',
 })
 

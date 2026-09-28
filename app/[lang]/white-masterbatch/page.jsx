@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/white-masterbatch', {
-  title: 'White Masterbatch — TiO₂ Concentrates | Blau Batch',
+  title: 'White Masterbatch — TiO₂ Concentrates',
   description: 'High-opacity TiO₂-based white masterbatch for PE and PP applications. Food-contact compliant grades available. Distributed across MENA and Europe from Egypt.',
 })
 

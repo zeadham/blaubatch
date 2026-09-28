@@ -218,7 +218,7 @@ function HeroCycler({ active, setActive }) {
         </motion.div>
 
         {/* Stats row */}
-        <motion.div {...fadeUp(0.32)} style={{
+        <motion.div {...fadeUp(0.32)} data-campaign-stats="" style={{
           display: 'flex', gap: 0,
           borderTop: '1px solid rgba(20,27,62,0.08)', paddingTop: 28,
         }}>
@@ -276,6 +276,10 @@ function HeroCycler({ active, setActive }) {
           section[data-campaign-hero] { flex-direction: column !important; min-height: auto !important; }
           section[data-campaign-hero] > div:first-child { flex: none !important; padding: 56px 24px !important; }
           section[data-campaign-hero] > div:last-child { flex: none !important; height: 300px !important; }
+        }
+        @media (max-width: 560px) {
+          [data-campaign-stats] { display: grid !important; grid-template-columns: 1fr 1fr; row-gap: 20px; }
+          [data-campaign-stats] > div { margin: 0 !important; padding: 0 !important; border: none !important; }
         }
       `}</style>
     </section>
@@ -531,8 +535,8 @@ function ProductsSection() {
       </div>
 
       <style>{`
-        @media (max-width: 960px) { #products > div > div:nth-child(3) { grid-template-columns: repeat(2,1fr) !important; } }
-        @media (max-width: 560px) { #products > div > div:nth-child(3) { grid-template-columns: 1fr !important; } #products { padding: 64px 20px !important; } }
+        @media (max-width: 960px) { #products > div > div:nth-child(2) { grid-template-columns: repeat(2,1fr) !important; } }
+        @media (max-width: 560px) { #products > div > div:nth-child(2) { grid-template-columns: 1fr !important; } #products { padding: 64px 20px !important; } }
       `}</style>
     </section>
   )

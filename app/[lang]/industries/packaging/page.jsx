@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/industries/packaging', {
-  title: 'Masterbatch for Packaging & Flexible Film | Blau Batch',
+  title: 'Masterbatch for Packaging & Flexible Film',
   description: 'Filler, white, black, and colour masterbatch for flexible packaging, blown film, cast film, and food-contact applications. Technical grades for the packaging industry — MENA & Europe.',
 })
 

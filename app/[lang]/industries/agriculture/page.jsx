@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/industries/agriculture', {
-  title: 'Masterbatch for Agriculture — Mulch, Greenhouse & Drip Film | Blau Batch',
+  title: 'Masterbatch for Agriculture — Mulch, Greenhouse & Drip Film',
   description: 'UV-stable black masterbatch and additive concentrates for agricultural films — mulch film, greenhouse covers, silage film, and drip irrigation systems for MENA climates.',
 })
 

@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/metadata'
 export const dynamic = 'force-dynamic'
 
 export const generateMetadata = pageMetadata('/fullrange', {
-  title: 'One Supplier for Every Masterbatch Grade | Blau Batch',
+  title: 'One Supplier for Every Masterbatch Grade',
   description: 'Filler masterbatch made in-house plus the complete Coraplast colour, white, black and additive range — one supplier, one invoice across MENA and Europe.',
 })
 

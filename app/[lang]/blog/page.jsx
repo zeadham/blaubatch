@@ -1,7 +1,7 @@
 import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/blog', {
-  title: 'Technical Blog — Masterbatch Insights & Guides | Blau Batch',
+  title: 'Technical Blog — Masterbatch Insights & Guides',
   description: 'In-depth articles on filler masterbatch selection, CaCO₃ loading, carrier systems, UV stabilisation, and quality control — written for plastics engineers and procurement professionals.',
 })
 
