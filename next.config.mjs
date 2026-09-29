@@ -8,6 +8,14 @@ const nextConfig = {
     imageSizes: [32, 64, 128, 256],
   },
 
+  // Addresses from the old Wix site that don't exist on this site, so old links and search results still land.
+  async redirects() {
+    return [
+      { source: '/aboutus', destination: '/about', permanent: true },
+      { source: '/fmcp', destination: '/additive-masterbatch', permanent: true },
+    ]
+  },
+
   async headers() {
     return [
       {
