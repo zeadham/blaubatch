@@ -28,7 +28,7 @@ const CONFIG = {
     'UV stabiliser loading customised to expected service life: 1 season, 3 years, or 5+ years',
     'Black carbon black grades provide combined UV protection and soil-heating effect for mulch',
     'Filler masterbatch at 5–10% reduces blown film cost without compromising tensile strength',
-    'Available with anti-drip additive for greenhouse film to improve condensation management',
+    'Anti-fog additive (AFG 8012) for greenhouse film to improve condensation management',
     'All agricultural grades supplied with TDS showing UV transmittance and weathering data',
   ],
   products: {
@@ -36,17 +36,17 @@ const CONFIG = {
     sub: 'UV protection, filler, and colour grades for all major agricultural film and covering applications.',
     items: [
       {
-        series: 'AMB-UV10',
+        series: 'UVS 168 / 426 / 404',
         tag: 'UV STABILISER',
         name: 'UV Additive Masterbatch',
-        desc: 'HALS-based UV stabiliser in LDPE/LLDPE carrier. For mulch film, greenhouse cover, drip tape, and shade netting. Loading rate guides provided.',
+        desc: 'HALS UV stabilisers in PE carrier at 10%, 15%, and 20% loading. For mulch film, greenhouse cover, and drip tape — UVS 406 / 439 for PP shade netting.',
         href: '/additive-masterbatch',
       },
       {
-        series: 'BMB-PE40',
+        series: 'BLACK 10 FF',
         tag: 'UV STABLE',
         name: 'Black MB — Agricultural',
-        desc: '40% carbon black in LDPE/LLDPE. For mulch film, silage wrap, and drip tape — provides UV protection and soil-heat effect simultaneously.',
+        desc: '40% ISAF carbon black in PE carrier. For mulch film, silage wrap, and drip tape — provides UV protection and soil-heat effect simultaneously.',
         href: '/black-masterbatch',
       },
       {
@@ -63,13 +63,13 @@ const CONFIG = {
         href: '/color-masterbatch',
       },
       {
-        series: 'AMB-SA03',
+        series: 'SLIP CE 105',
         name: 'Slip Additive',
-        desc: 'Erucamide slip agent for improved film-to-film release in greenhouse and mulch film rolls. Reduces friction during mechanical laying.',
+        desc: '5% erucamide slip agent in PE carrier. Improves film-to-film release in greenhouse and mulch film rolls and reduces friction during mechanical laying.',
         href: '/additive-masterbatch',
       },
       {
-        series: 'WMB-PE20',
+        series: 'WHITE 57 FF',
         name: 'White Masterbatch',
         desc: 'Reflective white mulch film grade — increases light reflection to the crop canopy. Used in strawberry, vegetable, and melon cultivation.',
         href: '/white-masterbatch',
@@ -80,8 +80,8 @@ const CONFIG = {
     industryLabel: 'Agricultural Film & Covering',
     defaultProduct: 'Additive MB UV Stabiliser',
     products: [
-      { name: 'UV Stabiliser Additive (AMB-UV10)', sub: 'HALS-based · Mulch & greenhouse film', value: 'Additive MB UV Stabiliser' },
-      { name: 'Black MB — Agricultural (BMB-PE40)', sub: 'UV stable · Mulch film & drip tape', value: 'Black MB UV Stable' },
+      { name: 'UV Stabiliser Additive (UVS series)', sub: 'HALS-based · Mulch & greenhouse film', value: 'Additive MB UV Stabiliser' },
+      { name: 'Black MB — Agricultural (BLACK 10 FF)', sub: 'UV stable · Mulch film & drip tape', value: 'Black MB UV Stable' },
       { name: 'Filler Masterbatch (FMPE)', sub: 'LDPE carrier · Cost reduction in film', value: 'Filler MB PE Series' },
       { name: 'Colour Masterbatch', sub: 'Coloured mulch film', value: 'Colour Masterbatch' },
       { name: 'Not sure yet', sub: "We'll recommend the right grade", value: 'Not sure — need recommendation' },

@@ -31,7 +31,7 @@ const SITEMAP = [
       { label: 'White Masterbatch', path: '/white-masterbatch', desc: 'TiO₂-based white concentrates in PE and PP carriers' },
       { label: 'Black Masterbatch', path: '/black-masterbatch', desc: 'Carbon black concentrates for film, pipe, and cable' },
       { label: 'Colour Masterbatch', path: '/color-masterbatch', desc: 'Full-spectrum RAL/Pantone colour matching in PE & PP' },
-      { label: 'Additive Masterbatch', path: '/additive-masterbatch', desc: 'UV stabilisers, slip/antiblock, flame retardant, optical brighteners' },
+      { label: 'Additive Masterbatch', path: '/additive-masterbatch', desc: 'UV stabilisers, slip/antiblock, anti-static, optical brighteners' },
     ],
   },
   {
@@ -42,7 +42,7 @@ const SITEMAP = [
       { label: 'Pipes, Fittings & Profiles', path: '/industries/pipes', desc: 'PE100 water pipe, gas pipe, profile extrusion' },
       { label: 'Agriculture', path: '/industries/agriculture', desc: 'Greenhouse film, mulch film, silage, irrigation' },
       { label: 'Textiles & Fibre', path: '/industries/textiles', desc: 'Raffia, non-woven, BOPP, carpet yarn' },
-      { label: 'Wire & Cable', path: '/industries/wire-cable', desc: 'Cable jacketing, conduit, insulation, flame retardant' },
+      { label: 'Wire & Cable', path: '/industries/wire-cable', desc: 'Cable jacketing, conduit, insulation, colour coding' },
       { label: 'Automotive', path: '/industries/automotive', desc: 'Interior trim, technical PP parts, under-bonnet' },
     ],
   },

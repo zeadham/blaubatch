@@ -54,7 +54,7 @@ const INDUSTRIES = [
     id: 'wire-cable',
     nameAr: 'الأسلاك والكابلات',
     name: 'Wire & Cable',
-    desc: 'Technical carbon black and flame retardant masterbatch for cable jacketing.',
+    desc: 'Technical carbon black and anti-static masterbatch for cable jacketing.',
     image: '/images/industries cards/wire_cable.png',
     href: '/industries/wire-cable',
   },

@@ -36,9 +36,9 @@ const FEATURES = [
 ]
 
 const WMB_PRODUCTS = [
-  { name: 'WMB-PE Series', sub: 'LDPE/LLDPE carrier · Blown & cast film', value: 'White MB PE Series' },
-  { name: 'WMB-PP Series', sub: 'PP Homopolymer carrier · Raffia & film', value: 'White MB PP Series' },
-  { name: 'Food-Contact Grade', sub: 'EU 10/2011 & FDA compliant', value: 'White MB Food-Contact Grade' },
+  { name: 'White MB — standard', sub: 'WHITE 57 · 71 FF · Blown & cast film', value: 'White MB PE Series' },
+  { name: 'White MB — economy / filled', sub: 'WHITE 220 · 224 · 304 FF · Cost-optimised', value: 'White MB Economy' },
+  { name: 'Food-Contact Grade', sub: 'WHITE 175 FF / 356 FF · FDA & EU', value: 'White MB Food-Contact Grade' },
   { name: 'Not sure yet', sub: "We'll recommend the right grade", value: 'Not sure — need recommendation' },
 ]
 

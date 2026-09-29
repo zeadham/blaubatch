@@ -61,8 +61,8 @@ const PRODUCTS = [
   {
     code: 'ADDITIVE', name: 'Additive Masterbatch', badge: 'CORAPLAST', badgeColor: '#2B8DD0',
     image: '/images/product_cards/Additives.png',
-    desc: 'UV stabilisers, slip/antiblock, anti-static, optical brighteners, and flame retardant grades.',
-    href: '/additive-masterbatch', specs: ['UV / Slip / OB / FR', 'PE / PP Carrier', 'Agricultural & Technical'],
+    desc: 'UV stabilisers, slip/antiblock, anti-static, anti-fog, optical brighteners, and processing aids.',
+    href: '/additive-masterbatch', specs: ['UV / Slip / AST / PPA', 'PE / PP Carrier', 'Agricultural & Technical'],
   },
 ]
 
@@ -72,7 +72,7 @@ const INDUSTRIES = [
   { icon: Leaf,        label: 'Agriculture',        image: '/images/industries cards/agriculture.png',     href: '/industries/agriculture',    desc: 'UV-stabilised grades for mulch, greenhouse & irrigation film' },
   { icon: Factory,     label: 'Textiles & Fibre',   image: '/images/industries cards/textiles.png',       href: '/industries/textiles',       desc: 'Colour & filler for PP non-woven and filament spinning' },
   { icon: Building2,   label: 'Construction',       image: '/images/industries cards/construction.png',    href: '/industries/construction',   desc: 'Geomembrane and waterproofing sheet compounds' },
-  { icon: Cable,       label: 'Wire & Cable',       image: '/images/industries cards/wire_cable.png',      href: '/industries/wire-cable',     desc: 'Carbon black & flame retardant for cable jacketing' },
+  { icon: Cable,       label: 'Wire & Cable',       image: '/images/industries cards/wire_cable.png',      href: '/industries/wire-cable',     desc: 'Carbon black & anti-static for cable jacketing' },
   { icon: Car,         label: 'Automotive',         image: '/images/industries cards/automotive.png',      href: '/industries/automotive',     desc: 'Engineered concentrates for interior & exterior parts' },
   { icon: ShoppingBag, label: 'Consumer Goods',     image: '/images/industries cards/consumer_good.png',  href: '/industries/consumer-goods', desc: 'Food-contact colour for caps, closures & housewares' },
 ]

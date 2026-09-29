@@ -38,19 +38,19 @@ const FEATURES = [
 ]
 
 const BMB_PRODUCTS = [
-  { name: 'BMB-PE Series', sub: 'PE carrier · Film & general applications', value: 'Black MB PE Series' },
-  { name: 'BMB-PP Series', sub: 'PP carrier · Raffia, woven, non-woven', value: 'Black MB PP Series' },
-  { name: 'Pipe Grade (BMB-PIPE)', sub: 'HDPE carrier · PE100 pipe systems', value: 'Black MB Pipe Grade' },
-  { name: 'Cable Grade (BMB-CAB)', sub: 'LDPE carrier · Cable jacketing', value: 'Black MB Cable Grade' },
+  { name: 'Black MB — PE grades', sub: 'BLACK 03 · 10 · 51 FF · Film & general', value: 'Black MB PE Series' },
+  { name: 'Black MB — PP grades', sub: 'BLACK 93 · 210 FF · Raffia & non-woven', value: 'Black MB PP Series' },
+  { name: 'Pipe extrusion (BLACK 03 FF / 51 FF)', sub: 'PE carrier · 45% HAF', value: 'Black MB Pipe Grade' },
+  { name: 'Cable jacketing (BLACK 10 FF)', sub: 'PE carrier · 40% ISAF', value: 'Black MB Cable Grade' },
   { name: 'Not sure yet', sub: "We'll recommend the right grade", value: 'Not sure — need recommendation' },
 ]
 
 const BMB_APPLICATIONS = ['Blown Film', 'Agricultural Film', 'Pipe & Fittings', 'Cable Jacketing', 'Conduit', 'Raffia / Woven', 'Non-woven', 'Injection Moulding']
 
 const BMB_INDUSTRIES = [
-  { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'Black mulch film for weed suppression and soil moisture retention, silage stretch film, and UV-stable irrigation pipe. BMB-PE40 is rated for extended outdoor exposure.', tags: ['Mulch Film', 'Silage Film', 'Irrigation Pipe'] },
-  { image: '/images/industries cards/pipes.png', name: 'Pipes & Infrastructure', href: '/industries/pipes', desc: 'PE100 water mains, gas distribution pipes, and sewage systems. BMB-PIPE meets the specific carbon black dispersion and loading requirements for pressure pipe systems.', tags: ['PE100 Pipe', 'Gas Pipe', 'Water Mains'] },
-  { image: '/images/industries cards/wire_cable.png', name: 'Cable & Wire', href: '/industries/wire-cable', desc: 'Cable jacketing, conduit, and insulation for power and telecommunications. BMB-CAB provides the volume resistivity and UV stability required for outdoor cable systems.', tags: ['Cable Jacketing', 'Conduit', 'Insulation'] },
+  { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'Black mulch film for weed suppression and soil moisture retention, silage stretch film, and UV-stable irrigation pipe. BLACK 10 FF (40% ISAF) is suited to extended outdoor exposure.', tags: ['Mulch Film', 'Silage Film', 'Irrigation Pipe'] },
+  { image: '/images/industries cards/pipes.png', name: 'Pipes & Infrastructure', href: '/industries/pipes', desc: 'PE100 water mains, gas distribution pipes, and sewage systems. BLACK 03 FF / 51 FF (45% HAF) are dosed to the carbon black level pressure-pipe standards call for.', tags: ['PE100 Pipe', 'Gas Pipe', 'Water Mains'] },
+  { image: '/images/industries cards/wire_cable.png', name: 'Cable & Wire', href: '/industries/wire-cable', desc: 'Cable jacketing, conduit, and insulation for power and telecommunications. BLACK 10 FF provides the jet-black finish and UV protection outdoor cable systems need.', tags: ['Cable Jacketing', 'Conduit', 'Insulation'] },
   { image: '/images/industries cards/packaging.png', name: 'Packaging & Film', href: '/industries/packaging', desc: 'Black packaging film, barrier bags, and agricultural packaging. Black MB delivers deep jet-black colour with no grey tone across blown and cast film lines.', tags: ['Black Film', 'Barrier Bags', 'Cast Film'] },
 ]
 
