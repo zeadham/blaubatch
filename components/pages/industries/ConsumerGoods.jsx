@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'Colour Masterbatch',
         desc: 'Full-spectrum colour matching — RAL, Pantone, brand standards — in PP and PE carriers. Food-contact grades, consistent lot-to-lot ΔE for retail brand applications.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'WHITE FF SERIES',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'White Masterbatch',
         desc: 'TiO₂ white concentrates in PE carrier (40–75% TiO₂). High-opacity grades for closures, housewares, and personal care packaging — every grade is food-contact.',
         href: '/white-masterbatch',
+        quote: 'White MB PE Series',
       },
       {
         series: 'FMPP SERIES',
@@ -55,6 +57,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PP)',
         desc: '70–80% CaCO₃ in PP carrier. Reduces material cost in PP housewares, storage, and non-food-contact consumer parts without visible surface impact.',
         href: '/fmpp',
+        quote: 'Filler MB PP Series',
       },
       {
         series: 'AST 349 / 335 / 347',
@@ -62,6 +65,7 @@ const CONFIG = {
         name: 'Anti-static MB',
         desc: 'Anti-static in PE (AST 349) and PS (AST 335, 347) carriers. For appliance housings, electronics packaging, and parts where static charge attracts dust.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Anti-static',
       },
       {
         series: 'SAB 1907 / SLIP 130 / AB 222',
@@ -75,6 +79,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PE)',
         desc: 'LDPE carrier filler masterbatch for HDPE and LDPE consumer goods — bin liners, bags, flexible packaging accessories, and non-food-contact PE mouldings.',
         href: '/fmpe',
+        quote: 'Filler MB PE Series',
       },
     ],
   },

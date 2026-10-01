@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'Black MB — Pipe Extrusion',
         desc: '45% HAF carbon black in PE carrier. Dosed to the carbon black level your pipe standard specifies — typically 2–2.5% for PE100 black pipe. Good dispersion and UV protection.',
         href: '/black-masterbatch',
+        quote: 'Black MB Pipe Grade',
       },
       {
         series: 'BLACK 10 FF',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'Black MB — UV Stable',
         desc: '40% ISAF carbon black in PE carrier. For above-ground pipe, drip tape, and corrugated conduit requiring long-term UV resistance.',
         href: '/black-masterbatch',
+        quote: 'Black MB UV Stable',
       },
       {
         series: 'FMPE SERIES',
@@ -55,18 +57,21 @@ const CONFIG = {
         name: 'Filler Masterbatch',
         desc: '70–80% CaCO₃ in LDPE. Used at low addition levels in drainage pipe and corrugated conduit to improve rigidity and reduce cost.',
         href: '/fmpe',
+        quote: 'Filler MB PE Series',
       },
       {
         series: 'PPA 249 / PROCESSING AID 707',
         name: 'Processing Aid',
         desc: 'PFAS-free PPA (PPA 249) and PPA with antioxidant (PROCESSING AID 707) in PE carrier. Reduce die build-up and melt fracture in pipe and tubing extrusion.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Processing Aid',
       },
       {
         series: 'CMB SERIES',
         name: 'Colour Masterbatch',
         desc: 'Custom colours for pipe system colour-coding (gas — yellow, water — blue, telecom — orange). RAL-matched on request.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'UVS 168 / 426',

@@ -42,24 +42,28 @@ const CONFIG = {
         name: 'Filler Masterbatch',
         desc: '70–80% CaCO₃ in LDPE or PP carrier. Reduces cost, improves stiffness, and boosts printability in blown and cast film.',
         href: '/fmpe',
+        quote: 'Filler MB PE Series',
       },
       {
         series: 'WHITE FF SERIES',
         name: 'White Masterbatch',
         desc: '40–75% TiO₂ in PE carrier. High opacity; every grade is food-contact. For white films, lamination, and opaque packaging.',
         href: '/white-masterbatch',
+        quote: 'White MB PE Series',
       },
       {
         series: 'CMB SERIES',
         name: 'Colour Masterbatch',
         desc: 'RAL/Pantone-matched concentrates for branded packaging. Full gamut, food-contact grades on request.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'SAB 1907 / SLIP 130 / AB 222',
         name: 'Slip & Antiblock',
         desc: 'Slip (oleamide or erucamide), silica antiblock, or both in one grade (SAB 1907). Reduces COF for machine runnability and prevents blocking in film rolls.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Slip/Antiblock',
       },
       {
         series: 'AST 349',

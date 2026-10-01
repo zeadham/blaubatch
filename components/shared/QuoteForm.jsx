@@ -3,6 +3,10 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLocale } from '@/components/LocaleProvider'
+import { trackLead } from '@/lib/analytics'
+
+// Other components can pre-fill this form by dispatching this window event with { product, grade }.
+export const QUOTE_PREFILL_EVENT = 'bb:quote-prefill'
 
 const DEFAULT_PRODUCTS = [
   { name: 'FMPE Series', sub: 'PE Carrier · 70–80% CaCO₃', value: 'FMPE Series — PE Filler Masterbatch' },
@@ -120,6 +124,17 @@ export default function QuoteForm({
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
+  useEffect(() => {
+    const onPrefill = (e) => {
+      const { product: wanted, grade } = e.detail || {}
+      if (wanted && products.some(p => p.value === wanted)) setProduct(wanted)
+      if (grade) setForm(f => ({ ...f, grade }))
+      setOpen(true)
+    }
+    window.addEventListener(QUOTE_PREFILL_EVENT, onPrefill)
+    return () => window.removeEventListener(QUOTE_PREFILL_EVENT, onPrefill)
+  }, [products])
+
   const validateField = (field, value) => {
     let msg = ''
     if (field === 'name' && !value.trim()) msg = t('Full name is required.', 'الاسم الكامل مطلوب.')
@@ -165,6 +180,7 @@ export default function QuoteForm({
       return
     }
     setSubmitting(false)
+    trackLead('quote_form', { product, grade: form.grade || undefined })
     setDone(true)
   }
 

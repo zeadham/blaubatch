@@ -5,8 +5,9 @@ import { motion, useInView } from 'framer-motion'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
 import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
-import QuoteForm from '@/components/shared/QuoteForm'
+import QuoteForm, { QUOTE_PREFILL_EVENT } from '@/components/shared/QuoteForm'
 import { T, useLocale } from '@/components/LocaleProvider'
+import { trackEvent } from '@/lib/analytics'
 
 
 /**
@@ -14,7 +15,7 @@ import { T, useLocale } from '@/components/LocaleProvider'
  * Pass `config` prop with all content data.
  */
 export default function IndustryPage({ config }) {
-  const { isAr } = useLocale()
+  const { isAr, tr } = useLocale()
   const appsRef = useRef(null)
   const appsInView = useInView(appsRef, { once: true, margin: '-60px' })
   const productsRef = useRef(null)
@@ -23,6 +24,15 @@ export default function IndustryPage({ config }) {
   const formInView = useInView(formRef, { once: true, margin: '-60px' })
 
   const { hero, applications, products, keyPoints, quoteForm } = config
+
+  // Keeps the visitor on this page: pre-fills the quote form below with the chosen grade.
+  const requestGrade = (prod) => {
+    window.dispatchEvent(new CustomEvent(QUOTE_PREFILL_EVENT, {
+      detail: { product: prod.quote, grade: `${prod.series} — ${tr(prod.name)}` },
+    }))
+    trackEvent('request_grade', { grade: prod.series, industry: products.industryName })
+    document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <>
@@ -127,18 +137,29 @@ export default function IndustryPage({ config }) {
                   </div>
                   <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}><T>{prod.name}</T></div>
                   <div style={{ fontSize: 15, color: 'rgba(20,27,62,0.55)', lineHeight: 1.6, flex: 1, marginBottom: 16 }}><T>{prod.desc}</T></div>
-                  <Link
-                    href={prod.href}
-                    style={{
-                      display: 'inline-flex', alignItems: 'center', gap: 6,
-                      fontSize: 11, fontFamily: 'Inter, sans-serif', fontWeight: 700,
-                      color: hero.accentColor, letterSpacing: '0.04em',
-                    }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
-                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-                  >
-                    <T>View product </T><ArrowRight size={12} className="flip-rtl" />
-                  </Link>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+                    <button
+                      type="button"
+                      onClick={() => requestGrade(prod)}
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 6,
+                        padding: '9px 14px', borderRadius: 8, border: 'none', cursor: 'pointer',
+                        background: hero.accentColor, color: '#fff',
+                        fontSize: 12, fontFamily: 'Inter, sans-serif', fontWeight: 800, letterSpacing: '0.03em',
+                        transition: 'filter 0.2s',
+                      }}
+                      onMouseEnter={e => e.currentTarget.style.filter = 'brightness(0.92)'}
+                      onMouseLeave={e => e.currentTarget.style.filter = 'none'}
+                    >
+                      <T>Request this grade</T><ArrowRight size={12} className="flip-rtl" />
+                    </button>
+                    <Link
+                      href={prod.href}
+                      style={{ fontSize: 12, fontFamily: 'Inter, sans-serif', fontWeight: 600, color: 'rgba(20,27,62,0.55)', textDecoration: 'underline', textUnderlineOffset: 3 }}
+                    >
+                      <T>View product</T>
+                    </Link>
+                  </div>
                 </motion.div>
               ))}
             </div>

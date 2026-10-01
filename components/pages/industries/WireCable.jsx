@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'Black MB — Cable Jacketing',
         desc: '40% ISAF carbon black in PE carrier. For cable jacketing and conduit — good dispersion, UV protection, and a jet-black finish.',
         href: '/black-masterbatch',
+        quote: 'Black MB Cable Grade',
       },
       {
         series: 'PPA 249 / PROCESSING AID 707',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'Processing Aid',
         desc: 'PFAS-free PPA (PPA 249) or PPA with antioxidant (PROCESSING AID 707 / 709) in PE carrier. Reduces die build-up and melt fracture for smoother cable extrusion.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Processing Aid',
       },
       {
         series: 'AST 349',
@@ -55,6 +57,7 @@ const CONFIG = {
         name: 'Anti-static Masterbatch',
         desc: '15% anti-static in PE carrier. For cable protection sleeves, shielding tubes, and conduit where static build-up attracts dust.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Anti-static',
       },
       {
         series: 'BLACK 08 FF',
@@ -67,6 +70,7 @@ const CONFIG = {
         name: 'Colour Masterbatch',
         desc: 'IEC 60173-compliant colour coding for automotive and industrial wiring harness insulation — red, blue, green/yellow, orange, black, white, grey, brown.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'UVS 404',

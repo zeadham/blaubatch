@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'Black MB — Geomembrane',
         desc: 'High-loading carbon black in PE carrier (60% SRF / 45% HAF) for geomembrane and outdoor construction film. Add UVS 404 where extra UV life is needed.',
         href: '/black-masterbatch',
+        quote: 'Black MB UV Stable',
       },
       {
         series: 'FMPE SERIES',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PE)',
         desc: '70–80% CaCO₃ in LDPE/HDPE carrier. Reduces material cost in geomembrane, drainage board, and construction film applications without compromising tensile or elongation.',
         href: '/fmpe',
+        quote: 'Filler MB PE Series',
       },
       {
         series: 'UVS 404',
@@ -55,6 +57,7 @@ const CONFIG = {
         name: 'UV Stabiliser MB',
         desc: '20% HALS UV stabiliser in PE carrier for extended outdoor weathering resistance — for applications where black pigment alone is not enough.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB UV Stabiliser',
       },
       {
         series: 'PROCESSING AID 707 / 709',
@@ -62,12 +65,14 @@ const CONFIG = {
         name: 'Processing Aid + Antioxidant',
         desc: 'PPA with antioxidant in PE carrier. Reduces die build-up and supports thermal stability in thick-wall pipe and geomembrane extrusion.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Processing Aid',
       },
       {
         series: 'CMB SERIES',
         name: 'Colour Masterbatch',
         desc: 'Site-identification colour coding for geotextile, drainage cell, and building film. Standard construction colours — black, orange, green, white — held in stock.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'FMPP SERIES',
@@ -75,6 +80,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PP)',
         desc: '70–80% CaCO₃ in PP carrier. For PP waterproofing sheet, drainage board, and non-woven geotextile where PP carrier is required.',
         href: '/fmpp',
+        quote: 'Filler MB PP Series',
       },
     ],
   },

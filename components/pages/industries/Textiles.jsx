@@ -40,12 +40,14 @@ const CONFIG = {
         name: 'Colour Masterbatch',
         desc: 'Fibre-grade colour concentrates in PP homopolymer carrier. Full colour gamut, RAL/Pantone matching, MFI-optimised for spinning.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'BLACK 93 FF / 210 FF',
         name: 'Black MB — PP Fibre',
         desc: 'Carbon black in PP carrier (40% ISAF / 35% HMF). For PP non-woven, filament yarn, and raffia — BLACK 93 FF is food-compliant (EU AP 89(1)).',
         href: '/black-masterbatch',
+        quote: 'Black MB Fibre',
       },
       {
         series: 'FMPP SERIES',
@@ -53,6 +55,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PP)',
         desc: '70–80% CaCO₃ in PP homopolymer carrier. Used in raffia, woven sacks, and staple fibre to reduce cost and improve stiffness.',
         href: '/fmpp',
+        quote: 'Filler MB PP Series',
       },
       {
         series: 'BLACK 207 FY / 284 FY',
@@ -60,6 +63,7 @@ const CONFIG = {
         name: 'Black MB — PET Fibre',
         desc: '30% carbon black in PET carrier, made for high-speed filament and fibre spinning.',
         href: '/black-masterbatch',
+        quote: 'Black MB Fibre',
       },
       {
         series: 'BRIGHTNER 1602',
@@ -67,12 +71,14 @@ const CONFIG = {
         name: 'Optical Brightener',
         desc: 'Optical brightener in PE carrier. Lifts whiteness in non-woven, fibre, and woven fabric — ask us about compatibility with your PP line.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Optical Brightener',
       },
       {
         series: 'UVS 406 / 439',
         name: 'UV Stabiliser',
         desc: '20% HALS UV stabiliser in PP carrier for outdoor geotextile and construction fabric that needs long-term UV resistance.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB UV Stabiliser',
       },
     ],
   },

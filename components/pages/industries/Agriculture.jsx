@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'UV Additive Masterbatch',
         desc: 'HALS UV stabilisers in PE carrier at 10%, 15%, and 20% loading. For mulch film, greenhouse cover, and drip tape — UVS 406 / 439 for PP shade netting.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB UV Stabiliser',
       },
       {
         series: 'BLACK 10 FF',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'Black MB — Agricultural',
         desc: '40% ISAF carbon black in PE carrier. For mulch film, silage wrap, and drip tape — provides UV protection and soil-heat effect simultaneously.',
         href: '/black-masterbatch',
+        quote: 'Black MB UV Stable',
       },
       {
         series: 'FMPE SERIES',
@@ -55,12 +57,14 @@ const CONFIG = {
         name: 'Filler Masterbatch',
         desc: '70–80% CaCO₃ in LDPE. Used at 5–12% in agricultural film to reduce cost while maintaining the elongation and tear resistance needed in the field.',
         href: '/fmpe',
+        quote: 'Filler MB PE Series',
       },
       {
         series: 'CMB SERIES',
         name: 'Colour Masterbatch',
         desc: 'Red, green, black, white, and grey for coloured mulch film. Different colours affect soil temperature and weed suppression differently.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'SLIP CE 105',

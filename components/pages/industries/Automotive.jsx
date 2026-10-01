@@ -41,6 +41,7 @@ const CONFIG = {
         name: 'Colour Masterbatch',
         desc: 'Heat-stable, light-stable colour concentrates for PP, ABS, PA, and PC/ABS. OEM RAL/Pantone matching, custom colour development from chip.',
         href: '/color-masterbatch',
+        quote: 'Colour Masterbatch',
       },
       {
         series: 'FMPP SERIES',
@@ -48,6 +49,7 @@ const CONFIG = {
         name: 'Filler Masterbatch (PP)',
         desc: '70–80% CaCO₃ in PP homopolymer. Improves stiffness-to-weight in structural injection mouldings. Reduces material cost in high-volume automotive parts.',
         href: '/fmpp',
+        quote: 'Filler MB PP Series',
       },
       {
         series: 'UVS 406 / 439',
@@ -55,6 +57,7 @@ const CONFIG = {
         name: 'UV Stabiliser MB',
         desc: '20% HALS UV stabiliser in PP carrier. For exterior PP trim and bumper cladding — slows greying, chalking, and colour fade.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB UV Stabiliser',
       },
       {
         series: 'AST 349 / 335 / 347',
@@ -62,12 +65,14 @@ const CONFIG = {
         name: 'Anti-static Masterbatch',
         desc: 'Anti-static concentrates in PE (AST 349) and PS (AST 335, 347) carriers. For housings and covers where static charge attracts dust — ask us about compatibility with your polymer.',
         href: '/additive-masterbatch',
+        quote: 'Additive MB Anti-static',
       },
       {
         series: 'BLACK 210 FF / 93 FF',
         name: 'Black MB — PP',
         desc: 'Carbon black in PP carrier (35% HMF / 40% ISAF). For black PP interior and under-hood mouldings — jet-black finish and UV protection.',
         href: '/black-masterbatch',
+        quote: 'Black MB PP Series',
       },
       {
         series: 'FMPE SERIES',
