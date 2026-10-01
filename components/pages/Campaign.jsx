@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import Image from 'next/image'
 import Link from '@/components/LocalizedLink'
 import { T, useLocale } from '@/components/LocaleProvider'
+import { trackLead } from '@/lib/analytics'
 import {
   ArrowRight, CheckCircle2, Mail, Phone, MessageCircle,
   Factory, Package, Leaf, Wrench, Cable, Car, Building2,
@@ -767,20 +768,26 @@ function LeadFormSection() {
   const [form, setForm] = useState({ product: '', name: '', company: '', email: '', phone: '', country: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [sendError, setSendError] = useState(false)
 
   const update = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
   const handleSubmit = async () => {
     if (!form.name || !form.company || !form.email) return
     setLoading(true)
+    setSendError(false)
+    let ok = false
     try {
-      await fetch('/api/send-quote', {
+      const res = await fetch('/api/send-quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, source: 'Campaign Landing Page' }),
       })
+      ok = res.ok
     } catch (_) {}
     setLoading(false)
+    if (!ok) { setSendError(true); return }
+    trackLead('campaign_form', { product: form.product || undefined })
     setSubmitted(true)
   }
 
@@ -1004,6 +1011,11 @@ function LeadFormSection() {
                 <Mail size={14} />
                 {tr(loading ? 'Sending…' : 'Submit Quote Request')}
               </button>
+              {sendError && (
+                <p role="alert" style={{ fontSize: 13, color: '#EF4444', marginTop: 10, lineHeight: 1.5 }}>
+                  {tr('Could not send your request. Please email info@blaubatch.com directly.')}
+                </p>
+              )}
             </div>
           )}
         </motion.div>

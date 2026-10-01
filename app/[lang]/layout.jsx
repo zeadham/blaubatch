@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsApp from '@/components/WhatsApp'
 import CookieConsent from '@/components/CookieConsent'
+import ContactClickTracker from '@/components/ContactClickTracker'
 
 const GA_ID = 'G-LV0BX0J38H'
 
@@ -168,6 +169,7 @@ export default async function RootLayout({ children, params }) {
           <Footer />
 
           <CookieConsent />
+          <ContactClickTracker />
         </LocaleProvider>
 
         {/* Google Analytics */}

@@ -6,6 +6,7 @@ import { FileText, HelpCircle, BookOpen, Download, ArrowRight, ChevronDown, Chec
 import Link from '@/components/LocalizedLink'
 import PageHero from '@/components/shared/PageHero'
 import { T, useLocale } from '@/components/LocaleProvider'
+import { trackLead } from '@/lib/analytics'
 
 
 const DOCS = [
@@ -147,6 +148,7 @@ function DocRequestForm({ selected, onDeselect }) {
       setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
       return
     }
+    trackLead('document_request', { documents: selected.length })
     setDone(true)
   }
 

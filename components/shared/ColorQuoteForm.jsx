@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { T, useLocale } from '@/components/LocaleProvider'
+import { trackLead } from '@/lib/analytics'
 
 const CARRIERS = [
   'CMB-PE (Polyethylene carrier)',
@@ -135,6 +136,7 @@ export default function ColorQuoteForm() {
       setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
       return
     }
+    trackLead('colour_quote_form', { product: 'Colour Masterbatch' })
     setDone(true)
   }
 
