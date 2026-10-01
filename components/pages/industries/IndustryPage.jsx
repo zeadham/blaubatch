@@ -186,6 +186,7 @@ export default function IndustryPage({ config }) {
             applications={quoteForm.applications}
             step1Title="Select Product Type"
             step1Sub="Choose a masterbatch type for your application"
+            defaultOpen
           />
         </div>
       </section>
