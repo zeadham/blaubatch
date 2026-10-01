@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion'
 import { MapPin, Globe, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import { T, useLocale } from '@/components/LocaleProvider'
+import { trackLead } from '@/lib/analytics'
 
 
 const REGIONS = [
@@ -93,19 +94,36 @@ function FocusInput(props) {
 }
 
 function DistributorForm() {
-  const { tr } = useLocale()
+  const { isAr, tr } = useLocale()
   const [done, setDone] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [sendError, setSendError] = useState(false)
   const [form, setForm] = useState({
     company: '', name: '', email: '', phone: '',
     territory: '', sector: '', volume: '', about: '',
   })
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
-  const submit = () => {
-    if (!form.company || !form.name || !form.email || !form.phone || !form.territory) {
+  const submit = async () => {
+    if (!form.company || !form.name || !form.email || !form.phone || !form.territory || !form.sector || !form.volume) {
       alert(tr('Please fill in all required fields.'))
       return
     }
+    setSending(true)
+    setSendError(false)
+    try {
+      const res = await fetch('/api/send-distributor-application', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, lang: isAr ? 'ar' : 'en' }),
+      })
+      if (!res.ok) throw new Error(`Request failed: ${res.status}`)
+    } catch {
+      setSendError(true)
+      setSending(false)
+      return
+    }
+    trackLead('distributor_application', { territory: form.territory })
     setDone(true)
   }
 
@@ -188,15 +206,21 @@ function DistributorForm() {
         <FocusInput as="textarea" placeholder="Brief description of your company, current supplier relationships, and why you're interested in partnering with Blau Batch..." value={form.about} onChange={e => set('about', e.target.value)} />
       </div>
 
-      <button onClick={submit} style={{
+      {sendError && (
+        <p role="alert" style={{ fontSize: 13, color: '#EF4444', marginBottom: 12 }}>
+          {tr('Could not send your request. Please email info@blaubatch.com directly.')}
+        </p>
+      )}
+
+      <button id="distributor-submit" onClick={submit} disabled={sending} style={{
         width: '100%', padding: '14px', background: '#2B8DD0', color: '#fff', border: 'none',
         borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 700,
-        cursor: 'pointer', transition: 'background 0.3s ease',
+        cursor: sending ? 'wait' : 'pointer', opacity: sending ? 0.7 : 1, transition: 'background 0.3s ease',
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: 8,
       }}
       onMouseEnter={e => e.currentTarget.style.background = '#2B8DD0'}
       onMouseLeave={e => e.currentTarget.style.background = '#2B8DD0'}
-      ><T>Submit Application ↗</T></button>
+      >{sending ? <T>Sending…</T> : <T>Submit Application ↗</T>}</button>
     </div>
   )
 }

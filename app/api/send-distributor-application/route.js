@@ -1,0 +1,168 @@
+import nodemailer from 'nodemailer'
+import { rateLimit } from '@/lib/rate-limit'
+import { headers } from 'next/headers'
+
+const RECIPIENTS = 'adham.zahran@blaubatch.com, zeadham@gmail.com'
+
+// Applicants type free text, so escape it before it goes into the email HTML.
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function row(label, value, bold = false) {
+  if (!value) return ''
+  return `
+    <tr>
+      <td style="padding:9px 14px;color:#666;font-size:13px;width:38%;vertical-align:top;">${label}</td>
+      <td style="padding:9px 14px;color:#111;font-size:13px;${bold ? 'font-weight:700;' : ''}">${String(value).replace(/\n/g, '<br>')}</td>
+    </tr>`
+}
+
+function sectionHeader(title) {
+  return `
+    <tr>
+      <td colspan="2" style="padding:12px 14px 10px;font-family:Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#2E7FD0;border-top:6px solid #f4f6fa;border-bottom:1px solid #e8ecf0;">
+        ${title}
+      </td>
+    </tr>`
+}
+
+function buildHtml(raw) {
+  const d = Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, v ? escapeHtml(v) : '']))
+  const whatsapp = raw.phone ? String(raw.phone).replace(/[^0-9]/g, '') : ''
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f4f6fa;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6fa;padding:32px 16px;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+        <!-- Header -->
+        <tr>
+          <td style="background:#141b3e;padding:28px 32px;border-radius:10px 10px 0 0;">
+            <div style="font-size:10px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#4AAAE0;margin-bottom:10px;">BLAU BATCH · WEBSITE FORM</div>
+            <div style="font-size:22px;font-weight:900;color:#fff;margin-bottom:4px;">Distributor Application</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.55);">${d.territory || 'Unknown market'} · ${d.company || d.name || 'New Applicant'}</div>
+          </td>
+        </tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="background:#fff;border-radius:0 0 10px 10px;padding:8px 0 24px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+
+              ${sectionHeader('Market')}
+              ${row('Country / Territory', d.territory, true)}
+              ${row('Sector Focus', d.sector)}
+              ${row('Annual Volume', d.volume)}
+              ${row('About the Business', d.about)}
+
+              ${sectionHeader('Contact Information')}
+              ${row('Company', d.company, true)}
+              ${row('Name', d.name)}
+              ${row('Email', d.email ? `<a href="mailto:${d.email}" style="color:#2E7FD0;">${d.email}</a>` : '')}
+              ${row('Phone / WhatsApp', d.phone ? `<a href="tel:${d.phone}" style="color:#2E7FD0;">${d.phone}</a>` : '')}
+              ${row('Site Language', raw.lang === 'ar' ? 'Arabic (submitted from /ar)' : '')}
+
+            </table>
+
+            <!-- Reply CTA -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">
+              <tr>
+                <td style="padding:0 20px;">
+                  <div style="background:#f0f7ff;border-left:3px solid #2E7FD0;border-radius:0 6px 6px 0;padding:14px 16px;">
+                    <p style="margin:0;font-size:12px;color:#555;">
+                      Hit <strong>Reply</strong> to respond directly to
+                      <strong>${d.name || 'the applicant'}</strong>
+                      at <a href="mailto:${d.email}" style="color:#2E7FD0;">${d.email || '—'}</a>
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+            ${whatsapp ? `
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:12px;">
+              <tr>
+                <td style="padding:0 20px;">
+                  <a href="https://wa.me/${whatsapp}" style="display:inline-flex;align-items:center;background:#25D366;color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;">
+                    WhatsApp ${d.name || 'Applicant'} →
+                  </a>
+                </td>
+              </tr>
+            </table>` : ''}
+
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="padding:20px 0;text-align:center;">
+            <p style="margin:0;font-size:11px;color:#aaa;">
+              Submitted via <a href="https://blaubatch.com" style="color:#aaa;">blaubatch.com</a> distributor application form
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`
+}
+
+const REQUIRED = ['company', 'name', 'email', 'phone', 'territory', 'sector', 'volume']
+
+export async function POST(request) {
+  try {
+    const headersList = await headers()
+    const ip = headersList.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
+    const { allowed } = rateLimit(`distributor:${ip}`, 5, 60_000)
+    if (!allowed) {
+      return Response.json({ error: 'Too many requests. Please wait a minute and try again.' }, { status: 429 })
+    }
+
+    const d = await request.json()
+
+    if (REQUIRED.some(field => !String(d[field] ?? '').trim())) {
+      return Response.json({ error: 'Please fill in all required fields.' }, { status: 400 })
+    }
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      console.error('Missing GMAIL_USER or GMAIL_APP_PASSWORD env vars')
+      return Response.json({ error: 'Email configuration missing' }, { status: 500 })
+    }
+
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    })
+
+    const subject = `Distributor Application: ${d.territory} — ${d.company}`
+
+    await transporter.sendMail({
+      from: `"Blau Batch Website" <${process.env.GMAIL_USER}>`,
+      to: RECIPIENTS,
+      replyTo: d.email,
+      subject,
+      html: buildHtml(d),
+    })
+
+    return Response.json({ success: true })
+  } catch (error) {
+    console.error('Email send error:', error.message)
+    return Response.json({ error: error.message }, { status: 500 })
+  }
+}
