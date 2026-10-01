@@ -143,7 +143,9 @@ function HeroCycler({ active, setActive }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        padding: '80px 56px 80px 80px',
+        paddingBlock: 80,
+        paddingInlineStart: 80,
+        paddingInlineEnd: 56,
         background: '#ffffff',
         zIndex: 1,
       }}>
@@ -244,16 +246,17 @@ function HeroCycler({ active, setActive }) {
 
       {/* RIGHT — image panel 60% */}
       <div style={{ flex: '0 0 60%', position: 'relative', overflow: 'hidden' }}>
+        {/* Mirrored in Arabic so the pellets still pour towards the text panel */}
         <Image
           src="/images/heroes/campaign_hero.webp"
           alt={isAr ? 'منتجات ماستر باتش من بلاو باتش' : 'Blau Batch masterbatch products'}
           fill priority sizes="60vw"
-          style={{ objectFit: 'cover', objectPosition: 'center center' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center', transform: isAr ? 'scaleX(-1)' : undefined }}
         />
-        {/* Fade to white on left edge — blends into text panel */}
+        {/* Fade to white on the edge next to the text panel */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.35) 18%, transparent 42%)',
+          background: `linear-gradient(to ${isAr ? 'left' : 'right'}, #ffffff 0%, rgba(255,255,255,0.35) 18%, transparent 42%)`,
           pointerEvents: 'none',
         }} />
         {/* Floating badge */}
