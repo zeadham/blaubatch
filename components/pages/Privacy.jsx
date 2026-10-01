@@ -8,8 +8,8 @@ const SECTIONS = [
     title: 'Information We Collect',
     body: [
       'When you submit a quote request, contact form, or enquiry on this website, we collect the information you provide: your name, company name, email address, phone number, and details about your product requirements.',
-      'We may also collect standard server log data (IP address, browser type, pages visited) through our hosting provider (Netlify) for security and performance purposes.',
-      'We do not use tracking cookies, advertising pixels, or third-party analytics beyond the tools described in this policy.',
+      'We may also collect standard server log data (IP address, browser type, pages visited) through our hosting provider (Vercel) for security and performance purposes.',
+      'If you accept analytics cookies, we use Google Analytics to collect usage data such as the pages you visit, your approximate location, your device type, and whether you sent a form or clicked a contact link. We do not use advertising pixels.',
     ],
   },
   {
@@ -32,8 +32,8 @@ const SECTIONS = [
   {
     title: 'Cookies',
     body: [
-      'This website uses no advertising or tracking cookies. We may use minimal session cookies required for the operation of the site. These are not used to identify you personally.',
-      'If we add analytics tools in the future, this policy will be updated accordingly.',
+      'Essential: the site remembers your cookie choice in your browser so it does not ask again. This is not used to identify you. The site never uses advertising cookies.',
+      'Analytics (optional): only if you click Accept, Google Analytics sets cookies (such as _ga) to count visits and understand how the site is used. If you click Decline, Google Analytics is not loaded. You can change your choice at any time using the Cookie settings link at the bottom of every page.',
     ],
   },
   {
@@ -48,7 +48,7 @@ const SECTIONS = [
     body: [
       'Our website is hosted on Vercel. Vercel\'s privacy policy governs how they handle infrastructure-level data (vercel.com/legal/privacy-policy).',
       'We use WhatsApp (Meta) as an optional communication channel. If you initiate a WhatsApp conversation, Meta\'s terms and privacy policy apply to that communication.',
-      'We do not embed social media trackers, advertising networks, or third-party analytics.',
+      'With your consent, we use Google Analytics, provided by Google. Google\'s privacy policy applies to the data it processes (policies.google.com/privacy). We do not embed social media trackers or advertising networks.',
     ],
   },
   {
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', border: '1px solid rgba(43,141,208,0.3)', borderRadius: 4, padding: '5px 14px', display: 'inline-block', marginBottom: 20 }}><T>Legal</T></div>
           <h1 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 900, letterSpacing: '-0.02em', color: '#141B3E', marginBottom: 16, lineHeight: 1.1 }}><T>Privacy Policy</T></h1>
-          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)', lineHeight: 1.8 }}><T>Last updated: March 2026 · Blau Batch Trading &amp; Distribution Co.</T></p>
+          <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.5)', lineHeight: 1.8 }}><T>Last updated: October 2026 · Blau Batch Trading &amp; Distribution Co.</T></p>
         </div>
       </section>
 
