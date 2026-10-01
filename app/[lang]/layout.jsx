@@ -3,14 +3,12 @@ import { notFound } from 'next/navigation'
 import { LOCALES, isRTL } from '@/lib/i18n'
 import { LocaleProvider } from '@/components/LocaleProvider'
 import { AR_DICT } from '@/lib/ar'
-import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import WhatsApp from '@/components/WhatsApp'
 import CookieConsent from '@/components/CookieConsent'
 import ContactClickTracker from '@/components/ContactClickTracker'
-
-const GA_ID = 'G-LV0BX0J38H'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 
 const BASE_URL = 'https://blaubatch.com'
 
@@ -172,19 +170,7 @@ export default async function RootLayout({ children, params }) {
           <ContactClickTracker />
         </LocaleProvider>
 
-        {/* Google Analytics */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-          `}
-        </Script>
+        <GoogleAnalytics />
       </body>
     </html>
   )

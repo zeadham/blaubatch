@@ -2,29 +2,26 @@
 
 import { useState, useEffect } from 'react'
 import { useLocale } from '@/components/LocaleProvider'
-
-const STORAGE_KEY = 'bb_cookie_consent'
+import { getConsent, setConsent, OPEN_COOKIE_SETTINGS_EVENT } from '@/lib/consent'
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false)
   const { t, l } = useLocale()
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (!stored) setVisible(true)
-    } catch {
-      // localStorage not available
-    }
+    if (!getConsent()) setVisible(true)
+    const reopen = () => setVisible(true)
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen)
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen)
   }, [])
 
   const accept = () => {
-    try { localStorage.setItem(STORAGE_KEY, 'accepted') } catch {}
+    setConsent('accepted')
     setVisible(false)
   }
 
   const decline = () => {
-    try { localStorage.setItem(STORAGE_KEY, 'declined') } catch {}
+    setConsent('declined')
     setVisible(false)
   }
 
@@ -51,7 +48,7 @@ export default function CookieConsent() {
         <p style={{
           fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, margin: 0,
         }}>
-          {t('We use essential cookies to keep the site working. We do not use advertising or tracking cookies.', 'نستخدم ملفات تعريف الارتباط الضرورية لضمان عمل الموقع. لا نستخدم ملفات إعلانية أو تتبّعية.')}
+          {t('We use essential cookies to keep the site working. If you accept, we also use Google Analytics cookies to understand how visitors use the site. We never use advertising cookies.', 'نستخدم ملفات تعريف الارتباط الضرورية لضمان عمل الموقع. وإذا وافقت، نستخدم أيضاً ملفات Google Analytics لفهم كيفية استخدام الزوار للموقع. لا نستخدم ملفات إعلانية مطلقاً.')}
           {' '}{t('See our', 'اطّلع على')}{' '}
           <a href={l('/privacy')} style={{ color: '#2B8DD0', fontWeight: 600 }}>{t('Privacy Policy', 'سياسة الخصوصية')}</a>
           {' '}{t('for details.', 'لمزيد من التفاصيل.')}
@@ -60,6 +57,7 @@ export default function CookieConsent() {
 
       <div style={{ display: 'flex', gap: 10 }}>
         <button
+          id="cookie-accept"
           onClick={accept}
           style={{
             flex: 1, padding: '10px 16px', background: '#2B8DD0', color: '#fff',
@@ -73,6 +71,7 @@ export default function CookieConsent() {
           {t('Accept', 'موافق')}
         </button>
         <button
+          id="cookie-decline"
           onClick={decline}
           style={{
             padding: '10px 16px', background: 'transparent', color: 'rgba(20,27,62,0.5)',

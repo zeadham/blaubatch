@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useLocale } from '@/components/LocaleProvider'
+import { openCookieSettings } from '@/lib/consent'
 
 const NAV_COLS = [
   {
@@ -182,17 +183,24 @@ export default function Footer() {
           <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>
             © {new Date().getFullYear()} {t('Blau Batch. All rights reserved.', 'بلاو باتش. جميع الحقوق محفوظة.')}
           </div>
-          <div style={{ display: 'flex', gap: 20 }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px' }}>
             {[
               { label: t('Privacy Policy', 'سياسة الخصوصية'), href: '/privacy' },
               { label: t('Terms & Conditions', 'الشروط والأحكام'), href: '/terms' },
               { label: t('Sitemap', 'خريطة الموقع'), href: '/sitemap' },
             ].map(({ label, href }) => (
-              <a key={label} href={l(href)} style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s' }}
+              <a key={label} href={l(href)} style={{ fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s', whiteSpace: 'nowrap' }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.3)'}
               >{label}</a>
             ))}
+            <button id="footer-cookie-settings" type="button" onClick={openCookieSettings} style={{
+              fontSize: 12, color: 'rgba(255,255,255,0.6)', transition: 'color 0.15s', whiteSpace: 'nowrap',
+              background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: 'inherit',
+            }}
+              onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.7)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.6)'}
+            >{t('Cookie settings', 'إعدادات ملفات تعريف الارتباط')}</button>
           </div>
         </div>
       </motion.div>
