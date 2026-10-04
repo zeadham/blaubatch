@@ -13,7 +13,7 @@ const PILLARS = [
     title: 'Environmental Commitment',
     color: '#22C55E',
     points: [
-      'ISO 14001:2015 certified environmental management system',
+      'Coraplast-made range produced under ISO 14001:2015 certified environmental management',
       'Continuous reduction of production waste and energy consumption',
       'Responsible raw material sourcing from verified supply chains',
       'Factory water recycling and zero-liquid-discharge practices',
@@ -44,7 +44,7 @@ const PILLARS = [
 ]
 
 const ESG_METRICS = [
-  { n: 'ISO 14001', label: 'Environmental Management', color: '#22C55E' },
+  { n: 'ISO 14001', label: 'Coraplast Environmental Management', color: '#22C55E' },
   { n: 'Heavy-metal\nfree', label: 'All pigment systems', color: '#2B8DD0' },
   { n: 'PFAS\nfree', label: 'Processing aid option', color: '#D4840A' },
   { n: 'EU 10/2011', label: 'Food-contact compliance', color: '#22C55E' },
@@ -54,8 +54,8 @@ const COMPLIANCE = [
   { label: 'EU Regulation 10/2011', desc: 'Plastic materials and articles intended to contact food', badge: 'FOOD CONTACT' },
   { label: 'FDA 21 CFR', desc: 'United States food-contact compliance for applicable grades', badge: 'FOOD CONTACT' },
   { label: 'RoHS / REACH', desc: 'Restriction of hazardous substances in pigments and carriers', badge: 'CHEMICAL SAFETY' },
-  { label: 'ISO 14001:2015', desc: 'Certified environmental management system at our facility', badge: 'CERTIFIED' },
-  { label: 'ISO 9001:2015', desc: 'Quality management system — consistent, traceable production', badge: 'CERTIFIED' },
+  { label: 'ISO 14001:2015', desc: 'Certified environmental management at Coraplast, maker of our colour, white, black and additive range', badge: 'CORAPLAST' },
+  { label: 'ISO 9001:2015', desc: 'Certified quality management at Coraplast — consistent, traceable production', badge: 'CORAPLAST' },
   { label: 'SVHC-Free', desc: 'No Substances of Very High Concern in standard formulations', badge: 'REACH' },
 ]
 

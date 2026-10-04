@@ -27,7 +27,7 @@ const PRODUCTS = [
     uvStable: false,
     customFormulation: true,
     tdsCoA: true,
-    iso: true,
+    iso: false,
     sampleAvail: true,
     applications: ['Packaging', 'Agriculture', 'Construction'],
   },
@@ -50,7 +50,7 @@ const PRODUCTS = [
     uvStable: false,
     customFormulation: true,
     tdsCoA: true,
-    iso: true,
+    iso: false,
     sampleAvail: true,
     applications: ['Packaging', 'Textiles', 'Construction'],
   },
@@ -161,7 +161,7 @@ const ROWS = [
   { key: 'uvStable', label: 'UV-Stable Grade' },
   { key: 'customFormulation', label: 'Custom Formulation' },
   { key: 'tdsCoA', label: 'TDS & CoA Provided' },
-  { key: 'iso', label: 'ISO 9001-Aligned' },
+  { key: 'iso', label: 'ISO 9001 Certified Manufacturer' },
   { key: 'sampleAvail', label: 'Sample Available' },
 ]
 

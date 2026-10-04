@@ -3,7 +3,7 @@
 import { useLocale } from '@/components/LocaleProvider'
 
 const PILLS = [
-  ['✓  ISO 9001 Aligned Production', '✓  إنتاج متوافق مع ISO 9001'],
+  ['✓  Batch-Tested Production', '✓  إنتاج مختبَر لكل دفعة'],
   ['✓  In-House Lab Testing', '✓  اختبارات معملية داخلية'],
   ['✓  TDS & CoA Per Shipment', '✓  TDS وCoA مع كل شحنة'],
   ['✓  Coraplast Authorised Distributor', '✓  موزّع معتمد لشركة كورابلاست'],

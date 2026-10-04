@@ -9,8 +9,8 @@ const VALUE_PROPS = [
     icon: ShieldCheck,
     title: 'Quality',
     titleAr: 'الجودة',
-    descriptionAr: 'إنتاج متوافق مع ISO 9001 مع اختبارات معملية داخلية وتتبّع كامل لكل دفعة، وTDS وCoA مع كل شحنة.',
-    description: 'ISO 9001-aligned production with in-house lab testing, full batch traceability, and TDS & CoA per shipment.',
+    descriptionAr: 'إنتاج منتظم الجودة مع اختبارات معملية داخلية وتتبّع كامل لكل دفعة، وTDS وCoA مع كل شحنة.',
+    description: 'Consistent production with in-house lab testing, full batch traceability, and TDS & CoA per shipment.',
   },
   {
     icon: Zap,
