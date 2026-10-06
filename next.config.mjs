@@ -13,6 +13,13 @@ const nextConfig = {
     return [
       { source: '/aboutus', destination: '/about', permanent: true },
       { source: '/fmcp', destination: '/additive-masterbatch', permanent: true },
+      // The original Vercel address is still indexed by Bing, so send it to the real domain.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'blaubatch\\.vercel\\.app' }],
+        destination: 'https://blaubatch.com/:path*',
+        permanent: true,
+      },
     ]
   },
 
