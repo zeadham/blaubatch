@@ -75,7 +75,7 @@ export default function SustainabilityPage() {
         badgeColor="#22C55E"
         title="Responsible Masterbatch"
         titleAccent="For a Circular Economy"
-        sub="European and global buyers increasingly require verifiable ESG commitments. Blau Batch delivers fully compliant, recyclable masterbatch formulations backed by certified environmental management practices."
+        sub="European and global buyers increasingly require verifiable ESG commitments. Blau Batch delivers fully compliant, recyclable masterbatch formulations, and our Coraplast-made range is produced under ISO 14001 certified environmental management."
         split
         bgImage="/images/heroes/sustainability.webp"
         cta={{
