@@ -5,11 +5,13 @@ import { trackEvent } from '@/lib/analytics'
 
 const COMPANY_WHATSAPP = '201022227723'
 
-function contactMethod(href) {
-  if (href.startsWith('mailto:')) return 'email'
-  if (href.startsWith('tel:')) return 'phone'
+// One event per channel, so WhatsApp and phone clicks can be imported into Google Ads as
+// conversions while email clicks stay in Analytics only.
+function contactEvent(href) {
+  if (href.startsWith('mailto:')) return 'email_click'
+  if (href.startsWith('tel:')) return 'phone_click'
   // Share buttons also link to WhatsApp, but only links to our own number are enquiries.
-  if (/wa\.me|whatsapp\.com/.test(href) && href.includes(COMPANY_WHATSAPP)) return 'whatsapp'
+  if (/wa\.me|whatsapp\.com/.test(href) && href.includes(COMPANY_WHATSAPP)) return 'whatsapp_click'
   return null
 }
 
@@ -20,8 +22,8 @@ export default function ContactClickTracker() {
     const onClick = (e) => {
       const link = e.target.closest?.('a[href]')
       if (!link) return
-      const method = contactMethod(link.getAttribute('href'))
-      if (method) trackEvent('contact_click', { method })
+      const eventName = contactEvent(link.getAttribute('href'))
+      if (eventName) trackEvent(eventName)
     }
     document.addEventListener('click', onClick, true)
     return () => document.removeEventListener('click', onClick, true)

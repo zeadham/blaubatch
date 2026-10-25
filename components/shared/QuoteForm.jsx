@@ -180,7 +180,7 @@ export default function QuoteForm({
       return
     }
     setSubmitting(false)
-    trackLead('quote_form', { product, grade: form.grade || undefined })
+    trackLead('quote_form', { product, grade: form.grade || undefined, application: form.application || undefined })
     setDone(true)
   }
 
