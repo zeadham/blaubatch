@@ -69,7 +69,7 @@ const SECTIONS = [
   {
     title: 'Contact',
     body: [
-      'For questions regarding these terms, contact: info@blaubatch.com · +2 0102 222 7723',
+      'For questions regarding these terms, contact: info@blaubatch.com · +20 10 2222 7723',
       'Blau Batch Trading & Distribution Co. · Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt.',
     ],
   },

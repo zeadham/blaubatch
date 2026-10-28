@@ -75,7 +75,7 @@ const jsonLd = {
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+20-102-222-7723',
+        telephone: '+20-10-2222-7723',
         contactType: 'sales',
         email: 'info@blaubatch.com',
         areaServed: ['EG', 'SA', 'AE', 'JO', 'LY', 'EU'],
@@ -93,7 +93,7 @@ const jsonLd = {
       name: 'Blau Batch Trading & Distribution Co.',
       description: 'Manufacturer of Filler Masterbatch and authorised distributor of the Coraplast masterbatch range across MENA and Europe.',
       url: BASE_URL,
-      telephone: '+20-102-222-7723',
+      telephone: '+20-10-2222-7723',
       email: 'info@blaubatch.com',
       priceRange: '$$',
       address: {

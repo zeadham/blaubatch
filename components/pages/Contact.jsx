@@ -50,7 +50,7 @@ export default function ContactPage() {
               {[
                 { icon: Mail, label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
                 { icon: MessageSquare, label: 'WhatsApp', val: 'Message us directly', href: 'https://wa.me/201022227723', green: true },
-                { icon: Phone, label: 'Phone', val: '+2 0102 222 7723', href: 'tel:+201022227723' },
+                { icon: Phone, label: 'Phone', val: '+20 10 2222 7723', href: 'tel:+201022227723' },
                 { icon: Clock, label: 'Response Time', val: 'Within 24 business hours', href: null },
               ].map((c, i) => (
                 <motion.a

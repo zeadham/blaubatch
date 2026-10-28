@@ -61,7 +61,7 @@ const SECTIONS = [
     title: 'Contact',
     body: [
       'Blau Batch — Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt.',
-      'Email: info@blaubatch.com · Phone: +2 0102 222 7723',
+      'Email: info@blaubatch.com · Phone: +20 10 2222 7723',
     ],
   },
 ]
