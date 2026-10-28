@@ -10,8 +10,8 @@ const NAV_COLS = [
     title: 'Products',
     titleAr: 'المنتجات',
     links: [
-      { labelAr: 'ماستر باتش الحشو (FMPE)', label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
-      { labelAr: 'ماستر باتش الحشو (FMPP)', label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
+      { labelAr: 'فيلر ماستر باتش (FMPE)', label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
+      { labelAr: 'فيلر ماستر باتش (FMPP)', label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
       { labelAr: 'ماستر باتش أبيض', label: 'White Masterbatch', href: '/white-masterbatch' },
       { labelAr: 'ماستر باتش أسود', label: 'Black Masterbatch', href: '/black-masterbatch' },
       { labelAr: 'ماستر باتش الإضافات', label: 'Additive Masterbatch', href: '/additive-masterbatch' },
@@ -162,7 +162,7 @@ export default function Footer() {
             { label: t('Office', 'المكتب'), val: t('Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt', 'مبنى أركان بلازا 4، الطابق الرابع، مدينة الشيخ زايد، الجيزة، مصر'), href: 'https://maps.google.com/?q=Arkan+Plaza,+Building+4,+Sheikh+Zayed+City,+Giza,+Egypt' },
             { label: t('Factory', 'المصنع'), val: t('79, 6th Industrial Zone, 6th of October, Egypt', '79، المنطقة الصناعية السادسة، السادس من أكتوبر، مصر'), href: 'https://maps.google.com/?q=79,+6th+Industrial+Zone,+6th+of+October+City,+Egypt' },
             { label: t('Email', 'البريد الإلكتروني'), val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com', ltr: true },
-            { label: t('Phone', 'الهاتف'), val: '+2 0102 222 7723', href: 'tel:+201022227723', ltr: true },
+            { label: t('Phone', 'الهاتف'), val: '+20 10 2222 7723', href: 'tel:+201022227723', ltr: true },
           ].map(item => (
             <div key={item.label}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 6 }}>{item.label}</div>

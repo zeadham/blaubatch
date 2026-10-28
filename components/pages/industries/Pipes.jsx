@@ -26,7 +26,7 @@ const CONFIG = {
   keyPoints: [
     'BLACK 03 FF / 51 FF: 45% HAF carbon black, dosed to reach the 2–2.5% carbon black typical of PE100 black pipe',
     'High-structure carbon black for maximum UV protection and long service life',
-    'UV-stable black grades rated 10+ years outdoor performance for above-ground pipe',
+    'UV-stable black grades for above-ground pipe',
     'Tight dispersion — no agglomerates that could cause stress concentrations in pressure pipe',
     'All pipe-grade concentrates supplied with full TDS, CoA, and material declarations',
     'Colour grades in PP carrier for PPR systems — heat-stable at PPR processing temperatures',

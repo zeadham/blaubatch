@@ -31,7 +31,7 @@ const GRADES = [
 const FEATURES = [
   'High-structure carbon black for superior UV protection',
   'PE and PP carrier systems — broad process compatibility',
-  'UV-stable grades rated for 10+ year outdoor performance',
+  'UV-stable grades for outdoor use',
   'Pipe-grade concentrate meeting PE100 colour requirements',
   'Cable-grade with excellent dispersion and volume resistivity',
   'Tight batch-to-batch colour consistency — jet black, no grey tone',
@@ -49,7 +49,7 @@ const BMB_APPLICATIONS = ['Blown Film', 'Agricultural Film', 'Pipe & Fittings', 
 
 const BMB_INDUSTRIES = [
   { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'Black mulch film for weed suppression and soil moisture retention, silage stretch film, and UV-stable irrigation pipe. BLACK 10 FF (40% ISAF) is suited to extended outdoor exposure.', tags: ['Mulch Film', 'Silage Film', 'Irrigation Pipe'] },
-  { image: '/images/industries cards/pipes.png', name: 'Pipes & Infrastructure', href: '/industries/pipes', desc: 'PE100 water mains, gas distribution pipes, and sewage systems. BLACK 03 FF / 51 FF (45% HAF) are dosed to the carbon black level pressure-pipe standards call for.', tags: ['PE100 Pipe', 'Gas Pipe', 'Water Mains'] },
+  { image: '/images/industries cards/pipes.png', name: 'Pipes & Infrastructure', href: '/industries/pipes', desc: 'PE100 water mains, gas distribution pipes, and sewage systems. BLACK 03 FF / 51 FF (45% HAF) for pressure-pipe applications.', tags: ['PE100 Pipe', 'Gas Pipe', 'Water Mains'] },
   { image: '/images/industries cards/wire_cable.png', name: 'Cable & Wire', href: '/industries/wire-cable', desc: 'Cable jacketing, conduit, and insulation for power and telecommunications. BLACK 10 FF provides the jet-black finish and UV protection outdoor cable systems need.', tags: ['Cable Jacketing', 'Conduit', 'Insulation'] },
   { image: '/images/industries cards/packaging.png', name: 'Packaging & Film', href: '/industries/packaging', desc: 'Black packaging film, barrier bags, and agricultural packaging. Black MB delivers deep jet-black colour with no grey tone across blown and cast film lines.', tags: ['Black Film', 'Barrier Bags', 'Cast Film'] },
 ]
@@ -75,7 +75,7 @@ export default function BlackMBPage() {
         badgeColor="#2B8DD0"
         title="Black Masterbatch"
         titleAccent="BMB Series"
-        sub="High-structure carbon black concentrates engineered for jet-black depth and 10+ year UV protection — for pipes, agricultural film, cable jacketing, and outdoor applications."
+        sub="High-structure carbon black concentrates engineered for jet-black depth and UV protection — for pipes, agricultural film, cable jacketing, and outdoor applications."
         split
         bgImage="/images/heroes/black_masterbatch.webp"
         cta={{
@@ -99,7 +99,8 @@ export default function BlackMBPage() {
                 <T>Black masterbatch is a concentrated dispersion of high-structure carbon black in a polymer carrier resin. Carbon black delivers deep, uniform black colouration and, critically, functions as a UV absorber — protecting the polymer matrix from photodegradation under prolonged outdoor exposure.</T>
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
-                {['Carbon Black', 'LDPE / LLDPE Carrier', 'PP Carrier', 'HDPE Carrier', '25–40% CB Loading'].map(s => (
+                {/* TODO: confirm CB loading range with Coraplast TDS (also stated in the grades paragraph below) */}
+                {['Carbon Black', 'LDPE / LLDPE Carrier', 'PP Carrier', 'HDPE Carrier', '30–60% CB Loading'].map(s => (
                   <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}><T>{s}</T></span>
                 ))}
               </div>
@@ -110,7 +111,7 @@ export default function BlackMBPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>UV Protection</T></div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>10+ Year Outdoor Performance</T></h3>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>UV-Stable Grades for Outdoor Use</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
                   <T>High-structure carbon black absorbs UV radiation and converts it to heat, preventing chain scission in the polymer matrix. Multiple PE-carrier grades are rated for extended outdoor service life in agricultural, cable, and pipe applications.</T>
                 </p>
@@ -118,6 +119,7 @@ export default function BlackMBPage() {
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748B', marginBottom: 10 }}><T>Grade Range</T></div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>PE, PP & PET Systems</T></h3>
+                  {/* TODO: confirm CB loading range with Coraplast TDS */}
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
                   <T>15 grades across PE, PP, and PET carriers — covering standard film, food-contact, filled, and fibre/filament applications. CB loadings from 30% to 60%. Custom grades available on request.</T>
                 </p>

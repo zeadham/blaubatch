@@ -6,7 +6,7 @@ import Link from '@/components/LocalizedLink'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
-import { T } from '@/components/LocaleProvider'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 
 const FMPE_PRODUCTS = [
@@ -49,11 +49,12 @@ const KEY_SPECS = ['Calcium Carbonate (CaCO₃)', 'LDPE / LLDPE / HDPE Carrier',
 const FMPE_INDUSTRIES = [
   { image: '/images/industries cards/packaging.png',     name: 'Packaging & Flexible Film', href: '/industries/packaging',    desc: 'Blown film bags, FFS film, stretch wrap, and general PE packaging. FMPE reduces raw material cost while maintaining tensile strength and seal integrity.',                              tags: ['Blown Film', 'FFS Film', 'Stretch Wrap'] },
   { image: '/images/industries cards/agriculture.png',   name: 'Agriculture',               href: '/industries/agriculture',   desc: 'Greenhouse covers, mulch film, silage wrap, and irrigation tubes. FMPE combined with UV additive masterbatch gives optimal cost and outdoor performance.',              tags: ['Greenhouse Film', 'Mulch Film', 'Silage Wrap'] },
-  { image: '/images/industries cards/construction.png',  name: 'Construction & Sheeting',   href: '/industries/construction',  desc: 'Construction barrier film, damp-proof membranes, and geomembrane sheets. High CaCO₃ loading improves stiffness without adding weight.',                             tags: ['Barrier Film', 'DPM', 'Geomembrane'] },
+  { image: '/images/industries cards/construction.png',  name: 'Construction & Sheeting',   href: '/industries/construction',  desc: 'Construction barrier film, damp-proof membranes, and geomembrane sheets. High CaCO₃ loading improves stiffness.',                             tags: ['Barrier Film', 'DPM', 'Geomembrane'] },
   { image: '/images/industries cards/consumer_good.png',href: '/industries/consumer-goods', name: 'Consumer Goods',                                               desc: 'Household film products, carrier bags, and bin liners. FMPE delivers the cost reduction and opacity needed for high-volume commodity applications.',               tags: ['Carrier Bags', 'Bin Liners', 'Household Film'] },
 ]
 
 export default function FMPEPage() {
+  const { isAr, tr } = useLocale()
   const introRef = useRef(null)
   const introInView = useInView(introRef, { once: true, margin: '-60px' })
   const specsRef = useRef(null)
@@ -76,8 +77,8 @@ export default function FMPEPage() {
         breadcrumb={{ current: 'FMPE Series', parent: 'Products', parentHref: '/#products' }}
         badge="IN-HOUSE MANUFACTURED"
         badgeColor="#D4840A"
-        title="PE Filler Masterbatch"
-        titleAccent="FMPE Series"
+        title={isAr ? 'سلسلة FMPE — فيلر ماستر باتش بحامل PE' : 'PE Filler Masterbatch'}
+        titleAccent={isAr ? undefined : 'FMPE Series'}
         sub="CaCO₃-based filler masterbatch on polyethylene carrier — produced at our 6th of October facility. Three grades for blown film, cast film, extrusion, and injection moulding."
         split
         bgImage="/images/heroes/FMPE.webp"
@@ -242,7 +243,7 @@ export default function FMPEPage() {
                   className={ind.href ? 'ind-link' : undefined}
                 >
                   <div style={{ height: 160, overflow: 'hidden' }}>
-                    <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                    <img src={ind.image} alt={tr(ind.name)} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
                     <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>

@@ -48,7 +48,7 @@ export default function CookieConsent() {
         <p style={{
           fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.7, margin: 0,
         }}>
-          {t('We use essential cookies to keep the site working. If you accept, we also use Google Analytics cookies to understand how visitors use the site. We never use advertising cookies.', 'نستخدم ملفات تعريف الارتباط الضرورية لضمان عمل الموقع. وإذا وافقت، نستخدم أيضاً ملفات Google Analytics لفهم كيفية استخدام الزوار للموقع. لا نستخدم ملفات إعلانية مطلقاً.')}
+          {t('We use essential cookies to keep the site working. If you accept, we also use Google Analytics and Google Ads cookies to understand how visitors use the site and to measure enquiries from our ads. If you decline, neither is loaded.', 'نستخدم ملفات تعريف الارتباط الضرورية لضمان عمل الموقع. وإذا وافقت، نستخدم أيضاً ملفات Google Analytics وGoogle Ads لفهم كيفية استخدام الزوار للموقع وقياس الاستفسارات الواردة من إعلاناتنا. وإذا رفضت، لا يُحمَّل أيٌّ منهما.')}
           {' '}{t('See our', 'اطّلع على')}{' '}
           <a href={l('/privacy')} style={{ color: '#2B8DD0', fontWeight: 600 }}>{t('Privacy Policy', 'سياسة الخصوصية')}</a>
           {' '}{t('for details.', 'لمزيد من التفاصيل.')}

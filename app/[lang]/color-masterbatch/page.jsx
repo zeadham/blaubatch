@@ -2,7 +2,7 @@ import { pageMetadata } from '@/lib/metadata'
 
 export const generateMetadata = pageMetadata('/color-masterbatch', {
   title: 'Colour Masterbatch — RAL, Pantone & Custom Matching',
-  description: 'Full-spectrum colour masterbatch in PE and PP carriers. RAL and Pantone matching, custom colour development, and food-contact grades. Coraplast range distributed across MENA.',
+  description: 'Full-spectrum colour masterbatch in PE and PP carriers. RAL and Pantone matching, custom colour development, and food-contact grades. The Coraplast range across MENA and Europe.',
 })
 
 import ColorMB from '@/components/pages/ColorMB'

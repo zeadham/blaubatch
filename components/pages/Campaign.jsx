@@ -857,7 +857,7 @@ function LeadFormSection() {
           <motion.div {...inFade(inView, 0.24)} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {[
               { icon: Mail,          label: 'Email',     val: 'info@blaubatch.com',     href: 'mailto:info@blaubatch.com',        color: '#2B8DD0' },
-              { icon: Phone,         label: 'Phone',     val: '+2 0102 222 7723',       href: 'tel:+201022227723',               color: '#2B8DD0' },
+              { icon: Phone,         label: 'Phone',     val: '+20 10 2222 7723',       href: 'tel:+201022227723',               color: '#2B8DD0' },
               { icon: MessageCircle, label: 'WhatsApp',  val: 'Message us directly',    href: 'https://wa.me/201022227723',      color: '#25D366' },
             ].map(c => (
               <a key={c.label} href={c.href}

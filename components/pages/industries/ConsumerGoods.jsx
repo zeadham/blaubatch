@@ -24,7 +24,7 @@ const CONFIG = {
     ],
   },
   keyPoints: [
-    'Food-contact white grades (WHITE 175 FF / 356 FF) — FDA and EU compliant',
+    'Food-contact white grades (WHITE 175 FF / 356 FF) — declarations on request',
     'Colour lot-to-lot ΔE < 0.5 consistency for retail brand colour standards — maintained across production runs',
     'Migration-tested pigment systems for toy applications — EN 71-3 / RoHS relevant grades available',
     'Anti-static masterbatch (AST 349 / 335 / 347) for appliance and electronics housings',

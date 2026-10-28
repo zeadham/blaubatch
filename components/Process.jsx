@@ -6,7 +6,7 @@ import { MessageSquare, FlaskConical, Package, Truck, HeadphonesIcon } from 'luc
 import { useLocale } from '@/components/LocaleProvider'
 
 const STEPS = [
-  { icon: MessageSquare, n: '01', title: 'Enquiry & Specification', body: 'Send your polymer type, application, and volume. Quote within 24 hours.', titleAr: 'الاستفسار والمواصفات', bodyAr: 'أرسل نوع البوليمر والتطبيق والكمية. نوافيك بعرض السعر خلال 24 ساعة.', color: '#2B8DD0' },
+  { icon: MessageSquare, n: '01', title: 'Enquiry & Specification', body: 'Send your polymer type, application, and volume. Quote within 24 hours.', titleAr: 'الاستفسار والمواصفات', bodyAr: 'أرسل نوع البوليمر والتطبيق والكمية. نرسل لك عرض السعر خلال 24 ساعة.', color: '#2B8DD0' },
   { icon: FlaskConical, n: '02', title: 'Formulation & Sample', body: 'Standard grades from stock, or custom formulation developed to your spec.', titleAr: 'التركيب والعيّنة', bodyAr: 'درجات قياسية من المخزون، أو تركيبة مخصصة تُطوَّر وفق مواصفاتك.', color: '#2B8DD0' },
   { icon: Package, n: '03', title: 'Production & QC', body: 'In-house lab testing on every batch. TDS and CoA issued before dispatch.', titleAr: 'الإنتاج ومراقبة الجودة', bodyAr: 'اختبارات معملية داخلية لكل دفعة. تُصدر TDS وCoA قبل الشحن.', color: '#D4840A' },
   { icon: Truck, n: '04', title: 'Packaging & Dispatch', body: '25 kg bags or FIBC. Full export documentation for international orders.', titleAr: 'التغليف والشحن', bodyAr: 'أكياس 25 كجم أو FIBC. مستندات تصدير كاملة للطلبات الدولية.', color: '#2B8DD0' },

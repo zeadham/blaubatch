@@ -6,7 +6,7 @@ import Link from '@/components/LocalizedLink'
 import { CheckCircle2, ChevronDown } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import QuoteForm from '@/components/shared/QuoteForm'
-import { T } from '@/components/LocaleProvider'
+import { T, useLocale } from '@/components/LocaleProvider'
 
 
 const FMPP_PRODUCTS = [
@@ -54,6 +54,7 @@ const FMPP_INDUSTRIES = [
 ]
 
 export default function FMPPPage() {
+  const { isAr, tr } = useLocale()
   const introRef = useRef(null)
   const introInView = useInView(introRef, { once: true, margin: '-60px' })
   const specsRef = useRef(null)
@@ -76,8 +77,8 @@ export default function FMPPPage() {
         breadcrumb={{ current: 'FMPP Series', parent: 'Products', parentHref: '/#products' }}
         badge="IN-HOUSE MANUFACTURED"
         badgeColor="#D4840A"
-        title="PP Filler Masterbatch"
-        titleAccent="FMPP Series"
+        title={isAr ? 'سلسلة FMPP — فيلر ماستر باتش بحامل PP' : 'PP Filler Masterbatch'}
+        titleAccent={isAr ? undefined : 'FMPP Series'}
         sub="CaCO₃-based filler masterbatch on polypropylene carrier — produced at our 6th of October facility. Three grades for raffia, non-woven, BOPP film, and injection moulding."
         split
         bgImage="/images/heroes/FMPP.webp"
@@ -242,7 +243,7 @@ export default function FMPPPage() {
                   className={ind.href ? 'ind-link' : undefined}
                 >
                   <div style={{ height: 160, overflow: 'hidden' }}>
-                    <img src={ind.image} alt={ind.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
+                    <img src={ind.image} alt={tr(ind.name)} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} />
                   </div>
                   <div style={{ padding: '18px 18px 20px' }}>
                     <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, fontWeight: 800, marginBottom: 8, color: '#141B3E' }}><T>{ind.name}</T></div>

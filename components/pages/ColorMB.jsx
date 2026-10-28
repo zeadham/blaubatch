@@ -11,9 +11,9 @@ import { T } from '@/components/LocaleProvider'
 
 
 const FAMILIES = [
-  { name: 'Standard Colours',          sub: 'RAL & Pantone library',       desc: 'Over 2,000 stocked references across RAL Classic, RAL Design, and Pantone TPX systems — ready for immediate sampling.', icon: Palette },
-  { name: 'Custom Matching',           sub: 'Colour lab service',          desc: 'Submit a physical sample, brand reference, or colour code. We return matched pellets and a ΔE report within 5 business days.', icon: FlaskConical },
-  { name: 'Food-Contact Grades',       sub: 'EU 10/2011 & FDA',            desc: 'White, black, and colour masterbatch grades compliant with EU 10/2011 Regulation and FDA 21 CFR for food packaging applications.', icon: Leaf },
+  { name: 'Standard Colours',          sub: 'RAL & Pantone library',       desc: 'Colours referenced to RAL Classic, RAL Design, and Pantone TPX systems — ready for sampling.', icon: Palette },
+  { name: 'Custom Matching',           sub: 'Colour lab service',          desc: 'Submit a physical sample, brand reference, or colour code. We return matched pellets with a ΔE report.', icon: FlaskConical },
+  { name: 'Food-Contact Grades',       sub: 'Declarations on request',      desc: 'White, black, and colour masterbatch grades for food packaging applications. Declarations on request.', icon: Leaf },
   { name: 'UV-Stable Colours',         sub: 'Lightfastness 7–8',           desc: 'Outdoor-grade colours with ISO 105-B02 lightfastness ratings ≥7. Suitable for agricultural film, pipe, and construction profiles.', icon: Sun },
   { name: 'Masterbatch for Film',      sub: 'Blown & cast film grades',    desc: 'Low MFI concentrates designed for thin film lines — excellent dispersibility, no gels, optimised let-down ratios.', icon: Film },
   { name: 'Engineering Polymer Grades',sub: 'ABS · PA · PC · PET',        desc: 'High-temperature stable pigment systems for ABS, polyamide, polycarbonate, and PET resins.', icon: Settings },
@@ -21,16 +21,15 @@ const FAMILIES = [
 
 const FEATURES = [
   'Coraplast-sourced — ISO 9001 and ISO 14001 certified manufacturing',
-  'Consistent batch-to-batch ΔE ≤ 0.5 across production runs',
   'Wide carrier compatibility — PE, PP, PS, ABS, PA, PC, PET',
   'Typical let-down ratio 1–3% for standard applications',
-  'Food-contact grades available with full regulatory documentation',
+  'Food-contact grades available — declarations on request',
   'Custom development from physical sample or digital colour reference',
 ]
 
 const CMB_INDUSTRIES = [
   { image: '/images/industries cards/consumer_good.png', href: '/industries/consumer-goods', name: 'Consumer Goods',      desc: 'Coloured packaging, household products, toys, and personal care containers. Colour MB enables brand-consistent RAL/Pantone shades across PE and PP substrates.',                              tags: ['Household', 'Personal Care', 'Toys'] },
-  { image: '/images/industries cards/packaging.png',      name: 'Packaging & Retail',  href: '/industries/packaging', desc: 'Branded retail packaging, coloured film, and decorative bags. Custom colour development from reference samples or RAL/Pantone codes with ΔE ≤ 0.5 consistency.',     tags: ['Retail Packaging', 'Coloured Film', 'Bags'] },
+  { image: '/images/industries cards/packaging.png',      name: 'Packaging & Retail',  href: '/industries/packaging', desc: 'Branded retail packaging, coloured film, and decorative bags. Custom colour development from reference samples or RAL/Pantone codes.',     tags: ['Retail Packaging', 'Coloured Film', 'Bags'] },
   { image: '/images/industries cards/automotive.png',     name: 'Automotive',          href: '/industries/automotive', desc: 'Interior trim components, technical parts, and under-bonnet applications in PP and PA compounds. Colour matched to OEM specifications with heat-stable pigment systems.', tags: ['Interior Trim', 'Technical Parts', 'PP Compounds'] },
   { image: '/images/industries cards/textiles.png',       name: 'Textiles & Non-Woven',href: '/industries/textiles',  desc: 'Coloured fibres, carpet backing yarns, and coloured non-wovens. Colour MB in PP carrier for fibre and non-woven applications with controlled MFI.',                    tags: ['Coloured Fibre', 'Carpet Yarn', 'NW Fabric'] },
 ]
@@ -56,7 +55,7 @@ export default function ColorMBPage() {
         badgeColor="#2B8DD0"
         title="Colour Masterbatch"
         titleAccent="Full Spectrum Solutions"
-        sub="Exact colour matching across RAL and Pantone systems, custom colour development, and food-contact compliant grades — for PE, PP, PS, ABS, PA, PC, and PET."
+        sub="Exact colour matching across RAL and Pantone systems, custom colour development, and food-contact grades — for PE, PP, PS, ABS, PA, PC, and PET."
         split
         bgImage="/images/heroes/Color_masterbatch.webp"
         cta={{
@@ -85,7 +84,7 @@ export default function ColorMBPage() {
                 ))}
               </div>
               <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.85 }}>
-                <T>Carrier systems cover PE, PP, PS, ABS, PA, PC, and PET — with typical let-down ratios of 1–3% for standard applications. Over 2,000 stocked colour references, plus full custom matching capability from any reference.</T>
+                <T>Carrier systems cover PE, PP, PS, ABS, PA, PC, and PET — with typical let-down ratios of 1–3% for standard applications, with full custom matching capability from any colour reference.</T>
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -93,14 +92,14 @@ export default function ColorMBPage() {
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Colour Development</T></div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>RAL, Pantone & Custom Matching</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  <T>Submit a physical sample, RAL code, Pantone reference, or hex value. Matched pellets and a full ΔE measurement report are returned within 5 business days. Batch-to-batch ΔE ≤ 0.5 guaranteed in production.</T>
+                  <T>Submit a physical sample, RAL code, Pantone reference, or hex value. Matched pellets are returned with a full ΔE measurement report.</T>
                 </p>
               </div>
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Food-Contact & Regulatory</T></div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>EU 10/2011 & FDA Compliant</T></h3>
+                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Food-Contact</T></div>
+                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>Food-Contact Grades Available</T></h3>
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  <T>Food-contact grades available for PE, PP, and PET substrates. Full regulatory documentation supplied — EU Regulation 10/2011 and FDA 21 CFR declarations provided on request.</T>
+                  <T>Food-contact grades available. Declarations on request.</T>
                 </p>
               </div>
             </div>
@@ -144,7 +143,7 @@ export default function ColorMBPage() {
                   style={{ overflow: 'hidden' }}
                 >
                   <div style={{ paddingTop: 24 }}>
-                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The families below represent a sample of our colour masterbatch range — we carry over 2,000 stocked references plus full custom development capability. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us with your colour target and we'll match it.</T></strong></p>
+                    <p style={{ fontSize: 14, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 620, marginBottom: 32 }}><T>The families below represent a sample of our colour masterbatch range, with full custom development capability. All grades supplied with TDS and CoA. </T><strong style={{ color: '#141B3E' }}><T>Contact us with your colour target and we'll match it.</T></strong></p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 40 }}>
               {FAMILIES.map((f, i) => (
@@ -177,7 +176,7 @@ export default function ColorMBPage() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '14px 20px', background: 'rgba(43,141,208,0.05)', border: '1px solid rgba(43,141,208,0.15)', borderRadius: 10, marginBottom: 32 }}>
               <span style={{ fontSize: 18 }}>ℹ️</span>
               <p style={{ fontSize: 13, color: 'rgba(20,27,62,0.65)', lineHeight: 1.6 }}>
-                <T>This is a sample of our colour capabilities. We match any RAL, Pantone, or physical reference across all major carrier resins — with ΔE ≤ 0.5 batch consistency. </T><strong style={{ color: '#2B8DD0' }}><T>Contact us to request a sample or start a colour development project.</T></strong>
+                <T>This is a sample of our colour capabilities. We match any RAL, Pantone, or physical reference across all major carrier resins. </T><strong style={{ color: '#2B8DD0' }}><T>Contact us to request a sample or start a colour development project.</T></strong>
               </p>
             </div>
 

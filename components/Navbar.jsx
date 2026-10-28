@@ -9,8 +9,8 @@ import { useLocale } from '@/components/LocaleProvider'
 import { alternatePath, isTranslatedRoute } from '@/lib/i18n'
 
 const PRODUCTS = [
-  { name: 'Filler Masterbatch (PE)', ar: 'ماستر باتش الحشو (PE)', sub: 'FMPE Series · 70–80% CaCO₃', subAr: 'سلسلة FMPE · 70–80% كربونات الكالسيوم', href: '/fmpe', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
-  { name: 'Filler Masterbatch (PP)', ar: 'ماستر باتش الحشو (PP)', sub: 'FMPP Series · 70–80% CaCO₃', subAr: 'سلسلة FMPP · 70–80% كربونات الكالسيوم', href: '/fmpp', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
+  { name: 'Filler Masterbatch (PE)', ar: 'فيلر ماستر باتش (PE)', sub: 'FMPE Series · 70–80% CaCO₃', subAr: 'سلسلة FMPE · 70–80% كربونات الكالسيوم', href: '/fmpe', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
+  { name: 'Filler Masterbatch (PP)', ar: 'فيلر ماستر باتش (PP)', sub: 'FMPP Series · 70–80% CaCO₃', subAr: 'سلسلة FMPP · 70–80% كربونات الكالسيوم', href: '/fmpp', badge: 'MANUFACTURED', badgeAr: 'تصنيع محلي' },
   { name: 'White Masterbatch', ar: 'ماستر باتش أبيض', sub: 'TiO₂-based, food-contact grades', subAr: 'أساسه TiO₂، درجات ملامسة الأغذية', href: '/white-masterbatch' },
   { name: 'Black Masterbatch', ar: 'ماستر باتش أسود', sub: 'UV-stable, pipe & cable grades', subAr: 'مقاوم للأشعة فوق البنفسجية، درجات للمواسير والكابلات', href: '/black-masterbatch' },
   { name: 'Colour Masterbatch', ar: 'ماستر باتش ملوّن', sub: 'RAL/Pantone, custom matching', subAr: 'مطابقة RAL/Pantone وألوان مخصصة', href: '/color-masterbatch' },

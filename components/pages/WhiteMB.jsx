@@ -16,20 +16,20 @@ const GRADES = [
   { code: 'WHITE 57 FF',  carrier: 'PE',  content: '60% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Standard',     food: true },
   { code: 'WHITE 71 FF',  carrier: 'PE',  content: '70% TiO₂',          app: 'Film, Inj. moulding, Blow moulding',           note: 'High Opacity', food: true },
   { code: 'WHITE 71 FE',  carrier: 'PE',  content: '78% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'High Loading', food: true },
-  { code: 'WHITE 175 FF', carrier: 'PE',  content: '75% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'FDA + EU',     food: true },
+  { code: 'WHITE 175 FF', carrier: 'PE',  content: '75% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Food contact', food: true },
   { code: 'WHITE 220 FF', carrier: 'PE',  content: '80% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'Ultra High',   food: true },
   { code: 'WHITE 224 FF', carrier: 'PE',  content: '40% TiO₂ + filler', app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Economy',      food: true },
   { code: 'WHITE 304 FF', carrier: 'PE',  content: '40% TiO₂ + 40% CaCO₃', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Filled',       food: true },
   { code: 'WHITE 309 FF', carrier: 'PE',  content: '75% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'High Loading', food: true },
   { code: 'WHITE 313 FF', carrier: 'PE',  content: '40% TiO₂ + 30% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Filled',       food: true },
-  { code: 'WHITE 356 FF', carrier: 'PE',  content: '70% TiO₂ + 12% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'FDA + EU',     food: true },
+  { code: 'WHITE 356 FF', carrier: 'PE',  content: '70% TiO₂ + 12% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Food contact', food: true },
   { code: 'WHITE 491 MD', carrier: 'PET', content: '70% TiO₂',          app: 'PET — Inj. moulding, Extrusion, Blow moulding', note: 'PET Grade',  food: true },
 ]
 
 const FEATURES = [
   'TiO₂ rutile grade — superior opacity and brightness',
   'PE and PP carrier systems for wide compatibility',
-  'Food-contact compliant grades (EU 10/2011 & FDA)',
+  'Food-contact grades available — declarations on request',
   'Consistent blue-white tones with high CIE whiteness index',
   'Excellent dispersion — no agglomerates or streaks',
   'Available in standard 25 kg bags and 500 kg FIBC',
@@ -38,7 +38,7 @@ const FEATURES = [
 const WMB_PRODUCTS = [
   { name: 'White MB — standard', sub: 'WHITE 57 · 71 FF · Blown & cast film', value: 'White MB PE Series' },
   { name: 'White MB — economy / filled', sub: 'WHITE 220 · 224 · 304 FF · Cost-optimised', value: 'White MB Economy' },
-  { name: 'Food-Contact Grade', sub: 'WHITE 175 FF / 356 FF · FDA & EU', value: 'White MB Food-Contact Grade' },
+  { name: 'Food-Contact Grade', sub: 'WHITE 175 FF / 356 FF', value: 'White MB Food-Contact Grade' },
   { name: 'Not sure yet', sub: "We'll recommend the right grade", value: 'Not sure — need recommendation' },
 ]
 
@@ -48,7 +48,7 @@ const WMB_INDUSTRIES = [
   { image: '/images/industries cards/packaging.png', name: 'Packaging & Flexible Film', href: '/industries/packaging', desc: 'White food packaging, lamination film, stand-up pouches, and retail bags. White MB delivers the opacity and brightness required for branded packaging.', tags: ['Food Packaging', 'Stand-Up Pouches', 'Lamination'] },
   { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'White mulch film for soil temperature control, tunnel covers, and greenhouse film. Provides reflectivity and UV performance required for agricultural applications.', tags: ['Mulch Film', 'Tunnel Covers', 'Greenhouse'] },
   { image: '/images/industries cards/consumer_good.png', href: '/industries/consumer-goods', name: 'Consumer Goods', desc: 'White containers, caps, closures, and household products in PE and PP. White MB ensures batch-consistent whiteness across injection moulded and blown parts.', tags: ['Containers', 'Caps & Closures', 'Household'] },
-  { image: '/images/industries cards/textiles.png', name: 'Non-Woven', href: '/industries/textiles', desc: 'White hygiene nonwovens for diapers, wipes, and medical textiles. Food-contact and medical-grade white MB available on request.', tags: ['Hygiene NW', 'Medical Textile', 'Spunbond'] },
+  { image: '/images/industries cards/textiles.png', name: 'Non-Woven', href: '/industries/textiles', desc: 'White hygiene nonwovens for diapers, wipes, and medical textiles. Food-contact white MB available on request.', tags: ['Hygiene NW', 'Medical Textile', 'Spunbond'] },
 ]
 
 export default function WhiteMBPage() {
@@ -120,17 +120,6 @@ export default function WhiteMBPage() {
 
             {/* Right col */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {/* Application Simulation */}
-              <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Application Simulation</T></div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>
-                  <T>Near-Plant Pilot Trials</T>
-                </h3>
-                <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  <T>Our Application Simulation Centre uses production-representative equipment to run reproducible trials — enabling new product development and current-product optimisation under real processing conditions before full-scale commitment.</T>
-                </p>
-              </div>
-
               {/* Custom Formulation */}
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Custom Formulation</T></div>
@@ -141,7 +130,7 @@ export default function WhiteMBPage() {
                   <T>Fast development cycles for application-specific requirements. White masterbatch can be enhanced with functional additives including:</T>
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                  {['Anti-block', 'Anti-static', 'Anti-fog', 'UV Stabiliser', 'Mould Release', 'Anti-bacterial'].map(a => (
+                  {['Anti-block', 'Anti-static', 'Anti-fog', 'UV Stabiliser', 'Mould Release'].map(a => (
                     <span key={a} style={{
                       fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
                       padding: '4px 10px', borderRadius: 4,

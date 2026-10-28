@@ -9,7 +9,7 @@ const SECTIONS = [
     body: [
       'When you submit a quote request, contact form, or enquiry on this website, we collect the information you provide: your name, company name, email address, phone number, and details about your product requirements.',
       'We may also collect standard server log data (IP address, browser type, pages visited) through our hosting provider (Vercel) for security and performance purposes.',
-      'If you accept analytics cookies, we use Google Analytics to collect usage data such as the pages you visit, your approximate location, your device type, and whether you sent a form or clicked a contact link. We do not use advertising pixels.',
+      'If you accept cookies, we use Google Analytics to collect usage data such as the pages you visit, your approximate location, your device type, and whether you sent a form or clicked a contact link, and Google Ads conversion tracking to measure which of our ads lead to enquiries.',
     ],
   },
   {
@@ -32,8 +32,8 @@ const SECTIONS = [
   {
     title: 'Cookies',
     body: [
-      'Essential: the site remembers your cookie choice in your browser so it does not ask again. This is not used to identify you. The site never uses advertising cookies.',
-      'Analytics (optional): only if you click Accept, Google Analytics sets cookies (such as _ga) to count visits and understand how the site is used. If you click Decline, Google Analytics is not loaded. You can change your choice at any time using the Cookie settings link at the bottom of every page.',
+      'Essential: the site remembers your cookie choice in your browser so it does not ask again. This is not used to identify you.',
+      'Analytics and advertising (optional): only if you click Accept, Google Analytics sets cookies (such as _ga) to count visits and understand how the site is used, and Google Ads sets cookies (such as _gcl_au) to measure enquiries from our ads. If you click Decline, neither is loaded. You can change your choice at any time using the Cookie settings link at the bottom of every page.',
     ],
   },
   {
@@ -48,7 +48,7 @@ const SECTIONS = [
     body: [
       'Our website is hosted on Vercel. Vercel\'s privacy policy governs how they handle infrastructure-level data (vercel.com/legal/privacy-policy).',
       'We use WhatsApp (Meta) as an optional communication channel. If you initiate a WhatsApp conversation, Meta\'s terms and privacy policy apply to that communication.',
-      'With your consent, we use Google Analytics, provided by Google. Google\'s privacy policy applies to the data it processes (policies.google.com/privacy). We do not embed social media trackers or advertising networks.',
+      'With your consent, we use Google Analytics and Google Ads, provided by Google. Google\'s privacy policy applies to the data it processes (policies.google.com/privacy). We do not embed social media trackers.',
     ],
   },
   {
@@ -61,7 +61,7 @@ const SECTIONS = [
     title: 'Contact',
     body: [
       'Blau Batch — Arkan Plaza, Building 4, 4th Floor, Sheikh Zayed City, Giza, Egypt.',
-      'Email: info@blaubatch.com · Phone: +2 0102 222 7723',
+      'Email: info@blaubatch.com · Phone: +20 10 2222 7723',
     ],
   },
 ]

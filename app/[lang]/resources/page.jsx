@@ -54,7 +54,7 @@ const faqJsonLd = {
       name: 'Do you provide food-contact grade masterbatch?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Through our Coraplast partnership, we offer white, black, and colour masterbatch grades compliant with EU 10/2011 Regulation and FDA 21 CFR requirements for food contact applications.',
+        text: 'Yes. Through our Coraplast partnership, we offer white, black, and colour masterbatch grades for food-contact applications, with declarations on request.',
       },
     },
     {
