@@ -7,7 +7,8 @@ import Image from 'next/image'
 import { useLocale } from '@/components/LocaleProvider'
 
 const CYCLE = [
-  { name: 'Filler', ar: 'الفيلر', color: '#D4840A' },
+  // Arabic says فيلر ماستر باتش (filler first); the other types follow ماستر باتش.
+  { name: 'Filler', ar: 'فيلر', arFirst: true, color: '#D4840A' },
   { name: 'White', ar: 'الأبيض', color: '#23447A' },
   { name: 'Black', ar: 'الأسود', color: '#141B3E' },
   { name: 'Colour', ar: 'الملوّن', color: '#2B8DD0' },
@@ -71,7 +72,7 @@ export default function Hero() {
         }}>
           {t('Full-Range', 'شريكك الشامل في')}{' '}
           {isAr && <br />}
-          {isAr && 'ماستر باتش '}
+          {isAr && !p.arFirst && 'ماستر باتش '}
           <AnimatePresence mode="wait">
             <motion.span
               key={active}
@@ -84,6 +85,7 @@ export default function Hero() {
               {t(p.name, p.ar)}
             </motion.span>
           </AnimatePresence>
+          {isAr && p.arFirst && ' ماستر باتش'}
           {!isAr && <><br />Masterbatch Partner</>}
         </motion.h1>
 
