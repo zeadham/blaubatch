@@ -48,7 +48,7 @@ const WMB_INDUSTRIES = [
   { image: '/images/industries cards/packaging.png', name: 'Packaging & Flexible Film', href: '/industries/packaging', desc: 'White food packaging, lamination film, stand-up pouches, and retail bags. White MB delivers the opacity and brightness required for branded packaging.', tags: ['Food Packaging', 'Stand-Up Pouches', 'Lamination'] },
   { image: '/images/industries cards/agriculture.png', name: 'Agriculture', href: '/industries/agriculture', desc: 'White mulch film for soil temperature control, tunnel covers, and greenhouse film. Provides reflectivity and UV performance required for agricultural applications.', tags: ['Mulch Film', 'Tunnel Covers', 'Greenhouse'] },
   { image: '/images/industries cards/consumer_good.png', href: '/industries/consumer-goods', name: 'Consumer Goods', desc: 'White containers, caps, closures, and household products in PE and PP. White MB ensures batch-consistent whiteness across injection moulded and blown parts.', tags: ['Containers', 'Caps & Closures', 'Household'] },
-  { image: '/images/industries cards/textiles.png', name: 'Non-Woven', href: '/industries/textiles', desc: 'White hygiene nonwovens for diapers, wipes, and medical textiles. Food-contact and medical-grade white MB available on request.', tags: ['Hygiene NW', 'Medical Textile', 'Spunbond'] },
+  { image: '/images/industries cards/textiles.png', name: 'Non-Woven', href: '/industries/textiles', desc: 'White hygiene nonwovens for diapers, wipes, and medical textiles. Food-contact white MB available on request.', tags: ['Hygiene NW', 'Medical Textile', 'Spunbond'] },
 ]
 
 export default function WhiteMBPage() {
@@ -120,17 +120,6 @@ export default function WhiteMBPage() {
 
             {/* Right col */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-              {/* Application Simulation */}
-              <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
-                <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0', marginBottom: 10 }}><T>Application Simulation</T></div>
-                <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}>
-                  <T>Near-Plant Pilot Trials</T>
-                </h3>
-                <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
-                  <T>Our Application Simulation Centre uses production-representative equipment to run reproducible trials — enabling new product development and current-product optimisation under real processing conditions before full-scale commitment.</T>
-                </p>
-              </div>
-
               {/* Custom Formulation */}
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', marginBottom: 10 }}><T>Custom Formulation</T></div>
@@ -141,7 +130,7 @@ export default function WhiteMBPage() {
                   <T>Fast development cycles for application-specific requirements. White masterbatch can be enhanced with functional additives including:</T>
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                  {['Anti-block', 'Anti-static', 'Anti-fog', 'UV Stabiliser', 'Mould Release', 'Anti-bacterial'].map(a => (
+                  {['Anti-block', 'Anti-static', 'Anti-fog', 'UV Stabiliser', 'Mould Release'].map(a => (
                     <span key={a} style={{
                       fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 700,
                       padding: '4px 10px', borderRadius: 4,
