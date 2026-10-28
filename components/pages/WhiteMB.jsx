@@ -16,20 +16,20 @@ const GRADES = [
   { code: 'WHITE 57 FF',  carrier: 'PE',  content: '60% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Standard',     food: true },
   { code: 'WHITE 71 FF',  carrier: 'PE',  content: '70% TiO₂',          app: 'Film, Inj. moulding, Blow moulding',           note: 'High Opacity', food: true },
   { code: 'WHITE 71 FE',  carrier: 'PE',  content: '78% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'High Loading', food: true },
-  { code: 'WHITE 175 FF', carrier: 'PE',  content: '75% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'FDA + EU',     food: true },
+  { code: 'WHITE 175 FF', carrier: 'PE',  content: '75% TiO₂',          app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Food contact', food: true },
   { code: 'WHITE 220 FF', carrier: 'PE',  content: '80% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'Ultra High',   food: true },
   { code: 'WHITE 224 FF', carrier: 'PE',  content: '40% TiO₂ + filler', app: 'Inj. moulding, Extrusion, Blow moulding',      note: 'Economy',      food: true },
   { code: 'WHITE 304 FF', carrier: 'PE',  content: '40% TiO₂ + 40% CaCO₃', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Filled',       food: true },
   { code: 'WHITE 309 FF', carrier: 'PE',  content: '75% ash',            app: 'Film, Inj. moulding, Blow moulding',           note: 'High Loading', food: true },
   { code: 'WHITE 313 FF', carrier: 'PE',  content: '40% TiO₂ + 30% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Filled',       food: true },
-  { code: 'WHITE 356 FF', carrier: 'PE',  content: '70% TiO₂ + 12% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'FDA + EU',     food: true },
+  { code: 'WHITE 356 FF', carrier: 'PE',  content: '70% TiO₂ + 12% filler', app: 'Inj. moulding, Extrusion, Blow moulding', note: 'Food contact', food: true },
   { code: 'WHITE 491 MD', carrier: 'PET', content: '70% TiO₂',          app: 'PET — Inj. moulding, Extrusion, Blow moulding', note: 'PET Grade',  food: true },
 ]
 
 const FEATURES = [
   'TiO₂ rutile grade — superior opacity and brightness',
   'PE and PP carrier systems for wide compatibility',
-  'Food-contact compliant grades (EU 10/2011 & FDA)',
+  'Food-contact grades available — declarations on request',
   'Consistent blue-white tones with high CIE whiteness index',
   'Excellent dispersion — no agglomerates or streaks',
   'Available in standard 25 kg bags and 500 kg FIBC',
@@ -38,7 +38,7 @@ const FEATURES = [
 const WMB_PRODUCTS = [
   { name: 'White MB — standard', sub: 'WHITE 57 · 71 FF · Blown & cast film', value: 'White MB PE Series' },
   { name: 'White MB — economy / filled', sub: 'WHITE 220 · 224 · 304 FF · Cost-optimised', value: 'White MB Economy' },
-  { name: 'Food-Contact Grade', sub: 'WHITE 175 FF / 356 FF · FDA & EU', value: 'White MB Food-Contact Grade' },
+  { name: 'Food-Contact Grade', sub: 'WHITE 175 FF / 356 FF', value: 'White MB Food-Contact Grade' },
   { name: 'Not sure yet', sub: "We'll recommend the right grade", value: 'Not sure — need recommendation' },
 ]
 

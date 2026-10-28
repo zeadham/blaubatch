@@ -320,7 +320,7 @@ export default function DistributorsPage() {
             </div>
             <div style={{ marginTop: 20, padding: '16px 20px', background: 'rgba(46,127,208,0.1)', border: '1px solid rgba(46,127,208,0.2)', borderRadius: 10 }}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 11, fontWeight: 800, color: '#2B8DD0', marginBottom: 4 }}><T>Coraplast Certifications</T></div>
-              <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}><T>ISO 9001 · ISO 14001 · REACH compliant · EU 10/2011 food-contact grades available</T></p>
+              <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.5)', lineHeight: 1.7 }}><T>ISO 9001 · ISO 14001 · REACH compliant · Food-contact grades available</T></p>
             </div>
           </div>
         </div>

@@ -59,7 +59,7 @@ const FAQS = [
   },
   {
     q: 'Do you provide food-contact grade masterbatch?',
-    a: 'Yes. Through our Coraplast partnership, we offer white, black, and colour masterbatch grades compliant with EU 10/2011 Regulation and FDA 21 CFR requirements for food contact applications. Request the specific grade and regulatory documentation when enquiring.'
+    a: 'Yes. Through our Coraplast partnership, we offer white, black, and colour masterbatch grades for food-contact applications, with declarations on request. Request the specific grade and regulatory documentation when enquiring.'
   },
   {
     q: 'What quality control tests do you run on each batch?',
@@ -99,7 +99,7 @@ const GLOSSARY = [
   { term: 'MFI / MFR', def: 'Melt Flow Index / Melt Flow Rate — measures how easily a polymer flows when melted (g/10min). Higher MFI = easier flow. FMPE tested at 190°C/2.16kg, FMPP at 230°C/2.16kg.' },
   { term: 'Let-Down Ratio (LDR)', def: 'The proportion of masterbatch blended into the base resin. A 2% LDR means 2 kg masterbatch per 98 kg of base polymer.' },
   { term: 'Carrier Resin', def: 'The polymer matrix in which pigment or filler is dispersed. Must be compatible with the end-use resin to avoid processing problems.' },
-  { term: 'ΔE', def: 'Delta-E — a numerical measure of colour difference. ΔE ≤ 1.0 is generally considered imperceptible to the human eye; Blau Batch colour MB targets ΔE ≤ 0.5 batch-to-batch.' },
+  { term: 'ΔE', def: 'Delta-E — a numerical measure of colour difference. ΔE ≤ 1.0 is generally considered imperceptible to the human eye.' },
   { term: 'TDS', def: 'Technical Data Sheet — document listing all key product specifications, test methods, processing recommendations, and packaging details.' },
   { term: 'CoA', def: 'Certificate of Analysis — batch-specific document confirming that tested properties meet the product specification.' },
   { term: 'BOPP', def: 'Biaxially Oriented Polypropylene — PP film stretched in both machine and transverse directions for improved stiffness and barrier properties.' },
@@ -380,8 +380,8 @@ export default function ResourcesPage() {
               { tag: 'Filler MB', slug: 'what-is-filler-masterbatch', title: 'What is Filler Masterbatch and How Does it Reduce Material Costs?', desc: 'A complete guide to CaCO₃-based filler masterbatch — how it works, how it\'s made, and how to calculate cost savings for your specific application.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
               { tag: 'Grade Selection', slug: 'caco3-loading-comparison', title: 'CaCO₃ Loading: 70% vs 75% vs 80% — Which Grade Is Right for Your Application?', desc: 'A technical comparison of high-loading filler grades — covering mechanical property trade-offs, processing considerations, and application fit.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
               { tag: 'Processing', slug: 'pe-vs-pp-carrier-systems', title: 'PE vs PP Carrier Systems: Why Matching Carrier to Base Resin Matters', desc: 'Why using the wrong carrier polymer causes processing problems — and how to select the right filler masterbatch carrier for your production line.', color: '#2B8DD0', borderColor: 'rgba(46,127,208,0.25)' },
-              { tag: 'White MB', slug: 'tio2-masterbatch-opacity', title: 'TiO₂ Masterbatch: Understanding Opacity, Whiteness, and Food-Contact Compliance', desc: 'How TiO₂ loading affects opacity and CIE whiteness index — and what food-contact compliance (EU 10/2011, FDA) means in practice.', color: '#2B8DD0', borderColor: 'rgba(74,170,224,0.25)' },
-              { tag: 'UV Protection', slug: 'uv-stabilisation-agricultural-film', title: 'UV Stabilisation in Agricultural Film: What Makes a Masterbatch Last 10+ Years?', desc: 'How HALS-based UV stabilisers in black and additive masterbatch protect agricultural films from photodegradation in MENA and Mediterranean climates.', color: '#22C55E', borderColor: 'rgba(34,197,94,0.2)' },
+              { tag: 'White MB', slug: 'tio2-masterbatch-opacity', title: 'TiO₂ Masterbatch: Understanding Opacity, Whiteness, and Food-Contact Compliance', desc: 'How TiO₂ loading affects opacity and CIE whiteness index — and what food-contact compliance means in practice.', color: '#2B8DD0', borderColor: 'rgba(74,170,224,0.25)' },
+              { tag: 'UV Protection', slug: 'uv-stabilisation-agricultural-film', title: 'UV Stabilisation in Agricultural Film: What Makes a Masterbatch Last Outdoors?', desc: 'How HALS-based UV stabilisers in black and additive masterbatch protect agricultural films from photodegradation in MENA and Mediterranean climates.', color: '#22C55E', borderColor: 'rgba(34,197,94,0.2)' },
               { tag: 'Quality', slug: 'reading-masterbatch-coa', title: 'Reading a Masterbatch CoA: The 7 Properties Every Buyer Should Check', desc: 'MFI, ash content, moisture, colour delta-E, and dispersibility — a practical guide to reading a Certificate of Analysis before accepting a shipment.', color: '#D4840A', borderColor: 'rgba(212,132,10,0.25)' },
             ].map((a, i) => (
               <Link key={i} href={`/blog/${a.slug}`} style={{

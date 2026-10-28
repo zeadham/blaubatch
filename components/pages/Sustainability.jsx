@@ -36,7 +36,7 @@ const PILLARS = [
     color: '#D4840A',
     points: [
       'Mono-material masterbatch grades for HDPE and PP recyclate streams',
-      'Food-contact grades meeting EU Regulation 10/2011 and FDA 21 CFR',
+      'Food-contact grades available — declarations on request',
       'Heavy-metal-free pigment systems — no cadmium, lead, or chromate VI',
       'PFAS-free processing aid option (PPA 249) for film and pipe extrusion',
     ],
@@ -47,12 +47,11 @@ const ESG_METRICS = [
   { n: 'ISO 14001', label: 'Coraplast Environmental Management', color: '#22C55E' },
   { n: 'Heavy-metal\nfree', label: 'All pigment systems', color: '#2B8DD0' },
   { n: 'PFAS\nfree', label: 'Processing aid option', color: '#D4840A' },
-  { n: 'EU 10/2011', label: 'Food-contact compliance', color: '#22C55E' },
+  { n: 'Food\ncontact', label: 'Grades available', color: '#22C55E' },
 ]
 
 const COMPLIANCE = [
-  { label: 'EU Regulation 10/2011', desc: 'Plastic materials and articles intended to contact food', badge: 'FOOD CONTACT' },
-  { label: 'FDA 21 CFR', desc: 'United States food-contact compliance for applicable grades', badge: 'FOOD CONTACT' },
+  { label: 'Food-Contact Grades', desc: 'Available for applicable grades — declarations on request', badge: 'FOOD CONTACT' },
   { label: 'RoHS / REACH', desc: 'Restriction of hazardous substances in pigments and carriers', badge: 'CHEMICAL SAFETY' },
   { label: 'ISO 14001:2015', desc: 'Certified environmental management at Coraplast, maker of our colour, white, black and additive range', badge: 'CORAPLAST' },
   { label: 'ISO 9001:2015', desc: 'Certified quality management at Coraplast — consistent, traceable production', badge: 'CORAPLAST' },
@@ -209,7 +208,7 @@ export default function SustainabilityPage() {
                 { grade: 'FMPE / FMPP Series', note: 'CaCO₃ filler — compatible with PE/PP mechanical recycling streams', tag: 'RECYCLABLE' },
                 { grade: 'WHITE FF series', note: 'TiO₂ white — stays in polymer matrix during recycling; sortation compatible', tag: 'RECYCLABLE' },
                 { grade: 'BLACK FF series', note: 'Carbon black — designed for closed-loop agricultural and packaging recycle', tag: 'RECYCLABLE' },
-                { grade: 'WHITE 175 FF / 356 FF', note: 'Food-contact grade — EU 10/2011 & FDA compliant', tag: 'FOOD CONTACT' },
+                { grade: 'WHITE 175 FF / 356 FF', note: 'Food-contact grade — declaration on request', tag: 'FOOD CONTACT' },
               ].map((item, i) => (
                 <div key={i} style={{
                   borderBottom: i < 3 ? '1px solid rgba(20,27,62,0.07)' : 'none',

@@ -36,7 +36,7 @@ const GRADES = [
 ]
 
 const FEATURES = [
-  'HALS-based UV stabilisers rated for 10+ year outdoor performance',
+  'HALS-based UV stabilisers for outdoor applications',
   'Slip and antiblock agents for film-to-film release and anti-stick',
   'Anti-static grades for PE and PS — electronic and technical packaging',
   'Processing aids reduce die buildup, melt fracture, and downtime — PFAS-free option available',
