@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
       },
     },
     openGraph: {
-      title, description, url, type: 'article', publishedTime: article.dateISO, locale: isAr ? 'ar_EG' : 'en_US',
+      title, description, url, siteName: isAr ? 'بلاو باتش' : 'Blau Batch', type: 'article', publishedTime: article.dateISO, locale: isAr ? 'ar_EG' : 'en_US',
     },
   }
 }

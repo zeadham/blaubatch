@@ -10,8 +10,8 @@ const NAV_COLS = [
     title: 'Products',
     titleAr: 'المنتجات',
     links: [
-      { labelAr: 'ماستر باتش الحشو (FMPE)', label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
-      { labelAr: 'ماستر باتش الحشو (FMPP)', label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
+      { labelAr: 'فيلر ماستر باتش (FMPE)', label: 'Filler Masterbatch (FMPE)', href: '/fmpe' },
+      { labelAr: 'فيلر ماستر باتش (FMPP)', label: 'Filler Masterbatch (FMPP)', href: '/fmpp' },
       { labelAr: 'ماستر باتش أبيض', label: 'White Masterbatch', href: '/white-masterbatch' },
       { labelAr: 'ماستر باتش أسود', label: 'Black Masterbatch', href: '/black-masterbatch' },
       { labelAr: 'ماستر باتش الإضافات', label: 'Additive Masterbatch', href: '/additive-masterbatch' },

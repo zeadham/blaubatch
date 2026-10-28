@@ -122,7 +122,7 @@ export function generateStaticParams() {
 }
 
 const AR_TITLE = 'بلاو باتش | مصنّع وموزّع الماستر باتش — مصر والشرق الأوسط وشمال أفريقيا'
-const AR_DESC = 'تصنّع بلاو باتش ماستر باتش الحشو (FMPE وFMPP) وتوزّع مجموعة كورابلاست الشاملة — الأبيض والأسود والملوّن والإضافات — في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.'
+const AR_DESC = 'تصنّع بلاو باتش فيلر ماستر باتش (FMPE وFMPP) وتوزّع مجموعة كورابلاست الشاملة — الأبيض والأسود والملوّن والإضافات — في منطقة الشرق الأوسط وشمال أفريقيا وأوروبا.'
 
 export async function generateMetadata({ params }) {
   const { lang } = await params
@@ -131,8 +131,11 @@ export async function generateMetadata({ params }) {
     ...baseMetadata,
     title: { default: AR_TITLE, template: '%s | بلاو باتش' },
     description: AR_DESC,
+    authors: [{ name: 'بلاو باتش' }],
+    creator: 'بلاو باتش',
+    publisher: 'بلاو باتش',
     alternates: { canonical: `${BASE_URL}/ar`, languages: { en: BASE_URL, ar: `${BASE_URL}/ar` } },
-    openGraph: { ...baseMetadata.openGraph, locale: 'ar_EG', url: `${BASE_URL}/ar`, title: AR_TITLE, description: AR_DESC },
+    openGraph: { ...baseMetadata.openGraph, siteName: 'بلاو باتش', locale: 'ar_EG', url: `${BASE_URL}/ar`, title: AR_TITLE, description: AR_DESC },
     twitter: { ...baseMetadata.twitter, title: AR_TITLE, description: AR_DESC },
   }
 }

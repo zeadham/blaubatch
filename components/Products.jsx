@@ -12,8 +12,8 @@ const PRODUCTS = [
   {
     id: 'fmpe',
     seriesAr: 'سلسلة FMPE',
-    nameAr: 'ماستر باتش الحشو (PE)',
-    descAr: 'ماستر باتش حشو أساسه كربونات الكالسيوم (CaCO₃) على حامل PE لأفلام النفخ والبثق والحقن. يخفّض تكلفة المواد مع الحفاظ على الخواص الميكانيكية.',
+    nameAr: 'فيلر ماستر باتش (PE)',
+    descAr: 'فيلر ماستر باتش أساسه كربونات الكالسيوم (CaCO₃) على حامل PE لأفلام النفخ والبثق والحقن. يخفّض تكلفة المواد مع الحفاظ على الخواص الميكانيكية.',
     series: 'FMPE Series',
     name: 'Filler Masterbatch (PE)',
     desc: 'CaCO₃-based filler in PE carrier for blown film, extrusion, and injection moulding. Reduces material costs while maintaining mechanical properties.',
@@ -26,8 +26,8 @@ const PRODUCTS = [
   {
     id: 'fmpp',
     seriesAr: 'سلسلة FMPP',
-    nameAr: 'ماستر باتش الحشو (PP)',
-    descAr: 'ماستر باتش حشو أساسه CaCO₃ على حامل PP للحقن والتشكيل الحراري والرافيا. اقتصادي مع تشتّت متجانس.',
+    nameAr: 'فيلر ماستر باتش (PP)',
+    descAr: 'فيلر ماستر باتش أساسه CaCO₃ على حامل PP للحقن والتشكيل الحراري والرافيا. اقتصادي مع تشتّت متجانس.',
     series: 'FMPP Series',
     name: 'Filler Masterbatch (PP)',
     desc: 'CaCO₃-based filler in PP carrier for injection moulding, thermoforming, and raffia. Cost-effective with consistent dispersion.',
@@ -41,7 +41,7 @@ const PRODUCTS = [
     id: 'white',
     seriesAr: 'سلسلة WMB',
     nameAr: 'ماستر باتش أبيض',
-    descAr: 'مركّزات بيضاء أساسها TiO₂. عتامة عالية ودرجات متعددة تشمل خيارات مطابقة لملامسة الأغذية.',
+    descAr: 'مركّزات بيضاء أساسها TiO₂. عتامة عالية ودرجات متعددة تشمل درجات ملامسة للغذاء.',
     series: 'WMB Series',
     name: 'White Masterbatch',
     desc: 'TiO₂-based white concentrates. High opacity, multiple grades including food-contact compliant options.',
@@ -190,6 +190,7 @@ function ProductCard({ p, i }) {
                 border: `1px solid ${isManufactured ? '#D4840A' : '#2B8DD0'}`,
                 background: isManufactured ? '#D4840A' : '#2B8DD0',
               }}>{p.badge === 'MANUFACTURED' ? t('MANUFACTURED', 'تصنيع محلي') : t('DISTRIBUTED', 'موزّع')}</span>
+              {' '}
             </div>
 
             {/* Card Body */}
@@ -201,6 +202,7 @@ function ProductCard({ p, i }) {
                 fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700,
                 letterSpacing: '0.08em', textTransform: 'uppercase', color: '#2B8DD0',
               }}>{t(p.series, p.seriesAr)}</span>
+              {' '}
 
               <h3 style={{
                 fontFamily: 'Inter, sans-serif', fontSize: 20, fontWeight: 800,
@@ -281,7 +283,7 @@ export default function Products() {
             transition={{ duration: 0.6, delay: 0.14 }}
             style={{ fontSize: 16, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8, maxWidth: 560 }}
           >
-            {t('One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.', 'علاقة توريد واحدة تغطي كل احتياجاتك من الماستر باتش — من ماستر باتش الحشو المصنَّع محلياً إلى مجموعة كورابلاست الشاملة.')}
+            {t('One supplier relationship covers your complete masterbatch requirement — from in-house manufactured Filler to the full Coraplast distributed range.', 'علاقة توريد واحدة تغطي كل احتياجاتك من الماستر باتش — من فيلر ماستر باتش المصنَّع محلياً إلى مجموعة كورابلاست الشاملة.')}
           </motion.p>
         </div>
 

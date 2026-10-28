@@ -78,7 +78,7 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
       }}>
         {tr(title)}
         {titleAccent && (
-          <><br /><span style={{ color: badgeColor }}>{tr(titleAccent)}</span></>
+          <>{' '}<br /><span style={{ color: badgeColor }}>{tr(titleAccent)}</span></>
         )}
       </motion.h1>
 

@@ -355,7 +355,7 @@ export default function QuoteForm({
           }}
           onMouseEnter={e => !submitting && (e.currentTarget.style.background = '#2477b3')}
           onMouseLeave={e => !submitting && (e.currentTarget.style.background = '#2B8DD0')}
-          >{submitting ? t('Sending…', 'جارٍ الإرسال…') : t('Submit Quote Request ↗', 'إرسال طلب عرض السعر ↖')}</button>
+          >{submitting ? t('Sending…', 'جارٍ الإرسال…') : t('Submit Quote Request ↗', 'إرسال طلب عرض السعر ←')}</button>
 
           {submitError && (
             <div role="alert" style={{
@@ -368,7 +368,7 @@ export default function QuoteForm({
           )}
 
           <p style={{ fontSize: 12, color: 'rgba(20,27,62,0.35)', textAlign: 'center', marginTop: 12 }}>
-            {t('We respond within 24 hours · No commitment required', 'نرد خلال 24 ساعة · دون أي التزام')}
+            {t('We respond within 24 hours · No commitment required', 'نرد خلال 24 ساعة · بلا التزام')}
           </p>
         </div>
       </div>

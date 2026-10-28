@@ -51,7 +51,7 @@ export default function ContactPage() {
                 { icon: Mail, label: 'Email', val: 'info@blaubatch.com', href: 'mailto:info@blaubatch.com' },
                 { icon: MessageSquare, label: 'WhatsApp', val: 'Message us directly', href: 'https://wa.me/201022227723', green: true },
                 { icon: Phone, label: 'Phone', val: '+20 10 2222 7723', href: 'tel:+201022227723' },
-                { icon: Clock, label: 'Response Time', val: 'Within 24 business hours', href: null },
+                { icon: Clock, label: 'Response Time', val: 'Within 24 hours', href: null },
               ].map((c, i) => (
                 <motion.a
                   key={c.label}
@@ -109,6 +109,7 @@ export default function ContactPage() {
                   <MapPin size={15} color="rgba(20,27,62,0.35)" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
                     <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, color: 'rgba(20,27,62,0.4)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 3 }}><T>{l.label}</T></div>
+                    {' '}
                     <div style={{ fontSize: 12, color: 'rgba(20,27,62,0.6)', lineHeight: 1.6, transition: 'color 0.15s' }}><T>{l.addr}</T></div>
                   </div>
                 </a>

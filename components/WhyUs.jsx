@@ -9,7 +9,7 @@ const VALUE_PROPS = [
     icon: ShieldCheck,
     title: 'Quality',
     titleAr: 'الجودة',
-    descriptionAr: 'إنتاج منتظم الجودة مع اختبارات معملية داخلية وتتبّع كامل لكل دفعة، وTDS وCoA مع كل شحنة.',
+    descriptionAr: 'إنتاج ثابت الجودة مع اختبارات معملية داخلية وتتبّع كامل لكل دفعة، وTDS وCoA مع كل شحنة.',
     description: 'Consistent production with in-house lab testing, full batch traceability, and TDS & CoA per shipment.',
   },
   {
@@ -23,7 +23,7 @@ const VALUE_PROPS = [
     icon: Timer,
     title: 'Reliability',
     titleAr: 'الموثوقية',
-    descriptionAr: 'شحن العيّنات خلال 48 ساعة ومواعيد توريد يُعتمد عليها وسلسلة إمداد مصمَّمة للوجستيات الشرق الأوسط وشمال أفريقيا وأوروبا.',
+    descriptionAr: 'شحن العيّنات خلال 48 ساعة ومواعيد توريد يُعتمد عليها وسلسلة إمداد مصمّمة لخدمة أسواق الشرق الأوسط وشمال أفريقيا وأوروبا.',
     description: '48-hour sample dispatch, dependable lead times, and a supply chain built for MENA and European logistics.',
   },
   {
@@ -37,7 +37,7 @@ const VALUE_PROPS = [
 
 const STATS = [
   { value: '8,000+ MT', valueAr: '+8,000 طن', label: 'Annual Manufacturing Capacity', labelAr: 'الطاقة الإنتاجية السنوية' },
-  { value: '90,000 MT', valueAr: '90,000 طن', label: 'White/Black/Color/Additives', labelAr: 'أبيض/أسود/ملوّن/إضافات' },
+  { value: '90,000 MT', valueAr: '90,000 طن', label: 'Coraplast distributed range', labelAr: 'مجموعة كورابلاست الموزّعة' },
   { value: '8', valueAr: '8', label: 'Industries Served', labelAr: 'قطاعات نخدمها' },
   { value: 'MENA + Europe', valueAr: 'الشرق الأوسط وشمال أفريقيا + أوروبا', label: 'Market Coverage', labelAr: 'التغطية السوقية' },
 ]
@@ -103,7 +103,7 @@ export default function WhyUs() {
                     color: '#141B3E', marginBottom: 6,
                   }}>{t('We Manufacture', 'نحن نصنّع')}</h3>
                   <p style={{ fontSize: 16, color: 'rgba(20,27,62,0.65)', lineHeight: 1.7 }}>
-                    {t('In-house production of Filler Masterbatch (PE & PP) at our 6th of October facility — full control over quality, formulation, and lead times.', 'إنتاج داخلي لماستر باتش الحشو (PE وPP) في مصنعنا بمدينة السادس من أكتوبر — سيطرة كاملة على الجودة والتركيبة ومواعيد التسليم.')}
+                    {t('In-house production of Filler Masterbatch (PE & PP) at our 6th of October facility — full control over quality, formulation, and lead times.', 'إنتاج داخلي لفيلر ماستر باتش (PE وPP) في مصنعنا بمدينة السادس من أكتوبر — سيطرة كاملة على الجودة والتركيبة ومواعيد التسليم.')}
                   </p>
                 </div>
               </div>
@@ -201,6 +201,7 @@ export default function WhyUs() {
                 fontSize: 'clamp(24px, 3vw, 36px)',
                 fontWeight: 900, color: '#fff', letterSpacing: '-0.02em',
               }}>{t(stat.value, stat.valueAr)}</span>
+              {' '}
               <span style={{
                 fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,0.75)',
                 textTransform: 'uppercase', letterSpacing: '0.06em',
