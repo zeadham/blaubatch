@@ -99,7 +99,6 @@ export default function BlackMBPage() {
                 <T>Black masterbatch is a concentrated dispersion of high-structure carbon black in a polymer carrier resin. Carbon black delivers deep, uniform black colouration and, critically, functions as a UV absorber — protecting the polymer matrix from photodegradation under prolonged outdoor exposure.</T>
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 28 }}>
-                {/* TODO: confirm CB loading range with Coraplast TDS (also stated in the grades paragraph below) */}
                 {['Carbon Black', 'LDPE / LLDPE Carrier', 'PP Carrier', 'HDPE Carrier', '30–60% CB Loading'].map(s => (
                   <span key={s} style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 700, padding: '5px 12px', borderRadius: 5, background: 'rgba(43,141,208,0.07)', border: '1px solid rgba(43,141,208,0.18)', color: '#23447A' }}><T>{s}</T></span>
                 ))}
@@ -119,7 +118,6 @@ export default function BlackMBPage() {
               <div style={{ background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderRadius: 14, padding: '28px 28px 24px' }}>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#64748B', marginBottom: 10 }}><T>Grade Range</T></div>
                 <h3 style={{ fontFamily: 'Inter, sans-serif', fontSize: 17, fontWeight: 900, color: '#141B3E', letterSpacing: '-0.01em', lineHeight: 1.3, marginBottom: 12 }}><T>PE, PP & PET Systems</T></h3>
-                  {/* TODO: confirm CB loading range with Coraplast TDS */}
                 <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.6)', lineHeight: 1.8 }}>
                   <T>15 grades across PE, PP, and PET carriers — covering standard film, food-contact, filled, and fibre/filament applications. CB loadings from 30% to 60%. Custom grades available on request.</T>
                 </p>
