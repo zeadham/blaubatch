@@ -5,9 +5,9 @@ import Script from 'next/script'
 import { CONSENT_EVENT, getConsent } from '@/lib/consent'
 
 // Can be overridden in Vercel. NEXT_PUBLIC_ values are inlined at build time, so changing them needs a redeploy.
-// GA4 falls back to the live property so Analytics never silently stops when the env var is missing.
+// Both fall back to the live IDs so tracking never silently stops when an env var is missing.
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || 'G-LV0BX0J38H'
-const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID
+const GADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-18515204313'
 const TAG_IDS = [GA4_ID, GADS_ID].filter(Boolean)
 // Only the live site reports to Analytics and Ads, so local and preview builds don't pollute the data.
 const ANALYTICS_HOSTS = ['blaubatch.com', 'www.blaubatch.com']
