@@ -136,7 +136,7 @@ export default function ColorQuoteForm() {
       setSubmitError('Could not send your request. Please email info@blaubatch.com directly.')
       return
     }
-    trackLead('colour_quote_form', { product: 'Colour Masterbatch' })
+    trackLead('colour_quote_form', { product: 'Colour Masterbatch', application: form.application || undefined })
     setDone(true)
   }
 
