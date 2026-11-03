@@ -44,7 +44,7 @@ export default function BlogPostLayout({
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <span style={{ fontSize: 13, color: 'var(--navy)', fontWeight: 700, fontFamily: 'Inter, sans-serif' }}><T>{date}</T></span>
               <span style={{ width: 4, height: 4, borderRadius: '50%', background: 'var(--line)' }} />
-              <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.45)', fontWeight: 500, fontFamily: 'Open Sans, sans-serif' }}><T>{readTime}</T></span>
+              <span style={{ fontSize: 13, color: 'rgba(20,27,62,0.45)', fontWeight: 500, fontFamily: 'Inter, sans-serif' }}><T>{readTime}</T></span>
             </div>
             <ShareButtons title={title} />
           </motion.div>

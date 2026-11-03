@@ -85,7 +85,7 @@ function TextContent({ breadcrumb, badge, badgeColor, tag, title, titleAccent, s
       {/* Sub */}
       {sub && (
         <motion.p {...fade(0.17)} style={{
-          fontFamily: 'Open Sans, sans-serif',
+          fontFamily: 'Inter, sans-serif',
           fontSize: 18, color: 'rgba(20,27,62,0.65)', lineHeight: 1.8,
           maxWidth: 520, fontWeight: 400,
         }}>{tr(sub)}</motion.p>

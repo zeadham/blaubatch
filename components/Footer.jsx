@@ -97,7 +97,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 15, color: 'rgba(255,255,255,0.5)', lineHeight: 1.7, marginBottom: 24 }}>
               {t('Full-Spectrum Masterbatch Solutions — manufacturer and distributor serving MENA, Europe, and global markets.', 'حلول ماستر باتش شاملة — مصنّع وموزّع يخدم منطقة الشرق الأوسط وشمال أفريقيا وأوروبا والأسواق العالمية.')}
             </p>
 
@@ -167,7 +167,7 @@ export default function Footer() {
             <div key={item.label}>
               <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 9, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: 6 }}>{item.label}</div>
               <a href={item.href} dir={item.ltr ? 'ltr' : undefined} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s', display: item.ltr ? 'inline-block' : undefined }}
+                style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: 'rgba(255,255,255,0.5)', lineHeight: 1.5, transition: 'color 0.15s', display: item.ltr ? 'inline-block' : undefined }}
                 onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,255,255,0.85)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.5)'}
               >{item.val}</a>

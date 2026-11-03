@@ -60,7 +60,7 @@ const CORAPLAST_MARKETS = [
 const inputStyle = {
   width: '100%', padding: '12px 14px',
   background: 'rgba(20,27,62,0.04)', border: '1px solid rgba(20,27,62,0.14)',
-  borderRadius: 8, color: '#141B3E', fontFamily: 'Open Sans, sans-serif', fontSize: 14,
+  borderRadius: 8, color: '#141B3E', fontFamily: 'Inter, sans-serif', fontSize: 14,
   outline: 'none', transition: 'border-color 0.2s', boxSizing: 'border-box',
 }
 

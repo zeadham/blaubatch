@@ -91,7 +91,7 @@ export default function Hero() {
 
         {/* Sub */}
         <motion.p {...fadeUp(0.2)} style={{
-          fontFamily: 'Open Sans, sans-serif',
+          fontFamily: 'Inter, sans-serif',
           fontSize: 18, color: 'rgba(20,27,62,0.65)', lineHeight: 1.75,
           marginBottom: 40, fontWeight: 400, maxWidth: 480,
         }}>
