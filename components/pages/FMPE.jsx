@@ -152,7 +152,7 @@ export default function FMPEPage() {
               <div>
                 <div style={{ fontFamily: 'Inter, sans-serif', fontSize: 12, fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#D4840A', border: '1px solid rgba(212,132,10,0.35)', borderRadius: 4, padding: '4px 12px', display: 'inline-block', marginBottom: 8 }}><T>Grade Reference</T></div>
                 <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 6px', color: '#141B3E' }}><T>A Selection of Available Grades</T></h2>
-                <p style={{ fontFamily: 'Open Sans, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}><T>Standard range shown — custom CaCO₃ loadings, carrier systems, and application-specific formulations available on request.</T></p>
+                <p style={{ fontFamily: 'Inter, sans-serif', fontSize: 14, color: 'rgba(20,27,62,0.55)', margin: 0, fontWeight: 400 }}><T>Standard range shown — custom CaCO₃ loadings, carrier systems, and application-specific formulations available on request.</T></p>
               </div>
               <motion.div animate={{ rotate: gradesOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                 <ChevronDown size={22} color="#141B3E" />

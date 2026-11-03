@@ -1,4 +1,4 @@
-/* Fonts loaded via next/font in layout.jsx — no duplicate @import needed */
+/* Fonts are loaded with a <link> in app/[lang]/layout.jsx; no @import needed */
 /* Tailwind removed — project uses vanilla CSS custom properties */
 
 /* Skip to content link — visible only on keyboard focus */
@@ -43,7 +43,7 @@ html { scroll-behavior: smooth; }
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
@@ -93,7 +93,7 @@ a { text-decoration: none; color: inherit; }
 /* ── Arabic / RTL ── */
 html[lang="ar"] body,
 html[lang="ar"] body *:not(svg):not(svg *):not(code):not(pre) {
-  font-family: 'Cairo', 'Inter', 'Open Sans', sans-serif !important;
+  font-family: 'Cairo', 'Inter', sans-serif !important;
   letter-spacing: 0 !important;
 }
 html[lang="ar"] body { line-height: 1.85; }

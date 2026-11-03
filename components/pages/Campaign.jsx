@@ -184,7 +184,7 @@ function HeroCycler({ active, setActive }) {
 
         {/* Sub */}
         <motion.p {...fadeUp(0.18)} style={{
-          fontFamily: 'Open Sans, sans-serif', fontSize: 16,
+          fontFamily: 'Inter, sans-serif', fontSize: 16,
           color: 'rgba(20,27,62,0.6)', lineHeight: 1.8,
           marginBottom: 36, maxWidth: 440,
         }}>
@@ -798,7 +798,7 @@ function LeadFormSection() {
     width: '100%', padding: '13px 16px',
     background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.12)',
     borderRadius: 9, color: '#141B3E',
-    fontFamily: 'Open Sans, sans-serif', fontSize: 14,
+    fontFamily: 'Inter, sans-serif', fontSize: 14,
     outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.2s',
   }
   const lbl = {
@@ -933,7 +933,7 @@ function LeadFormSection() {
                       padding: '11px 10px', borderRadius: 8, textAlign: 'start', cursor: 'pointer',
                       border: form.product === p ? '2px solid #2B8DD0' : '1px solid rgba(20,27,62,0.1)',
                       background: form.product === p ? 'rgba(43,141,208,0.06)' : '#F7F8FC',
-                      fontFamily: 'Open Sans, sans-serif', fontSize: 12,
+                      fontFamily: 'Inter, sans-serif', fontSize: 12,
                       color: form.product === p ? '#2B8DD0' : 'rgba(20,27,62,0.65)',
                       fontWeight: form.product === p ? 700 : 400, transition: 'all 0.15s',
                     }}><T>{p}</T></button>
