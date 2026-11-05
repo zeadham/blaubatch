@@ -2,13 +2,11 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { MapPin, Clock, Briefcase, ArrowUpRight, CheckCircle2, Factory, Layers, FlaskConical, TrendingUp, Mail } from 'lucide-react'
+import { MapPin, Clock, Briefcase, ArrowUpRight, CheckCircle2, Factory, Layers, FlaskConical, TrendingUp } from 'lucide-react'
 import PageHero from '@/components/shared/PageHero'
 import { T, useLocale } from '@/components/LocaleProvider'
 import { trackEvent } from '@/lib/analytics'
 import { JOBS, ODOO_JOBS_URL } from '@/lib/careers'
-
-const GENERAL_APPLICATION_MAILTO = 'mailto:info@blaubatch.com?subject=Careers%20%E2%80%93%20General%20application'
 
 const REASONS = [
   { icon: Factory, title: 'We make what we sell', desc: 'Filler Masterbatch is produced at our own plant in 6th of October, so engineering and sales work close to the line.' },
@@ -128,7 +126,6 @@ export default function CareersPage() {
         sub="We manufacture Filler Masterbatch in Egypt and distribute the full Coraplast range. We're looking for engineers and sales people who like solving real production problems."
         cta={{
           primary: { label: 'See open roles', href: '#open-roles' },
-          secondary: { label: 'Send a general application', href: GENERAL_APPLICATION_MAILTO },
         }}
       />
 
@@ -197,30 +194,14 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* General application */}
-      <section style={{ background: '#FFFFFF', padding: '72px 48px', borderTop: '1px solid rgba(20,27,62,0.08)' }}>
-        <div className="careers-cta" style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 32, flexWrap: 'wrap', background: '#F7F8FC', border: '1px solid rgba(20,27,62,0.08)', borderInlineStart: '6px solid #2B8DD0', borderRadius: 14, padding: '36px 40px' }}>
-          <div style={{ maxWidth: 640 }}>
-            <h2 style={{ fontFamily: 'Inter, sans-serif', fontSize: 24, fontWeight: 800, color: '#141B3E', marginBottom: 8 }}><T>{"Don't see your role?"}</T></h2>
-            <p style={{ fontSize: 15, color: 'rgba(20,27,62,0.65)', lineHeight: 1.7 }}><T>If you work in plastics, polymers or masterbatch and want to join us, send your CV and tell us what you do best. We keep strong profiles on file for future openings.</T></p>
-          </div>
-          <a id="careers-general-application" href={GENERAL_APPLICATION_MAILTO}
-            onClick={() => trackEvent('email_click', { location: 'careers_general_application' })}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '13px 24px', background: '#2B8DD0', color: '#fff', borderRadius: 8, fontFamily: 'Inter, sans-serif', fontSize: 13, fontWeight: 800, letterSpacing: '0.04em' }}>
-            <Mail size={15} aria-hidden="true" /> <T>Email your CV</T>
-          </a>
-        </div>
-      </section>
-
       <style>{`
         .careers-apply { transition: background 0.2s ease, transform 0.2s ease; }
         .careers-apply:hover { background: #23447A !important; transform: translateY(-1px); }
-        .careers-apply:focus-visible, #careers-general-application:focus-visible { outline: 2px solid #2B8DD0; outline-offset: 2px; border-radius: 4px; }
+        .careers-apply:focus-visible { outline: 2px solid #2B8DD0; outline-offset: 2px; border-radius: 4px; }
         @media (max-width: 1000px) { .careers-grid-4 { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 760px) {
           .careers-job { grid-template-columns: 1fr !important; gap: 24px !important; padding: 24px !important; }
           .careers-grid-4 { grid-template-columns: 1fr !important; }
-          .careers-cta { padding: 28px 24px !important; }
           #open-roles, section { padding-left: 20px !important; padding-right: 20px !important; }
         }
       `}</style>
