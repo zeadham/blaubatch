@@ -23,6 +23,7 @@ export default function sitemap() {
     { url: `${base}/resources`, priority: 0.7, changeFrequency: 'monthly' },
     { url: `${base}/sustainability`, priority: 0.6, changeFrequency: 'monthly' },
     { url: `${base}/distributors`, priority: 0.6, changeFrequency: 'monthly' },
+    { url: `${base}/careers`, priority: 0.6, changeFrequency: 'weekly' },
     { url: `${base}/blog/what-is-filler-masterbatch`, priority: 0.7, changeFrequency: 'yearly' },
     { url: `${base}/blog/caco3-loading-comparison`, priority: 0.7, changeFrequency: 'yearly' },
     { url: `${base}/blog/pe-vs-pp-carrier-systems`, priority: 0.7, changeFrequency: 'yearly' },

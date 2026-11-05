@@ -37,6 +37,7 @@ const NAV_COLS = [
       { labelAr: 'لماذا بلاو باتش', label: 'Why Blau Batch', href: '/#why' },
       { labelAr: 'الاستدامة', label: 'Sustainability', href: '/sustainability' },
       { labelAr: 'الموزعون', label: 'Distributors', href: '/distributors' },
+      { labelAr: 'الوظائف', label: 'Careers', href: '/careers' },
       { labelAr: 'المصادر', label: 'Resources', href: '/resources' },
       { labelAr: 'المدونة الفنية', label: 'Technical Blog', href: '/blog' },
       { labelAr: 'اتصل بنا', label: 'Contact Us', href: '/contact' },
