@@ -134,6 +134,7 @@ export default function PageHero({
   split = false,
   textPercent = 40,
   mirrorInRtl = true,
+  imagePosition = 'center center',
 }) {
   const imagePercent = 100 - textPercent
   const { isAr } = useLocale()
@@ -167,7 +168,7 @@ export default function PageHero({
             fill
             priority
             sizes={`${imagePercent}vw`}
-            style={{ objectFit: 'cover', objectPosition: 'center center', transform: isAr && mirrorInRtl ? 'scaleX(-1)' : undefined }}
+            style={{ objectFit: 'cover', objectPosition: imagePosition, transform: isAr && mirrorInRtl ? 'scaleX(-1)' : undefined }}
           />
           {/* Fade to white on left edge */}
           <div style={{

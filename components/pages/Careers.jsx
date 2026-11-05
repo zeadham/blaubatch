@@ -118,7 +118,8 @@ export default function CareersPage() {
     <>
       <PageHero
         split
-        bgImage="/images/heroes/careers.webp"
+        bgImage="/images/heroes/careers-team.webp"
+        imagePosition="right center"
         badgeColor="#23447A"
         breadcrumb={{ current: 'Careers' }}
         tag="Join Our Team"
