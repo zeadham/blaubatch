@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AFROPLAST 13m × 7m — Interactive Exhibition Booth Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --background: #090d16;
+      --card: #111827;
+      --foreground: #f8fafc;
+      --muted-foreground: #94a3b8;
+      --border: #1e293b;
+      --primary: #2563eb;
+      --primary-foreground: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .zone-box {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .zone-box:hover {
+      filter: brightness(1.12);
+    }
+    .zone-selected {
+      stroke-width: 3px !important;
+      filter: drop-shadow(0 4px 14px rgba(59, 130, 246, 0.45));
+    }
+    @keyframes pulseFlow {
+      0%, 100% { stroke-dashoffset: 24; }
+      50% { stroke-dashoffset: 0; }
+    }
+    .traffic-path {
+      stroke-dasharray: 6 6;
+      animation: pulseFlow 3s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-[var(--background)] text-[var(--foreground)] antialiased p-4 md:p-6 select-none">
+
+  <div class="max-w-7xl mx-auto space-y-5">
+    <!-- Top Header -->
+    <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="headerPill" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/30">OPTION 1: BAR NEXT TO VIP LOUNGE</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30">VIP Wall: 1.2m Left Slogan + 2.0m Right (6 Boxes)</span>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Audit-Verified Clearances</span>
+        </div>
+        <h1 class="text-xl md:text-2xl font-bold mt-2 text-[var(--foreground)]">AFROPLAST 13m × 7m — Interactive Floor Plan & Elevation Studio</h1>
+        <p id="headerSub" class="text-sm text-[var(--muted-foreground)] mt-0.5">
+          3.2m VIP Front Wall Split: 1.2m Left Brand & Slogan ("Full Range Masterbatch Solutions") + 2.0m Right Section with 6 Recessed Sample Boxes & Written Types
+        </p>
+      </div>
+
+      <!-- Option Switcher & 2D/3D/Elevation Toggle -->
+      <div class="flex flex-wrap items-center gap-2">
+        <div class="inline-flex rounded-xl bg-[var(--background)] p-1 border border-[var(--border)]">
+          <button id="btnOpt1" onclick="setLayout('opt1')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition">
+            Option 1: Bar Next to VIP
+          </button>
+          <button id="btnOpt2" onclick="setLayout('opt2')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">
+            Option 2: Bar Behind VIP
+          </button>
+        </div>
+
+        <div class="inline-flex rounded-xl bg-[var(--background)] p-1 border border-[var(--border)]">
+          <button id="btnView2D" onclick="setViewMode('2d')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] transition">2D CAD Plan</button>
+          <button id="btnView3D" onclick="setViewMode('3d')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">3D Isometric</button>
+          <button id="btnViewElev" onclick="setViewMode('elev')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">VIP Front Wall Elevation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Studio Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      
+      <!-- Left/Center Blueprint Canvas (8 cols) -->
+      <div class="lg:col-span-8 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 md:p-5 shadow-sm flex flex-col justify-between">
+        
+        <!-- Layer Toggles Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-3 border-b border-[var(--border)]">
+          <div class="flex items-center gap-4 flex-wrap" id="planControls">
+            <label class="flex items-center gap-1.5 text-xs font-medium cursor-pointer">
+              <input type="checkbox" id="chkGrid" checked onchange="renderCanvas()" class="rounded accent-blue-500">
+              <span>1m × 1m Metric Grid</span>
+            </label>
+            <label class="flex items-center gap-1.5 text-xs font-medium cursor-pointer">
+              <input type="checkbox" id="chkDims" checked onchange="renderCanvas()" class="rounded accent-blue-500">
+              <span>Walkway Clearances</span>
+            </label>
+            <label class="flex items-center gap-1.5 text-xs font-medium cursor-pointer">
+              <input type="checkbox" id="chkFlow" checked onchange="renderCanvas()" class="rounded accent-blue-500">
+              <span>Visitor Flow</span>
+            </label>
+          </div>
+          <!-- 2.0m Box Grid Arrangement Switcher -->
+          <div class="inline-flex items-center gap-1.5 text-xs">
+            <span class="text-[var(--muted-foreground)] font-medium">2.0m Right Box Grid:</span>
+            <button id="btnGrid2x3" onclick="setBoxGrid('2cols')" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-600 text-white transition">2 Cols × 3 Rows</button>
+            <button id="btnGrid3x2" onclick="setBoxGrid('3cols')" class="px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)] transition">3 Cols × 2 Rows</button>
+          </div>
+        </div>
+
+        <!-- SVG Viewport -->
+        <div class="relative w-full overflow-x-auto flex items-center justify-center bg-[var(--background)] rounded-xl border border-[var(--border)] p-2 min-h-[495px]">
+          <svg id="boothSvg" viewBox="0 0 840 540" class="w-full h-auto max-h-[550px]"></svg>
+        </div>
+
+        <!-- Legend -->
+        <div class="mt-3 pt-3 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--muted-foreground)]">
+          <div class="flex flex-wrap items-center gap-3.5">
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-purple-500 inline-block"></span> VIP Wall (1.2m Brand Left + 2.0m 6-Boxes Right)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-orange-500 inline-block"></span> Coraplast Wall & Centered 2m Swatch</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-emerald-500 inline-block"></span> 4 Grouped Tables (T1–T4)</span>
+            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-sky-400 inline-block"></span> 3.0m Main Desk</span>
+          </div>
+          <span class="font-medium">Switch between 2D CAD Plan, 3D Isometric & VIP Front Wall Elevation above!</span>
+        </div>
+      </div>
+
+      <!-- Right Inspector Panel (4 cols) -->
+      <div class="lg:col-span-4 space-y-4">
+        
+        <!-- Option Key Tradeoff Banner -->
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-purple-400" id="compHeader">Asymmetric 1.2m + 2.0m VIP Front Wall</span>
+            <span class="text-xs font-mono text-[var(--muted-foreground)]">3.20m Total Width</span>
+          </div>
+          <p id="compText" class="text-xs text-[var(--muted-foreground)] leading-relaxed"></p>
+        </div>
+
+        <!-- Selected Element Detail Card -->
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm space-y-4">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span id="zoneTag" class="px-2.5 py-0.5 rounded-md text-xs font-semibold bg-purple-500/20 text-purple-400 border border-purple-500/30"></span>
+              <h2 id="zoneTitle" class="text-lg font-bold mt-1.5 text-[var(--foreground)]"></h2>
+            </div>
+            <div id="zoneAreaBadge" class="px-2.5 py-1 rounded-lg bg-[var(--background)] border border-[var(--border)] text-xs font-mono font-bold text-[var(--foreground)]"></div>
+          </div>
+
+          <p id="zoneDesc" class="text-sm text-[var(--muted-foreground)] leading-relaxed"></p>
+
+          <div class="space-y-2 pt-2 border-t border-[var(--border)]">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-[var(--muted-foreground)]">Specifications</h3>
+            <ul id="zoneFeatures" class="space-y-1.5 text-xs text-[var(--foreground)]"></ul>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 pt-2 border-t border-[var(--border)]">
+            <div class="bg-[var(--background)] p-2.5 rounded-xl border border-[var(--border)]">
+              <div class="text-xs text-[var(--muted-foreground)]">Dimensions</div>
+              <div id="zoneDims" class="text-sm font-semibold mt-0.5"></div>
+            </div>
+            <div class="bg-[var(--background)] p-2.5 rounded-xl border border-[var(--border)]">
+              <div class="text-xs text-[var(--muted-foreground)]">Displays / Role</div>
+              <div id="zoneHeight" class="text-sm font-semibold mt-0.5"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Element Quick-Select List -->
+        <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 shadow-sm space-y-1.5">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-1">Booth Zones (Click to Inspect)</h3>
+          <div id="elementList" class="space-y-1.5 text-xs"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentLayout = 'opt1'; // 'opt1' or 'opt2'
+    let currentView = '2d'; // '2d', '3d', or 'elev'
+    let boxGrid = '2cols'; // '2cols' (2 cols x 3 rows) or '3cols' (3 cols x 2 rows)
+    let selectedId = 'vip_showcase';
+
+    const OPTION_NOTES = {
+      opt1: {
+        pill: 'OPTION 1: BAR NEXT TO VIP LOUNGE',
+        tag: 'Option 1: VIP Front Wall = 1.2m Left Slogan Column + 2.0m Right 6-Box Showcase',
+        header: '1.2m Brand Column (Left) + 2.0m 6-Box Grid (Right)',
+        text: 'Splitting the 3.2m VIP Front Wall into a 1.2m Left Brand & Slogan Column ("Full Range Masterbatch Solutions") and a 2.0m Right 6-Box Showcase (x = 1.6m to 3.6m) pulls all 6 sample boxes away from the outer West corner and positions them right along the main central entrance path!'
+      },
+      opt2: {
+        pill: 'OPTION 2: BAR BEHIND VIP (1.0m CORRIDOR)',
+        tag: 'Option 2: 1.2m Left Slogan Column + 2.0m Right 6-Box Showcase • Full 2.0m Front Forecourt',
+        header: 'Option 2: 2.0m Right-Aligned Boxes + 9.1m Product Gallery',
+        text: 'In Option 2, having the 6 recessed boxes occupy the right 2.0m of the VIP South Wall (x = 1.6m to 3.6m) while the left 1.2m (x = 0.4m to 1.6m) displays your bold backlit logo & slogan "Full Range Masterbatch Solutions" creates a high-impact corner anchor visible from both aisles!'
+      }
+    };
+
+    function getElements() {
+      const eastStandCommon = {
+        id: 'east_stand',
+        tag: 'EAST SIDE WALL + HIDDEN CLOSET',
+        title: 'Framed Woven/Thread Display (Inside) & 85" Screen (Outside)',
+        dims: '3.4m (L) × 0.85m (D) × 2.8m (H)',
+        height: 'Inside: Woven Frame • Outside: 85" TV',
+        color: '#06b6d4',
+        fill: 'rgba(6, 182, 212, 0.25)',
+        x: 11.95,
+        y: 2.1,
+        w: 0.85,
+        h: 3.4,
+        h3d: 2.8,
+        desc: 'Positioned on the East 7m side right beside the grouped 4-table lounge (T1–T4) and Blau Batch corner. Includes a hollow internal lockable storage closet (0.5m × 3.0m) between the inside Woven Frame and outside 85" Screen.',
+        features: [
+          'INSIDE FACE (3.0m × 2.2m Big Frame): Illuminated shadow-box frame with stretched woven fabric swatches, raffia tapes, and yarn spools right beside the 4 grouped tables (T1–T4)',
+          'OUTSIDE FACE (85" Big Screen): Faces the 7.0m East aisle to draw in passing traffic',
+          'CONCEALED STORAGE CLOSET: Hollow core with flush North-end door stores staff bags, coats, and sample cartons'
+        ]
+      };
+
+      const mainDeskCommon = {
+        id: 'main_desk',
+        tag: 'AUDIT-VERIFIED: 1.35m WALKWAY TO T3',
+        title: 'Fixed 3.0m Main Reception Desk',
+        dims: '3.0m (W) × 0.90m (D)',
+        height: '1.05m Flagship Counter',
+        color: '#38bdf8',
+        fill: 'rgba(56, 189, 248, 0.28)',
+        x: 4.9,
+        y: 5.65,
+        w: 3.0,
+        h: 0.90,
+        h3d: 1.05,
+        desc: 'Positioned at x = 4.9m to 7.9m (y = 5.65m), keeping a 1.3m offset from the VIP 6-Box Wall (zero sightline blockage) while opening a full 1.35m walkway between the desk and Table T3!',
+        features: [
+          '3.0m Flagship Counter under bold Host Company branding',
+          '1.35m rear-right clearance ensures staff behind the desk never bump into seated guests at T3',
+          '90cm-deep lockable interior cabinet stores brochures, giveaways, and laptops'
+        ]
+      };
+
+      const groupedTablesCommon = {
+        id: 'lounge_seating',
+        tag: 'ALL 4 TABLES GROUPED TOGETHER (16 SEATS)',
+        title: 'Unified 4-Table B2B Lounge Cluster (T1–T4)',
+        dims: '4 Round Tables Grouped (3.6m × 3.1m Zone)',
+        height: '16 Seats in Unified East/Right Wing',
+        color: '#10b981',
+        fill: 'rgba(16, 185, 129, 0.16)',
+        x: 8.15,
+        y: 2.0,
+        w: 3.55,
+        h: 3.1,
+        h3d: 0.76,
+        tables: [
+          [8.90, 2.65, 'T1'],
+          [10.85, 2.65, 'T2'],
+          [8.90, 4.30, 'T3'],
+          [10.85, 4.30, 'T4']
+        ],
+        desc: 'All 4 meeting tables (T1, T2, T3, T4 = 16 seats) sit together in a cohesive 2×2 B2B Lounge Club on the right half of the booth (x = 8.15m to 11.7m, y = 2.0m to 5.1m) with a full 1.35m clearance from the Main Reception Desk.',
+        features: [
+          'All 4 tables sit side-by-side in one dedicated hospitality zone',
+          'Surrounded by the 2.0m Coraplast Swatch Island (left), Blau Batch + Coraplast backwall displays (north), and Framed Woven/Thread Display (right)'
+        ]
+      };
+
+      const vipFeaturesCommon = [
+        'LEFT 1.20m ARCHITECTURAL BRAND COLUMN (x = 0.40m to 1.60m): Full-height backlit brand statement displaying your Company Logo and bold halo-lit 3D typography reading “Full Range Masterbatch Solutions” right on the South-West corner!',
+        'RIGHT 2.00m RECESSED 6-BOX GALLERY (x = 1.60m to 3.60m): Exactly 2.00m wide on the right side of the VIP front wall! Houses 6 recessed illuminated sample boxes positioned in the ergonomic 0.90m–2.05m eye-level band',
+        'WRITTEN PRODUCT TYPE NEXT TO EACH BOX: Every recessed box holds the physical masterbatch granules/plaque on one side and a backlit laser-etched specification plate written right next to it (Type 01 to Type 06)',
+        'INNER WALKWAY ADVANTAGE: Placing the 6 boxes on the right 2.0m positions them right next to the VIP Lounge entrance and the central walkway toward the 2.0m Swatch Island!',
+        'OUTER WEST WALL: Flush-mounted 85" Big Screen facing the 7.0m West aisle'
+      ];
+
+      if (currentLayout === 'opt1') {
+        return [
+          {
+            id: 'vip_showcase',
+            tag: '1.2m BRAND LEFT + 2.0m 6-BOXES RIGHT',
+            title: 'VIP Wall: 1.2m Slogan Left + 2.0m 6-Boxes Right',
+            dims: '3.2m Wall (1.2m Left + 2.0m Right Boxes)',
+            height: '6 Recessed Boxes on Right 2.0m',
+            color: '#a855f7',
+            fill: 'rgba(168, 85, 247, 0.20)',
+            x: 0.4,
+            y: 0.2,
+            w: 3.2,
+            h: 2.7,
+            h3d: 2.7,
+            desc: 'The 3.20m wide South wall of the VIP Lounge is divided asymmetrically: the Left 1.20m (x = 0.4m to 1.6m) is a dedicated backlit Brand & Slogan column ("Full Range Masterbatch Solutions"), while the Right 2.00m (x = 1.6m to 3.6m) houses the 6 Recessed Illuminated Sample Boxes with the product type written next to each one!',
+            features: vipFeaturesCommon
+          },
+          {
+            id: 'wall_bar',
+            tag: '2.5m WALK-UP BAR (NO STOOLS)',
+            title: '2.5m Walk-Up Espresso Bar',
+            dims: '2.5m (W) × 1.45m (D)',
+            height: '3.8m Backwall + 1.05m Counter',
+            color: '#eab308',
+            fill: 'rgba(234, 179, 8, 0.20)',
+            x: 3.6,
+            y: 0.1,
+            w: 2.5,
+            h: 1.45,
+            h3d: 3.8,
+            desc: 'Positioned on the North wall right next to the VIP Lounge Pod (x = 3.6m to 6.1m, streamlined to 1.45m depth so Pedestal C1 has 100% open sightlines).',
+            features: [
+              '2.5m walk-up espresso counter with double-row lockable under-counter storage cabinets',
+              'Streamlined 1.45m depth keeps Coraplast pedestal C1 completely visible from the left plaza'
+            ]
+          },
+          {
+            id: 'wall_coraplast',
+            tag: '3.6m WALL + 4 DISPLAYS (C1–C4)',
+            title: 'Coraplast Wall (3.6m) + 4 Displays',
+            dims: '3.6m Wall + 4 Display Plinths',
+            height: '3.8m Wall + 4 Pedestals (C1–C4)',
+            color: '#fb923c',
+            fill: 'rgba(251, 146, 60, 0.24)',
+            x: 6.1,
+            y: 0.1,
+            w: 3.6,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [6.65, 1.05, 'C1'],
+              [7.52, 1.05, 'C2'],
+              [8.39, 1.05, 'C3'],
+              [9.26, 1.05, 'C4']
+            ],
+            desc: 'Spans x = 6.1m to 9.7m with 4 freestanding Coraplast pedestals (C1–C4) spaced cleanly at 87cm intervals in front of it.',
+            features: [
+              '3.6m width with C1 shifted 15cm right for unobstructed sightlines past the Walk-Up Bar'
+            ]
+          },
+          {
+            id: 'centerpiece',
+            tag: 'SHIFTED LEFT — CENTERED ON CORAPLAST WALL',
+            title: '2.0m Creative Coraplast Swatch Island',
+            dims: '2.0m (W) × 1.35m (D)',
+            height: '0.95m Table + 1.4m Swatch Fin',
+            color: '#f97316',
+            fill: 'rgba(249, 115, 22, 0.28)',
+            x: 5.2,
+            y: 3.0,
+            w: 2.0,
+            h: 1.35,
+            h3d: 1.35,
+            desc: 'Shifted left to x = 5.2m–7.2m (y = 3.0m–4.35m) to align with the Coraplast Wall zone while opening the right wing for the 4 grouped tables.',
+            features: [
+              '360° rotating Coraplast Color Swatch Spine + 5000K daylight lightbox'
+            ]
+          },
+          {
+            id: 'wall_blau',
+            tag: 'FAR-RIGHT WALL + 2 DISPLAYS (B1–B2)',
+            title: 'Blau Batch Wall (3.1m) + 2 Displays',
+            dims: '3.1m Wall + 2 Display Plinths',
+            height: '3.8m Wall + 2 Pedestals (B1, B2)',
+            color: '#3b82f6',
+            fill: 'rgba(59, 130, 246, 0.22)',
+            x: 9.7,
+            y: 0.1,
+            w: 3.1,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [10.55, 1.05, 'B1'],
+              [11.85, 1.05, 'B2']
+            ],
+            desc: 'Positioned on the Far-Right (North-East) back wall (x = 9.7m to 12.8m) with 2 freestanding Blau Batch display pedestals (B1 & B2).',
+            features: [
+              'Pairs Blau Batch filler compounds (B1–B2) directly with the Framed Woven/Raffia Thread samples on the East corner'
+            ]
+          },
+          groupedTablesCommon,
+          mainDeskCommon,
+          eastStandCommon
+        ];
+      } else {
+        // OPTION 2
+        return [
+          {
+            id: 'vip_showcase',
+            tag: '1.2m BRAND LEFT + 2.0m 6-BOXES RIGHT',
+            title: 'VIP Wall: 1.2m Slogan Left + 2.0m 6-Boxes Right',
+            dims: '3.2m Wall (1.2m Left + 2.0m Right Boxes)',
+            height: '6 Recessed Boxes on Right 2.0m',
+            color: '#a855f7',
+            fill: 'rgba(168, 85, 247, 0.20)',
+            x: 0.4,
+            y: 2.65,
+            w: 3.2,
+            h: 2.35,
+            h3d: 2.7,
+            desc: 'In Option 2, the 3.20m VIP South wall (at y = 5.00m) features the 1.20m Brand & Slogan Column ("Full Range Masterbatch Solutions") on the left (x = 0.4m to 1.6m) and the 2.00m Recessed 6-Box Showcase on the right (x = 1.6m to 3.6m), overlooking a full 2.00m deep front forecourt!',
+            features: vipFeaturesCommon
+          },
+          {
+            id: 'wall_coraplast',
+            tag: 'CENTER-BACK (4.6m) + 4 DISPLAYS (C1–C4)',
+            title: 'Expanded Coraplast Wall (4.6m) + 4 Displays',
+            dims: '4.6m Wall + 4 Display Plinths',
+            height: '3.8m Wall + 4 Pedestals (C1–C4)',
+            color: '#fb923c',
+            fill: 'rgba(251, 146, 60, 0.24)',
+            x: 3.7,
+            y: 0.1,
+            w: 4.6,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [4.35, 1.05, 'C1'],
+              [5.45, 1.05, 'C2'],
+              [6.55, 1.05, 'C3'],
+              [7.65, 1.05, 'C4']
+            ],
+            desc: 'Spans x = 3.7m to 8.3m (center at x = 6.0m) with 4 Coraplast Display Pedestals (C1–C4) in front of it.',
+            features: [
+              'Exact center of the 4.6m Coraplast Wall is at x = 6.0m—matching the 2.0m Swatch Centerpiece (x = 5.0m to 7.0m)!'
+            ]
+          },
+          {
+            id: 'centerpiece',
+            tag: 'SHIFTED LEFT (x=5.0–7.0m) — EXACT CENTER OF CORAPLAST',
+            title: '2.0m Creative Coraplast Swatch Island',
+            dims: '2.0m (W) × 1.35m (D)',
+            height: '0.95m Table + 1.4m Swatch Fin',
+            color: '#f97316',
+            fill: 'rgba(249, 115, 22, 0.28)',
+            x: 5.0,
+            y: 3.0,
+            w: 2.0,
+            h: 1.35,
+            h3d: 1.35,
+            desc: 'Shifted to x = 5.0m–7.0m (center at x = 6.0m) so it sits dead-center on the 4.6m Coraplast Backwall!',
+            features: [
+              '100% geometric alignment with the 4.6m Coraplast Wall behind it'
+            ]
+          },
+          {
+            id: 'wall_blau',
+            tag: 'FAR-RIGHT (4.5m) + 2 DISPLAYS (B1–B2)',
+            title: 'Expanded Blau Batch Wall (4.5m) + 2 Displays',
+            dims: '4.5m Wall + 2 Display Plinths',
+            height: '3.8m Wall + 2 Pedestals (B1, B2)',
+            color: '#3b82f6',
+            fill: 'rgba(59, 130, 246, 0.22)',
+            x: 8.3,
+            y: 0.1,
+            w: 4.5,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [9.75, 1.05, 'B1'],
+              [11.35, 1.05, 'B2']
+            ],
+            desc: 'Anchors the North-East wing (x = 8.3m to 12.8m) with 2 freestanding Blau Batch pedestals (B1 & B2).',
+            features: [
+              'Forms an L-shaped Blau Batch & Woven Raffia showcase corner right around the 4-table lounge'
+            ]
+          },
+          {
+            id: 'wall_bar',
+            tag: 'NORTH-WEST CORNER (1.0m CORRIDOR)',
+            title: 'Walk-Up Bar (Behind VIP Lounge)',
+            dims: '3.4m (W) × 1.55m (D)',
+            height: '3.8m Backwall + 1.05m Counter',
+            color: '#eab308',
+            fill: 'rgba(234, 179, 8, 0.22)',
+            x: 0.3,
+            y: 0.1,
+            w: 3.4,
+            h: 1.55,
+            h3d: 3.8,
+            desc: 'Tucked behind the Standalone VIP Lounge in the North-West corner (y = 0.10m to 1.65m), leaving a full 1.00m walk-through corridor (y = 1.65m to 2.65m).',
+            features: [
+              'Full 1.00m corridor (y = 1.65m to 2.65m) ensures effortless two-way service access'
+            ]
+          },
+          groupedTablesCommon,
+          mainDeskCommon,
+          eastStandCommon
+        ];
+      }
+    }
+
+    function setLayout(opt) {
+      currentLayout = opt;
+      document.getElementById('btnOpt1').className = opt === 'opt1'
+        ? "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition"
+        : "px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
+      document.getElementById('btnOpt2').className = opt === 'opt2'
+        ? "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition"
+        : "px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
+
+      const notes = OPTION_NOTES[opt];
+      document.getElementById('headerPill').textContent = notes.pill;
+      document.getElementById('compHeader').textContent = notes.header;
+      document.getElementById('compText').textContent = notes.text;
+
+      selectElement(selectedId);
+      renderElementList();
+      renderCanvas();
+    }
+
+    function setViewMode(mode) {
+      currentView = mode;
+      const activeCls = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] transition";
+      const idleCls = "px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
+      document.getElementById('btnView2D').className = mode === '2d' ? activeCls : idleCls;
+      document.getElementById('btnView3D').className = mode === '3d' ? activeCls : idleCls;
+      document.getElementById('btnViewElev').className = mode === 'elev' ? activeCls : idleCls;
+      renderCanvas();
+    }
+
+    function setBoxGrid(grid) {
+      boxGrid = grid;
+      document.getElementById('btnGrid2x3').className = grid === '2cols'
+        ? "px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-600 text-white transition"
+        : "px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)] transition";
+      document.getElementById('btnGrid3x2').className = grid === '3cols'
+        ? "px-2.5 py-1 rounded-md text-xs font-semibold bg-purple-600 text-white transition"
+        : "px-2.5 py-1 rounded-md text-xs font-semibold bg-[var(--background)] text-[var(--muted-foreground)] border border-[var(--border)] transition";
+      renderCanvas();
+    }
+
+    function selectElement(id) {
+      selectedId = id;
+      const els = getElements();
+      const el = els.find(e => e.id === id) || els[0];
+      document.getElementById('zoneTag').textContent = el.tag;
+      document.getElementById('zoneTag').style.color = el.color;
+      document.getElementById('zoneTag').style.borderColor = el.color + '55';
+      document.getElementById('zoneTag').style.backgroundColor = el.color + '22';
+      document.getElementById('zoneTitle').textContent = el.title;
+      document.getElementById('zoneAreaBadge').textContent = el.dims.split('(')[0].trim();
+      document.getElementById('zoneDesc').textContent = el.desc;
+      document.getElementById('zoneDims').textContent = el.dims;
+      document.getElementById('zoneHeight').textContent = el.height;
+
+      document.getElementById('zoneFeatures').innerHTML = el.features.map(f => `
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style="background:${el.color}"></span>
+          <span>${f}</span>
+        </li>
+      `).join('');
+
+      renderElementList();
+      renderCanvas();
+    }
+
+    function renderElementList() {
+      const els = getElements();
+      document.getElementById('elementList').innerHTML = els.map(e => {
+        const active = e.id === selectedId;
+        return `
+          <div onclick="selectElement('${e.id}')" class="p-2 rounded-xl border transition cursor-pointer flex items-center justify-between ${active ? 'bg-blue-500/15 border-blue-500/50' : 'bg-[var(--background)] border-[var(--border)] hover:border-slate-500'}">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${e.color}"></span>
+              <span class="font-semibold text-[var(--foreground)]">${e.title}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderCanvas() {
+      if (currentView === '2d') render2D();
+      else if (currentView === '3d') render3D();
+      else renderElevation();
+    }
+
+    function renderElevation() {
+      const svg = document.getElementById('boothSvg');
+      const wx = 120, wy = 65, ww = 600, wh = 390;
+      const leftW = 225;
+      const rightW = 375;
+      const splitX = wx + leftW;
+
+      const products = [
+        { num: '01', name: 'WHITE MB', sub: 'High TiO2 • 75%', col: '#f8fafc' },
+        { num: '02', name: 'BLACK MB', sub: 'UV & High Jetness', col: '#1e293b' },
+        { num: '03', name: 'COLOR MB', sub: 'Custom RAL Shades', col: '#ef4444' },
+        { num: '04', name: 'BLAU BATCH', sub: 'CaCO3 & Talc Filler', col: '#3b82f6' },
+        { num: '05', name: 'ADDITIVES', sub: 'UV • Slip • Anti-Block', col: '#10b981' },
+        { num: '06', name: 'SPECIALTY', sub: 'Metallic & Pearl', col: '#a855f7' }
+      ];
+
+      let html = `
+        <defs>
+          <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a"/>
+            <stop offset="50%" stop-color="#1e3a8a"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+          <linearGradient id="boxSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.32)"/>
+            <stop offset="50%" stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.22)"/>
+          </linearGradient>
+        </defs>
+
+        <text x="420" y="30" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700" letter-spacing="1.2">
+          VIP FRONT WALL ELEVATION — 1.20m SLOGAN (LEFT) + 2.00m 6-BOX SHOWCASE (RIGHT)
+        </text>
+        <text x="420" y="48" text-anchor="middle" fill="#94a3b8" font-size="12">
+          Total Wall Width: 3.20m × 2.70m High • Ergonomic Eye-Level Band (0.90m–2.05m Above Floor)
+        </text>
+
+        <rect x="${wx - 25}" y="${wy + wh}" width="${ww + 50}" height="18" rx="3" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+        <line x1="${wx - 20}" y1="${wy + wh + 2}" x2="${wx + ww + 20}" y2="${wy + wh + 2}" stroke="#fde047" stroke-width="2.5"/>
+
+        <rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" rx="8" fill="url(#wallGrad)" stroke="#60a5fa" stroke-width="2.5"/>
+
+        <line x1="${splitX}" y1="${wy + 16}" x2="${splitX}" y2="${wy + wh - 16}" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4"/>
+
+        <rect x="${wx + 16}" y="${wy + 24}" width="${leftW - 32}" height="${wh - 48}" rx="10" fill="rgba(15, 23, 42, 0.72)" stroke="#38bdf8" stroke-width="1.5"/>
+        <circle cx="${wx + leftW/2}" cy="${wy + 95}" r="32" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2"/>
+        <text x="${wx + leftW/2}" y="${wy + 100}" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">LOGO</text>
+
+        <text x="${wx + leftW/2}" y="${wy + 162}" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="2">
+          HOST BRAND
+        </text>
+        <line x1="${wx + 45}" y1="${wy + 180}" x2="${wx + leftW - 45}" y2="${wy + 180}" stroke="#fb923c" stroke-width="2.5"/>
+
+        <text x="${wx + leftW/2}" y="${wy + 222}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
+          FULL RANGE
+        </text>
+        <text x="${wx + leftW/2}" y="${wy + 248}" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700" letter-spacing="1.2">
+          MASTERBATCH
+        </text>
+        <text x="${wx + leftW/2}" y="${wy + 274}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
+          SOLUTIONS
+        </text>
+        <text x="${wx + leftW/2}" y="${wy + 322}" text-anchor="middle" fill="#94a3b8" font-size="12">
+          6 Core Polymer Lines →
+        </text>
+
+        <text x="${splitX + rightW/2}" y="${wy + 38}" text-anchor="middle" fill="#bae6fd" font-size="13" font-weight="700" letter-spacing="1.5">
+          OUR 6 CORE PRODUCT RANGES (2.00m RIGHT SECTION)
+        </text>
+      `;
+
+      if (boxGrid === '2cols') {
+        const padX = 16;
+        const gapX = 12;
+        const boxW = (rightW - padX * 2 - gapX) / 2;
+        const boxH = 84;
+        const startY = wy + 54;
+        const gapY = 14;
+
+        products.forEach((p, idx) => {
+          const col = idx % 2;
+          const row = Math.floor(idx / 2);
+          const bx = splitX + padX + col * (boxW + gapX);
+          const by = startY + row * (boxH + gapY);
+
+          html += `
+            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="#60a5fa" stroke-width="1.8"/>
+            <rect x="${bx + 10}" y="${by + 10}" width="52" height="${boxH - 20}" rx="6" fill="${p.col}" stroke="#ffffff" stroke-width="1.5"/>
+            <rect x="${bx + 10}" y="${by + 10}" width="52" height="${boxH - 20}" rx="6" fill="url(#boxSheen)"/>
+            <line x1="${bx + 16}" y1="${by + 12}" x2="${bx + 56}" y2="${by + 12}" stroke="#fde047" stroke-width="2.5"/>
+            <text x="${bx + 70}" y="${by + 26}" fill="#38bdf8" font-size="12" font-weight="800">TYPE ${p.num}</text>
+            <text x="${bx + 70}" y="${by + 45}" fill="#ffffff" font-size="12" font-weight="700">${p.name}</text>
+            <text x="${bx + 70}" y="${by + 64}" fill="#94a3b8" font-size="12">${p.sub}</text>
+          `;
+        });
+      } else {
+        const padX = 14;
+        const gapX = 10;
+        const boxW = (rightW - padX * 2 - gapX * 2) / 3;
+        const boxH = 132;
+        const startY = wy + 56;
+        const gapY = 16;
+
+        products.forEach((p, idx) => {
+          const col = idx % 3;
+          const row = Math.floor(idx / 3);
+          const bx = splitX + padX + col * (boxW + gapX);
+          const by = startY + row * (boxH + gapY);
+
+          html += `
+            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="#60a5fa" stroke-width="1.8"/>
+            <rect x="${bx + 10}" y="${by + 10}" width="${boxW - 20}" height="62" rx="6" fill="${p.col}" stroke="#ffffff" stroke-width="1.5"/>
+            <rect x="${bx + 10}" y="${by + 10}" width="${boxW - 20}" height="62" rx="6" fill="url(#boxSheen)"/>
+            <text x="${bx + boxW/2}" y="${by + 90}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">TYPE ${p.num}</text>
+            <text x="${bx + boxW/2}" y="${by + 108}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">${p.name}</text>
+            <text x="${bx + boxW/2}" y="${by + 123}" text-anchor="middle" fill="#94a3b8" font-size="12">${p.sub.split('•')[0]}</text>
+          `;
+        });
+      }
+
+      html += `
+        <rect x="${splitX + 16}" y="${wy + 340}" width="${rightW - 32}" height="30" rx="5" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(148, 163, 184, 0.3)"/>
+        <text x="${splitX + rightW/2}" y="${wy + 359}" text-anchor="middle" fill="#94a3b8" font-size="12">
+          ▲ 0.90m Waist-Height Plinth Base (No crouching required to read rows 05 & 06)
+        </text>
+
+        <line x1="${wx}" y1="${wy + wh + 32}" x2="${splitX - 4}" y2="${wy + wh + 32}" stroke="#c084fc" stroke-width="2"/>
+        <text x="${wx + leftW/2}" y="${wy + wh + 48}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">
+          ◄── 1.20m BRAND & SLOGAN ──►
+        </text>
+
+        <line x1="${splitX + 4}" y1="${wy + wh + 32}" x2="${wx + ww}" y2="${wy + wh + 32}" stroke="#38bdf8" stroke-width="2"/>
+        <text x="${splitX + rightW/2}" y="${wy + wh + 48}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">
+          ◄────── 2.00m RECESSED 6-BOX SAMPLE GALLERY (ON RIGHT SIDE) ──────►
+        </text>
+      `;
+
+      svg.innerHTML = html;
+    }
+
+    function render2D() {
+      const svg = document.getElementById('boothSvg');
+      const showGrid = document.getElementById('chkGrid').checked;
+      const showDims = document.getElementById('chkDims').checked;
+      const showFlow = document.getElementById('chkFlow').checked;
+
+      const ox = 105, oy = 78, s = 48;
+      const bw = 13 * s;
+      const bh = 7 * s;
+
+      let html = `
+        <defs>
+          <marker id="arrowBlue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+          </marker>
+          <marker id="arrowOrange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#fb923c"/>
+          </marker>
+          <marker id="arrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#c084fc"/>
+          </marker>
+          <linearGradient id="swatchGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#ef4444"/>
+            <stop offset="20%" stop-color="#f97316"/>
+            <stop offset="40%" stop-color="#eab308"/>
+            <stop offset="60%" stop-color="#22c55e"/>
+            <stop offset="80%" stop-color="#3b82f6"/>
+            <stop offset="100%" stop-color="#a855f7"/>
+          </linearGradient>
+          <pattern id="wovenPattern" width="6" height="6" patternUnits="userSpaceOnUse">
+            <path d="M 0 3 L 6 3 M 3 0 L 3 6" stroke="#fde047" stroke-width="1.2"/>
+          </pattern>
+        </defs>
+
+        <rect x="${ox}" y="${oy - 14}" width="${bw}" height="14" fill="rgba(148,163,184,0.16)" stroke="rgba(148,163,184,0.35)"/>
+        <line x1="${ox}" y1="${oy}" x2="${ox + bw}" y2="${oy}" stroke="#ef4444" stroke-width="5"/>
+        <text x="${ox + bw/2}" y="${oy - 22}" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700" letter-spacing="1">
+          ${currentLayout === 'opt1'
+            ? 'OPTION 1 BACK WALL: VIP POD • 2.5m BAR • 3.6m CORAPLAST (+4 DISPLAYS) • 3.1m BLAU BATCH (+2 DISPLAYS)'
+            : 'OPTION 2 BACK WALL: BAR BEHIND VIP (1.0m CORRIDOR) • 4.6m CORAPLAST (+4 DISPLAYS) • 4.5m BLAU BATCH (+2 DISPLAYS)'}
+        </text>
+
+        <rect x="${ox}" y="${oy + bh + 8}" width="${bw}" height="38" rx="6" fill="rgba(56, 189, 248, 0.08)" stroke="rgba(56, 189, 248, 0.25)" stroke-dasharray="4 4"/>
+        <text x="${ox + bw/2}" y="${oy + bh + 31}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="1.5">
+          ◄─── 13.0m OPEN MAIN FRONT AISLE (1.2m SLOGAN LEFT + 2.0m 6-BOXES RIGHT + 3.0m DESK) ───►
+        </text>
+
+        <rect x="${ox - 82}" y="${oy}" width="72" height="${bh}" rx="6" fill="rgba(168, 85, 247, 0.08)" stroke="rgba(168, 85, 247, 0.25)" stroke-dasharray="4 4"/>
+        <text x="${ox - 46}" y="${oy + bh/2}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700" transform="rotate(-90, ${ox - 46}, ${oy + bh/2})" letter-spacing="1">
+          7.0m WEST AISLE (VIP OUTER 85" BIG SCREEN)
+        </text>
+
+        <rect x="${ox + bw + 10}" y="${oy}" width="72" height="${bh}" rx="6" fill="rgba(6, 182, 212, 0.10)" stroke="rgba(6, 182, 212, 0.35)" stroke-dasharray="4 4"/>
+        <text x="${ox + bw + 46}" y="${oy + bh/2}" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700" transform="rotate(90, ${ox + bw + 46}, ${oy + bh/2})" letter-spacing="1">
+          7.0m EAST AISLE (OUTER 85" BIG SCREEN)
+        </text>
+
+        <rect x="${ox}" y="${oy}" width="${bw}" height="${bh}" fill="rgba(30, 41, 59, 0.50)" stroke="#64748b" stroke-width="2"/>
+      `;
+
+      if (showGrid) {
+        for (let m = 0; m <= 13; m++) {
+          const gx = ox + m * s;
+          html += `<line x1="${gx}" y1="${oy}" x2="${gx}" y2="${oy + bh}" stroke="rgba(148,163,184,0.14)" stroke-width="1"/>`;
+          html += `<text x="${gx}" y="${oy - 3}" text-anchor="middle" fill="#94a3b8" font-size="12">${m}m</text>`;
+        }
+        for (let m = 0; m <= 7; m++) {
+          const gy = oy + m * s;
+          html += `<line x1="${ox}" y1="${gy}" x2="${ox + bw}" y2="${gy}" stroke="rgba(148,163,184,0.14)" stroke-width="1"/>`;
+          html += `<text x="${ox - 5}" y="${gy + 4}" text-anchor="end" fill="#94a3b8" font-size="12">${m}m</text>`;
+        }
+      }
+
+      const els = getElements();
+
+      els.forEach(el => {
+        const ex = ox + el.x * s;
+        const ey = oy + el.y * s;
+        const ew = el.w * s;
+        const eh = el.h * s;
+        const isSel = el.id === selectedId;
+
+        html += `<g class="zone-box ${isSel ? 'zone-selected' : ''}" onclick="selectElement('${el.id}')">`;
+
+        if (el.id === 'vip_showcase') {
+          const doorY1 = currentLayout === 'opt1' ? ey + eh * 0.30 : ey + eh * 0.08;
+          const doorY2 = currentLayout === 'opt1' ? ey + eh * 0.70 : ey + eh * 0.42;
+
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="6" fill="${el.fill}" stroke="#c084fc" stroke-width="${isSel ? 3.5 : 2}"/>
+            <line x1="${ex + ew - 4}" y1="${ey + 4}" x2="${ex + ew - 4}" y2="${ey + eh - 4}" stroke="#e9d5ff" stroke-width="2" stroke-dasharray="10 4"/>
+            <line x1="${ex + ew}" y1="${doorY1}" x2="${ex + ew}" y2="${doorY2}" stroke="#22c55e" stroke-width="4.5"/>
+
+            <rect x="${ex + 18}" y="${ey + 20}" width="${ew - 36}" height="${eh - 36}" rx="6" fill="rgba(88, 28, 135, 0.35)" stroke="rgba(216, 180, 254, 0.3)" stroke-width="1"/>
+            <rect x="${ex + 14}" y="${ey + 18}" width="20" height="${eh - 36}" rx="5" fill="#7e22ce" stroke="#f3e8ff" stroke-width="1.5"/>
+            <rect x="${ex + 14}" y="${ey + 18}" width="${ew * 0.52}" height="18" rx="5" fill="#7e22ce" stroke="#f3e8ff" stroke-width="1.5"/>
+            <circle cx="${ex + ew * 0.48}" cy="${ey + eh * 0.54}" r="13" fill="#e9d5ff" stroke="#6b21a8" stroke-width="1.5"/>
+            <rect x="${ex + ew * 0.68}" y="${ey + eh * 0.30}" width="18" height="18" rx="5" fill="#9333ea" stroke="#f3e8ff" stroke-width="1.5" transform="rotate(12, ${ex + ew * 0.68 + 9}, ${ey + eh * 0.30 + 9})"/>
+            <rect x="${ex + ew * 0.68}" y="${ey + eh * 0.58}" width="18" height="18" rx="5" fill="#9333ea" stroke="#f3e8ff" stroke-width="1.5" transform="rotate(-12, ${ex + ew * 0.68 + 9}, ${ey + eh * 0.58 + 9})"/>
+            <text x="${ex + ew/2 + 6}" y="${ey + 15}" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="700">VIP SOFA LOUNGE</text>
+
+            <rect x="${ex - 5}" y="${ey + 4}" width="10" height="${eh - 8}" rx="2" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
+            <rect x="${ex - 8}" y="${ey + 16}" width="7" height="${eh - 32}" rx="2" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
+
+            <rect x="${ex}" y="${ey + eh - 11}" width="${1.2 * s}" height="13" rx="2" fill="#1e3a8a" stroke="#c084fc" stroke-width="1.5"/>
+            <rect x="${ex + 1.2 * s}" y="${ey + eh - 12}" width="${2.0 * s}" height="15" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+          `;
+          const tCols = ['#f8fafc', '#1e293b', '#ef4444', '#3b82f6', '#10b981', '#a855f7'];
+          const rightStartX = ex + 1.2 * s + 5;
+          const rightSpanW = 2.0 * s - 10;
+          for (let i = 0; i < 6; i++) {
+            const bx = rightStartX + i * (rightSpanW / 6);
+            const by = ey + eh - 9;
+            html += `<rect x="${bx}" y="${by}" width="11" height="9" rx="1.5" fill="${tCols[i]}" stroke="#fde047" stroke-width="1.2"/>`;
+          }
+          html += `
+            <text x="${ex + 0.6*s}" y="${ey + eh + 16}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">1.2m SLOGAN</text>
+            <text x="${ex + 2.2*s}" y="${ey + eh + 16}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">▲ 2.0m (6 BOXES)</text>
+          `;
+        } else if (el.id === 'wall_bar') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
+            <rect x="${ex + 8}" y="${ey + 4}" width="${ew - 16}" height="16" rx="2" fill="#713f12" stroke="#fde047" stroke-width="1"/>
+            <text x="${ex + ew/2}" y="${ey + 16}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">ESPRESSO & CABINETS</text>
+            <rect x="${ex + 12}" y="${ey + eh - 20}" width="${ew - 24}" height="16" rx="4" fill="#a16207" stroke="#fef08a" stroke-width="1.5"/>
+            <text x="${ex + ew/2}" y="${ey + eh - 8}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">WALK-UP BAR</text>
+          `;
+        } else if (el.id === 'wall_blau') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
+            <rect x="${ex + 6}" y="${ey + 4}" width="${ew - 12}" height="7" fill="#60a5fa"/>
+            <text x="${ex + ew/2}" y="${ey + 23}" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">
+              BLAU BATCH FILLER WALL
+            </text>
+          `;
+          el.displays.forEach(d => {
+            const dx = ox + d[0] * s;
+            const dy = oy + d[1] * s;
+            html += `
+              <rect x="${dx - 13}" y="${dy}" width="26" height="24" rx="5" fill="#1d4ed8" stroke="#93c5fd" stroke-width="2"/>
+              <text x="${dx}" y="${dy + 16}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">${d[2]}</text>
+            `;
+          });
+        } else if (el.id === 'wall_coraplast') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
+            <rect x="${ex + 6}" y="${ey + 4}" width="${ew - 12}" height="7" fill="url(#swatchGrad)"/>
+            <text x="${ex + ew/2}" y="${ey + 23}" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="700">
+              CORAPLAST WALL (${el.w}m)
+            </text>
+          `;
+          const cColors = ['#ef4444', '#f97316', '#eab308', '#22c55e'];
+          el.displays.forEach((d, idx) => {
+            const dx = ox + d[0] * s;
+            const dy = oy + d[1] * s;
+            html += `
+              <rect x="${dx - 13}" y="${dy}" width="26" height="24" rx="5" fill="${cColors[idx]}" stroke="#ffffff" stroke-width="2"/>
+              <text x="${dx}" y="${dy + 16}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">${d[2]}</text>
+            `;
+          });
+        } else if (el.id === 'centerpiece') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="22" fill="${el.fill}" stroke="#fb923c" stroke-width="${isSel ? 3.5 : 2.5}"/>
+            <rect x="${ex + 12}" y="${ey + eh/2 - 7}" width="${ew - 24}" height="14" rx="7" fill="url(#swatchGrad)" stroke="#ffffff" stroke-width="1.5"/>
+            <text x="${ex + ew/2}" y="${ey + 18}" text-anchor="middle" fill="#fff7ed" font-size="12" font-weight="700">2.0m SWATCH</text>
+            <text x="${ex + ew/2}" y="${ey + eh - 7}" text-anchor="middle" fill="#fed7aa" font-size="12" font-weight="600">CENTERED</text>
+          `;
+        } else if (el.id === 'main_desk') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="12" fill="${el.fill}" stroke="#38bdf8" stroke-width="${isSel ? 3.5 : 2.5}"/>
+            <rect x="${ex + 12}" y="${ey + eh - 8}" width="${ew - 24}" height="5" rx="2.5" fill="#60a5fa"/>
+            <text x="${ex + ew/2}" y="${ey + 19}" text-anchor="middle" fill="#f0f9ff" font-size="12" font-weight="700">MAIN DESK (3.0m)</text>
+            <text x="${ex + ew/2}" y="${ey + 35}" text-anchor="middle" fill="#bae6fd" font-size="12">x = 4.9m – 7.9m</text>
+          `;
+        } else if (el.id === 'east_stand') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="5" fill="${el.fill}" stroke="#22d3ee" stroke-width="${isSel ? 3.5 : 2.5}"/>
+            <line x1="${ex + ew/2}" y1="${ey + 6}" x2="${ex + ew/2}" y2="${ey + eh - 6}" stroke="#e2e8f0" stroke-width="2"/>
+            <rect x="${ex + ew - 8}" y="${ey + 18}" width="6" height="${eh - 36}" rx="2" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
+            <rect x="${ex - 3}" y="${ey + 10}" width="14" height="${eh - 20}" rx="3" fill="url(#wovenPattern)" stroke="#facc15" stroke-width="2"/>
+            <text x="${ex - 8}" y="${ey + eh + 14}" text-anchor="end" fill="#fde047" font-size="12" font-weight="700">▲ FRAMED WOVEN SAMPLES</text>
+          `;
+        } else if (el.id === 'lounge_seating') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="10" fill="${el.fill}" stroke="#10b981" stroke-width="${isSel ? 2.5 : 1.2}" stroke-dasharray="6 4"/>
+          `;
+          el.tables.forEach(tc => {
+            const cx = ox + tc[0] * s, cy = oy + tc[1] * s, lbl = tc[2];
+            html += `
+              <circle cx="${cx - 18}" cy="${cy}" r="5" fill="#6ee7b7"/>
+              <circle cx="${cx + 18}" cy="${cy}" r="5" fill="#6ee7b7"/>
+              <circle cx="${cx}" cy="${cy - 18}" r="5" fill="#6ee7b7"/>
+              <circle cx="${cx}" cy="${cy + 18}" r="5" fill="#6ee7b7"/>
+              <circle cx="${cx}" cy="${cy}" r="14" fill="#065f46" stroke="${isSel ? '#ffffff' : '#a7f3d0'}" stroke-width="${isSel ? 2.5 : 1.5}"/>
+              <text x="${cx}" y="${cy + 4}" text-anchor="middle" fill="#ecfdf5" font-size="12" font-weight="700">${lbl}</text>
+            `;
+          });
+        }
+
+        html += `</g>`;
+      });
+
+      if (showDims) {
+        if (currentLayout === 'opt1') {
+          html += `
+            <g pointer-events="none" opacity="0.92">
+              <rect x="${ox + 0.45*s}" y="${oy + 4.8*s}" width="${4.2*s}" height="24" rx="5" fill="rgba(15,23,42,0.88)" stroke="#c084fc"/>
+              <text x="${ox + 2.55*s}" y="${oy + 4.8*s + 16}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">4.10m Deep Open Forecourt (Flush 2.0m Boxes!)</text>
+            </g>
+          `;
+        } else {
+          html += `
+            <g pointer-events="none" opacity="0.92">
+              <rect x="${ox + 0.5*s}" y="${oy + 1.88*s}" width="${3.0*s}" height="22" rx="4" fill="rgba(15,23,42,0.9)" stroke="#eab308"/>
+              <text x="${ox + 2.0*s}" y="${oy + 1.88*s + 15}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">◄ Full 1.00m Bar Corridor ►</text>
+              <rect x="${ox + 0.45*s}" y="${oy + 6.08*s}" width="${4.2*s}" height="22" rx="4" fill="rgba(15,23,42,0.9)" stroke="#c084fc"/>
+              <text x="${ox + 2.55*s}" y="${oy + 6.08*s + 15}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">◄ Full 2.00m Deep Open Forecourt! ►</text>
+            </g>
+          `;
+        }
+      }
+
+      if (showFlow) {
+        html += `
+          <g pointer-events="none" opacity="0.88">
+            <path d="M ${ox + 2.6*s} ${oy + bh + 12} L ${ox + 2.6*s} ${oy + (currentLayout === 'opt1' ? 3.5 : 5.5)*s}" fill="none" stroke="#c084fc" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowPurple)"/>
+            <path d="M ${ox + 4.3*s} ${oy + bh + 12} Q ${ox + 4.3*s} ${oy + 4.8*s} ${ox + 5.1*s} ${oy + 4.4*s}" fill="none" stroke="#38bdf8" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowBlue)"/>
+            <path d="M ${ox + 9.6*s} ${oy + bh + 12} Q ${ox + 9.6*s} ${oy + 5.7*s} ${ox + 9.6*s} ${oy + 5.1*s}" fill="none" stroke="#fb923c" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowOrange)"/>
+          </g>
+        `;
+      }
+
+      svg.innerHTML = html;
+    }
+
+    function render3D() {
+      const svg = document.getElementById('boothSvg');
+      const originX = 385, originY = 95, scale = 32;
+
+      function iso(x, y, z) {
+        return {
+          x: originX + (x - y) * scale * 0.88,
+          y: originY + (x + y) * scale * 0.46 - z * scale * 0.85
+        };
+      }
+
+      function poly(pts, fill, stroke = '#1e293b', sw = 1.2) {
+        return `<polygon points="${pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
+      }
+
+      function box(x, y, w, d, h, cTop, cLeft, cRight, stroke, elId = null) {
+        const p000 = iso(x, y, 0), p100 = iso(x+w, y, 0), p110 = iso(x+w, y+d, 0), p010 = iso(x, y+d, 0);
+        const p001 = iso(x, y, h), p101 = iso(x+w, y, h), p111 = iso(x+w, y+d, h), p011 = iso(x, y+d, h);
+        const clk = elId ? `class="zone-box" onclick="selectElement('${elId}')"` : '';
+        return `
+          <g ${clk}>
+            ${poly([p010, p110, p111, p011], cLeft, stroke)}
+            ${poly([p100, p110, p111, p101], cRight, stroke)}
+            ${poly([p001, p101, p111, p011], cTop, stroke)}
+          </g>
+        `;
+      }
+
+      let html = '';
+      html += box(0, 0, 13, 7, 0.14, '#1e293b', '#0f172a', '#334155', '#475569');
+
+      const els = getElements();
+      const blauEl = els.find(e => e.id === 'wall_blau');
+      const coraEl = els.find(e => e.id === 'wall_coraplast');
+      const centerEl = els.find(e => e.id === 'centerpiece');
+      const loungeEl = els.find(e => e.id === 'lounge_seating');
+
+      const vipY = currentLayout === 'opt1' ? 0.2 : 2.65;
+      const vipD = currentLayout === 'opt1' ? 2.7 : 2.35;
+
+      if (currentLayout === 'opt1') {
+        html += box(3.6, 0.1, 2.5, 0.45, 3.8, '#facc15', '#ca8a04', '#a16207', '#eab308', 'wall_bar');
+        html += box(3.75, 1.0, 2.2, 0.45, 1.05, '#fef08a', '#eab308', '#a16207', '#eab308', 'wall_bar');
+        html += box(6.1, 0.1, 3.6, 0.45, 3.8, '#fb923c', '#ea580c', '#c2410c', '#f97316', 'wall_coraplast');
+        html += box(9.7, 0.1, 3.1, 0.45, 3.8, '#60a5fa', '#2563eb', '#1d4ed8', '#3b82f6', 'wall_blau');
+      } else {
+        html += box(0.3, 0.1, 3.4, 0.45, 3.8, '#facc15', '#ca8a04', '#a16207', '#eab308', 'wall_bar');
+        html += box(0.5, 1.15, 3.0, 0.50, 1.05, '#fef08a', '#eab308', '#a16207', '#eab308', 'wall_bar');
+        html += box(3.7, 0.1, 4.6, 0.45, 3.8, '#fb923c', '#ea580c', '#c2410c', '#f97316', 'wall_coraplast');
+        html += box(8.3, 0.1, 4.5, 0.45, 3.8, '#60a5fa', '#2563eb', '#1d4ed8', '#3b82f6', 'wall_blau');
+      }
+
+      const cCols = ['#ef4444', '#f97316', '#eab308', '#22c55e'];
+      coraEl.displays.forEach((d, idx) => {
+        html += box(d[0] - 0.22, d[1], 0.45, 0.45, 1.15, cCols[idx], cCols[idx], '#7c2d12', '#ffffff', 'wall_coraplast');
+      });
+
+      blauEl.displays.forEach(d => {
+        html += box(d[0] - 0.22, d[1], 0.45, 0.45, 1.15, '#93c5fd', '#2563eb', '#1e40af', '#ffffff', 'wall_blau');
+      });
+
+      html += box(0.32, vipY + 0.2, 0.12, vipD - 0.4, 2.3, '#38bdf8', '#0284c7', '#0369a1', '#ffffff', 'vip_showcase');
+
+      html += box(0.55, vipY + 0.25, 0.65, vipD - 0.5, 0.75, '#a855f7', '#7e22ce', '#6b21a8', '#f3e8ff', 'vip_showcase');
+      html += box(0.55, vipY + 0.25, 1.7, 0.60, 0.75, '#a855f7', '#7e22ce', '#6b21a8', '#f3e8ff', 'vip_showcase');
+      html += box(1.5, vipY + 1.05, 0.65, 0.65, 0.45, '#f3e8ff', '#d8b4fe', '#c084fc', '#6b21a8', 'vip_showcase');
+      html += box(0.4, vipY, 3.2, vipD, 2.7, 'rgba(216,180,254,0.35)', '#1e3a8a', 'rgba(126,34,206,0.35)', '#c084fc', 'vip_showcase');
+
+      const tCols = ['#f8fafc', '#1e293b', '#ef4444', '#3b82f6', '#10b981', '#a855f7'];
+      for (let i = 0; i < 6; i++) {
+        const col = i % 3;
+        const row = Math.floor(i / 3);
+        const bx = 1.65 + col * 0.64;
+        html += box(bx, vipY + vipD - 0.04, 0.52, 0.10, row === 0 ? 2.1 : 1.35, tCols[i], tCols[i], '#0f172a', '#fde047', 'vip_showcase');
+      }
+
+      html += box(centerEl.x, centerEl.y, centerEl.w, centerEl.h, 0.92, '#fdba74', '#f97316', '#c2410c', '#fb923c', 'centerpiece');
+      html += box(centerEl.x + 0.2, centerEl.y + 0.55, centerEl.w - 0.4, 0.25, 1.42, '#fef08a', '#ec4899', '#8b5cf6', '#ffffff', 'centerpiece');
+
+      html += box(11.95, 2.1, 0.85, 3.4, 2.8, '#67e8f9', '#0891b2', '#06b6d4', '#22d3ee', 'east_stand');
+      html += box(11.82, 2.3, 0.14, 3.0, 2.4, '#fef08a', '#eab308', '#ca8a04', '#ffffff', 'east_stand');
+
+      loungeEl.tables.forEach(t => {
+        html += box(t[0] - 0.4, t[1] - 0.4, 0.8, 0.8, 0.76, '#6ee7b7', '#10b981', '#047857', '#a7f3d0', 'lounge_seating');
+      });
+
+      html += box(4.9, 5.65, 3.0, 0.90, 1.05, '#bae6fd', '#0284c7', '#0369a1', '#38bdf8', 'main_desk');
+
+      svg.innerHTML = html;
+    }
+
+    // Init
+    setLayout('opt1');
+    selectElement('vip_showcase');
+  </script>
+</body>
+</html>

@@ -2,6 +2,11 @@
 const nextConfig = {
   poweredByHeader: false,
 
+  // The booth visualiser is read from disk at request time, so make sure it ships with the route.
+  outputFileTracingIncludes: {
+    '/booth': ['./private/booth-visualizer.html'],
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 768, 1024, 1280, 1600],
