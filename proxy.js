@@ -6,6 +6,9 @@ export function proxy(request) {
 
   if (pathname === '/opengraph-image' || /\.[a-z0-9]+$/i.test(pathname)) return NextResponse.next()
 
+  // Hidden booth visualiser: a standalone route handler outside the [lang] tree.
+  if (pathname === '/booth') return NextResponse.next()
+
   if (pathname === '/ar' || pathname.startsWith('/ar/')) {
     const rest = pathname.slice(3) || '/'
     if (!isTranslatedRoute(rest)) {
