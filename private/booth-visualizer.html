@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AFROPLAST 13m × 7m — Interactive Exhibition Booth Studio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <style>
     :root {
       --background: #090d16;
@@ -61,19 +62,23 @@
 
       <!-- Option Switcher & 2D/3D/Elevation Toggle -->
       <div class="flex flex-wrap items-center gap-2">
-        <div class="inline-flex rounded-xl bg-[var(--background)] p-1 border border-[var(--border)]">
-          <button id="btnOpt1" onclick="setLayout('opt1')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition">
+        <div class="inline-flex rounded-xl bg-[var(--background)] p-1 border border-[var(--border)] flex-wrap">
+          <button id="btnOpt1" onclick="setLayout('opt1')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">
             Option 1: Bar Next to VIP
           </button>
-          <button id="btnOpt2" onclick="setLayout('opt2')" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">
+          <button id="btnOpt2" onclick="setLayout('opt2')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">
             Option 2: Bar Behind VIP
+          </button>
+          <button id="btnOpt3" onclick="setLayout('opt3')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition">
+            Option 3: East Inside Bar + Corner Desk
           </button>
         </div>
 
         <div class="inline-flex rounded-xl bg-[var(--background)] p-1 border border-[var(--border)]">
           <button id="btnView2D" onclick="setViewMode('2d')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[var(--primary)] text-[var(--primary-foreground)] transition">2D CAD Plan</button>
           <button id="btnView3D" onclick="setViewMode('3d')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">3D Isometric</button>
-          <button id="btnViewElev" onclick="setViewMode('elev')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">VIP Front Wall Elevation</button>
+          <button id="btnViewElev" onclick="setViewMode('elev')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">VIP Front Wall</button>
+          <button id="btnViewBack" onclick="setViewMode('back')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition">13m Back Wall</button>
         </div>
       </div>
     </div>
@@ -177,8 +182,8 @@
   </div>
 
   <script>
-    let currentLayout = 'opt1'; // 'opt1' or 'opt2'
-    let currentView = '2d'; // '2d', '3d', or 'elev'
+    let currentLayout = 'opt3'; // 'opt1', 'opt2', or 'opt3'
+    let currentView = '2d'; // '2d', '3d', 'elev', or 'back'
     let boxGrid = '2cols'; // '2cols' (2 cols x 3 rows) or '3cols' (3 cols x 2 rows)
     let selectedId = 'vip_showcase';
 
@@ -186,14 +191,20 @@
       opt1: {
         pill: 'OPTION 1: BAR NEXT TO VIP LOUNGE',
         tag: 'Option 1: VIP Front Wall = 1.2m Left Slogan Column + 2.0m Right 6-Box Showcase',
-        header: '1.2m Brand Column (Left) + 2.0m 6-Box Grid (Right)',
-        text: 'Splitting the 3.2m VIP Front Wall into a 1.2m Left Brand & Slogan Column ("Full Range Masterbatch Solutions") and a 2.0m Right 6-Box Showcase (x = 1.6m to 3.6m) pulls all 6 sample boxes away from the outer West corner and positions them right along the main central entrance path!'
+        header: 'Option 1: Bar Next to VIP (x = 3.6m–6.1m)',
+        text: 'VIP Lounge is at y = 0.20m–2.90m with the 2.5m Walk-Up Bar next to it on the North wall, followed by 3.6m Coraplast (+4 Displays) and 3.1m Blau Batch (+2 Displays).'
       },
       opt2: {
         pill: 'OPTION 2: BAR BEHIND VIP (1.0m CORRIDOR)',
-        tag: 'Option 2: 1.2m Left Slogan Column + 2.0m Right 6-Box Showcase • Full 2.0m Front Forecourt',
-        header: 'Option 2: 2.0m Right-Aligned Boxes + 9.1m Product Gallery',
-        text: 'In Option 2, having the 6 recessed boxes occupy the right 2.0m of the VIP South Wall (x = 1.6m to 3.6m) while the left 1.2m (x = 0.4m to 1.6m) displays your bold backlit logo & slogan "Full Range Masterbatch Solutions" creates a high-impact corner anchor visible from both aisles!'
+        tag: 'Option 2: Bar Behind VIP + 9.1m Expanded Product Backwall',
+        header: 'Option 2: Bar Behind VIP + 9.1m Product Gallery',
+        text: 'Walk-Up Bar sits behind the VIP Lounge in the North-West corner (1.0m corridor), leaving 4.6m for Coraplast (+4 Displays) and 4.5m for Blau Batch (+2 Displays).'
+      },
+      opt3: {
+        pill: 'OPTION 3: DOWN-LEFT ACRYLIC COLUMN + 1m SEPARATOR SHEETS + EAST BAR',
+        tag: 'Option 3: Down-Left Branded Acrylic Column • 1m Separator Sheets • East Inside Bar • Down-Right Corner Desk!',
+        header: 'Option 3: Down-Left Column + 1m Separator Sheets',
+        text: 'Places the 3.8m Branded Translucent Acrylic Column on the Down-Left (Front-Left) Corner (x = 0.4m–1.35m, y = 5.65m–6.6m), puts Colored Acrylic Separator Sheets inside the 1.00m space (y = 0.75m–1.75m) between the Back Wall and East Woven Frame, integrates the Walk-Up Bar inside the East Frame, and places the 3.0m Main Desk on the Down-Right Corner!'
       }
     };
 
@@ -379,7 +390,7 @@
           mainDeskCommon,
           eastStandCommon
         ];
-      } else {
+      } else if (currentLayout === 'opt2') {
         // OPTION 2
         return [
           {
@@ -484,17 +495,216 @@
           mainDeskCommon,
           eastStandCommon
         ];
+      } else {
+        // OPTION 3: VIP PUSHED BACK (1.0m TO BACK WALL) + BAR INTEGRATED INSIDE EAST WOVEN FRAME (PUSHED BACK) + FRONT-RIGHT CORNER DESK
+        return [
+          {
+            id: 'vip_showcase',
+            tag: 'PUSHED BACK: ONLY 1.0m TO BACK WALL',
+            title: 'VIP Lounge (1.0m from Back Wall) + 6-Box Front',
+            dims: '3.2m (W) × 2.5m (D) • y = 1.10m–3.60m',
+            height: '1.0m Rear Gap • 3.4m Front Plaza!',
+            color: '#a855f7',
+            fill: 'rgba(168, 85, 247, 0.20)',
+            x: 0.4,
+            y: 1.10,
+            w: 3.2,
+            h: 2.50,
+            h3d: 2.7,
+            desc: 'In Option 3, the Standalone VIP Lounge is pushed back to y = 1.10m–3.60m, leaving strictly 1.00m (y = 0.10m to 1.10m) between the VIP room and the North back wall! This opens a massive 3.40m deep front plaza (y = 3.60m to 7.00m) in front of your 1.2m Slogan + 2.0m 6-Box wall!',
+            features: [
+              'STRICTLY 1.00m GAP TO BACK WALL (y = 0.10m to 1.10m): Can be used as a concealed 1.0m rear service/storage corridor behind the VIP room',
+              'MASSIVE 3.40m FRONT FORECOURT (y = 3.60m to 7.00m): Unobstructed sightlines across the entire left and center front plaza',
+              ...vipFeaturesCommon
+            ]
+          },
+          {
+            id: 'wall_coraplast',
+            tag: 'EXPANDED 4.6m WALL + 4 DISPLAYS (C1–C4)',
+            title: 'Expanded Coraplast Wall (4.6m) + 4 Displays',
+            dims: '4.6m Wall (x = 3.6m–8.2m) + 4 Pedestals',
+            height: '3.8m Wall + 4 Pedestals (C1–C4)',
+            color: '#fb923c',
+            fill: 'rgba(251, 146, 60, 0.24)',
+            x: 3.6,
+            y: 0.1,
+            w: 4.6,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [4.25, 1.05, 'C1'],
+              [5.35, 1.05, 'C2'],
+              [6.45, 1.05, 'C3'],
+              [7.55, 1.05, 'C4']
+            ],
+            desc: 'Because the Walk-Up Bar is integrated inside the East Woven Frame, the North Back Wall opens up for a full 4.60m Coraplast Gallery (x = 3.60m to 8.20m) with 4 generously spaced pedestals (C1–C4 at 1.10m intervals).',
+            features: [
+              'Full 4.60m width directly behind the 2.0m Creative Coraplast Swatch Island',
+              '4 Colored Cast Acrylic vitrine pedestals (C1–C4) spaced cleanly at 1.10m intervals'
+            ]
+          },
+          {
+            id: 'centerpiece',
+            tag: 'CENTERED ON CORAPLAST (x = 4.8m–6.8m)',
+            title: '2.0m Creative Coraplast Swatch Island',
+            dims: '2.0m (W) × 1.35m (D)',
+            height: '0.95m Table + Colored Acrylic Fins',
+            color: '#f97316',
+            fill: 'rgba(249, 115, 22, 0.28)',
+            x: 4.8,
+            y: 2.85,
+            w: 2.0,
+            h: 1.35,
+            h3d: 1.35,
+            desc: 'Positioned at x = 4.80m to 6.80m (y = 2.85m to 4.20m) directly centered on the Coraplast Wall, leaving a 1.20m walkway to the VIP Lounge on the left and a Completely Open Front Center Plaza!',
+            features: [
+              '360° radial Translucent Colored Cast Acrylic fins + 5000K daylight swatch table',
+              'Zero front blockage because the 3.0m Main Desk is moved to the Front-Right Corner'
+            ]
+          },
+          {
+            id: 'wall_blau',
+            tag: 'EXPANDED 4.6m WALL + 2 DISPLAYS (B1–B2)',
+            title: 'Expanded Blau Batch Wall (4.6m) + 2 Displays',
+            dims: '4.6m Wall (x = 8.2m–12.8m) + 2 Pedestals',
+            height: '3.8m Wall + 2 Pedestals (B1, B2)',
+            color: '#3b82f6',
+            fill: 'rgba(59, 130, 246, 0.22)',
+            x: 8.2,
+            y: 0.1,
+            w: 4.6,
+            h: 0.65,
+            h3d: 3.8,
+            displays: [
+              [9.25, 1.05, 'B1'],
+              [10.65, 1.05, 'B2']
+            ],
+            desc: 'Expands to 4.60m on the North-East Back Wall (x = 8.20m to 12.80m) with 2 freestanding Blau Batch display pedestals (B1 & B2 at x = 9.25m and 10.65m), flanked on the North-East corner by the 3.8m Branded Translucent Acrylic Column!',
+            features: [
+              'Pushing the East Woven Frame 1.00m away from the back wall opens up a full 1.00m zone (y = 0.75m–1.75m) in front of the Blau Batch wall and Branded Translucent Acrylic Column!'
+            ]
+          },
+          {
+            id: 'acrylic_column',
+            tag: 'DOWN-LEFT CORNER (FRONT-LEFT BEACON)',
+            title: 'Branded Translucent Colored Acrylic Column',
+            dims: '0.95m (W) × 0.95m (D) × 3.80m (H)',
+            height: '3.8m Down-Left Corner Beacon',
+            color: '#ec4899',
+            fill: 'rgba(236, 72, 153, 0.28)',
+            x: 0.40,
+            y: 5.65,
+            w: 0.95,
+            h: 0.95,
+            h3d: 3.8,
+            desc: 'Positioned on the Down-Left (Front-Left / South-West) Corner (x = 0.40m to 1.35m, y = 5.65m to 6.60m) right at the intersection of the 13.0m Front Aisle and 7.0m West Aisle! Balances the 3.0m Main Desk on the Down-Right Corner while keeping 100% open sightlines to the 2.0m 6-Box Gallery (x = 1.60m–3.60m) behind it!',
+            features: [
+              'ANCHORS THE DOWN-LEFT (FRONT-LEFT) CORNER: Creates a commanding 3.80m-tall glowing architectural gateway on the left front corner, mirroring the 3.0m Main Desk on the right front corner',
+              'ZERO SIGHTLINE BLOCKAGE TO THE 6 SAMPLE BOXES: Because it sits at x = 0.40m–1.35m, the entire 2.00m Right 6-Box section (x = 1.60m–3.60m) on the VIP wall remains 100% unobstructed from the front aisle!',
+              'TRANSLUCENT COLORED CAST ACRYLIC (PMMA) CLADDING: Frosted & colored translucent cast acrylic panels with internal 5000K LED matrix backlighting and 3D backlit Host Brand Logo on all 4 sides'
+            ]
+          },
+          {
+            id: 'separator_sheets',
+            tag: '1.0m SPACE (y = 0.75m–1.75m) SEPARATOR FINS',
+            title: 'Colored Acrylic Separator Sheets (1.0m Space)',
+            dims: '1.00m Span × 0.85m (D) × 3.20m (H)',
+            height: '5 Translucent Acrylic Louver Sheets',
+            color: '#f43f5e',
+            fill: 'rgba(244, 63, 94, 0.22)',
+            x: 11.95,
+            y: 0.75,
+            w: 0.85,
+            h: 1.00,
+            h3d: 3.2,
+            desc: 'Installed inside the 1.00m space (y = 0.75m to 1.75m, x = 11.95m to 12.80m) between the North Back Display Wall and the East Woven Frame (plus matching separator sheets screening the 1.0m VIP rear gap on the West)! Consists of 5 floor-to-top (3.20m high) edge-lit Translucent Colored Cast Acrylic Separator Sheets/Louvers.',
+            features: [
+              'FILLS THE 1.00m SETBACK SPACE WITH ARCHITECTURAL RHYTHM: 5 angled 15mm-thick Translucent Colored Cast Acrylic sheets (Ruby Red, Amber Orange, Cobalt Blue, Emerald Green, Frost White) spaced at 20cm intervals across the 1.00m gap',
+              'SEMI-TRANSPARENT LIGHT BAFFLE: Visually connects the 3.80m Blau Batch Back Wall to the 2.80m East Woven Frame while allowing coloured light to glow through to the East aisle',
+              'MATCHING WEST 1.0m SEPARATOR SCREEN: Matching acrylic separator sheets also screen the 1.00m rear gap behind the VIP room on the West side (y = 0.10m–1.10m)'
+            ]
+          },
+          {
+            id: 'east_stand',
+            tag: 'PUSHED 1.0m FROM BACK WALL (y = 1.75m–4.95m)',
+            title: 'East Woven Frame (Inside) & 85" Screen (Outside)',
+            dims: '3.2m (L) × 0.85m (D) × 2.8m (H)',
+            height: '1.0m from Back Wall • Inside Bar & Woven Frame',
+            color: '#06b6d4',
+            fill: 'rgba(6, 182, 212, 0.25)',
+            x: 11.95,
+            y: 1.75,
+            w: 0.85,
+            h: 3.20,
+            h3d: 2.8,
+            desc: 'Pushed strictly 1.00m away from the North Back Display Wall (starting at y = 1.75m to 4.95m, right after the 1.00m Colored Acrylic Separator Sheets at y = 0.75m–1.75m)! The outside face carries the 85" Big Screen facing the East aisle, while the inside face houses the Illuminated Woven/Thread Sample Frame directly above the integrated Walk-Up Bar!',
+            features: [
+              'STRICTLY 1.00m AWAY FROM BACK DISPLAY WALL (y = 0.75m to 1.75m): Connected to the back wall via the 1.00m Colored Acrylic Separator Sheets',
+              'UPPER INSIDE FACE (3.0m × 1.65m Woven Frame): Illuminated Colored Acrylic shadow-box grid showcasing stretched woven PP sacks, raffia tapes, and yarn bobbins right above the bar counter',
+              'OUTSIDE FACE (85" Big Screen): Faces the 7.0m East aisle to pull traffic into the booth',
+              'CONCEALED INTERNAL CLOSET: Hollow core stores bar stock, cartons, and staff bags'
+            ]
+          },
+          {
+            id: 'wall_bar',
+            tag: 'BUILT INTO EAST WOVEN FRAME (INSIDE)',
+            title: '3.0m Walk-Up Bar (Inside East Woven Frame)',
+            dims: '3.0m (L) × 0.90m (D) • x = 11.05m–11.95m',
+            height: '1.05m Counter Below East Woven Frame',
+            color: '#eab308',
+            fill: 'rgba(234, 179, 8, 0.24)',
+            x: 11.05,
+            y: 1.85,
+            w: 0.90,
+            h: 3.00,
+            h3d: 1.05,
+            desc: 'Integrated directly into the inside (West-facing) side of the East Woven Frame Wall (x = 11.05m to 11.95m, y = 1.85m to 4.85m)! Starts 1.10m away from the North Back Display Wall so Blau Batch pedestal B2 and the Branded Translucent Acrylic Column have complete breathing room!',
+            features: [
+              'INTEGRATED INTO EAST WOVEN FRAME: Visitors ordering espresso look directly at the illuminated Woven/Raffia Thread frame built into the upper wall above the bar',
+              '1.10m CLEARANCE TO BACK DISPLAY WALL: Leaves the North-East Blau Batch pedestals (B1 & B2) and Branded Translucent Acrylic Column completely unobstructed',
+              'IMMEDIATE TABLE SERVICE: Sits right next to the 4 grouped lounge tables (T1–T4) with a clean 0.80m–1.40m service aisle'
+            ]
+          },
+          {
+            ...groupedTablesCommon,
+            x: 7.15,
+            y: 2.05,
+            w: 3.25,
+            h: 2.80,
+            tables: [
+              [7.85, 2.65, 'T1'],
+              [9.65, 2.65, 'T2'],
+              [7.85, 4.20, 'T3'],
+              [9.65, 4.20, 'T4']
+            ],
+            desc: 'All 4 meeting tables (T1–T4 = 16 seats) sit together in a cohesive 2×2 B2B Lounge Club (x = 7.15m to 10.40m, y = 2.05m to 4.85m), directly aligned with the East Inside Bar & Woven Frame (y = 1.85m–4.85m)!'
+          },
+          {
+            ...mainDeskCommon,
+            tag: 'FRONT-RIGHT CORNER — CAPTURES EAST & FRONT FLOW',
+            title: '3.0m Main Reception Desk (Front-Right Corner)',
+            x: 8.90,
+            y: 5.75,
+            w: 3.0,
+            h: 0.90,
+            desc: 'Positioned at the Front-Right (South-East) Corner (x = 8.90m to 11.90m, y = 5.75m to 6.65m) to intercept heavy visitor traffic arriving from both the 13.0m South Front Aisle and the 7.0m East Side Aisle—while leaving a clean 1.10m East Corner Entrance behind the desk and a massive 8.90m wide open front panorama!',
+            features: [
+              'DUAL-AISLE TRAFFIC CAPTURE (SOUTH + EAST): Positioned at x = 8.90m–11.90m to greet visitors coming from both high-flow sides (Front & East)',
+              'OPENS 8.90m UNOBSTRUCTED FRONT PANORAMA (x = 0.0m to 8.90m): Leaves the entire front of the VIP 6-Box Wall, Centered 2.0m Swatch Island, and Coraplast Wall 100% open!',
+              '1.10m EAST CORNER ENTRY PATHWAY: Visitors entering from the 7.0m East aisle walk cleanly past the desk right into the 4-table lounge and East Inside Bar'
+            ]
+          }
+        ];
       }
     }
 
     function setLayout(opt) {
       currentLayout = opt;
-      document.getElementById('btnOpt1').className = opt === 'opt1'
-        ? "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition"
-        : "px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
-      document.getElementById('btnOpt2').className = opt === 'opt2'
-        ? "px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition"
-        : "px-3.5 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
+      const onCls = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white transition";
+      const offCls = "px-3 py-1.5 rounded-lg text-xs font-semibold text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition";
+      document.getElementById('btnOpt1').className = opt === 'opt1' ? onCls : offCls;
+      document.getElementById('btnOpt2').className = opt === 'opt2' ? onCls : offCls;
+      document.getElementById('btnOpt3').className = opt === 'opt3' ? onCls : offCls;
 
       const notes = OPTION_NOTES[opt];
       document.getElementById('headerPill').textContent = notes.pill;
@@ -513,6 +723,7 @@
       document.getElementById('btnView2D').className = mode === '2d' ? activeCls : idleCls;
       document.getElementById('btnView3D').className = mode === '3d' ? activeCls : idleCls;
       document.getElementById('btnViewElev').className = mode === 'elev' ? activeCls : idleCls;
+      document.getElementById('btnViewBack').className = mode === 'back' ? activeCls : idleCls;
       renderCanvas();
     }
 
@@ -570,84 +781,361 @@
     function renderCanvas() {
       if (currentView === '2d') render2D();
       else if (currentView === '3d') render3D();
+      else if (currentView === 'back') renderBackwallElevation();
       else renderElevation();
     }
 
+    function renderBackwallElevation() {
+      const svg = document.getElementById('boothSvg');
+      const ox = 60, oy = 82, s = 56; // 13m * 56px = 728px total width
+      const bw = 13 * s; // 728px
+      const bh = 3.8 * 88; // 334px height for 3.8m wall
+      const baseY = oy + bh;
+
+      let html = `
+        <defs>
+          <pattern id="oakSlats" width="8" height="10" patternUnits="userSpaceOnUse">
+            <rect width="5" height="10" fill="#b48456"/>
+            <rect x="5" width="3" height="10" fill="#5c3d24"/>
+          </pattern>
+        </defs>
+        <text x="420" y="28" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700" letter-spacing="1.2">
+          ${currentLayout === 'opt1'
+            ? '13.0m × 3.8m NORTH BACK WALL — OPTION 1 (3.2m VIP + 2.5m BAR + 3.6m CORAPLAST + 3.1m BLAU BATCH)'
+            : currentLayout === 'opt2'
+            ? '13.0m × 3.8m NORTH BACK WALL — OPTION 2 (3.4m BAR + 4.6m CORAPLAST + 4.5m BLAU BATCH)'
+            : '13.0m × 3.8m NORTH BACK WALL — OPTION 3 (3.2m VIP [1m GAP] + 4.6m CORAPLAST + 4.6m BLAU BATCH + EAST INSIDE BAR)'}
+        </text>
+        <text x="420" y="46" text-anchor="middle" fill="#94a3b8" font-size="12">
+          Straight-On Reference with Edge-Lit Colored Cast Acrylic Fins & Color-Coded Acrylic Pedestal Vitrines (C1–C4 & B1–B2)
+        </text>
+
+        <!-- Overall 13.0m Top Dimension Line -->
+        <line x1="${ox}" y1="${oy - 18}" x2="${ox + bw}" y2="${oy - 18}" stroke="#64748b" stroke-width="1.5"/>
+        <text x="${ox + bw/2}" y="${oy - 23}" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">◄──────────────────────── 13.00m TOTAL BACK WALL WIDTH ────────────────────────►</text>
+
+        <!-- 3.80m Height Dimension Line -->
+        <line x1="${ox - 16}" y1="${oy}" x2="${ox - 16}" y2="${baseY}" stroke="#64748b" stroke-width="1.5"/>
+        <text x="${ox - 24}" y="${oy + bh/2}" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700" transform="rotate(-90, ${ox - 24}, ${oy + bh/2})">3.80m HIGH</text>
+
+        <!-- Raised Platform Base -->
+        <rect x="${ox - 10}" y="${baseY}" width="${bw + 20}" height="16" rx="3" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+        <line x1="${ox - 6}" y1="${baseY + 2}" x2="${ox + bw + 6}" y2="${baseY + 2}" stroke="#fde047" stroke-width="2.5"/>
+      `;
+
+      const cCols = ['#ef4444', '#f97316', '#eab308', '#10b981'];
+
+      if (currentLayout === 'opt1') {
+        const xVip = ox + 0.4 * s, wVip = 3.2 * s, hVip = 2.7 * 88;
+        const xBar = ox + 3.6 * s, wBar = 2.5 * s;
+        const xCora = ox + 6.1 * s, wCora = 3.6 * s;
+        const xBlau = ox + 9.7 * s, wBlau = 3.1 * s;
+
+        html += `
+          <!-- (1) 3.20m Standalone VIP Pod (2.70m High) -->
+          <rect x="${xVip}" y="${baseY - hVip}" width="${wVip}" height="${hVip}" fill="rgba(88, 28, 135, 0.25)" stroke="#c084fc" stroke-width="2"/>
+          <!-- Vertical Edge-Lit Colored Acrylic Louver Fins on VIP Sides -->
+          <rect x="${xVip + 4}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#f97316"/>
+          <rect x="${xVip + 12}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#38bdf8"/>
+          <rect x="${xVip + wVip - 18}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#10b981"/>
+          <rect x="${xVip + wVip - 10}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#a855f7"/>
+          <text x="${xVip + wVip/2}" y="${baseY - hVip + 26}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">VIP LOUNGE POD (2.7m H)</text>
+          <rect x="${xVip + 28}" y="${baseY - 56}" width="${wVip - 56}" height="42" rx="6" fill="#9a5b32" stroke="#f3e8ff" stroke-width="1.5"/>
+          <text x="${xVip + wVip/2}" y="${baseY - 30}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">COGNAC LEATHER SOFA</text>
+
+          <!-- (2) 2.50m Walk-Up Espresso Bar -->
+          <rect x="${xBar}" y="${oy}" width="${wBar}" height="${bh}" fill="url(#oakSlats)" stroke="#eab308" stroke-width="2"/>
+          <rect x="${xBar + 12}" y="${oy + 86}" width="${wBar - 24}" height="105" rx="4" fill="#1e293b" stroke="#fde047" stroke-width="1.5"/>
+          <line x1="${xBar + 16}" y1="${oy + 120}" x2="${xBar + wBar - 16}" y2="${oy + 120}" stroke="#fde047" stroke-width="2"/>
+          <line x1="${xBar + 16}" y1="${oy + 152}" x2="${xBar + wBar - 16}" y2="${oy + 152}" stroke="#fde047" stroke-width="2"/>
+          <text x="${xBar + wBar/2}" y="${oy + 108}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">BACKLIT SHELVES</text>
+          <!-- Walk-up Quartz Counter -->
+          <rect x="${xBar + 6}" y="${baseY - 92}" width="${wBar - 12}" height="92" fill="url(#oakSlats)" stroke="#f8fafc" stroke-width="1.5"/>
+          <rect x="${xBar + 4}" y="${baseY - 96}" width="${wBar - 8}" height="8" fill="#f8fafc"/>
+          <text x="${xBar + wBar/2}" y="${baseY - 42}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800">2.5m WALK-UP BAR</text>
+
+          <!-- (3) 3.60m Coraplast Wall + 4 Colored Acrylic Pedestals (C1-C4) -->
+          <rect x="${xCora}" y="${oy}" width="${wCora}" height="${bh}" fill="#f1f5f9" stroke="#fb923c" stroke-width="2"/>
+          <!-- Vertical Edge-Lit Colored Acrylic Fins on Coraplast Wall -->
+          <rect x="${xCora + 10}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#ef4444"/>
+          <rect x="${xCora + 60}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#f97316"/>
+          <rect x="${xCora + 110}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#eab308"/>
+          <rect x="${xCora + 160}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#10b981"/>
+          <rect x="${xCora + 14}" y="${oy + 65}" width="${wCora - 28}" height="52" rx="6" fill="#0f172a" stroke="#fb923c" stroke-width="1.5"/>
+          <text x="${xCora + wCora/2}" y="${oy + 98}" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="800" letter-spacing="2">CORAPLAST</text>
+        `;
+
+        for (let i = 0; i < 4; i++) {
+          const px = xCora + 14 + i * ((wCora - 22) / 4);
+          html += `
+            <!-- Colored Cast Acrylic Vitrine Hood -->
+            <rect x="${px}" y="${baseY - 118}" width="36" height="36" rx="3" fill="${cCols[i]}44" stroke="${cCols[i]}" stroke-width="2.5"/>
+            <!-- White Pedestal Cabinet Base -->
+            <rect x="${px}" y="${baseY - 82}" width="36" height="82" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="${px + 18}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">C${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- (4) 3.10m Blau Batch Wall + 2 Colored Acrylic Pedestals (B1-B2) -->
+          <rect x="${xBlau}" y="${oy}" width="${wBlau}" height="${bh}" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+          <rect x="${xBlau + 14}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#3b82f6"/>
+          <rect x="${xBlau + wBlau - 19}" y="${oy + 6}" width="5" height="${bh - 12}" fill="#38bdf8"/>
+          <text x="${xBlau + wBlau/2}" y="${oy + 84}" text-anchor="middle" fill="#60a5fa" font-size="15" font-weight="800" letter-spacing="1.5">BLAU BATCH</text>
+          <text x="${xBlau + wBlau/2}" y="${oy + 104}" text-anchor="middle" fill="#94a3b8" font-size="12">CaCO3 & TALC FILLERS</text>
+        `;
+
+        for (let i = 0; i < 2; i++) {
+          const px = xBlau + 32 + i * 74;
+          html += `
+            <rect x="${px}" y="${baseY - 118}" width="40" height="36" rx="3" fill="rgba(59,130,246,0.35)" stroke="#38bdf8" stroke-width="2.5"/>
+            <rect x="${px}" y="${baseY - 82}" width="40" height="82" fill="#f8fafc" stroke="#60a5fa" stroke-width="1.5"/>
+            <text x="${px + 20}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">B${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- Bottom Zone Width Callouts (Option 1) -->
+          <text x="${xVip + wVip/2}" y="${baseY + 36}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">◄─ 3.20m VIP POD ─►</text>
+          <text x="${xBar + wBar/2}" y="${baseY + 36}" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700">◄─ 2.50m BAR ─►</text>
+          <text x="${xCora + wCora/2}" y="${baseY + 36}" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">◄── 3.60m CORAPLAST (C1–C4) ──►</text>
+          <text x="${xBlau + wBlau/2}" y="${baseY + 36}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">◄─ 3.10m BLAU BATCH ─►</text>
+        `;
+      } else if (currentLayout === 'opt2') {
+        // OPTION 2: 3.4m Bar + 4.6m Coraplast + 4.5m Blau Batch
+        const xBar = ox + 0.3 * s, wBar = 3.4 * s;
+        const xCora = ox + 3.7 * s, wCora = 4.6 * s;
+        const xBlau = ox + 8.3 * s, wBlau = 4.5 * s;
+
+        html += `
+          <!-- (1) 3.40m Walk-Up Espresso Bar (North-West Corner) -->
+          <rect x="${xBar}" y="${oy}" width="${wBar}" height="${bh}" fill="url(#oakSlats)" stroke="#eab308" stroke-width="2"/>
+          <rect x="${xBar + 16}" y="${oy + 82}" width="${wBar - 32}" height="108" rx="4" fill="#1e293b" stroke="#fde047" stroke-width="1.5"/>
+          <line x1="${xBar + 20}" y1="${oy + 118}" x2="${xBar + wBar - 20}" y2="${oy + 118}" stroke="#fde047" stroke-width="2"/>
+          <line x1="${xBar + 20}" y1="${oy + 152}" x2="${xBar + wBar - 20}" y2="${oy + 152}" stroke="#fde047" stroke-width="2"/>
+          <text x="${xBar + wBar/2}" y="${oy + 106}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">BACKLIT HOSPITALITY BAR</text>
+          <rect x="${xBar + 8}" y="${baseY - 92}" width="${wBar - 16}" height="92" fill="url(#oakSlats)" stroke="#f8fafc" stroke-width="1.5"/>
+          <rect x="${xBar + 6}" y="${baseY - 96}" width="${wBar - 12}" height="8" fill="#f8fafc"/>
+          <text x="${xBar + wBar/2}" y="${baseY - 42}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="800">3.40m WALK-UP BAR (NO STOOLS)</text>
+
+          <!-- (2) 4.60m Expanded Coraplast Wall + 4 Colored Acrylic Pedestals (C1-C4) -->
+          <rect x="${xCora}" y="${oy}" width="${wCora}" height="${bh}" fill="#f1f5f9" stroke="#fb923c" stroke-width="2"/>
+          <rect x="${xCora + 8}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#ef4444"/>
+          <rect x="${xCora + 18}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#f97316"/>
+          <rect x="${xCora + wCora - 24}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#eab308"/>
+          <rect x="${xCora + wCora - 14}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#10b981"/>
+          <text x="${xCora + wCora/2}" y="${oy + 76}" text-anchor="middle" fill="#0f172a" font-size="20" font-weight="800" letter-spacing="2.5">CORAPLAST</text>
+        `;
+
+        for (let i = 0; i < 4; i++) {
+          const px = xCora + 32 + i * 54;
+          html += `
+            <!-- Backlit Technical Info Chart Above Each Pedestal -->
+            <rect x="${px - 2}" y="${oy + 105}" width="44" height="62" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <!-- Colored Cast Acrylic Vitrine Hood -->
+            <rect x="${px}" y="${baseY - 120}" width="40" height="38" rx="3" fill="${cCols[i]}44" stroke="${cCols[i]}" stroke-width="2.5"/>
+            <!-- White Pedestal Cabinet Base -->
+            <rect x="${px}" y="${baseY - 82}" width="40" height="82" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="${px + 20}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">C${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- (3) 4.50m Expanded Blau Batch Wall + 2 Colored Acrylic Pedestals (B1-B2) -->
+          <rect x="${xBlau}" y="${oy}" width="${wBlau}" height="${bh}" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+          <rect x="${xBlau + 10}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#3b82f6"/>
+          <rect x="${xBlau + 22}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#38bdf8"/>
+          <rect x="${xBlau + wBlau - 28}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#38bdf8"/>
+          <rect x="${xBlau + wBlau - 16}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#3b82f6"/>
+          <text x="${xBlau + wBlau/2}" y="${oy + 76}" text-anchor="middle" fill="#60a5fa" font-size="19" font-weight="800" letter-spacing="2">BLAU BATCH</text>
+        `;
+
+        for (let i = 0; i < 2; i++) {
+          const px = xBlau + 58 + i * 96;
+          html += `
+            <rect x="${px - 6}" y="${oy + 105}" width="54" height="62" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+            <rect x="${px}" y="${baseY - 120}" width="42" height="38" rx="3" fill="rgba(59,130,246,0.35)" stroke="#38bdf8" stroke-width="2.5"/>
+            <rect x="${px}" y="${baseY - 82}" width="42" height="82" fill="#f8fafc" stroke="#60a5fa" stroke-width="1.5"/>
+            <text x="${px + 21}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">B${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- Bottom Zone Width Callouts (Option 2) -->
+          <text x="${xBar + wBar/2}" y="${baseY + 36}" text-anchor="middle" fill="#eab308" font-size="12" font-weight="700">◄─── 3.40m WALK-UP BAR ───►</text>
+          <text x="${xCora + wCora/2}" y="${baseY + 36}" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">◄──── 4.60m EXPANDED CORAPLAST (C1–C4) ────►</text>
+          <text x="${xBlau + wBlau/2}" y="${baseY + 36}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">◄──── 4.50m EXPANDED BLAU BATCH (B1–B2) ────►</text>
+        `;
+      } else {
+        // OPTION 3: 3.2m VIP (1.0m from Back Wall) + 4.6m Coraplast + 4.6m Blau Batch + East Inside Bar & Woven Frame on Right
+        const xVip = ox + 0.4 * s, wVip = 3.2 * s, hVip = 2.7 * 88;
+        const xCora = ox + 3.6 * s, wCora = 4.6 * s;
+        const xBlau = ox + 8.2 * s, wBlau = 4.6 * s;
+        const xEastBar = ox + 11.05 * s, wEastBar = 1.75 * s, hEast = 2.8 * 88;
+
+        html += `
+          <!-- Back Wall Behind VIP (1.0m gap behind VIP Pod) -->
+          <rect x="${xVip}" y="${oy}" width="${wVip}" height="${bh}" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+          <text x="${xVip + wVip/2}" y="${oy + 36}" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">1.00m REAR CORRIDOR BEHIND VIP</text>
+          <!-- (1) 3.20m Standalone VIP Pod (Pushed back to 1.0m from Back Wall) -->
+          <rect x="${xVip}" y="${baseY - hVip}" width="${wVip}" height="${hVip}" fill="rgba(88, 28, 135, 0.28)" stroke="#c084fc" stroke-width="2"/>
+          <rect x="${xVip + 4}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#f97316"/>
+          <rect x="${xVip + 12}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#38bdf8"/>
+          <rect x="${xVip + wVip - 18}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#10b981"/>
+          <rect x="${xVip + wVip - 10}" y="${baseY - hVip + 6}" width="5" height="${hVip - 12}" fill="#a855f7"/>
+          <text x="${xVip + wVip/2}" y="${baseY - hVip + 26}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">VIP LOUNGE (1.0m FROM BACK)</text>
+          <rect x="${xVip + 28}" y="${baseY - 56}" width="${wVip - 56}" height="42" rx="6" fill="#9a5b32" stroke="#f3e8ff" stroke-width="1.5"/>
+          <text x="${xVip + wVip/2}" y="${baseY - 30}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">COGNAC LEATHER SOFA</text>
+
+          <!-- (2) 4.60m Expanded Coraplast Wall + 4 Colored Acrylic Pedestals (C1-C4) -->
+          <rect x="${xCora}" y="${oy}" width="${wCora}" height="${bh}" fill="#f1f5f9" stroke="#fb923c" stroke-width="2"/>
+          <rect x="${xCora + 8}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#ef4444"/>
+          <rect x="${xCora + 18}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#f97316"/>
+          <rect x="${xCora + wCora - 24}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#eab308"/>
+          <rect x="${xCora + wCora - 14}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#10b981"/>
+          <text x="${xCora + wCora/2}" y="${oy + 76}" text-anchor="middle" fill="#0f172a" font-size="20" font-weight="800" letter-spacing="2.5">CORAPLAST</text>
+        `;
+
+        for (let i = 0; i < 4; i++) {
+          const px = xCora + 32 + i * 54;
+          html += `
+            <rect x="${px - 2}" y="${oy + 105}" width="44" height="62" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <rect x="${px}" y="${baseY - 120}" width="40" height="38" rx="3" fill="${cCols[i]}44" stroke="${cCols[i]}" stroke-width="2.5"/>
+            <rect x="${px}" y="${baseY - 82}" width="40" height="82" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="${px + 20}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">C${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- (3) 4.60m Expanded Blau Batch Wall + 2 Colored Acrylic Pedestals (B1-B2) -->
+          <rect x="${xBlau}" y="${oy}" width="${wBlau}" height="${bh}" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
+          <rect x="${xBlau + 10}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#3b82f6"/>
+          <rect x="${xBlau + 22}" y="${oy + 6}" width="6" height="${bh - 12}" fill="#38bdf8"/>
+          <text x="${xBlau + 105}" y="${oy + 76}" text-anchor="middle" fill="#60a5fa" font-size="18" font-weight="800" letter-spacing="1.8">BLAU BATCH</text>
+        `;
+
+        for (let i = 0; i < 2; i++) {
+          const px = xBlau + 28 + i * 68;
+          html += `
+            <rect x="${px - 4}" y="${oy + 105}" width="50" height="62" rx="4" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+            <rect x="${px}" y="${baseY - 120}" width="42" height="38" rx="3" fill="rgba(59,130,246,0.35)" stroke="#38bdf8" stroke-width="2.5"/>
+            <rect x="${px}" y="${baseY - 82}" width="42" height="82" fill="#f8fafc" stroke="#60a5fa" stroke-width="1.5"/>
+            <text x="${px + 21}" y="${baseY - 40}" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="800">B${i+1}</text>
+          `;
+        }
+
+        html += `
+          <!-- (4) 1.00m Colored Acrylic Separator Sheets (y = 0.75m–1.75m) + East Woven Frame & Bar -->
+          <rect x="${xEastBar + 50}" y="${baseY - 3.2*88}" width="48" height="${3.2*88}" rx="3" fill="rgba(244, 63, 94, 0.16)" stroke="#f43f5e" stroke-width="2" stroke-dasharray="5 3"/>
+          <rect x="${xEastBar + 55}" y="${baseY - 3.2*88 + 6}" width="5" height="${3.2*88 - 12}" fill="#ef4444"/>
+          <rect x="${xEastBar + 64}" y="${baseY - 3.2*88 + 6}" width="5" height="${3.2*88 - 12}" fill="#f97316"/>
+          <rect x="${xEastBar + 73}" y="${baseY - 3.2*88 + 6}" width="5" height="${3.2*88 - 12}" fill="#38bdf8"/>
+          <rect x="${xEastBar + 82}" y="${baseY - 3.2*88 + 6}" width="5" height="${3.2*88 - 12}" fill="#10b981"/>
+          <rect x="${xEastBar + 90}" y="${baseY - 3.2*88 + 6}" width="5" height="${3.2*88 - 12}" fill="#a855f7"/>
+          <rect x="${xEastBar}" y="${baseY - 92}" width="50" height="92" fill="url(#oakSlats)" stroke="#eab308" stroke-width="2"/>
+          <rect x="${xEastBar - 2}" y="${baseY - 96}" width="54" height="8" fill="#f8fafc"/>
+          <text x="${xEastBar + 52}" y="${baseY - 3.2*88 - 8}" text-anchor="middle" fill="#fda4af" font-size="11" font-weight="700">1m SEPARATOR SHEETS</text>
+
+          <!-- Bottom Zone Width Callouts (Option 3) -->
+          <text x="${xVip + wVip/2}" y="${baseY + 36}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">◄─ 3.20m VIP (1m GAP) ─►</text>
+          <text x="${xCora + wCora/2}" y="${baseY + 36}" text-anchor="middle" fill="#fb923c" font-size="12" font-weight="700">◄─── 4.60m CORAPLAST (C1–C4) ───►</text>
+          <text x="${xBlau + wBlau/2}" y="${baseY + 36}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">◄── 4.60m BLAU BATCH + 1m SEPARATOR SHEETS ──►</text>
+        `;
+      }
+
+      svg.innerHTML = html;
+    }
+
+    // Front Elevation Renderer showing the 3.2m VIP Wall split into:
+    // Left 1.2m (37.5% width = 225px): Brand Logo + "Full Range Masterbatch Solutions" Slogan
+    // Right 2.0m (62.5% width = 375px): 6 Recessed Illuminated Sample Boxes with Written Product Types
     function renderElevation() {
       const svg = document.getElementById('boothSvg');
-      const wx = 120, wy = 65, ww = 600, wh = 390;
-      const leftW = 225;
-      const rightW = 375;
+      const wx = 120, wy = 65, ww = 600, wh = 390; // 3.20m wide (600px) x 2.70m high (390px)
+      const leftW = 225;  // 1.20m = 225px
+      const rightW = 375; // 2.00m = 375px
       const splitX = wx + leftW;
 
       const products = [
-        { num: '01', name: 'WHITE MB', sub: 'High TiO2 • 75%', col: '#f8fafc' },
-        { num: '02', name: 'BLACK MB', sub: 'UV & High Jetness', col: '#1e293b' },
-        { num: '03', name: 'COLOR MB', sub: 'Custom RAL Shades', col: '#ef4444' },
-        { num: '04', name: 'BLAU BATCH', sub: 'CaCO3 & Talc Filler', col: '#3b82f6' },
-        { num: '05', name: 'ADDITIVES', sub: 'UV • Slip • Anti-Block', col: '#10b981' },
-        { num: '06', name: 'SPECIALTY', sub: 'Metallic & Pearl', col: '#a855f7' }
+        { num: '01', name: 'WHITE MB', sub: 'High TiO2 • 75%', col: '#f8fafc', acr: '#f8fafc' },
+        { num: '02', name: 'BLACK MB', sub: 'UV & High Jetness', col: '#1e293b', acr: '#64748b' },
+        { num: '03', name: 'COLOR MB', sub: 'Custom RAL Shades', col: '#ef4444', acr: '#ef4444' },
+        { num: '04', name: 'BLAU BATCH', sub: 'CaCO3 & Talc Filler', col: '#3b82f6', acr: '#3b82f6' },
+        { num: '05', name: 'ADDITIVES', sub: 'UV • Slip • Anti-Block', col: '#10b981', acr: '#10b981' },
+        { num: '06', name: 'SPECIALTY', sub: 'Metallic & Pearl', col: '#a855f7', acr: '#a855f7' }
       ];
 
       let html = `
         <defs>
           <linearGradient id="wallGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0f172a"/>
-            <stop offset="50%" stop-color="#1e3a8a"/>
-            <stop offset="100%" stop-color="#0f172a"/>
+            <stop offset="0%" stop-color="#090d16"/>
+            <stop offset="50%" stop-color="#111827"/>
+            <stop offset="100%" stop-color="#090d16"/>
           </linearGradient>
           <linearGradient id="boxSheen" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="rgba(255,255,255,0.32)"/>
-            <stop offset="50%" stop-color="rgba(255,255,255,0.04)"/>
-            <stop offset="100%" stop-color="rgba(255,255,255,0.22)"/>
+            <stop offset="0%" stop-color="rgba(255,255,255,0.34)"/>
+            <stop offset="50%" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.24)"/>
           </linearGradient>
         </defs>
 
+        <!-- Title Header -->
         <text x="420" y="30" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="700" letter-spacing="1.2">
-          VIP FRONT WALL ELEVATION — 1.20m SLOGAN (LEFT) + 2.00m 6-BOX SHOWCASE (RIGHT)
+          VIP FRONT WALL — 1.20m SLOGAN + COLORED ACRYLIC FINS + 2.00m COLORED ACRYLIC 6-BOXES
         </text>
         <text x="420" y="48" text-anchor="middle" fill="#94a3b8" font-size="12">
-          Total Wall Width: 3.20m × 2.70m High • Ergonomic Eye-Level Band (0.90m–2.05m Above Floor)
+          15mm Edge-Lit Colored Cast Acrylic Niche Surrounds & Vertical Louver Fins • 0.90m–2.05m Eye-Level Band
         </text>
 
+        <!-- Raised Platform Base -->
         <rect x="${wx - 25}" y="${wy + wh}" width="${ww + 50}" height="18" rx="3" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
         <line x1="${wx - 20}" y1="${wy + wh + 2}" x2="${wx + ww + 20}" y2="${wy + wh + 2}" stroke="#fde047" stroke-width="2.5"/>
 
+        <!-- Main 3.20m x 2.70m Wall Body -->
         <rect x="${wx}" y="${wy}" width="${ww}" height="${wh}" rx="8" fill="url(#wallGrad)" stroke="#60a5fa" stroke-width="2.5"/>
 
-        <line x1="${splitX}" y1="${wy + 16}" x2="${splitX}" y2="${wy + wh - 16}" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4"/>
+        <!-- Vertical Edge-Lit Colored Cast Acrylic Fins at x = 1.20m Divider -->
+        <rect x="${splitX - 18}" y="${wy + 12}" width="6" height="${wh - 24}" rx="2" fill="rgba(59,130,246,0.45)" stroke="#60a5fa" stroke-width="1.5"/>
+        <rect x="${splitX - 9}" y="${wy + 12}" width="6" height="${wh - 24}" rx="2" fill="rgba(249,115,22,0.50)" stroke="#fb923c" stroke-width="1.5"/>
+        <rect x="${splitX}" y="${wy + 12}" width="6" height="${wh - 24}" rx="2" fill="rgba(239,68,68,0.50)" stroke="#f87171" stroke-width="1.5"/>
+        <rect x="${splitX + 9}" y="${wy + 12}" width="6" height="${wh - 24}" rx="2" fill="rgba(16,185,129,0.50)" stroke="#34d399" stroke-width="1.5"/>
 
-        <rect x="${wx + 16}" y="${wy + 24}" width="${leftW - 32}" height="${wh - 48}" rx="10" fill="rgba(15, 23, 42, 0.72)" stroke="#38bdf8" stroke-width="1.5"/>
-        <circle cx="${wx + leftW/2}" cy="${wy + 95}" r="32" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2"/>
-        <text x="${wx + leftW/2}" y="${wy + 100}" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">LOGO</text>
+        <!-- LEFT 1.20m BRAND & SLOGAN PANEL -->
+        <rect x="${wx + 14}" y="${wy + 24}" width="${leftW - 38}" height="${wh - 48}" rx="10" fill="rgba(15, 23, 42, 0.85)" stroke="#38bdf8" stroke-width="1.5"/>
+        <!-- Logo Emblem Placeholder -->
+        <circle cx="${wx + (leftW-10)/2}" cy="${wy + 95}" r="32" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2"/>
+        <text x="${wx + (leftW-10)/2}" y="${wy + 100}" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">LOGO</text>
 
-        <text x="${wx + leftW/2}" y="${wy + 162}" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="2">
+        <text x="${wx + (leftW-10)/2}" y="${wy + 162}" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="2">
           HOST BRAND
         </text>
-        <line x1="${wx + 45}" y1="${wy + 180}" x2="${wx + leftW - 45}" y2="${wy + 180}" stroke="#fb923c" stroke-width="2.5"/>
+        <line x1="${wx + 40}" y1="${wy + 180}" x2="${wx + leftW - 50}" y2="${wy + 180}" stroke="#fb923c" stroke-width="2.5"/>
 
-        <text x="${wx + leftW/2}" y="${wy + 222}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
+        <!-- Stacked Backlit Slogan on the 1.2m Left Panel -->
+        <text x="${wx + (leftW-10)/2}" y="${wy + 222}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
           FULL RANGE
         </text>
-        <text x="${wx + leftW/2}" y="${wy + 248}" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700" letter-spacing="1.2">
+        <text x="${wx + (leftW-10)/2}" y="${wy + 248}" text-anchor="middle" fill="#f8fafc" font-size="14" font-weight="700" letter-spacing="1.2">
           MASTERBATCH
         </text>
-        <text x="${wx + leftW/2}" y="${wy + 274}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
+        <text x="${wx + (leftW-10)/2}" y="${wy + 274}" text-anchor="middle" fill="#38bdf8" font-size="15" font-weight="800" letter-spacing="1.5">
           SOLUTIONS
         </text>
-        <text x="${wx + leftW/2}" y="${wy + 322}" text-anchor="middle" fill="#94a3b8" font-size="12">
-          6 Core Polymer Lines →
+        <text x="${wx + (leftW-10)/2}" y="${wy + 322}" text-anchor="middle" fill="#94a3b8" font-size="12">
+          Edge-Lit Acrylic Fins →
         </text>
 
-        <text x="${splitX + rightW/2}" y="${wy + 38}" text-anchor="middle" fill="#bae6fd" font-size="13" font-weight="700" letter-spacing="1.5">
-          OUR 6 CORE PRODUCT RANGES (2.00m RIGHT SECTION)
+        <!-- RIGHT 2.00m SECTION HEADER -->
+        <text x="${splitX + rightW/2 + 6}" y="${wy + 38}" text-anchor="middle" fill="#bae6fd" font-size="13" font-weight="700" letter-spacing="1.2">
+          6 COLORED CAST ACRYLIC SAMPLE BOXES (2.00m RIGHT)
         </text>
       `;
 
+      // Render 6 Recessed Boxes strictly inside the Right 2.00m (splitX to wx + ww)
       if (boxGrid === '2cols') {
-        const padX = 16;
+        const padX = 22;
         const gapX = 12;
-        const boxW = (rightW - padX * 2 - gapX) / 2;
+        const boxW = (rightW - padX * 2 - gapX) / 2; // ~160px each
         const boxH = 84;
         const startY = wy + 54;
         const gapY = 14;
@@ -659,17 +1147,23 @@
           const by = startY + row * (boxH + gapY);
 
           html += `
-            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="#60a5fa" stroke-width="1.8"/>
-            <rect x="${bx + 10}" y="${by + 10}" width="52" height="${boxH - 20}" rx="6" fill="${p.col}" stroke="#ffffff" stroke-width="1.5"/>
-            <rect x="${bx + 10}" y="${by + 10}" width="52" height="${boxH - 20}" rx="6" fill="url(#boxSheen)"/>
-            <line x1="${bx + 16}" y1="${by + 12}" x2="${bx + 56}" y2="${by + 12}" stroke="#fde047" stroke-width="2.5"/>
-            <text x="${bx + 70}" y="${by + 26}" fill="#38bdf8" font-size="12" font-weight="800">TYPE ${p.num}</text>
-            <text x="${bx + 70}" y="${by + 45}" fill="#ffffff" font-size="12" font-weight="700">${p.name}</text>
-            <text x="${bx + 70}" y="${by + 64}" fill="#94a3b8" font-size="12">${p.sub}</text>
+            <!-- 15mm Edge-Lit Colored Cast Acrylic Niche Frame -->
+            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="${p.acr}" stroke-width="3.5"/>
+            <rect x="${bx + 3}" y="${by + 3}" width="${boxW - 6}" height="${boxH - 6}" rx="6" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.55"/>
+            <!-- Illuminated Sample Box (Left inside Niche) -->
+            <rect x="${bx + 10}" y="${by + 10}" width="50" height="${boxH - 20}" rx="6" fill="${p.col}" stroke="#ffffff" stroke-width="1.5"/>
+            <rect x="${bx + 10}" y="${by + 10}" width="50" height="${boxH - 20}" rx="6" fill="url(#boxSheen)"/>
+            <!-- Top LED Spotlight Bar inside Sample Box -->
+            <line x1="${bx + 16}" y1="${by + 12}" x2="${bx + 54}" y2="${by + 12}" stroke="#ffffff" stroke-width="2.5"/>
+
+            <!-- Written Type & Spec Label Next to the Box -->
+            <text x="${bx + 68}" y="${by + 26}" fill="${p.acr}" font-size="12" font-weight="800">TYPE ${p.num}</text>
+            <text x="${bx + 68}" y="${by + 45}" fill="#ffffff" font-size="12" font-weight="700">${p.name}</text>
+            <text x="${bx + 68}" y="${by + 64}" fill="#94a3b8" font-size="12">${p.sub}</text>
           `;
         });
       } else {
-        const padX = 14;
+        const padX = 20;
         const gapX = 10;
         const boxW = (rightW - padX * 2 - gapX * 2) / 3;
         const boxH = 132;
@@ -683,27 +1177,33 @@
           const by = startY + row * (boxH + gapY);
 
           html += `
-            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="#60a5fa" stroke-width="1.8"/>
+            <!-- 15mm Edge-Lit Colored Cast Acrylic Niche Frame -->
+            <rect x="${bx}" y="${by}" width="${boxW}" height="${boxH}" rx="8" fill="#090d16" stroke="${p.acr}" stroke-width="3.5"/>
+            <!-- Illuminated Sample Box (Top Half) -->
             <rect x="${bx + 10}" y="${by + 10}" width="${boxW - 20}" height="62" rx="6" fill="${p.col}" stroke="#ffffff" stroke-width="1.5"/>
             <rect x="${bx + 10}" y="${by + 10}" width="${boxW - 20}" height="62" rx="6" fill="url(#boxSheen)"/>
-            <text x="${bx + boxW/2}" y="${by + 90}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">TYPE ${p.num}</text>
+            <!-- Written Type Label Below/Next -->
+            <text x="${bx + boxW/2}" y="${by + 90}" text-anchor="middle" fill="${p.acr}" font-size="12" font-weight="800">TYPE ${p.num}</text>
             <text x="${bx + boxW/2}" y="${by + 108}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">${p.name}</text>
             <text x="${bx + boxW/2}" y="${by + 123}" text-anchor="middle" fill="#94a3b8" font-size="12">${p.sub.split('•')[0]}</text>
           `;
         });
       }
 
+      // Protective Kick-Plinth Zone Indicator (0.0m - 0.90m)
       html += `
         <rect x="${splitX + 16}" y="${wy + 340}" width="${rightW - 32}" height="30" rx="5" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(148, 163, 184, 0.3)"/>
         <text x="${splitX + rightW/2}" y="${wy + 359}" text-anchor="middle" fill="#94a3b8" font-size="12">
           ▲ 0.90m Waist-Height Plinth Base (No crouching required to read rows 05 & 06)
         </text>
 
+        <!-- Left 1.20m Dimension -->
         <line x1="${wx}" y1="${wy + wh + 32}" x2="${splitX - 4}" y2="${wy + wh + 32}" stroke="#c084fc" stroke-width="2"/>
         <text x="${wx + leftW/2}" y="${wy + wh + 48}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">
           ◄── 1.20m BRAND & SLOGAN ──►
         </text>
 
+        <!-- Right 2.00m Dimension -->
         <line x1="${splitX + 4}" y1="${wy + wh + 32}" x2="${wx + ww}" y2="${wy + wh + 32}" stroke="#38bdf8" stroke-width="2"/>
         <text x="${splitX + rightW/2}" y="${wy + wh + 48}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">
           ◄────── 2.00m RECESSED 6-BOX SAMPLE GALLERY (ON RIGHT SIDE) ──────►
@@ -719,9 +1219,9 @@
       const showDims = document.getElementById('chkDims').checked;
       const showFlow = document.getElementById('chkFlow').checked;
 
-      const ox = 105, oy = 78, s = 48;
-      const bw = 13 * s;
-      const bh = 7 * s;
+      const ox = 105, oy = 78, s = 48; // 1m = 48px
+      const bw = 13 * s; // 624
+      const bh = 7 * s;  // 336
 
       let html = `
         <defs>
@@ -747,32 +1247,40 @@
           </pattern>
         </defs>
 
+        <!-- Closed 13m Back Wall Header -->
         <rect x="${ox}" y="${oy - 14}" width="${bw}" height="14" fill="rgba(148,163,184,0.16)" stroke="rgba(148,163,184,0.35)"/>
         <line x1="${ox}" y1="${oy}" x2="${ox + bw}" y2="${oy}" stroke="#ef4444" stroke-width="5"/>
         <text x="${ox + bw/2}" y="${oy - 22}" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700" letter-spacing="1">
           ${currentLayout === 'opt1'
             ? 'OPTION 1 BACK WALL: VIP POD • 2.5m BAR • 3.6m CORAPLAST (+4 DISPLAYS) • 3.1m BLAU BATCH (+2 DISPLAYS)'
-            : 'OPTION 2 BACK WALL: BAR BEHIND VIP (1.0m CORRIDOR) • 4.6m CORAPLAST (+4 DISPLAYS) • 4.5m BLAU BATCH (+2 DISPLAYS)'}
+            : currentLayout === 'opt2'
+            ? 'OPTION 2 BACK WALL: BAR BEHIND VIP (1.0m CORRIDOR) • 4.6m CORAPLAST (+4 DISPLAYS) • 4.5m BLAU BATCH (+2 DISPLAYS)'
+            : 'OPTION 3: VIP 1.0m FROM BACK • 4.6m CORAPLAST (+4) • 4.6m BLAU BATCH (+2) • BAR INSIDE EAST WOVEN FRAME'}
         </text>
 
+        <!-- Open South Main Aisle -->
         <rect x="${ox}" y="${oy + bh + 8}" width="${bw}" height="38" rx="6" fill="rgba(56, 189, 248, 0.08)" stroke="rgba(56, 189, 248, 0.25)" stroke-dasharray="4 4"/>
         <text x="${ox + bw/2}" y="${oy + bh + 31}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="1.5">
           ◄─── 13.0m OPEN MAIN FRONT AISLE (1.2m SLOGAN LEFT + 2.0m 6-BOXES RIGHT + 3.0m DESK) ───►
         </text>
 
+        <!-- Open West Aisle -->
         <rect x="${ox - 82}" y="${oy}" width="72" height="${bh}" rx="6" fill="rgba(168, 85, 247, 0.08)" stroke="rgba(168, 85, 247, 0.25)" stroke-dasharray="4 4"/>
         <text x="${ox - 46}" y="${oy + bh/2}" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700" transform="rotate(-90, ${ox - 46}, ${oy + bh/2})" letter-spacing="1">
           7.0m WEST AISLE (VIP OUTER 85" BIG SCREEN)
         </text>
 
+        <!-- Open East Aisle -->
         <rect x="${ox + bw + 10}" y="${oy}" width="72" height="${bh}" rx="6" fill="rgba(6, 182, 212, 0.10)" stroke="rgba(6, 182, 212, 0.35)" stroke-dasharray="4 4"/>
         <text x="${ox + bw + 46}" y="${oy + bh/2}" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700" transform="rotate(90, ${ox + bw + 46}, ${oy + bh/2})" letter-spacing="1">
           7.0m EAST AISLE (OUTER 85" BIG SCREEN)
         </text>
 
+        <!-- Main Booth Platform -->
         <rect x="${ox}" y="${oy}" width="${bw}" height="${bh}" fill="rgba(30, 41, 59, 0.50)" stroke="#64748b" stroke-width="2"/>
       `;
 
+      // 1m Grid
       if (showGrid) {
         for (let m = 0; m <= 13; m++) {
           const gx = ox + m * s;
@@ -798,14 +1306,17 @@
         html += `<g class="zone-box ${isSel ? 'zone-selected' : ''}" onclick="selectElement('${el.id}')">`;
 
         if (el.id === 'vip_showcase') {
+          // Audit Fix #3: In Option 2, place sliding door on North third of East glass wall (y = 2.75m..3.55m) to clear Swatch Island
           const doorY1 = currentLayout === 'opt1' ? ey + eh * 0.30 : ey + eh * 0.08;
           const doorY2 = currentLayout === 'opt1' ? ey + eh * 0.70 : ey + eh * 0.42;
 
           html += `
             <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="6" fill="${el.fill}" stroke="#c084fc" stroke-width="${isSel ? 3.5 : 2}"/>
+            <!-- East Glass Wall + Sliding Door -->
             <line x1="${ex + ew - 4}" y1="${ey + 4}" x2="${ex + ew - 4}" y2="${ey + eh - 4}" stroke="#e9d5ff" stroke-width="2" stroke-dasharray="10 4"/>
             <line x1="${ex + ew}" y1="${doorY1}" x2="${ex + ew}" y2="${doorY2}" stroke="#22c55e" stroke-width="4.5"/>
 
+            <!-- Area Rug & Luxury Sofa Lounge inside VIP Pod -->
             <rect x="${ex + 18}" y="${ey + 20}" width="${ew - 36}" height="${eh - 36}" rx="6" fill="rgba(88, 28, 135, 0.35)" stroke="rgba(216, 180, 254, 0.3)" stroke-width="1"/>
             <rect x="${ex + 14}" y="${ey + 18}" width="20" height="${eh - 36}" rx="5" fill="#7e22ce" stroke="#f3e8ff" stroke-width="1.5"/>
             <rect x="${ex + 14}" y="${ey + 18}" width="${ew * 0.52}" height="18" rx="5" fill="#7e22ce" stroke="#f3e8ff" stroke-width="1.5"/>
@@ -814,12 +1325,17 @@
             <rect x="${ex + ew * 0.68}" y="${ey + eh * 0.58}" width="18" height="18" rx="5" fill="#9333ea" stroke="#f3e8ff" stroke-width="1.5" transform="rotate(-12, ${ex + ew * 0.68 + 9}, ${ey + eh * 0.58 + 9})"/>
             <text x="${ex + ew/2 + 6}" y="${ey + 15}" text-anchor="middle" fill="#f3e8ff" font-size="12" font-weight="700">VIP SOFA LOUNGE</text>
 
+            <!-- SOLID OUTER WEST WALL WITH FLUSH 85" BIG SCREEN -->
             <rect x="${ex - 5}" y="${ey + 4}" width="10" height="${eh - 8}" rx="2" fill="#1e293b" stroke="#94a3b8" stroke-width="1.5"/>
             <rect x="${ex - 8}" y="${ey + 16}" width="7" height="${eh - 32}" rx="2" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
 
+            <!-- SOUTH WALL SPLIT: LEFT 1.2m BRAND & SLOGAN (x=0.4..1.6m) + RIGHT 2.0m 6-BOXES (x=1.6..3.6m) -->
+            <!-- Left 1.2m Brand Column -->
             <rect x="${ex}" y="${ey + eh - 11}" width="${1.2 * s}" height="13" rx="2" fill="#1e3a8a" stroke="#c084fc" stroke-width="1.5"/>
+            <!-- Right 2.0m 6-Box Recessed Wall Section -->
             <rect x="${ex + 1.2 * s}" y="${ey + eh - 12}" width="${2.0 * s}" height="15" rx="2" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
           `;
+          // Draw 6 Recessed Boxes strictly inside the Right 2.0m span (ex + 1.2*s to ex + 3.2*s)
           const tCols = ['#f8fafc', '#1e293b', '#ef4444', '#3b82f6', '#10b981', '#a855f7'];
           const rightStartX = ex + 1.2 * s + 5;
           const rightSpanW = 2.0 * s - 10;
@@ -833,13 +1349,22 @@
             <text x="${ex + 2.2*s}" y="${ey + eh + 16}" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">▲ 2.0m (6 BOXES)</text>
           `;
         } else if (el.id === 'wall_bar') {
-          html += `
-            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
-            <rect x="${ex + 8}" y="${ey + 4}" width="${ew - 16}" height="16" rx="2" fill="#713f12" stroke="#fde047" stroke-width="1"/>
-            <text x="${ex + ew/2}" y="${ey + 16}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">ESPRESSO & CABINETS</text>
-            <rect x="${ex + 12}" y="${ey + eh - 20}" width="${ew - 24}" height="16" rx="4" fill="#a16207" stroke="#fef08a" stroke-width="1.5"/>
-            <text x="${ex + ew/2}" y="${ey + eh - 8}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">WALK-UP BAR</text>
-          `;
+          if (currentLayout === 'opt3') {
+            html += `
+              <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
+              <rect x="${ex + 4}" y="${ey + 8}" width="18" height="${eh - 16}" rx="3" fill="#a16207" stroke="#fef08a" stroke-width="1.5"/>
+              <rect x="${ex + 25}" y="${ey + 8}" width="14" height="${eh - 16}" rx="2" fill="#713f12" stroke="#fde047" stroke-width="1"/>
+              <text x="${ex + 15}" y="${ey + eh/2}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" transform="rotate(-90, ${ex + 15}, ${ey + eh/2})">WALK-UP BAR (INSIDE)</text>
+            `;
+          } else {
+            html += `
+              <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
+              <rect x="${ex + 8}" y="${ey + 4}" width="${ew - 16}" height="16" rx="2" fill="#713f12" stroke="#fde047" stroke-width="1"/>
+              <text x="${ex + ew/2}" y="${ey + 16}" text-anchor="middle" fill="#fef08a" font-size="12" font-weight="700">ESPRESSO & CABINETS</text>
+              <rect x="${ex + 12}" y="${ey + eh - 20}" width="${ew - 24}" height="16" rx="4" fill="#a16207" stroke="#fef08a" stroke-width="1.5"/>
+              <text x="${ex + ew/2}" y="${ey + eh - 8}" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">WALK-UP BAR</text>
+            `;
+          }
         } else if (el.id === 'wall_blau') {
           html += `
             <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="4" fill="${el.fill}" stroke="${el.color}" stroke-width="${isSel ? 3 : 2}"/>
@@ -885,15 +1410,38 @@
             <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="12" fill="${el.fill}" stroke="#38bdf8" stroke-width="${isSel ? 3.5 : 2.5}"/>
             <rect x="${ex + 12}" y="${ey + eh - 8}" width="${ew - 24}" height="5" rx="2.5" fill="#60a5fa"/>
             <text x="${ex + ew/2}" y="${ey + 19}" text-anchor="middle" fill="#f0f9ff" font-size="12" font-weight="700">MAIN DESK (3.0m)</text>
-            <text x="${ex + ew/2}" y="${ey + 35}" text-anchor="middle" fill="#bae6fd" font-size="12">x = 4.9m – 7.9m</text>
+            <text x="${ex + ew/2}" y="${ey + 35}" text-anchor="middle" fill="#bae6fd" font-size="12">x = ${el.x.toFixed(1)}m – ${(el.x + el.w).toFixed(1)}m</text>
           `;
+        } else if (el.id === 'acrylic_column') {
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="8" fill="url(#swatchGrad)" fill-opacity="0.40" stroke="#f472b6" stroke-width="${isSel ? 3.5 : 2.5}"/>
+            <rect x="${ex + 5}" y="${ey + 5}" width="${ew - 10}" height="${eh - 10}" rx="5" fill="rgba(15, 23, 42, 0.72)" stroke="#ffffff" stroke-width="1.5"/>
+            <text x="${ex + ew/2}" y="${ey + 19}" text-anchor="middle" fill="#fbcfe8" font-size="11" font-weight="800">ACRYLIC</text>
+            <text x="${ex + ew/2}" y="${ey + 33}" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="800">COLUMN</text>
+          `;
+        } else if (el.id === 'separator_sheets') {
+          const sCols = ['#ef4444', '#f97316', '#eab308', '#10b981', '#38bdf8'];
+          html += `
+            <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="3" fill="rgba(244, 63, 94, 0.14)" stroke="#f43f5e" stroke-width="${isSel ? 3 : 1.8}" stroke-dasharray="4 3"/>
+          `;
+          for (let i = 0; i < 5; i++) {
+            const sy = ey + 5 + i * ((eh - 10) / 4);
+            html += `<line x1="${ex + 4}" y1="${sy}" x2="${ex + ew - 4}" y2="${sy - 3}" stroke="${sCols[i]}" stroke-width="3.2" stroke-linecap="round"/>`;
+          }
+          // Matching separator sheets screening the West 1.0m VIP rear gap (x = 0.40m, y = 0.10m–1.10m)
+          const wx = ox + 0.40 * s, wy = oy + 0.12 * s, ww = 0.45 * s, wh = 0.96 * s;
+          for (let i = 0; i < 5; i++) {
+            const sy = wy + 4 + i * ((wh - 8) / 4);
+            html += `<line x1="${wx}" y1="${sy}" x2="${wx + ww}" y2="${sy - 2}" stroke="${sCols[i]}" stroke-width="2.5" stroke-linecap="round"/>`;
+          }
+          html += `<text x="${ex - 6}" y="${ey + eh/2 + 4}" text-anchor="end" fill="#fda4af" font-size="11" font-weight="700">1m SEPARATOR SHEETS ►</text>`;
         } else if (el.id === 'east_stand') {
           html += `
             <rect x="${ex}" y="${ey}" width="${ew}" height="${eh}" rx="5" fill="${el.fill}" stroke="#22d3ee" stroke-width="${isSel ? 3.5 : 2.5}"/>
             <line x1="${ex + ew/2}" y1="${ey + 6}" x2="${ex + ew/2}" y2="${ey + eh - 6}" stroke="#e2e8f0" stroke-width="2"/>
             <rect x="${ex + ew - 8}" y="${ey + 18}" width="6" height="${eh - 36}" rx="2" fill="#38bdf8" stroke="#ffffff" stroke-width="1"/>
             <rect x="${ex - 3}" y="${ey + 10}" width="14" height="${eh - 20}" rx="3" fill="url(#wovenPattern)" stroke="#facc15" stroke-width="2"/>
-            <text x="${ex - 8}" y="${ey + eh + 14}" text-anchor="end" fill="#fde047" font-size="12" font-weight="700">▲ FRAMED WOVEN SAMPLES</text>
+            <text x="${ex + ew/2}" y="${ey + eh + 14}" text-anchor="end" fill="#fde047" font-size="12" font-weight="700">▲ WOVEN FRAME</text>
           `;
         } else if (el.id === 'lounge_seating') {
           html += `
@@ -915,6 +1463,7 @@
         html += `</g>`;
       });
 
+      // Clearances & Dimensions
       if (showDims) {
         if (currentLayout === 'opt1') {
           html += `
@@ -923,7 +1472,7 @@
               <text x="${ox + 2.55*s}" y="${oy + 4.8*s + 16}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">4.10m Deep Open Forecourt (Flush 2.0m Boxes!)</text>
             </g>
           `;
-        } else {
+        } else if (currentLayout === 'opt2') {
           html += `
             <g pointer-events="none" opacity="0.92">
               <rect x="${ox + 0.5*s}" y="${oy + 1.88*s}" width="${3.0*s}" height="22" rx="4" fill="rgba(15,23,42,0.9)" stroke="#eab308"/>
@@ -932,17 +1481,38 @@
               <text x="${ox + 2.55*s}" y="${oy + 6.08*s + 15}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">◄ Full 2.00m Deep Open Forecourt! ►</text>
             </g>
           `;
+        } else {
+          html += `
+            <g pointer-events="none" opacity="0.92">
+              <rect x="${ox + 0.95*s}" y="${oy + 0.22*s}" width="${2.6*s}" height="22" rx="4" fill="rgba(15,23,42,0.92)" stroke="#38bdf8"/>
+              <text x="${ox + 2.25*s}" y="${oy + 0.22*s + 15}" text-anchor="middle" fill="#bae6fd" font-size="12" font-weight="700">◄ 1.00m Gap + Sheets ►</text>
+              <rect x="${ox + 1.50*s}" y="${oy + 5.75*s}" width="${7.2*s}" height="24" rx="5" fill="rgba(15,23,42,0.9)" stroke="#c084fc"/>
+              <text x="${ox + 5.10*s}" y="${oy + 5.75*s + 16}" text-anchor="middle" fill="#e9d5ff" font-size="12" font-weight="700">◄── 7.55m Open Front Plaza Between Corner Column & Desk! ──►</text>
+            </g>
+          `;
         }
       }
 
+      // Visitor Flow Arrows
       if (showFlow) {
-        html += `
-          <g pointer-events="none" opacity="0.88">
-            <path d="M ${ox + 2.6*s} ${oy + bh + 12} L ${ox + 2.6*s} ${oy + (currentLayout === 'opt1' ? 3.5 : 5.5)*s}" fill="none" stroke="#c084fc" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowPurple)"/>
-            <path d="M ${ox + 4.3*s} ${oy + bh + 12} Q ${ox + 4.3*s} ${oy + 4.8*s} ${ox + 5.1*s} ${oy + 4.4*s}" fill="none" stroke="#38bdf8" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowBlue)"/>
-            <path d="M ${ox + 9.6*s} ${oy + bh + 12} Q ${ox + 9.6*s} ${oy + 5.7*s} ${ox + 9.6*s} ${oy + 5.1*s}" fill="none" stroke="#fb923c" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowOrange)"/>
-          </g>
-        `;
+        if (currentLayout === 'opt3') {
+          html += `
+            <g pointer-events="none" opacity="0.90">
+              <path d="M ${ox + 2.6*s} ${oy + bh + 12} L ${ox + 2.6*s} ${oy + 4.1*s}" fill="none" stroke="#c084fc" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowPurple)"/>
+              <path d="M ${ox + 5.8*s} ${oy + bh + 12} L ${ox + 5.8*s} ${oy + 4.4*s}" fill="none" stroke="#fb923c" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowOrange)"/>
+              <path d="M ${ox + 10.7*s} ${oy + bh + 14} L ${ox + 10.7*s} ${oy + 6.65*s}" fill="none" stroke="#38bdf8" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowBlue)"/>
+              <path d="M ${ox + bw + 12} ${oy + 5.1*s} Q ${ox + 11.4*s} ${oy + 5.1*s} ${ox + 10.6*s} ${oy + 4.2*s}" fill="none" stroke="#38bdf8" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowBlue)"/>
+            </g>
+          `;
+        } else {
+          html += `
+            <g pointer-events="none" opacity="0.88">
+              <path d="M ${ox + 2.6*s} ${oy + bh + 12} L ${ox + 2.6*s} ${oy + (currentLayout === 'opt1' ? 3.5 : 5.5)*s}" fill="none" stroke="#c084fc" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowPurple)"/>
+              <path d="M ${ox + 4.3*s} ${oy + bh + 12} Q ${ox + 4.3*s} ${oy + 4.8*s} ${ox + 5.1*s} ${oy + 4.4*s}" fill="none" stroke="#38bdf8" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowBlue)"/>
+              <path d="M ${ox + 9.6*s} ${oy + bh + 12} Q ${ox + 9.6*s} ${oy + 5.7*s} ${ox + 9.6*s} ${oy + 5.1*s}" fill="none" stroke="#fb923c" stroke-width="2.5" class="traffic-path" marker-end="url(#arrowOrange)"/>
+            </g>
+          `;
+        }
       }
 
       svg.innerHTML = html;
@@ -984,38 +1554,50 @@
       const coraEl = els.find(e => e.id === 'wall_coraplast');
       const centerEl = els.find(e => e.id === 'centerpiece');
       const loungeEl = els.find(e => e.id === 'lounge_seating');
+      const deskEl = els.find(e => e.id === 'main_desk');
+      const eastEl = els.find(e => e.id === 'east_stand');
 
-      const vipY = currentLayout === 'opt1' ? 0.2 : 2.65;
-      const vipD = currentLayout === 'opt1' ? 2.7 : 2.35;
+      const vipY = currentLayout === 'opt1' ? 0.2 : currentLayout === 'opt2' ? 2.65 : 1.10;
+      const vipD = currentLayout === 'opt1' ? 2.7 : currentLayout === 'opt2' ? 2.35 : 2.50;
 
       if (currentLayout === 'opt1') {
         html += box(3.6, 0.1, 2.5, 0.45, 3.8, '#facc15', '#ca8a04', '#a16207', '#eab308', 'wall_bar');
         html += box(3.75, 1.0, 2.2, 0.45, 1.05, '#fef08a', '#eab308', '#a16207', '#eab308', 'wall_bar');
         html += box(6.1, 0.1, 3.6, 0.45, 3.8, '#fb923c', '#ea580c', '#c2410c', '#f97316', 'wall_coraplast');
         html += box(9.7, 0.1, 3.1, 0.45, 3.8, '#60a5fa', '#2563eb', '#1d4ed8', '#3b82f6', 'wall_blau');
-      } else {
+      } else if (currentLayout === 'opt2') {
         html += box(0.3, 0.1, 3.4, 0.45, 3.8, '#facc15', '#ca8a04', '#a16207', '#eab308', 'wall_bar');
         html += box(0.5, 1.15, 3.0, 0.50, 1.05, '#fef08a', '#eab308', '#a16207', '#eab308', 'wall_bar');
         html += box(3.7, 0.1, 4.6, 0.45, 3.8, '#fb923c', '#ea580c', '#c2410c', '#f97316', 'wall_coraplast');
         html += box(8.3, 0.1, 4.5, 0.45, 3.8, '#60a5fa', '#2563eb', '#1d4ed8', '#3b82f6', 'wall_blau');
+      } else {
+        // OPTION 3: Expanded Coraplast (3.6m..8.2m) + Expanded Blau Batch (8.2m..12.8m)
+        html += box(3.6, 0.1, 4.6, 0.45, 3.8, '#fb923c', '#ea580c', '#c2410c', '#f97316', 'wall_coraplast');
+        html += box(8.2, 0.1, 4.6, 0.45, 3.8, '#60a5fa', '#2563eb', '#1d4ed8', '#3b82f6', 'wall_blau');
       }
 
+      // Draw 4 Coraplast Display Pedestals (C1-C4)
       const cCols = ['#ef4444', '#f97316', '#eab308', '#22c55e'];
       coraEl.displays.forEach((d, idx) => {
         html += box(d[0] - 0.22, d[1], 0.45, 0.45, 1.15, cCols[idx], cCols[idx], '#7c2d12', '#ffffff', 'wall_coraplast');
       });
 
+      // Draw 2 Blau Batch Display Pedestals (B1, B2)
       blauEl.displays.forEach(d => {
         html += box(d[0] - 0.22, d[1], 0.45, 0.45, 1.15, '#93c5fd', '#2563eb', '#1e40af', '#ffffff', 'wall_blau');
       });
 
+      // Draw Solid Outer West Wall with 85" Big Screen on the left side of VIP Pod
       html += box(0.32, vipY + 0.2, 0.12, vipD - 0.4, 2.3, '#38bdf8', '#0284c7', '#0369a1', '#ffffff', 'vip_showcase');
 
+      // Draw Interior L-Sofa + Coffee Table inside VIP Lounge Pod
       html += box(0.55, vipY + 0.25, 0.65, vipD - 0.5, 0.75, '#a855f7', '#7e22ce', '#6b21a8', '#f3e8ff', 'vip_showcase');
       html += box(0.55, vipY + 0.25, 1.7, 0.60, 0.75, '#a855f7', '#7e22ce', '#6b21a8', '#f3e8ff', 'vip_showcase');
       html += box(1.5, vipY + 1.05, 0.65, 0.65, 0.45, '#f3e8ff', '#d8b4fe', '#c084fc', '#6b21a8', 'vip_showcase');
+      // Outer Transparent Glass VIP Pod + Solid Blue Branded Front Wall
       html += box(0.4, vipY, 3.2, vipD, 2.7, 'rgba(216,180,254,0.35)', '#1e3a8a', 'rgba(126,34,206,0.35)', '#c084fc', 'vip_showcase');
 
+      // 6 RECESSED BOXES strictly on the RIGHT 2.0m of the VIP South Wall (x = 1.6m to 3.6m)
       const tCols = ['#f8fafc', '#1e293b', '#ef4444', '#3b82f6', '#10b981', '#a855f7'];
       for (let i = 0; i < 6; i++) {
         const col = i % 3;
@@ -1024,23 +1606,40 @@
         html += box(bx, vipY + vipD - 0.04, 0.52, 0.10, row === 0 ? 2.1 : 1.35, tCols[i], tCols[i], '#0f172a', '#fde047', 'vip_showcase');
       }
 
+      // 2.0m Swatch Centerpiece (Shifted Left)
       html += box(centerEl.x, centerEl.y, centerEl.w, centerEl.h, 0.92, '#fdba74', '#f97316', '#c2410c', '#fb923c', 'centerpiece');
       html += box(centerEl.x + 0.2, centerEl.y + 0.55, centerEl.w - 0.4, 0.25, 1.42, '#fef08a', '#ec4899', '#8b5cf6', '#ffffff', 'centerpiece');
 
-      html += box(11.95, 2.1, 0.85, 3.4, 2.8, '#67e8f9', '#0891b2', '#06b6d4', '#22d3ee', 'east_stand');
-      html += box(11.82, 2.3, 0.14, 3.0, 2.4, '#fef08a', '#eab308', '#ca8a04', '#ffffff', 'east_stand');
+      // East Stand + Big Woven/Thread Frame on Inside Face
+      if (currentLayout === 'opt3') {
+        // 5 Translucent Colored Cast Acrylic Separator Sheets in the 1.0m North-East Space (y = 0.75m–1.75m)
+        const sCols = ['#ef4444', '#f97316', '#eab308', '#10b981', '#38bdf8'];
+        for (let i = 0; i < 5; i++) {
+          html += box(11.95, 0.80 + i * 0.20, 0.85, 0.06, 3.2, sCols[i], sCols[i], '#ffffff', '#ffffff', 'separator_sheets');
+        }
+      }
+      html += box(eastEl.x, eastEl.y, eastEl.w, eastEl.h, 2.8, '#67e8f9', '#0891b2', '#06b6d4', '#22d3ee', 'east_stand');
+      html += box(eastEl.x - 0.13, eastEl.y + 0.15, 0.14, eastEl.h - 0.3, 2.5, '#fef08a', '#eab308', '#ca8a04', '#ffffff', 'east_stand');
+      if (currentLayout === 'opt3') {
+        // Walk-Up Bar Counter integrated directly into the inside face of the East Woven Frame (y = 1.85m–4.85m)
+        html += box(11.05, 1.85, 0.85, 3.00, 1.05, '#fef08a', '#eab308', '#a16207', '#eab308', 'wall_bar');
+        // 3.8m Branded Translucent Colored Cast Acrylic Column on the Down-Left (Front-Left) Corner (x = 0.40m, y = 5.65m)
+        html += box(0.40, 5.65, 0.95, 0.95, 3.8, 'rgba(244,114,182,0.80)', 'rgba(236,72,153,0.65)', 'rgba(56,189,248,0.70)', '#ffffff', 'acrylic_column');
+      }
 
+      // 4 Grouped Tables (T1-T4) in 2x2 Cluster
       loungeEl.tables.forEach(t => {
         html += box(t[0] - 0.4, t[1] - 0.4, 0.8, 0.8, 0.76, '#6ee7b7', '#10b981', '#047857', '#a7f3d0', 'lounge_seating');
       });
 
-      html += box(4.9, 5.65, 3.0, 0.90, 1.05, '#bae6fd', '#0284c7', '#0369a1', '#38bdf8', 'main_desk');
+      // Fixed 3.0m Main Desk
+      html += box(deskEl.x, deskEl.y, deskEl.w, deskEl.h, 1.05, '#bae6fd', '#0284c7', '#0369a1', '#38bdf8', 'main_desk');
 
       svg.innerHTML = html;
     }
 
     // Init
-    setLayout('opt1');
+    setLayout('opt3');
     selectElement('vip_showcase');
   </script>
 </body>
